@@ -7,6 +7,17 @@ import java.util.List;
  */
 
 public class NewsBean {
+    //游戏
+    private List<Bean> T1348654151579;
+
+    public List<Bean> getGame() {
+        return T1348654151579;
+    }
+
+    public void setT1348654151579(List<Bean> t1348654151579) {
+        T1348654151579 = t1348654151579;
+    }
+
     //头条
     private List<Bean> T1348647909107;
     public List<Bean> getTop() {

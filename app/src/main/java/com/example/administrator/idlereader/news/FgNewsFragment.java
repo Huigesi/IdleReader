@@ -20,6 +20,7 @@ public class FgNewsFragment extends Fragment  {
     public static final int NEWS_TYPE_TOP=0;
     public static final int NEWS_TYPE_NBA = 1;
     public static final int NEWS_TYPE_JOKES = 2;
+    public static final int NEWS_TYPE_GAME= 3;
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> fragmentTitles = new ArrayList<>();
     private TabLayout tl_news;
@@ -45,10 +46,10 @@ public class FgNewsFragment extends Fragment  {
     private void setViewPager() {
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_NBA));
-        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_JOKES));
+        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_GAME));
         fragmentTitles.add("头条");
         fragmentTitles.add("NBA");
-        fragmentTitles.add("笑话");
+        fragmentTitles.add("游戏");
         MyFragmentAdapter adapter=new MyFragmentAdapter(getChildFragmentManager(),
                 fragments,fragmentTitles);
         vp_news.setAdapter(adapter);

@@ -38,8 +38,8 @@ public class NewsPresenter implements INewsPresenter,INewsLoadListener {
                 iNewsModel.loadNews("list",startPage, Api.NBA_ID,
                         this);
                 break;
-            case FgNewsFragment.NEWS_TYPE_JOKES:
-                iNewsModel.loadNews("list",startPage, Api.JOKE_ID,
+            case FgNewsFragment.NEWS_TYPE_GAME:
+                iNewsModel.loadNews("list",startPage, Api.GAME_ID,
                         this);
                 break;
         }

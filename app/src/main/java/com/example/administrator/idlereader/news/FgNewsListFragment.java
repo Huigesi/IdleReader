@@ -93,8 +93,8 @@ public class FgNewsListFragment extends Fragment implements INewsView {
             case FgNewsFragment.NEWS_TYPE_NBA:
                 newsBeanList = newsBean.getNba();
                 break;
-            case FgNewsFragment.NEWS_TYPE_JOKES:
-                newsBeanList = newsBean.getJoke();
+            case FgNewsFragment.NEWS_TYPE_GAME:
+                newsBeanList = newsBean.getGame();
                 break;
         }
         Log.i("list", "showNews: " + newsBeanList.size());
@@ -115,8 +115,8 @@ public class FgNewsListFragment extends Fragment implements INewsView {
             case FgNewsFragment.NEWS_TYPE_NBA:
                 adapter.addData(newsBean.getNba());
                 break;
-            case FgNewsFragment.NEWS_TYPE_JOKES:
-                adapter.addData(newsBean.getJoke());
+            case FgNewsFragment.NEWS_TYPE_GAME:
+                adapter.addData(newsBean.getGame());
                 break;
         }
 
