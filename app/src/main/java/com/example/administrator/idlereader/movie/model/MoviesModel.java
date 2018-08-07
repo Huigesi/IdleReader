@@ -17,9 +17,9 @@ import rx.schedulers.Schedulers;
 public class MoviesModel implements IMoviesModel {
     private static final String TAG = "MoviesModel";
     @Override
-    public void loadMovies( String total, final IMoviesLoadListener iMoviesLoadListener) {
+    public void loadMovies( String total, String city,final IMoviesLoadListener iMoviesLoadListener) {
         RetrofitHelper retrofitHelper= new RetrofitHelper(Api.MOVIE_HOST);
-        retrofitHelper.getMovies(total)
+        retrofitHelper.getMovies(total,city)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<MoviesBean>() {

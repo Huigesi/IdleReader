@@ -21,7 +21,7 @@ import java.util.List;
 
 
 public class FgMovieFragment extends Fragment implements IMoviesView {
-
+    private String city="广州";
     private MoviesPresenter moviesPresenter;
     private RecyclerView rv_movie;
     private SwipeRefreshLayout srl_movie;
@@ -45,20 +45,20 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
         rv_movie = view.findViewById(R.id.rv_movie);
         mItemMovieAdapter = new ItemMovieAdapter(getActivity());
         srl_movie.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        moviesPresenter.loadMovies("in_theaters");
-        moviesPresenter.loadMovies("top250");
+        moviesPresenter.loadMovies("in_theaters",city);
+        moviesPresenter.loadMovies("top250",null);
         srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("in_theaters");
-                moviesPresenter.loadMovies("top250");
+                moviesPresenter.loadMovies("in_theaters",city);
+                moviesPresenter.loadMovies("top250",null);
             }
         });
     }
 
     @Override
     public void showNews(MoviesBean moviesBean) {
-        if (moviesBean.getTotal() == 25) {
+        if (moviesBean.getTitle().equals("正在上映的电影-广州")) {
             mMovieOn.addAll(moviesBean.getSubjects());
         }
         if (moviesBean.getTotal() == 250) {

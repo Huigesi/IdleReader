@@ -36,8 +36,8 @@ public class RetrofitHelper {
     public Observable<NewsBean> getNews(String type, String id, int startPage) {
         return retrofitService.getNews(type, id, startPage);
     }
-    public Observable<MoviesBean> getMovies(String total) {
-        return retrofitService.getMovie(total);
+    public Observable<MoviesBean> getMovies(String total,String city) {
+        return retrofitService.getMovie(total,city);
     }
     public Observable<TodayBean> getToday(String category){
         return retrofitService.getToday(category);
