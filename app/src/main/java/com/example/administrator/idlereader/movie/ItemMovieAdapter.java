@@ -32,60 +32,60 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         this.context = context;
     }
-    public void setData(List<MoviesBean.SubjectsBean> mMovieOn,List<MoviesBean.SubjectsBean> mMovieTop250){
+
+    public void setData(List<MoviesBean.SubjectsBean> mMovieOn, List<MoviesBean.SubjectsBean> mMovieTop250) {
         this.mMovieOn = mMovieOn;
-        this.mMovieTop250=mMovieTop250;
+        this.mMovieTop250 = mMovieTop250;
         notifyDataSetChanged();
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(getLayout(viewType), parent, false);
-        if (viewType==TYPE_MOVIE_ON){
+        if (viewType == TYPE_MOVIE_ON) {
             return new MovieOnViewHolder(view);
-        }else {
+        } else {
             return new MovieTop250ViewHolder(view);
         }
     }
 
-    public int getLayout(int viewType){
-        if (viewType==TYPE_MOVIE_ON){
+    public int getLayout(int viewType) {
+        if (viewType == TYPE_MOVIE_ON) {
             return R.layout.item_movieon;
-        }else if (viewType==TYPE_MOVIE_TOP250){
+        } else if (viewType == TYPE_MOVIE_TOP250) {
             return R.layout.item_movie250;
-        }else {
+        } else {
             return 0;
         }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (position==0){
+        if (position == 0) {
             return TYPE_MOVIE_TOP250;
-        }else if (position==1){
+        } else if (position == 1) {
             return TYPE_MOVIE_ON;
-        }else {
+        } else {
             return 0;
         }
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof MovieOnViewHolder){
+        if (holder instanceof MovieOnViewHolder) {
             mMovieOnAdapter = new MovieOnAdapter(context, mMovieOn);
             ((MovieOnViewHolder) holder).rvItemMovieOn.setLayoutManager(new LinearLayoutManager(context));
             ((MovieOnViewHolder) holder).rvItemMovieOn.setAdapter(mMovieOnAdapter);
-        }else if(holder instanceof MovieTop250ViewHolder){
+        } else if (holder instanceof MovieTop250ViewHolder) {
             mMovieTopAdapter = new MovieTopAdapter(context, mMovieTop250);
             ((MovieTop250ViewHolder) holder).rvItemMovieTop.setLayoutManager(
-                    new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+                    new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
             ((MovieTop250ViewHolder) holder).rvItemMovieTop.setAdapter(mMovieTopAdapter);
             ((MovieTop250ViewHolder) holder).mTvMore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ADetailActivity.class);
-                    intent.putExtra("url","https://m.douban.com/top250");
-                    intent.putExtra("title", "豆瓣");
+                    Intent intent = new Intent(context, MovieTop250Activity.class);
                     context.startActivity(intent);
                 }
             });
@@ -105,12 +105,14 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     protected class MovieOnViewHolder extends RecyclerView.ViewHolder {
         private RecyclerView rvItemMovieOn;
+
         public MovieOnViewHolder(View view) {
             super(view);
             rvItemMovieOn = (RecyclerView) view.findViewById(R.id.rv_item_movie);
         }
     }
-    protected class MovieTop250ViewHolder extends RecyclerView.ViewHolder{
+
+    protected class MovieTop250ViewHolder extends RecyclerView.ViewHolder {
         private RecyclerView rvItemMovieTop;
         private TextView mTvMore;
 

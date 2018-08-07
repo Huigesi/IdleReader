@@ -5,5 +5,5 @@ package com.example.administrator.idlereader.movie.presenter;
  */
 
 public interface IMoviesPresenter {
-    void loadMovies(String total,String city);
+    void loadMovies(String total,String city,int count);
 }

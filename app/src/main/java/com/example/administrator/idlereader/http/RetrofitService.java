@@ -30,7 +30,8 @@ public interface RetrofitService {
     * */
     @GET("/v2/movie/{total}")
     Observable<MoviesBean> getMovie(@Path("total") String total,
-                                    @Query("city") String city);
+                                    @Query("city") String city,
+                                    @Query("count") int count);
 
     /*
     * http://is.snssdk.com/api/news/feed/v51/?category=video

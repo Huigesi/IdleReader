@@ -36,8 +36,8 @@ public class MoviesPresenter implements IMoviesPresenter,IMoviesLoadListener {
 
 
     @Override
-    public void loadMovies(String total,String city) {
+    public void loadMovies(String total,String city,int count) {
         iMoviesView.showDialog();
-        iMoviesModel.loadMovies(total,city,this);
+        iMoviesModel.loadMovies(total,city,count,this);
     }
 }

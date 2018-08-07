@@ -45,13 +45,13 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
         rv_movie = view.findViewById(R.id.rv_movie);
         mItemMovieAdapter = new ItemMovieAdapter(getActivity());
         srl_movie.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        moviesPresenter.loadMovies("in_theaters",city);
-        moviesPresenter.loadMovies("top250",null);
+        moviesPresenter.loadMovies("in_theaters",city,20);
+        moviesPresenter.loadMovies("top250",null,10);
         srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("in_theaters",city);
-                moviesPresenter.loadMovies("top250",null);
+                moviesPresenter.loadMovies("in_theaters",city,20);
+                moviesPresenter.loadMovies("top250",null,10);
             }
         });
     }
