@@ -50,6 +50,7 @@ public class MovieTop250Activity extends AppCompatActivity implements IMoviesVie
 
     @Override
     public void showNews(MoviesBean moviesBean) {
+        mMovieTop250.clear();
         if (moviesBean.getTotal() == 250) {
             mMovieTop250.addAll(moviesBean.getSubjects());
         }
