@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -69,32 +71,73 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             if (bean == null) {
                 return;
             }
-            int widthPixels=context.getResources().getDisplayMetrics().widthPixels;
-            int width = widthPixels;
-            int height = Resolution.dipToPx(context, 200);
-            Glide.with(context)
-                    .load(bean.getImgsrc())
-                    .error(R.drawable.img_error)
-                    .placeholder(R.drawable.loading_image)
-                    .override(width,height)
-                    .centerCrop()
-                    .into(((ItemNewsHolder) holder).ivNewsImg);
-                if (position == 0) {
-                    ((ItemNewsHolder) holder).tvNewsDigest.setVisibility(View.GONE);
-                    ((ItemNewsHolder) holder).tvNewsTitle.setText("图片：" + bean.getTitle());
-                } else {
-                    ((ItemNewsHolder) holder).tvNewsTitle.setText(bean.getTitle());
-                    ((ItemNewsHolder) holder).tvNewsDigest.setText(bean.getMtime() + " : " + bean.getDigest());
-                    ((ItemNewsHolder) holder).cvNews.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(context, ADetailActivity.class);
-                            intent.putExtra("url", bean.getUrl());
-                            intent.putExtra("title", bean.getTitle());
-                            context.startActivity(intent);
-                        }
-                    });
+            if (!TextUtils.isEmpty(bean.getTemplate())) {
+                ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
+                ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
+                ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.VISIBLE);
+                Glide.with(context.getApplicationContext())
+                        .load(bean.getImgsrc())
+                        .asBitmap()
+                        .fitCenter().placeholder(R.mipmap.loads)
+                        .skipMemoryCache(false)
+                        .error(R.mipmap.img_error)
+                        .into(((ItemNewsHolder) holder).imgNewsTemplate);
+                ((ItemNewsHolder) holder).tvTemplateTitle.setText(bean.getTitle());
+            } else if (bean.getImgextra() != null) {
+                ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
+                ((ItemNewsHolder) holder).itemExtra.setVisibility(View.VISIBLE);
+                ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.GONE);
+                ((ItemNewsHolder) holder).tvExtraTitle.setText(bean.getTitle());
+                ((ItemNewsHolder) holder).tvExtraSource.setText(bean.getSource());
+                ((ItemNewsHolder) holder).tvExtraVote.setText(bean.getVotecount() + "评论");
+                Glide.with(context)
+                        .load(bean.getImgextra().get(0).getImgsrc())
+                        .asBitmap()
+                        .fitCenter().placeholder(R.mipmap.loads)
+                        .skipMemoryCache(false)
+                        .error(R.mipmap.img_error)
+                        .into(((ItemNewsHolder) holder).imgExtra1);
+                Glide.with(context)
+                        .load(bean.getImgextra().get(1).getImgsrc())
+                        .asBitmap()
+                        .fitCenter().placeholder(R.mipmap.loads)
+                        .skipMemoryCache(false)
+                        .error(R.mipmap.img_error)
+                        .into(((ItemNewsHolder) holder).imgExtra2);
+                Glide.with(context)
+                        .load(bean.getImgsrc())
+                        .asBitmap()
+                        .fitCenter().placeholder(R.mipmap.loads)
+                        .skipMemoryCache(false)
+                        .error(R.mipmap.img_error)
+                        .into(((ItemNewsHolder) holder).imgExtra3);
+            } else {
+                ((ItemNewsHolder) holder).itemNews.setVisibility(View.VISIBLE);
+                ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
+                ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.GONE);
+                Glide.with(context)
+                        .load(bean.getImgsrc())
+                        .asBitmap()
+                        .fitCenter().placeholder(R.mipmap.loads)
+                        .skipMemoryCache(false)
+                        .error(R.mipmap.img_error)
+                        .into(((ItemNewsHolder) holder).imgNewsCover);
+
+                ((ItemNewsHolder) holder).tvNewsTitle.setText(bean.getTitle());
+                ((ItemNewsHolder) holder).tvNewsSource.setText(bean.getSource());
+                ((ItemNewsHolder) holder).tvNewsVote.setText(bean.getVotecount() + "评论");
+            }
+
+            ((ItemNewsHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ADetailActivity.class);
+                    intent.putExtra("url", bean.getUrl());
+                    intent.putExtra("title", bean.getSource());
+                    context.startActivity(intent);
                 }
+            });
+
         }
     }
 
@@ -110,17 +153,39 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     protected class ItemNewsHolder extends RecyclerView.ViewHolder {
-        private ImageView ivNewsImg;
+        private LinearLayout itemNews;
         private TextView tvNewsTitle;
-        private TextView tvNewsDigest;
-        private CardView cvNews;
+        private ImageView imgNewsCover;
+        private TextView tvNewsSource;
+        private TextView tvNewsVote;
+        private LinearLayout itemExtra;
+        private TextView tvExtraTitle;
+        private ImageView imgExtra1;
+        private ImageView imgExtra2;
+        private ImageView imgExtra3;
+        private TextView tvExtraSource;
+        private TextView tvExtraVote;
+        private RelativeLayout itemTemplate;
+        private ImageView imgNewsTemplate;
+        private TextView tvTemplateTitle;
 
         public ItemNewsHolder(View view) {
             super(view);
-            ivNewsImg = (ImageView) view.findViewById(R.id.iv_news_img);
+            itemNews = (LinearLayout) view.findViewById(R.id.item_news);
             tvNewsTitle = (TextView) view.findViewById(R.id.tv_news_title);
-            tvNewsDigest = (TextView) view.findViewById(R.id.tv_news_digest);
-            cvNews = (CardView) view.findViewById(R.id.cv_news);
+            imgNewsCover = (ImageView) view.findViewById(R.id.img_news_cover);
+            tvNewsSource = (TextView) view.findViewById(R.id.tv_news_source);
+            tvNewsVote = (TextView) view.findViewById(R.id.tv_news_vote);
+            itemExtra = (LinearLayout) view.findViewById(R.id.item_extra);
+            tvExtraTitle = (TextView) view.findViewById(R.id.tv_extra_title);
+            imgExtra1 = (ImageView) view.findViewById(R.id.img_extra1);
+            imgExtra2 = (ImageView) view.findViewById(R.id.img_extra2);
+            imgExtra3 = (ImageView) view.findViewById(R.id.img_extra3);
+            tvExtraSource = (TextView) view.findViewById(R.id.tv_extra_source);
+            tvExtraVote = (TextView) view.findViewById(R.id.tv_extra_vote);
+            itemTemplate = (RelativeLayout) view.findViewById(R.id.item_template);
+            imgNewsTemplate = (ImageView) view.findViewById(R.id.img_news_template);
+            tvTemplateTitle = (TextView) view.findViewById(R.id.tv_template_title);
         }
     }
 

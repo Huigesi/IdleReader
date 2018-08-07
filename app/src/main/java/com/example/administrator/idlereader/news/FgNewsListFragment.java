@@ -1,6 +1,7 @@
 package com.example.administrator.idlereader.news;
 
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.NewsBean;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INewsView;
+import com.example.administrator.idlereader.untils.Resolution;
 
 import java.util.List;
 import java.util.TimerTask;
@@ -31,7 +33,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     private RecyclerView rv_news;
     private ItemNewsAdapter adapter;
     private List<NewsBean.Bean> newsBeanList;
-    private TextView tv_news_list;
     private LinearLayoutManager layoutManager;
     private int startPage = 0;
 
@@ -57,7 +58,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
         presenter = new NewsPresenter(this);
         rv_news = view.findViewById(R.id.rv_news);
         adapter = new ItemNewsAdapter(getActivity());
-        tv_news_list = view.findViewById(R.id.tv_news_list);
         srl_news = view.findViewById(R.id.srl_news);
         srl_news.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
         srl_news.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -103,8 +103,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
                 LinearLayoutManager.VERTICAL, false);
         rv_news.setLayoutManager(layoutManager);
         rv_news.setAdapter(adapter);
-        tv_news_list.setVisibility(View.GONE);
-
 
     }
 

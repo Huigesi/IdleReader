@@ -23,7 +23,6 @@ public class ADetailActivity extends SwipeBackActivity {
     private WebViewClient webViewClient;
     private TextView tv_bar_title;
     private ImageView iv_back;
-    private ProgressBar pb_load;
     private SwipeBackLayout swipeBackLayout;
 
     @Override
@@ -43,12 +42,10 @@ public class ADetailActivity extends SwipeBackActivity {
         webViewClient = new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                pb_load.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                pb_load.setVisibility(View.GONE);
             }
         };
         wbNews.setWebViewClient(webViewClient);
@@ -71,7 +68,6 @@ public class ADetailActivity extends SwipeBackActivity {
                 finish();
             }
         });
-        pb_load = (ProgressBar) findViewById(R.id.pb_load);
         int amp = 0;
 //        int[] arr = {12, 45, 9, 67, 455};
 //        for (int i = 0; i < arr.length - 1; i++) {
