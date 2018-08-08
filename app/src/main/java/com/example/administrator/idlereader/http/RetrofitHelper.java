@@ -1,6 +1,8 @@
 package com.example.administrator.idlereader.http;
 
 
+import android.util.SparseArray;
+
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
@@ -22,15 +24,27 @@ import rx.Observable;
 public class RetrofitHelper {
     private static OkHttpClient okHttpClient;
     private RetrofitService retrofitService;
+    private static SparseArray<RetrofitHelper> sInstanceManager = new SparseArray<>(3);
 
-    public RetrofitHelper(String host) {
+    public RetrofitHelper(int host) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(host)
+                .baseUrl(Api.getHost(host))
                 .client(getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
          retrofitService = retrofit.create(RetrofitService.class);
+    }
+
+    public static RetrofitHelper getInstance(int hostType) {
+        RetrofitHelper instance = sInstanceManager.get(hostType);
+        if (instance == null) {
+            instance = new RetrofitHelper(hostType);
+            sInstanceManager.put(hostType, instance);
+            return instance;
+        } else {
+            return instance;
+        }
     }
 
     public Observable<NewsBean> getNews(String type, String id, int startPage) {

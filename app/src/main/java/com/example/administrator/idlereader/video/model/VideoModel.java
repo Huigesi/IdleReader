@@ -26,9 +26,8 @@ public class VideoModel implements IVideoModel {
     public void loadVideo(String category, final IVideoLoadListener iVideoLoadListener) {
         final List<VideoUrlBean> videoList = new ArrayList<>();
         final List<TodayContentBean> contentBeans = new ArrayList<>();
-        final RetrofitHelper retrofitHelper = new RetrofitHelper(Api.TODAY_HOST);
-
-        retrofitHelper.getToday(category)
+        RetrofitHelper.getInstance(Api.TOADAY_NEWS)
+                .getToday(category)
                 .flatMap(new Func1<TodayBean, Observable<VideoUrlBean>>() {
                     @Override
                     public Observable<VideoUrlBean> call(TodayBean todayBean) {
@@ -40,7 +39,8 @@ public class VideoModel implements IVideoModel {
                                         TodayContentBean contentBean = VideoPresenter.getTodayContentBean(content);
                                         contentBeans.add(contentBean);
                                         String api = VideoPresenter.getVideoContentApi(contentBean.getVideo_id());
-                                        return retrofitHelper.getVideoUrl(api);
+                                        return RetrofitHelper.getInstance(Api.TOADAY_NEWS)
+                                                .getVideoUrl(api);
                                     }
                                 });
                     }

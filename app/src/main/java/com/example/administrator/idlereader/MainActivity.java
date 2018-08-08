@@ -48,40 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
         initContentFragment();
 
-        /*
-        * 第五章任务代码----本项目的网络获取核心
-        * *****************************************/
-        Integer[] city = {101280101, 101280102, 101280103, 101280104, 101280105, 101280201, 101280202, 101280203, 101280204, 101280205, 101280206, 101280207, 101280208, 101280501};
-        //Api:http://wthrcdn.etouch.cn/weather_mini?citykey=101010100
-        final RetrofitHelper retrofitHelper = new RetrofitHelper("http://wthrcdn.etouch.cn/");
-        Observable.from(city)
-                .flatMap(new Func1<Integer, Observable<WeatherBean>>() {
-                    @Override
-                    public Observable<WeatherBean> call(Integer integer) {
-                        return retrofitHelper.getWeather(integer);
-                    }
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<WeatherBean>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i(TAG, "onError: " + e.getMessage());
-                    }
-
-                    @Override
-                    public void onNext(WeatherBean weatherBean) {
-                        Log.i(TAG, "onNext: "+weatherBean.getData().getCity()+" "
-                        +weatherBean.getData().getGanmao());
-                    }
-                });
-
-        /*****************************************/
     }
 
 

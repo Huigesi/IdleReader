@@ -18,8 +18,8 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
                          final INewsLoadListener iNewsLoadListener) {
-        RetrofitHelper retrofitHelper= new RetrofitHelper(Api.NEWS_HOST);
-        retrofitHelper.getNews(hostType,id,startPage)
+        RetrofitHelper.getInstance(Api.NETEASE_NEWS)
+                .getNews(hostType, id, startPage)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NewsBean>() {
@@ -35,9 +35,9 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(NewsBean newsBean) {
-                        if (startPage!=0){
+                        if (startPage != 0) {
                             iNewsLoadListener.loadMoreSuccess(newsBean);
-                        }else {
+                        } else {
                             iNewsLoadListener.success(newsBean);
                         }
 
