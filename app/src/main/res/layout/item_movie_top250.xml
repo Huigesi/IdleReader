@@ -7,7 +7,7 @@
     android:layout_margin="10dp">
     <ImageView
         android:layout_width="100dp"
-        android:layout_height="125dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:id="@+id/iv_movie_top"/>
 
@@ -17,7 +17,7 @@
             android:id="@+id/tv_movie_top_title"
             android:layout_marginBottom="5dp"
             android:layout_gravity="center"
-            android:textSize="15dp"
+            android:textSize="14sp"
             android:textColor="@color/text_common"/>
 
 </LinearLayout>

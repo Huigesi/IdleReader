@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -73,7 +74,12 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
             }
         }
         ((MovieOnViewHolder) holder).tvMovieOnGenres.setText("类型：" + gen);
-        ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + data.getRating().getAverage());
+        if (data.getRating().getAverage()==0.0) {
+            ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + "暂无评分");
+        }else {
+            ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + data.getRating().getAverage());
+
+        }
         ((MovieOnViewHolder) holder).rvMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +103,7 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
         private TextView tvMovieOnCasts;
         private TextView tvMovieOnGenres;
         private TextView tvMovieOnRating;
-        private RelativeLayout rvMovieOn;
+        private LinearLayout rvMovieOn;
 
         public MovieOnViewHolder(View view) {
             super(view);
@@ -107,7 +113,7 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
             tvMovieOnCasts = (TextView) view.findViewById(R.id.tv_movie_on_casts);
             tvMovieOnGenres = (TextView) view.findViewById(R.id.tv_movie_on_genres);
             tvMovieOnRating = (TextView) view.findViewById(R.id.tv_movie_on_rating);
-            rvMovieOn = (RelativeLayout) view.findViewById(R.id.rl_movie_on);
+            rvMovieOn = (LinearLayout) view.findViewById(R.id.rl_movie_on);
         }
     }
 }

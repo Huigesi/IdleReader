@@ -61,9 +61,15 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
     @Override
     public void showMovie(MoviesBean moviesBean) {
         if (moviesBean.getTitle().equals("正在上映的电影-广州")) {
+            if (mMovieOn.size()>0){
+                mMovieOn.clear();
+            }
             mMovieOn.addAll(moviesBean.getSubjects());
         }
         if (moviesBean.getTotal() == 250) {
+            if (mMovieTop250.size() > 0) {
+                mMovieTop250.clear();
+            }
             mMovieTop250.addAll(moviesBean.getSubjects());
         }
         mItemMovieAdapter.setData(mMovieOn, mMovieTop250);

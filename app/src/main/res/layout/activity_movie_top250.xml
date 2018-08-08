@@ -2,7 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_width="match_parent">
+    <android.support.v7.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_gravity="center"
+    android:background="@color/colorTheme">
+        <ImageView
+            android:layout_width="30dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_back"
+            android:src="@drawable/back"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:maxLines="1"
+            android:id="@+id/tv_bar_title"/>
+</android.support.v7.widget.Toolbar>
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,11 +1,12 @@
 package com.example.administrator.idlereader.movie;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseEndlessListener;
@@ -16,7 +17,9 @@ import com.example.administrator.idlereader.movie.view.IMoviesView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieTop250Activity extends AppCompatActivity implements IMoviesView {
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+
+public class MovieTop250Activity extends SwipeBackActivity implements IMoviesView {
 
     private RecyclerView mActivityTop250;
     private MovieTopAdapter mMovieTopAdapter;
@@ -24,8 +27,10 @@ public class MovieTop250Activity extends AppCompatActivity implements IMoviesVie
     private BaseEndlessListener<MoviesBean.SubjectsBean> mBaseEndlessListener;
     private List<MoviesBean.SubjectsBean> mMovieTop250 = new ArrayList<MoviesBean.SubjectsBean>();
     private SwipeRefreshLayout srlMovie;
-    private int startPage=0;
-    private boolean isNoMore=false;
+    private int startPage = 0;
+    private boolean isNoMore = false;
+    private ImageView iv_back;
+    private TextView tv_bar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,11 @@ public class MovieTop250Activity extends AppCompatActivity implements IMoviesVie
         setContentView(R.layout.activity_movie_top250);
         moviesPresenter = new MoviesPresenter(this);
         initView();
-        moviesPresenter.loadMovies("top250", null,0, 30);
+        moviesPresenter.loadMovies("top250", null, 0, 30);
         srlMovie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("top250", null,0, 30);
+                moviesPresenter.loadMovies("top250", null, 0, 30);
             }
         });
     }
@@ -55,20 +60,29 @@ public class MovieTop250Activity extends AppCompatActivity implements IMoviesVie
         mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
             @Override
             public void onLoadData() {
-                startPage+=30;
-                moviesPresenter.loadMovies("top250", null,startPage, 30);
+                startPage += 30;
+                moviesPresenter.loadMovies("top250", null, startPage, 30);
             }
 
             @Override
             public boolean shouldLoadData() {
-                if (isNoMore){
+                if (isNoMore) {
                     return false;
-                }else {
+                } else {
                     return true;
                 }
             }
         });
         mActivityTop250.addOnScrollListener(mBaseEndlessListener);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
+        tv_bar_title.setText("豆瓣TOP250");
     }
 
     @Override
@@ -77,15 +91,15 @@ public class MovieTop250Activity extends AppCompatActivity implements IMoviesVie
         if (moviesBean.getTotal() == 250) {
             mMovieTop250.addAll(moviesBean.getSubjects());
         }
-        mMovieTopAdapter.setData(mMovieTop250,true);
+        mMovieTopAdapter.setData(mMovieTop250, true);
     }
 
     @Override
     public void showMoreMovie(MoviesBean moviesBean) {
         if (moviesBean.getSubjects().size() == 0) {
-            isNoMore=true;
-        }else {
-            mMovieTopAdapter.setData(moviesBean.getSubjects(),false);
+            isNoMore = true;
+        } else {
+            mMovieTopAdapter.setData(moviesBean.getSubjects(), false);
         }
 
     }

@@ -7,7 +7,7 @@
     <View
         android:id="@+id/view_status"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="55dp"
         android:visibility="gone"></View>
 
     <android.support.design.widget.AppBarLayout
@@ -19,7 +19,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbars"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="55dp"
             android:background="@color/colorTheme"
             app:contentInsetStart="0dp"
             app:layout_scrollFlags="scroll|enterAlways"
