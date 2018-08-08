@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
-import com.example.administrator.idlereader.base.BaseEndlessListener;
-import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.MoviesBean;
 
 import java.util.List;
 
 public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsBean> {
+    private static final String TAG = "MovieOnAdapter";
 
     public MovieOnAdapter(Context context, List list) {
         super(context, list);
@@ -33,52 +33,52 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
 
     @Override
     public void onBind(RecyclerView.ViewHolder holder, int position, final MoviesBean.SubjectsBean data) {
-        if (data==null){
+        if (data == null) {
             return;
         }
         Glide.with(mContext)
                 .load(data.getImages().getSmall())
-                .into(((MovieOnViewHolder)holder).ivMovieOn);
-        ((MovieOnViewHolder)holder).tvMovieOnTitle.setText(data.getTitle());
-        String directors="";
-        for(int i=0;i<data.getDirectors().size();i++){
-            if (i==data.getDirectors().size()-1){
-                directors+=data.getDirectors().get(i).getName();
-            }else{
-                directors+=data.getDirectors().get(i).getName()+"/";
+                .into(((MovieOnViewHolder) holder).ivMovieOn);
+        ((MovieOnViewHolder) holder).tvMovieOnTitle.setText(data.getTitle());
+        String directors = "";
+        for (int i = 0; i < data.getDirectors().size(); i++) {
+            if (i == data.getDirectors().size() - 1) {
+                directors += data.getDirectors().get(i).getName();
+            } else {
+                directors += data.getDirectors().get(i).getName() + "/";
             }
         }
-        ((MovieOnViewHolder)holder).tvMovieOnDirectors.setText("导演："+directors);
-        String casts="";
+        ((MovieOnViewHolder) holder).tvMovieOnDirectors.setText("导演：" + directors);
+        String casts = "";
 
-        if (data.getCasts().size()!=0){
-            for(int i=0;i<data.getCasts().size();i++){
-                if (i==data.getCasts().size()-1){
-                    casts+=data.getCasts().get(i).getName();
-                }else{
-                    casts+=data.getCasts().get(i).getName()+"/";
+        if (data.getCasts().size() != 0) {
+            for (int i = 0; i < data.getCasts().size(); i++) {
+                if (i == data.getCasts().size() - 1) {
+                    casts += data.getCasts().get(i).getName();
+                } else {
+                    casts += data.getCasts().get(i).getName() + "/";
                 }
             }
-            ((MovieOnViewHolder)holder).tvMovieOnCasts.setText(casts);
-        }else {
-            ((MovieOnViewHolder)holder).tvMovieOnCasts.setText("主演：佚名");
+            ((MovieOnViewHolder) holder).tvMovieOnCasts.setText(casts);
+        } else {
+            ((MovieOnViewHolder) holder).tvMovieOnCasts.setText("主演：佚名");
         }
 
-        String gen="";
-        for(int i=0;i<data.getGenres().size();i++){
-            if (i==data.getGenres().size()-1){
-                gen+=data.getGenres().get(i);
-            }else{
-                gen+=data.getGenres().get(i)+"/";
+        String gen = "";
+        for (int i = 0; i < data.getGenres().size(); i++) {
+            if (i == data.getGenres().size() - 1) {
+                gen += data.getGenres().get(i);
+            } else {
+                gen += data.getGenres().get(i) + "/";
             }
         }
-        ((MovieOnViewHolder)holder).tvMovieOnGenres.setText("类型："+gen);
-        ((MovieOnViewHolder)holder).tvMovieOnRating.setText("评分："+data.getRating().getAverage());
-        ((MovieOnViewHolder)holder).rvMovieOn.setOnClickListener(new View.OnClickListener() {
+        ((MovieOnViewHolder) holder).tvMovieOnGenres.setText("类型：" + gen);
+        ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + data.getRating().getAverage());
+        ((MovieOnViewHolder) holder).rvMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ADetailActivity.class);
-                intent.putExtra("url",data.getAlt());
+                intent.putExtra("url", data.getAlt());
                 intent.putExtra("title", data.getTitle());
                 mContext.startActivity(intent);
             }
@@ -89,6 +89,7 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
     public int getItemCount() {
         return mList.size();
     }
+
     protected class MovieOnViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivMovieOn;
         private TextView tvMovieOnTitle;

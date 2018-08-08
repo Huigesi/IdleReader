@@ -104,16 +104,17 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                 ((ItemNewsHolder) holder).tvNewsSource.setText(data.getSource());
                 ((ItemNewsHolder) holder).tvNewsVote.setText(data.getVotecount() + "评论");
             }
-
-            ((ItemNewsHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, ADetailActivity.class);
-                    intent.putExtra("url", data.getUrl());
-                    intent.putExtra("title", data.getSource());
-                    mContext.startActivity(intent);
-                }
-            });
+            if (data.getUrl() != null) {
+                ((ItemNewsHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, ADetailActivity.class);
+                        intent.putExtra("url", data.getUrl());
+                        intent.putExtra("title", data.getSource());
+                        mContext.startActivity(intent);
+                    }
+                });
+            }
 
         }
     }

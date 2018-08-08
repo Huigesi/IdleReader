@@ -48,11 +48,6 @@ public class ADetailActivity extends SwipeBackActivity {
             }
 
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return true;
-            }
-
-            @Override
             public void onPageFinished(WebView view, String url) {
                 String js = getClearAdDivJs(ADetailActivity.this);
                 Log.i(TAG, "onPageFinished: "+js);
@@ -62,14 +57,15 @@ public class ADetailActivity extends SwipeBackActivity {
             @Nullable
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-                //判断是否是广告相关的资源链接
+               /* //判断是否是广告相关的资源链接
                 if (!AdFilterTool.isAd(ADetailActivity.this, url)) {
                     //这里是不做处理的数据
                     return super.shouldInterceptRequest(wbNews, url);
                 } else {
                     //有广告的请求数据，我们直接返回空数据，注：不能直接返回null
                     return new WebResourceResponse(null, null, null);
-                }
+                }*/
+                return super.shouldInterceptRequest(wbNews, url);
             }
         };
         wbNews.setWebViewClient(webViewClient);
@@ -83,6 +79,7 @@ public class ADetailActivity extends SwipeBackActivity {
         wbNews.canGoBack();
         wbNews.canGoForward();
         wbNews.loadUrl(loadUrl);
+        Log.i(TAG, "onClick: "+loadUrl);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
         tv_bar_title.setText(title);
         iv_back = (ImageView) findViewById(R.id.iv_back);
