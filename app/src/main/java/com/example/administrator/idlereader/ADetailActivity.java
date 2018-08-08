@@ -1,23 +1,26 @@
 package com.example.administrator.idlereader;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ProgressBar;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class ADetailActivity extends SwipeBackActivity {
-
+    private static final String TAG = "ADetailActivity";
     private WebView wbNews;
     private String loadUrl, title;
     private WebViewClient webViewClient;
@@ -32,7 +35,7 @@ public class ADetailActivity extends SwipeBackActivity {
         loadUrl = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");
         setSwipeBackEnable(true);
-        swipeBackLayout=getSwipeBackLayout();
+        swipeBackLayout = getSwipeBackLayout();
         swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         initView();
         setWebViewClient();
@@ -45,7 +48,28 @@ public class ADetailActivity extends SwipeBackActivity {
             }
 
             @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return true;
+            }
+
+            @Override
             public void onPageFinished(WebView view, String url) {
+                String js = getClearAdDivJs(ADetailActivity.this);
+                Log.i(TAG, "onPageFinished: "+js);
+                view.loadUrl(js);
+            }
+
+            @Nullable
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+                //判断是否是广告相关的资源链接
+                if (!AdFilterTool.isAd(ADetailActivity.this, url)) {
+                    //这里是不做处理的数据
+                    return super.shouldInterceptRequest(wbNews, url);
+                } else {
+                    //有广告的请求数据，我们直接返回空数据，注：不能直接返回null
+                    return new WebResourceResponse(null, null, null);
+                }
             }
         };
         wbNews.setWebViewClient(webViewClient);
@@ -68,35 +92,6 @@ public class ADetailActivity extends SwipeBackActivity {
                 finish();
             }
         });
-        int amp = 0;
-//        int[] arr = {12, 45, 9, 67, 455};
-//        for (int i = 0; i < arr.length - 1; i++) {
-//            boolean flag = false;
-//            for (int j = arr.length - 1; j > i; j--) {
-//                if (arr[j] < arr[j - 1]) {
-//                    int temp = arr[j];
-//                    arr[j] = arr[j - 1];
-//                    arr[j - 1] = temp;
-//                    flag = true;
-//                }
-//            }
-//            if (!flag) {
-//                break;
-//            }
-//        }
-//        for(int i=0;i<arr.length-1;i++){
-//            int minIndex=i;
-//            for(int j=i+1;j<arr.length;j++){
-//                if (arr[j]>arr[minIndex]){
-//                    minIndex=j;
-//                }
-//            }
-//            if (minIndex!=i){
-//                amp=arr[minIndex];
-//                arr[minIndex]=arr[i];
-//                arr[i]=amp;
-//            }
-//        }
     }
 
     @Override
@@ -112,5 +107,31 @@ public class ADetailActivity extends SwipeBackActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public static class AdFilterTool {
+        public static boolean isAd(Context context, String url) {
+            Resources res = context.getResources();
+            String[] filterUrls = res.getStringArray(R.array.adUrls);
+            for (String adUrl : filterUrls) {
+                if (url.contains(adUrl)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public static String getClearAdDivJs(Context context) {
+        String js = "javascript:";
+        Resources res = context.getResources();
+        String[] adDivs = res.getStringArray(R.array.adBlockDiv);
+        for (int i = 0; i < adDivs.length; i++) {
+            js += "var elements = document.getElementsByClassName('"+adDivs[i]+"');\n" +
+                    "while(elements.length > 0){\n" +
+                    "elements[0].parentNode.removeChild(elements[0]);\n" +
+                    "}";
+        }
+        return js;
     }
 }

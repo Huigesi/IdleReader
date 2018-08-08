@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
-
+    private static final String TAG = "ItemNewsAdapter";
     private List<NewsBean.Bean> datas = new ArrayList<NewsBean.Bean>();
 
     public ItemNewsAdapter(Context context, @NonNull List<NewsBean.Bean> data, List<NewsBean.Bean> datas) {
