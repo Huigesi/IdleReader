@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
-import com.example.administrator.idlereader.BaseRecyclerViewAdapter;
+import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.MoviesBean;
 
@@ -24,39 +24,37 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_movie_on, parent, false);
         return new MovieOnViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        super.onBindViewHolder(holder, position);
-        final MoviesBean.SubjectsBean bean=mList.get(position);
-        if (bean==null){
+    public void onBind(RecyclerView.ViewHolder holder, int position, final MoviesBean.SubjectsBean data) {
+        if (data==null){
             return;
         }
         Glide.with(mContext)
-                .load(bean.getImages().getSmall())
+                .load(data.getImages().getSmall())
                 .into(((MovieOnViewHolder)holder).ivMovieOn);
-        ((MovieOnViewHolder)holder).tvMovieOnTitle.setText(bean.getTitle());
+        ((MovieOnViewHolder)holder).tvMovieOnTitle.setText(data.getTitle());
         String directors="";
-        for(int i=0;i<bean.getDirectors().size();i++){
-            if (i==bean.getDirectors().size()-1){
-                directors+=bean.getDirectors().get(i).getName();
+        for(int i=0;i<data.getDirectors().size();i++){
+            if (i==data.getDirectors().size()-1){
+                directors+=data.getDirectors().get(i).getName();
             }else{
-                directors+=bean.getDirectors().get(i).getName()+"/";
+                directors+=data.getDirectors().get(i).getName()+"/";
             }
         }
         ((MovieOnViewHolder)holder).tvMovieOnDirectors.setText("导演："+directors);
         String casts="";
 
-        if (bean.getCasts().size()!=0){
-            for(int i=0;i<bean.getCasts().size();i++){
-                if (i==bean.getCasts().size()-1){
-                    casts+=bean.getCasts().get(i).getName();
+        if (data.getCasts().size()!=0){
+            for(int i=0;i<data.getCasts().size();i++){
+                if (i==data.getCasts().size()-1){
+                    casts+=data.getCasts().get(i).getName();
                 }else{
-                    casts+=bean.getCasts().get(i).getName()+"/";
+                    casts+=data.getCasts().get(i).getName()+"/";
                 }
             }
             ((MovieOnViewHolder)holder).tvMovieOnCasts.setText(casts);
@@ -65,21 +63,21 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
         }
 
         String gen="";
-        for(int i=0;i<bean.getGenres().size();i++){
-            if (i==bean.getGenres().size()-1){
-                gen+=bean.getGenres().get(i);
+        for(int i=0;i<data.getGenres().size();i++){
+            if (i==data.getGenres().size()-1){
+                gen+=data.getGenres().get(i);
             }else{
-                gen+=bean.getGenres().get(i)+"/";
+                gen+=data.getGenres().get(i)+"/";
             }
         }
         ((MovieOnViewHolder)holder).tvMovieOnGenres.setText("类型："+gen);
-        ((MovieOnViewHolder)holder).tvMovieOnRating.setText("评分："+bean.getRating().getAverage());
+        ((MovieOnViewHolder)holder).tvMovieOnRating.setText("评分："+data.getRating().getAverage());
         ((MovieOnViewHolder)holder).rvMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ADetailActivity.class);
-                intent.putExtra("url",bean.getAlt());
-                intent.putExtra("title", bean.getTitle());
+                intent.putExtra("url",data.getAlt());
+                intent.putExtra("title", data.getTitle());
                 mContext.startActivity(intent);
             }
         });

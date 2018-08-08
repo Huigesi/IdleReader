@@ -1,12 +1,11 @@
 package com.example.administrator.idlereader.http;
 
 import com.example.administrator.idlereader.bean.MoviesBean;
-import com.example.administrator.idlereader.bean.NewsBean;
+import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;

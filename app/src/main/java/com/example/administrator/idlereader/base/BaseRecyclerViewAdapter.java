@@ -1,8 +1,7 @@
-package com.example.administrator.idlereader;
+package com.example.administrator.idlereader.base;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.util.Preconditions;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -10,23 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     protected Context mContext;
     protected List<T> mList = new ArrayList<>();
-    protected View mHeaderView,mFooterView;
+    protected View mHeaderView, mFooterView;
 
-    public BaseRecyclerViewAdapter(Context context, int layoutType) {
+    public BaseRecyclerViewAdapter(Context context) {
         mContext = context;
-        mLayoutType = layoutType;
     }
 
-    public BaseRecyclerViewAdapter(Context context, @NonNull List<T> data, int layoutType) {
+    public BaseRecyclerViewAdapter(Context context, @NonNull List<T> data) {
         mContext = context;
         mList = data;
-        mLayoutType = layoutType;
     }
 
     @Override
@@ -37,7 +33,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
     }
 
     public int getDataSize() {
-            return mList.size();
+        return mList.size();
     }
 
     public List<T> getData() {
@@ -173,16 +169,6 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
         notifyDataSetChanged();
     }*/
 
-    /**
-     * 不同的类型设置item不同的高度
-     *
-     * @param type
-     */
-    private int mLayoutType = 0;
-    public static final int LAYOUT_TYPE_STAGGERED = 0;//瀑布流
-    public static final int LAYOUT_TYPE_GRID = 1;//格子
-    public static final int LAYOUT_TYPE_LINEAR = 2;//线性
-
     public static final int ITEM_TYPE_HEADER = 0;
     public static final int ITEM_TYPE_FOOTER = 1;
     public static final int ITEM_TYPE_NORMAL = 2;
@@ -215,7 +201,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
 
     public abstract RecyclerView.ViewHolder onCreate(ViewGroup parent, final int viewType);
 
-    public abstract void onBind(RecyclerView.ViewHolder viewHolder, int position, T data);
+    public abstract void onBind(RecyclerView.ViewHolder holder, int position, T data);
 
     public interface OnItemClickListener<T> {
         void onItemClick(View view, int position, T data);

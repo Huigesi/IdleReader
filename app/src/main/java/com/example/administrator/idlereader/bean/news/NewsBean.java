@@ -1,4 +1,4 @@
-package com.example.administrator.idlereader.bean;
+package com.example.administrator.idlereader.bean.news;
 
 import java.util.List;
 

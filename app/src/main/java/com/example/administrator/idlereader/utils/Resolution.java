@@ -1,4 +1,4 @@
-package com.example.administrator.idlereader.untils;
+package com.example.administrator.idlereader.utils;
 
 import android.content.Context;
 

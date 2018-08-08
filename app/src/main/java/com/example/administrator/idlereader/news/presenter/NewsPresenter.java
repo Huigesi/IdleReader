@@ -1,7 +1,7 @@
 package com.example.administrator.idlereader.news.presenter;
 
 
-import com.example.administrator.idlereader.bean.NewsBean;
+import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.INewsLoadListener;

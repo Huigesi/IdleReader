@@ -2,10 +2,9 @@ package com.example.administrator.idlereader.news;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.CardView;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,95 +16,72 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
 import com.example.administrator.idlereader.R;
-import com.example.administrator.idlereader.bean.NewsBean;
-import com.example.administrator.idlereader.untils.Resolution;
+import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
+import com.example.administrator.idlereader.bean.news.NewsBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
 
-    private List<NewsBean.Bean> objects = new ArrayList<NewsBean.Bean>();
+    private List<NewsBean.Bean> datas = new ArrayList<NewsBean.Bean>();
 
-    private Context context;
+    public ItemNewsAdapter(Context context, @NonNull List<NewsBean.Bean> data, List<NewsBean.Bean> datas) {
+        super(context, data);
+    }
 
     public ItemNewsAdapter(Context context) {
-        this.context = context;
-    }
-
-    public void setData(List<NewsBean.Bean> objects) {
-        this.objects = objects;
-    }
-
-    public void addData(List<NewsBean.Bean> newObjects) {
-        objects.addAll(newObjects);
+        super(context);
     }
 
     @Override
-    public int getItemViewType(int position) {
-        if (position + 1 == getItemCount()) {
-            return 1;
-        } else {
-            return 0;
-        }
+    public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_news, parent, false);
+        return new ItemNewsHolder(view);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == 0) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_news, parent, false);
-            return new ItemNewsHolder(view);
-        } else {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.footer, parent, false);
-            return new FooterHolder(view);
-        }
-
-    }
-
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBind(RecyclerView.ViewHolder holder, int position, final NewsBean.Bean data) {
         if (holder instanceof ItemNewsHolder) {
-            final NewsBean.Bean bean = objects.get(position);
-            if (bean == null) {
+            if (data == null) {
                 return;
             }
-            if (!TextUtils.isEmpty(bean.getTemplate())) {
+            if (!TextUtils.isEmpty(data.getTemplate())) {
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.VISIBLE);
-                Glide.with(context.getApplicationContext())
-                        .load(bean.getImgsrc())
+                Glide.with(mContext.getApplicationContext())
+                        .load(data.getImgsrc())
                         .asBitmap()
                         .fitCenter().placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
                         .error(R.mipmap.img_error)
                         .into(((ItemNewsHolder) holder).imgNewsTemplate);
-                ((ItemNewsHolder) holder).tvTemplateTitle.setText(bean.getTitle());
-            } else if (bean.getImgextra() != null) {
+                ((ItemNewsHolder) holder).tvTemplateTitle.setText(data.getTitle());
+            } else if (data.getImgextra() != null) {
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemExtra.setVisibility(View.VISIBLE);
                 ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.GONE);
-                ((ItemNewsHolder) holder).tvExtraTitle.setText(bean.getTitle());
-                ((ItemNewsHolder) holder).tvExtraSource.setText(bean.getSource());
-                ((ItemNewsHolder) holder).tvExtraVote.setText(bean.getVotecount() + "评论");
-                Glide.with(context)
-                        .load(bean.getImgextra().get(0).getImgsrc())
+                ((ItemNewsHolder) holder).tvExtraTitle.setText(data.getTitle());
+                ((ItemNewsHolder) holder).tvExtraSource.setText(data.getSource());
+                ((ItemNewsHolder) holder).tvExtraVote.setText(data.getVotecount() + "评论");
+                Glide.with(mContext)
+                        .load(data.getImgextra().get(0).getImgsrc())
                         .asBitmap()
                         .fitCenter().placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
                         .error(R.mipmap.img_error)
                         .into(((ItemNewsHolder) holder).imgExtra1);
-                Glide.with(context)
-                        .load(bean.getImgextra().get(1).getImgsrc())
+                Glide.with(mContext)
+                        .load(data.getImgextra().get(1).getImgsrc())
                         .asBitmap()
                         .fitCenter().placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
                         .error(R.mipmap.img_error)
                         .into(((ItemNewsHolder) holder).imgExtra2);
-                Glide.with(context)
-                        .load(bean.getImgsrc())
+                Glide.with(mContext)
+                        .load(data.getImgsrc())
                         .asBitmap()
                         .fitCenter().placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
@@ -115,41 +91,30 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.VISIBLE);
                 ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.GONE);
-                Glide.with(context)
-                        .load(bean.getImgsrc())
+                Glide.with(mContext)
+                        .load(data.getImgsrc())
                         .asBitmap()
                         .fitCenter().placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
                         .error(R.mipmap.img_error)
                         .into(((ItemNewsHolder) holder).imgNewsCover);
 
-                ((ItemNewsHolder) holder).tvNewsTitle.setText(bean.getTitle());
-                ((ItemNewsHolder) holder).tvNewsSource.setText(bean.getSource());
-                ((ItemNewsHolder) holder).tvNewsVote.setText(bean.getVotecount() + "评论");
+                ((ItemNewsHolder) holder).tvNewsTitle.setText(data.getTitle());
+                ((ItemNewsHolder) holder).tvNewsSource.setText(data.getSource());
+                ((ItemNewsHolder) holder).tvNewsVote.setText(data.getVotecount() + "评论");
             }
 
             ((ItemNewsHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ADetailActivity.class);
-                    intent.putExtra("url", bean.getUrl());
-                    intent.putExtra("title", bean.getSource());
-                    context.startActivity(intent);
+                    Intent intent = new Intent(mContext, ADetailActivity.class);
+                    intent.putExtra("url", data.getUrl());
+                    intent.putExtra("title", data.getSource());
+                    mContext.startActivity(intent);
                 }
             });
 
         }
-    }
-
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public int getItemCount() {
-        return objects.size();
     }
 
     protected class ItemNewsHolder extends RecyclerView.ViewHolder {
@@ -186,13 +151,6 @@ public class ItemNewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             itemTemplate = (RelativeLayout) view.findViewById(R.id.item_template);
             imgNewsTemplate = (ImageView) view.findViewById(R.id.img_news_template);
             tvTemplateTitle = (TextView) view.findViewById(R.id.tv_template_title);
-        }
-    }
-
-    protected class FooterHolder extends RecyclerView.ViewHolder {
-
-        public FooterHolder(View itemView) {
-            super(itemView);
         }
     }
 }

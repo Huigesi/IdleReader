@@ -1,7 +1,6 @@
 package com.example.administrator.idlereader.news;
 
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,18 +10,15 @@ import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
-import com.example.administrator.idlereader.bean.NewsBean;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
+import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INewsView;
-import com.example.administrator.idlereader.untils.Resolution;
 
 import java.util.List;
-import java.util.TimerTask;
-import java.util.zip.CRC32;
 
 
 public class FgNewsListFragment extends Fragment implements INewsView {
@@ -35,6 +31,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     private List<NewsBean.Bean> newsBeanList;
     private LinearLayoutManager layoutManager;
     private int startPage = 0;
+    private BaseEndlessListener<NewsBean.Bean> mBaseEndlessListener;
 
     public static FgNewsListFragment newInstance(int type) {
         Bundle args = new Bundle();
@@ -67,16 +64,23 @@ public class FgNewsListFragment extends Fragment implements INewsView {
             }
         });
         presenter.loadNews(type, 0);
+        initListener();
+    }
 
-        rv_news.addOnScrollListener(new RecyclerView.OnScrollListener() {
+    private void initListener() {
+        mBaseEndlessListener = new BaseEndlessListener<>(getContext(),adapter);
+        mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE &&
-                        (layoutManager.findLastVisibleItemPosition() + 1) == layoutManager.getItemCount()) {
-                    loadMore();
-                }
+            public void onLoadData() {
+                loadMore();
+            }
+
+            @Override
+            public boolean shouldLoadData() {
+                return true;
             }
         });
+        rv_news.addOnScrollListener(mBaseEndlessListener);
     }
 
     private void loadMore() {
@@ -98,10 +102,11 @@ public class FgNewsListFragment extends Fragment implements INewsView {
                 break;
         }
         Log.i("list", "showNews: " + newsBeanList.size());
-        adapter.setData(newsBeanList);
+        adapter.setData(newsBeanList,true);
         layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         rv_news.setLayoutManager(layoutManager);
+        rv_news.setHasFixedSize(true);
         rv_news.setAdapter(adapter);
 
     }
@@ -110,22 +115,21 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     public void showMoreNews(NewsBean newsBean) {
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
-                adapter.addData(newsBean.getTop());
+                adapter.setData(newsBean.getTop(),false);
                 break;
             case FgNewsFragment.NEWS_TYPE_NBA:
-                adapter.addData(newsBean.getNba());
+                adapter.setData(newsBean.getNba(),false);
                 break;
             case FgNewsFragment.NEWS_TYPE_GAME:
-                adapter.addData(newsBean.getGame());
+                adapter.setData(newsBean.getGame(),false);
                 break;
         }
-
-        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void hideDialog() {
         srl_news.setRefreshing(false);
+        mBaseEndlessListener.onLoadComplete();
     }
 
     @Override
@@ -135,9 +139,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-
-        adapter.notifyItemRemoved(adapter.getItemCount());
-
         Toast.makeText(getContext(), "加载出错:" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }

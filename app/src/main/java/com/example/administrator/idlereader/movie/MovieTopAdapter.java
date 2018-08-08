@@ -3,7 +3,6 @@ package com.example.administrator.idlereader.movie;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
-import com.example.administrator.idlereader.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.MoviesBean;
 

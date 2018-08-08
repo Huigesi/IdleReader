@@ -1,7 +1,7 @@
 package com.example.administrator.idlereader.news.view;
 
 
-import com.example.administrator.idlereader.bean.NewsBean;
+import com.example.administrator.idlereader.bean.news.NewsBean;
 
 /**
  * Created by Administrator on 2018/5/19.
