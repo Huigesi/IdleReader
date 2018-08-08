@@ -113,6 +113,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
 
     @Override
     public void showMoreNews(NewsBean newsBean) {
+
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
                 adapter.setData(newsBean.getTop(),false);

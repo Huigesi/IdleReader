@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
@@ -21,7 +22,8 @@ import java.util.List;
 
 
 public class FgMovieFragment extends Fragment implements IMoviesView {
-    private String city="广州";
+    private String city = "广州";
+    private int startPage = 0;
     private MoviesPresenter moviesPresenter;
     private RecyclerView rv_movie;
     private SwipeRefreshLayout srl_movie;
@@ -45,19 +47,19 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
         rv_movie = view.findViewById(R.id.rv_movie);
         mItemMovieAdapter = new ItemMovieAdapter(getActivity());
         srl_movie.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        moviesPresenter.loadMovies("in_theaters",city,20);
-        moviesPresenter.loadMovies("top250",null,10);
+        moviesPresenter.loadMovies("in_theaters", city, 0, 10);
+        moviesPresenter.loadMovies("top250", null, 0, 10);
         srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("in_theaters",city,20);
-                moviesPresenter.loadMovies("top250",null,10);
+                moviesPresenter.loadMovies("in_theaters", city, 0, 10);
+                moviesPresenter.loadMovies("top250", null, 0, 10);
             }
         });
     }
 
     @Override
-    public void showNews(MoviesBean moviesBean) {
+    public void showMovie(MoviesBean moviesBean) {
         if (moviesBean.getTitle().equals("正在上映的电影-广州")) {
             mMovieOn.addAll(moviesBean.getSubjects());
         }
@@ -66,7 +68,13 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
         }
         mItemMovieAdapter.setData(mMovieOn, mMovieTop250);
         rv_movie.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rv_movie.setHasFixedSize(true);
         rv_movie.setAdapter(mItemMovieAdapter);
+    }
+
+    @Override
+    public void showMoreMovie(MoviesBean moviesBean) {
+
     }
 
     @Override

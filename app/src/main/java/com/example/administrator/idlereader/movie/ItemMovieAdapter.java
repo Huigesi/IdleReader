@@ -12,16 +12,29 @@ import android.widget.TextView;
 
 import com.example.administrator.idlereader.ADetailActivity;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.MoviesBean;
+import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
+import com.example.administrator.idlereader.movie.view.IMoviesView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements IMoviesView{
     private static final int TYPE_MOVIE_ON = 119;
     private static final int TYPE_MOVIE_TOP250 = 120;
     private MovieOnAdapter mMovieOnAdapter;
     private MovieTopAdapter mMovieTopAdapter;
+    private BaseEndlessListener<MoviesBean.SubjectsBean> mBaseEndlessListener;
+
+    public BaseEndlessListener<MoviesBean.SubjectsBean> getBaseEndlessListener() {
+        return mBaseEndlessListener;
+    }
+
+    private MoviesPresenter moviesPresenter;
+    private int startPage = 0;
+    private String city = "广州";
+
 
     private List<MoviesBean.SubjectsBean> mMovieOn = new ArrayList<MoviesBean.SubjectsBean>();
     private List<MoviesBean.SubjectsBean> mMovieTop250 = new ArrayList<MoviesBean.SubjectsBean>();
@@ -36,6 +49,11 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void setData(List<MoviesBean.SubjectsBean> mMovieOn, List<MoviesBean.SubjectsBean> mMovieTop250) {
         this.mMovieOn = mMovieOn;
         this.mMovieTop250 = mMovieTop250;
+        notifyDataSetChanged();
+    }
+
+    public void addMovieOnData(List<MoviesBean.SubjectsBean> mMovieOn) {
+        mMovieOn.addAll(mMovieOn);
         notifyDataSetChanged();
     }
 
@@ -73,10 +91,29 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        moviesPresenter = new MoviesPresenter(this);
         if (holder instanceof MovieOnViewHolder) {
             mMovieOnAdapter = new MovieOnAdapter(context, mMovieOn);
-            ((MovieOnViewHolder) holder).rvItemMovieOn.setLayoutManager(new LinearLayoutManager(context));
+            ((MovieOnViewHolder) holder).rvItemMovieOn.setLayoutManager(new
+                    LinearLayoutManager(context));
             ((MovieOnViewHolder) holder).rvItemMovieOn.setAdapter(mMovieOnAdapter);
+            mBaseEndlessListener = new BaseEndlessListener<>(context, mMovieOnAdapter);
+            mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
+                @Override
+                public void onLoadData() {
+                    if (mMovieOn.size() > 0) {
+                        startPage += 20;
+                        moviesPresenter.loadMovies("in_theaters", city,
+                                startPage, 10);
+                    }
+                }
+
+                @Override
+                public boolean shouldLoadData() {
+                    return true;
+                }
+            });
+            ((MovieOnViewHolder) holder).rvItemMovieOn.addOnScrollListener(mBaseEndlessListener);
         } else if (holder instanceof MovieTop250ViewHolder) {
             mMovieTopAdapter = new MovieTopAdapter(context, mMovieTop250);
             ((MovieTop250ViewHolder) holder).rvItemMovieTop.setLayoutManager(
@@ -101,6 +138,36 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public long getItemId(int position) {
         return position;
+    }
+
+    @Override
+    public void showMovie(MoviesBean moviesBean) {
+
+    }
+
+    @Override
+    public void showMoreMovie(MoviesBean moviesBean) {
+        if (moviesBean.getSubjects().size() == 0) {
+            mBaseEndlessListener.onNomore();
+        } else {
+            mMovieOn.addAll(moviesBean.getSubjects());
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void hideDialog() {
+
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void showErrorMsg(Throwable throwable) {
+
     }
 
     protected class MovieOnViewHolder extends RecyclerView.ViewHolder {

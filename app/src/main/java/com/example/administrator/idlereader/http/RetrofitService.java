@@ -30,6 +30,7 @@ public interface RetrofitService {
     @GET("/v2/movie/{total}")
     Observable<MoviesBean> getMovie(@Path("total") String total,
                                     @Query("city") String city,
+                                    @Query("start") int start,
                                     @Query("count") int count);
 
     /*

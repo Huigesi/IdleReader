@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.MoviesBean;
@@ -19,6 +20,7 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 import java.util.List;
 
 public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsBean> {
+
     public MovieOnAdapter(Context context, List list) {
         super(context, list);
     }
