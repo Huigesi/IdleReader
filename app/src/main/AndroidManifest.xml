@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".ADetailActivity" />
         <activity android:name=".movie.MovieTop250Activity"></activity>
+        <activity android:name=".news.GameActivity"></activity>
     </application>
 
 </manifest>

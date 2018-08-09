@@ -137,6 +137,16 @@ public class NewsBean {
         private List<SpecialextraBean> specialextra;
         private List<ImgextraBean> imgextra;
 
+        public List<WapPluginfoBean> getWap_pluginfo() {
+            return wap_pluginfo;
+        }
+
+        public void setWap_pluginfo(List<WapPluginfoBean> wap_pluginfo) {
+            this.wap_pluginfo = wap_pluginfo;
+        }
+
+        private List<WapPluginfoBean> wap_pluginfo;
+
         public String getTemplate() {
             return template;
         }
@@ -746,6 +756,53 @@ public class NewsBean {
 
             public void setImgsrc(String imgsrc) {
                 this.imgsrc = imgsrc;
+            }
+        }
+        public static class WapPluginfoBean{
+            private String subtitle;
+            private String title;
+            private String imgsrc;
+            private String animation_icon;
+            private String url;
+
+            public String getSubtitle() {
+                return subtitle;
+            }
+
+            public void setSubtitle(String subtitle) {
+                this.subtitle = subtitle;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getImgsrc() {
+                return imgsrc;
+            }
+
+            public void setImgsrc(String imgsrc) {
+                this.imgsrc = imgsrc;
+            }
+
+            public String getAnimation_icon() {
+                return animation_icon;
+            }
+
+            public void setAnimation_icon(String animation_icon) {
+                this.animation_icon = animation_icon;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
             }
         }
     }

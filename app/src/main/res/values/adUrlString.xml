@@ -11,6 +11,7 @@
         <item>hongyangpai</item>
     </string-array>
     <string-array name="adBlockDiv">
+        <item>topbar</item>
         <item>doc-footer-wrapper</item>
         <item>a_adtemp a_topad js-topad</item>
     </string-array>
