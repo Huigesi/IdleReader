@@ -33,6 +33,7 @@ import rx.Observable;
  */
 
 public class RetrofitHelper {
+    private static final String TAG = "RetrofitHelper";
     private static OkHttpClient okHttpClient;
     private RetrofitService retrofitService;
     private static SparseArray<RetrofitHelper> sInstanceManager = new SparseArray<>(3);
@@ -99,7 +100,7 @@ public class RetrofitHelper {
 
             final Response response = chain.proceed(request);
 
-            KLog.e("请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
+            KLog.e(TAG,"请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
 
             final ResponseBody responseBody = response.body();
             final long contentLength = responseBody.contentLength();
@@ -114,16 +115,16 @@ public class RetrofitHelper {
                 try {
                     charset = contentType.charset(charset);
                 } catch (UnsupportedCharsetException e) {
-                    KLog.e("");
-                    KLog.e("Couldn't decode the response body; charset is likely malformed.");
+                    KLog.e(TAG,"");
+                    KLog.e(TAG,"Couldn't decode the response body; charset is likely malformed.");
                     return response;
                 }
             }
 
             if (contentLength != 0) {
-                KLog.v("--------------------------------------------开始打印返回数据----------------------------------------------------");
-                KLog.json(buffer.clone().readString(charset));
-                KLog.v("--------------------------------------------结束打印返回数据----------------------------------------------------");
+                KLog.v(TAG,"--------------------------------------------开始打印返回数据----------------------------------------------------");
+                KLog.json(TAG,buffer.clone().readString(charset));
+                KLog.v(TAG,"--------------------------------------------结束打印返回数据----------------------------------------------------");
             }
 
             return response;

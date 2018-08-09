@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.TodayContentBean;
 import com.example.administrator.idlereader.video.presenter.IVideoPresenter;
 import com.example.administrator.idlereader.video.presenter.VideoPresenter;

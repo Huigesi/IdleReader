@@ -14,11 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.utils.Resolution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +57,8 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                 Glide.with(mContext.getApplicationContext())
                         .load(data.getImgsrc())
                         .asBitmap()
-                        .fitCenter().placeholder(R.mipmap.loads)
+                        .fitCenter()
+                        .placeholder(R.mipmap.loads)
                         .skipMemoryCache(false)
                         .error(R.mipmap.img_error)
                         .into(((ItemNewsHolder) holder).imgNewsTemplate);

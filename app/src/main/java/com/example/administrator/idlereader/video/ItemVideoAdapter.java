@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.video;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +42,12 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         TodayContentBean bean=objects.get(position);
-        holder.videoPlayer.setUp(videoList.get(position),
-                JZVideoPlayerStandard.SCREEN_WINDOW_LIST,
-                bean.getTitle());
+        if (!TextUtils.isEmpty(bean.getTitle())){
+            holder.videoPlayer.setUp(videoList.get(position),
+                    JZVideoPlayerStandard.SCREEN_WINDOW_LIST,
+                    bean.getTitle());
+        }
+
 
         Glide.with(context)
                 .load(bean.getVideo_detail_info().getDetail_video_large_image().getUrl())
