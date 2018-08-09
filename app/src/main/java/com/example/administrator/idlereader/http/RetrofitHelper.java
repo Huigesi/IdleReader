@@ -119,13 +119,13 @@ public class RetrofitHelper {
                     KLog.e(TAG,"Couldn't decode the response body; charset is likely malformed.");
                     return response;
                 }
-            }
+            }/*
 
             if (contentLength != 0) {
                 KLog.v(TAG,"--------------------------------------------开始打印返回数据----------------------------------------------------");
                 KLog.json(TAG,buffer.clone().readString(charset));
                 KLog.v(TAG,"--------------------------------------------结束打印返回数据----------------------------------------------------");
-            }
+            }*/
 
             return response;
         }

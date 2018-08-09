@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.DrawableRequestBuilder;
-import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.ADetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 
 import java.util.ArrayList;
@@ -50,18 +48,14 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
             if (data == null) {
                 return;
             }
+            int weight = Resolution.dipToPx(mContext, 120);
+            int height = Resolution.dipToPx(mContext, 80);
             if (!TextUtils.isEmpty(data.getTemplate())) {
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.VISIBLE);
-                Glide.with(mContext.getApplicationContext())
-                        .load(data.getImgsrc())
-                        .asBitmap()
-                        .fitCenter()
-                        .placeholder(R.mipmap.loads)
-                        .skipMemoryCache(false)
-                        .error(R.mipmap.img_error)
-                        .into(((ItemNewsHolder) holder).imgNewsTemplate);
+                GlideUtils.load(mContext, data.getImgsrc(),
+                        ((ItemNewsHolder) holder).imgNewsTemplate);
                 ((ItemNewsHolder) holder).tvTemplateTitle.setText(data.getTitle());
             } else if (data.getImgextra() != null) {
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.GONE);
@@ -70,39 +64,18 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                 ((ItemNewsHolder) holder).tvExtraTitle.setText(data.getTitle());
                 ((ItemNewsHolder) holder).tvExtraSource.setText(data.getSource());
                 ((ItemNewsHolder) holder).tvExtraVote.setText(data.getVotecount() + "评论");
-                Glide.with(mContext)
-                        .load(data.getImgextra().get(0).getImgsrc())
-                        .asBitmap()
-                        .fitCenter().placeholder(R.mipmap.loads)
-                        .skipMemoryCache(false)
-                        .error(R.mipmap.img_error)
-                        .into(((ItemNewsHolder) holder).imgExtra1);
-                Glide.with(mContext)
-                        .load(data.getImgextra().get(1).getImgsrc())
-                        .asBitmap()
-                        .fitCenter().placeholder(R.mipmap.loads)
-                        .skipMemoryCache(false)
-                        .error(R.mipmap.img_error)
-                        .into(((ItemNewsHolder) holder).imgExtra2);
-                Glide.with(mContext)
-                        .load(data.getImgsrc())
-                        .asBitmap()
-                        .fitCenter().placeholder(R.mipmap.loads)
-                        .skipMemoryCache(false)
-                        .error(R.mipmap.img_error)
-                        .into(((ItemNewsHolder) holder).imgExtra3);
+                GlideUtils.load(mContext, data.getImgextra().get(0).getImgsrc(),
+                        ((ItemNewsHolder) holder).imgExtra1);
+                GlideUtils.load(mContext, data.getImgextra().get(1).getImgsrc(),
+                        ((ItemNewsHolder) holder).imgExtra2);
+                GlideUtils.load(mContext, data.getImgsrc(),
+                        ((ItemNewsHolder) holder).imgExtra3);
             } else {
                 ((ItemNewsHolder) holder).itemNews.setVisibility(View.VISIBLE);
                 ((ItemNewsHolder) holder).itemExtra.setVisibility(View.GONE);
                 ((ItemNewsHolder) holder).itemTemplate.setVisibility(View.GONE);
-                Glide.with(mContext)
-                        .load(data.getImgsrc())
-                        .asBitmap()
-                        .fitCenter().placeholder(R.mipmap.loads)
-                        .skipMemoryCache(false)
-                        .error(R.mipmap.img_error)
-                        .into(((ItemNewsHolder) holder).imgNewsCover);
-
+                GlideUtils.load(mContext, data.getImgsrc(),
+                        ((ItemNewsHolder) holder).imgNewsCover, weight, height);
                 ((ItemNewsHolder) holder).tvNewsTitle.setText(data.getTitle());
                 ((ItemNewsHolder) holder).tvNewsSource.setText(data.getSource());
                 ((ItemNewsHolder) holder).tvNewsVote.setText(data.getVotecount() + "评论");
