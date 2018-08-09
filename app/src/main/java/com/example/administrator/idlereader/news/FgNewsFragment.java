@@ -10,6 +10,8 @@ import android.os.Bundle;
 
 import com.example.administrator.idlereader.MyFragmentAdapter;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,8 @@ public class FgNewsFragment extends Fragment  {
         //预加载界面数
         vp_news.setOffscreenPageLimit(2);
         tl_news.setupWithViewPager(vp_news);
+        int marge = Resolution.dipToPx(getContext(), 35);
+        UIUtils.setUpIndicatorWidth(tl_news,marge,marge);
     }
 
     private void setViewPager() {
