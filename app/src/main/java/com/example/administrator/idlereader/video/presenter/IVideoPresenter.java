@@ -5,5 +5,5 @@ package com.example.administrator.idlereader.video.presenter;
  */
 
 public interface IVideoPresenter {
-    void loadVideo();
+    void loadVideo(boolean first);
 }

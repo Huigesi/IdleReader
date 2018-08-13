@@ -11,6 +11,6 @@ import java.util.List;
  */
 
 public interface IVideoLoadListener {
-    void videoUrlSuccess(List<VideoUrlBean> videoUrlBeans, List<TodayContentBean> contentBeans);
+    void videoUrlSuccess(List<VideoUrlBean> videoUrlBeans, boolean first,List<TodayContentBean> contentBeans);
     void fail(Throwable throwable);
 }

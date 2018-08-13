@@ -19,8 +19,8 @@ import cn.jzvd.JZVideoPlayerStandard;
 
 public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.ViewHolder> {
 
-    private List<TodayContentBean> objects = new ArrayList<TodayContentBean>();
-    private List<String> videoList = new ArrayList<>();
+    private List<TodayContentBean> mTodayContentBeans = new ArrayList<TodayContentBean>();
+    private List<String> mVideoList = new ArrayList<>();
 
     private Context context;
 
@@ -28,8 +28,15 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
         this.context = context;
     }
     public void setData(List<TodayContentBean> objects,List<String> videoList) {
-        this.objects = objects;
-        this.videoList = videoList;
+        this.mTodayContentBeans = objects;
+        this.mVideoList = videoList;
+        notifyDataSetChanged();
+    }
+
+    public void addData(List<TodayContentBean> objects, List<String> videoList) {
+        mTodayContentBeans.addAll(objects);
+        mVideoList.addAll(videoList);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -41,9 +48,9 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TodayContentBean bean=objects.get(position);
+        TodayContentBean bean=mTodayContentBeans.get(position);
         if (!TextUtils.isEmpty(bean.getTitle())){
-            holder.videoPlayer.setUp(videoList.get(position),
+            holder.videoPlayer.setUp(mVideoList.get(position),
                     JZVideoPlayerStandard.SCREEN_WINDOW_LIST,
                     bean.getTitle());
         }
@@ -61,7 +68,7 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
 
     @Override
     public int getItemCount() {
-        return objects.size();
+        return mTodayContentBeans.size();
     }
 
 

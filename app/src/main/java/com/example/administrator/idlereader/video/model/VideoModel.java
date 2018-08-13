@@ -23,7 +23,7 @@ import rx.schedulers.Schedulers;
 public class VideoModel implements IVideoModel {
 
     @Override
-    public void loadVideo(String category, final IVideoLoadListener iVideoLoadListener) {
+    public void loadVideo(String category, final boolean first, final IVideoLoadListener iVideoLoadListener) {
         final List<VideoUrlBean> videoList = new ArrayList<>();
         final List<TodayContentBean> contentBeans = new ArrayList<>();
         RetrofitHelper.getInstance(Api.TOADAY_NEWS)
@@ -50,7 +50,7 @@ public class VideoModel implements IVideoModel {
                 .subscribe(new Subscriber<VideoUrlBean>() {
                     @Override
                     public void onCompleted() {
-                        iVideoLoadListener.videoUrlSuccess(videoList, contentBeans);
+                        iVideoLoadListener.videoUrlSuccess(videoList, first,contentBeans);
                     }
 
                     @Override

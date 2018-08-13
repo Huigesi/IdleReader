@@ -33,7 +33,10 @@ public class FgNewsFragment extends Fragment  {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fg_news, null);
     }
-
+    public static FgNewsFragment getInstance() {
+        FgNewsFragment fragment = new FgNewsFragment();
+        return fragment;
+    }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

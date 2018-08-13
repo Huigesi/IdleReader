@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
-import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
@@ -31,6 +30,10 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
     private List<MoviesBean.SubjectsBean> mMovieOn = new ArrayList<MoviesBean.SubjectsBean>();
     private List<MoviesBean.SubjectsBean> mMovieTop250 = new ArrayList<MoviesBean.SubjectsBean>();
 
+    public static FgMovieFragment getInstance() {
+        FgMovieFragment fragment = new FgMovieFragment();
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

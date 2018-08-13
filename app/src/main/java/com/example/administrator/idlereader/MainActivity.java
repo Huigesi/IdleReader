@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initContentFragment() {
 
         ArrayList<Fragment> mFragmentList = new ArrayList<>();
-        mFragmentList.add(new FgNewsFragment());
-        mFragmentList.add(new FgMovieFragment());
-        mFragmentList.add(new FgVideoFragment());
+        mFragmentList.add(FgNewsFragment.getInstance());
+        mFragmentList.add(FgMovieFragment.getInstance());
+        mFragmentList.add(FgVideoFragment.getInstance());
         MyFragmentAdapter adapter = new MyFragmentAdapter(getSupportFragmentManager(),
                 mFragmentList);
         vp_content.setAdapter(adapter);
