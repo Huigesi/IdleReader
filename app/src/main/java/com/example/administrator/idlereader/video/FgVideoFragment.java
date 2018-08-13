@@ -63,6 +63,7 @@ public class FgVideoFragment extends Fragment  implements IVideoView {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE&&
                         (layoutManager.findLastVisibleItemPosition()+1)==layoutManager.getItemCount()) {
                     iVideoPresenter.loadVideo(false);
+                    srl_video.setRefreshing(true);
                 }
             }
         });
@@ -78,6 +79,7 @@ public class FgVideoFragment extends Fragment  implements IVideoView {
     @Override
     public void showMoreData(List<TodayContentBean> todayContentBeans, List<String> videoList) {
         itemVideoAdapter.addData(todayContentBeans,videoList);
+        srl_video.setRefreshing(false);
     }
 
     @Override
