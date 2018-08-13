@@ -52,7 +52,7 @@ public class FgNewsFragment extends Fragment  {
 
     private void setViewPager() {
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
-        fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_NBA));
+        fragments.add(HupuNBAFragment.getInstance());
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_GAME));
         fragmentTitles.add("头条");
         fragmentTitles.add("NBA");

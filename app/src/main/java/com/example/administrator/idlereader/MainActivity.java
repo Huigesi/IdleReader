@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.administrator.idlereader.bean.WeatherBean;
+import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
@@ -26,9 +28,11 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
+import static com.example.administrator.idlereader.http.Api.HUPU_NBA;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
-    private static final String TAG="MainActivity";
+    private static final String TAG = "MainActivity";
     private View view_status;
     private ImageView iv_title_news;
     private ImageView iv_title_movie;

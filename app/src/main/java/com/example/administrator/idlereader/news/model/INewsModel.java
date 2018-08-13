@@ -9,4 +9,7 @@ public interface INewsModel {
                   int startPage,
                   String id,
                   INewsLoadListener iNewsLoadListener);
+    void loadNbaNews(String nid,
+                     int count,
+                     INewsLoadListener iNewsLoadListener);
 }

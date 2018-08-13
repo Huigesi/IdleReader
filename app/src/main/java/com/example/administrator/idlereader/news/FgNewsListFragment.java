@@ -45,7 +45,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fg_news_list, null);
+        return inflater.inflate(R.layout.fg_news_list, container,false);
     }
 
     @Override

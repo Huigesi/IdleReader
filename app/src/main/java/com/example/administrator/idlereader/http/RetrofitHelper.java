@@ -4,6 +4,7 @@ package com.example.administrator.idlereader.http;
 import android.util.SparseArray;
 
 import com.example.administrator.idlereader.bean.MoviesBean;
+import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -73,6 +74,10 @@ public class RetrofitHelper {
     }
     public Observable<WeatherBean> getWeather(int cityKey){
         return retrofitService.getWeather(cityKey);
+    }
+
+    public Observable<HupuNews> getHupuNews(String nid,int count){
+        return retrofitService.getHupuNews("866493031799950",nid,count);
     }
 
     public OkHttpClient getOkHttpClient() {

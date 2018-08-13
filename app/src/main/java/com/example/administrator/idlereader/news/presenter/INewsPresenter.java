@@ -6,4 +6,7 @@ package com.example.administrator.idlereader.news.presenter;
 
 public interface INewsPresenter {
     void loadNews(int type, int startPage);
+
+    void loadNbaNews(String nid,
+                     int count);
 }

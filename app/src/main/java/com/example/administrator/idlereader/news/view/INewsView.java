@@ -13,6 +13,8 @@ public interface INewsView {
     void showMoreNews(NewsBean newsBean);
 
     void hideDialog();
+
     void showDialog();
+
     void showErrorMsg(Throwable throwable);
 }
