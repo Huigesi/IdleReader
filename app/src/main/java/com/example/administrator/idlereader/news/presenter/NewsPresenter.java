@@ -23,16 +23,6 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INBAView mINBAView;
     private onNidChangeListener mOnNidChangeListener;
 
-    public String getNid() {
-        return mNid;
-    }
-
-    public void setNid(String nid) {
-        mNid = nid;
-    }
-
-    private String mNid;
-
     public NewsPresenter(INewsView iNewsView) {
         this.iNewsView = iNewsView;
         this.iNewsModel = new NewsModel();
@@ -98,16 +88,12 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadNbaSuccess(HupuNews hupuNews) {
         mINBAView.hideDialog();
         mINBAView.showData(hupuNews);
-        mNid = hupuNews.getResult().getData().get(hupuNews.getResult().getData().size()).getNid();
-        setNid(mNid);
     }
 
     @Override
     public void loadMoreNbaSuccess(HupuNews hupuNews) {
         mINBAView.hideDialog();
         mINBAView.showMoreData(hupuNews);
-        mNid = hupuNews.getResult().getData().get(hupuNews.getResult().getData().size()).getNid();
-        setNid(mNid);
     }
 
     public interface onNidChangeListener {

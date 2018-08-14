@@ -19,6 +19,9 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INBAView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -34,6 +37,7 @@ public class HupuNBAFragment extends Fragment implements INBAView {
     private NbaNewsAdapter mNbaNewsAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private BaseEndlessListener<HupuNews.ResultBean.DataBean> mBaseEndlessListener;
+    private List<HupuNews.ResultBean.DataBean> mResults=new ArrayList<>();
     private int mCount;
     public String mNid;
 
@@ -89,7 +93,9 @@ public class HupuNBAFragment extends Fragment implements INBAView {
 
     private void loadMore() {
         mCount += 20;
-        mNid=mNewsPresenter.getNid();
+        if (mResults!=null&&mResults.size()>0){
+            mNid = mResults.get(mResults.size()-1).getNid();
+        }
         mNewsPresenter.loadNbaNews(mNid,mCount);
     }
 
@@ -101,13 +107,14 @@ public class HupuNBAFragment extends Fragment implements INBAView {
 
     @Override
     public void showData(HupuNews hupuNews) {
+        mResults=hupuNews.getResult().getData();
         mNbaNewsAdapter.setData(hupuNews.getResult().getData(),true);
-
     }
 
     @Override
     public void showMoreData(HupuNews hupuNews) {
-        mNbaNewsAdapter.setData(hupuNews.getResult().getData(),false);
+        mResults=hupuNews.getResult().getData();
+        mNbaNewsAdapter.setData(mResults,false);
     }
 
     @Override
