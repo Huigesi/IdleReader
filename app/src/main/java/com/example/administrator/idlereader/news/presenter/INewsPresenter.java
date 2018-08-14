@@ -9,4 +9,6 @@ public interface INewsPresenter {
 
     void loadNbaNews(String nid,
                      int count);
+
+    void loadNbaDetail(String nid);
 }

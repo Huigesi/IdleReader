@@ -1,13 +1,25 @@
 package com.example.administrator.idlereader.utils;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.administrator.idlereader.DetailActivity;
+import com.example.administrator.idlereader.news.NbaDetailFragment;
+
 import java.lang.reflect.Field;
 
 public class UIUtils {
+    private static final String FRAGMENT_CLASS = "FRAGMENT_CLASS";
+    public static void startNbaNewsFragment(Context context,String nid) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
+        intent.putExtra("nid",nid);
+        context.startActivity(intent);
+    }
     public static void setUpIndicatorWidth(TabLayout tabLayout, int marginLeft, int marginRight) {
         Class<?> tabLayoutClass = tabLayout.getClass();
         Field tabStrip = null;

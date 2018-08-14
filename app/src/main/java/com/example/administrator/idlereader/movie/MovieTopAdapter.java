@@ -12,12 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.administrator.idlereader.ADetailActivity;
+import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.MoviesBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsBean> {
@@ -63,7 +62,7 @@ public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.Subjects
         ((MovieTop250ViewHolder)holder).rlMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, ADetailActivity.class);
+                Intent intent = new Intent(mContext, WebViewActivity.class);
                 intent.putExtra("url",data.getAlt());
                 intent.putExtra("title", data.getTitle());
                 mContext.startActivity(intent);

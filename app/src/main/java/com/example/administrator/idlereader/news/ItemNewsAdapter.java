@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.administrator.idlereader.ADetailActivity;
+import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.news.NewsBean;
@@ -107,7 +107,7 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                     ((ItemNewsHolder) holder).llTemplateGame4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(mContext, ADetailActivity.class);
+                            Intent intent = new Intent(mContext, WebViewActivity.class);
                             intent.putExtra("url", data.getWap_pluginfo().get(3).getUrl());
                             intent.putExtra("title", data.getWap_pluginfo().get(3).getTitle());
                             mContext.startActivity(intent);
@@ -149,7 +149,7 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                 ((ItemNewsHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, ADetailActivity.class);
+                        Intent intent = new Intent(mContext, WebViewActivity.class);
                         intent.putExtra("url", data.getUrl());
                         intent.putExtra("title", data.getSource());
                         mContext.startActivity(intent);

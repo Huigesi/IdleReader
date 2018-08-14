@@ -12,4 +12,7 @@ public interface INewsModel {
     void loadNbaNews(String nid,
                      int count,
                      INewsLoadListener iNewsLoadListener);
+
+    void loadNbaDetails(String nid,
+                        INewsLoadListener iNewsLoadListener);
 }

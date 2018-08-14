@@ -1,7 +1,6 @@
 package com.example.administrator.idlereader.news;
 
 import android.content.Context;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.UIUtils;
 
 public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.DataBean>{
 
@@ -30,7 +30,7 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, HupuNews.ResultBean.DataBean data) {
+    public void onBind(RecyclerView.ViewHolder holder, int position, final HupuNews.ResultBean.DataBean data) {
         if (holder instanceof ViewHolder) {
             if (data == null) {
                 return;
@@ -64,6 +64,12 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 }
                 ((ViewHolder) holder).tvNbaComment.setText(data.getReplies());
             }
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UIUtils.startNbaNewsFragment(mContext,data.getNid());
+                }
+            });
         }
     }
     protected class ViewHolder extends RecyclerView.ViewHolder{

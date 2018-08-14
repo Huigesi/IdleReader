@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -19,8 +18,8 @@ import android.widget.TextView;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
-public class ADetailActivity extends SwipeBackActivity {
-    private static final String TAG = "ADetailActivity";
+public class WebViewActivity extends SwipeBackActivity {
+    private static final String TAG = "WebViewActivity";
     private WebView wbNews;
     private String loadUrl, title;
     private WebViewClient webViewClient;
@@ -31,7 +30,7 @@ public class ADetailActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a_detail);
+        setContentView(R.layout.activity_webview);
         loadUrl = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");
         setSwipeBackEnable(true);
@@ -49,7 +48,7 @@ public class ADetailActivity extends SwipeBackActivity {
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                String js = getClearAdDivJs(ADetailActivity.this);
+                String js = getClearAdDivJs(WebViewActivity.this);
                 Log.i(TAG, "onPageFinished: "+js);
                 view.loadUrl(js);
             }
@@ -58,7 +57,7 @@ public class ADetailActivity extends SwipeBackActivity {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
                /* //判断是否是广告相关的资源链接
-                if (!AdFilterTool.isAd(ADetailActivity.this, url)) {
+                if (!AdFilterTool.isAd(WebViewActivity.this, url)) {
                     //这里是不做处理的数据
                     return super.shouldInterceptRequest(wbNews, url);
                 } else {

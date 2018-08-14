@@ -1,7 +1,10 @@
 package com.example.administrator.idlereader.news.model;
 
 
+import android.util.Log;
+
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
@@ -74,6 +77,30 @@ public class NewsModel implements INewsModel {
                         } else {
                             iNewsLoadListener.loadNbaSuccess(hupuNews);
                         }
+                    }
+                });
+    }
+
+    @Override
+    public void loadNbaDetails(String nid, final INewsLoadListener iNewsLoadListener) {
+        RetrofitHelper.getInstance(Api.HUPU_NBA)
+                .getNbaNewsDetail(nid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<NbaDetailNews>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NbaDetailNews nbaDetailNews) {
+                        iNewsLoadListener.loadNbaDetailSuccess(nbaDetailNews);
                     }
                 });
     }

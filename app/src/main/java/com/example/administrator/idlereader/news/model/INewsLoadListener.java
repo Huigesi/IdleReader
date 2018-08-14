@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.model;
 
 
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 
 /**
@@ -18,4 +19,8 @@ public interface INewsLoadListener {
     void loadNbaSuccess(HupuNews hupuNews);
 
     void loadMoreNbaSuccess(HupuNews hupuNews);
+
+    void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews);
+
+    //void loadMoreNbaDetailSuccess(NbaDetailNews nbaDetailNews);
 }

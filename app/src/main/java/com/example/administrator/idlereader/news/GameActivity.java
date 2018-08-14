@@ -29,7 +29,7 @@ public class GameActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_webview2);
+        setContentView(R.layout.activity_webview_notframe);
         mLoadUrl = getIntent().getStringExtra("url");
         mTitle = getIntent().getStringExtra("title");
         setSwipeBackEnable(true);

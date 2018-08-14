@@ -1,0 +1,697 @@
+package com.example.administrator.idlereader.bean.hupu;
+
+import java.util.List;
+
+public class NbaDetailNews {
+    /**
+     * result : {"url":"https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334107&client=868643034824092&night=0&nopic=0&leaguesEn=nba&replies=79&entrance=1&ft=18&top_ncid=-1","title":"活力无限！杜兰特和布克一起训练打爆全场","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"replies":"81","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","lights":2,"offline_data":{"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}},"domain_list":["hoopchina.com.cn","hupu.com","shihuo.cn"]}
+     * is_login : 0
+     */
+
+    private ResultBean result;
+    private int is_login;
+
+    public ResultBean getResult() {
+        return result;
+    }
+
+    public void setResult(ResultBean result) {
+        this.result = result;
+    }
+
+    public int getIs_login() {
+        return is_login;
+    }
+
+    public void setIs_login(int is_login) {
+        this.is_login = is_login;
+    }
+
+    public static class ResultBean {
+        /**
+         * url : https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334107&client=868643034824092&night=0&nopic=0&leaguesEn=nba&replies=79&entrance=1&ft=18&top_ncid=-1
+         * title : 活力无限！杜兰特和布克一起训练打爆全场
+         * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
+         * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
+         * replies : 81
+         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+         * lights : 2
+         * offline_data : {"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}}
+         * domain_list : ["hoopchina.com.cn","hupu.com","shihuo.cn"]
+         */
+
+        private String url;
+        private String title;
+        private String summary;
+        private ShareBean share;
+        private String replies;
+        private String img;
+        private int lights;
+        private OfflineDataBean offline_data;
+        private List<String> domain_list;
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getSummary() {
+            return summary;
+        }
+
+        public void setSummary(String summary) {
+            this.summary = summary;
+        }
+
+        public ShareBean getShare() {
+            return share;
+        }
+
+        public void setShare(ShareBean share) {
+            this.share = share;
+        }
+
+        public String getReplies() {
+            return replies;
+        }
+
+        public void setReplies(String replies) {
+            this.replies = replies;
+        }
+
+        public String getImg() {
+            return img;
+        }
+
+        public void setImg(String img) {
+            this.img = img;
+        }
+
+        public int getLights() {
+            return lights;
+        }
+
+        public void setLights(int lights) {
+            this.lights = lights;
+        }
+
+        public OfflineDataBean getOffline_data() {
+            return offline_data;
+        }
+
+        public void setOffline_data(OfflineDataBean offline_data) {
+            this.offline_data = offline_data;
+        }
+
+        public List<String> getDomain_list() {
+            return domain_list;
+        }
+
+        public void setDomain_list(List<String> domain_list) {
+            this.domain_list = domain_list;
+        }
+
+        public static class ShareBean {
+            /**
+             * url : http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
+             * wechat_moments : 活力无限！杜兰特和布克一起训练打爆全场
+             * wechat : 活力无限！杜兰特和布克一起训练打爆全场
+             * qzone : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
+             * weibo : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）
+             * qq : 活力无限！杜兰特和布克一起训练打爆全场
+             * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+             * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
+             */
+
+            private String url;
+            private String wechat_moments;
+            private String wechat;
+            private String qzone;
+            private String weibo;
+            private String qq;
+            private String img;
+            private String summary;
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
+
+            public String getWechat_moments() {
+                return wechat_moments;
+            }
+
+            public void setWechat_moments(String wechat_moments) {
+                this.wechat_moments = wechat_moments;
+            }
+
+            public String getWechat() {
+                return wechat;
+            }
+
+            public void setWechat(String wechat) {
+                this.wechat = wechat;
+            }
+
+            public String getQzone() {
+                return qzone;
+            }
+
+            public void setQzone(String qzone) {
+                this.qzone = qzone;
+            }
+
+            public String getWeibo() {
+                return weibo;
+            }
+
+            public void setWeibo(String weibo) {
+                this.weibo = weibo;
+            }
+
+            public String getQq() {
+                return qq;
+            }
+
+            public void setQq(String qq) {
+                this.qq = qq;
+            }
+
+            public String getImg() {
+                return img;
+            }
+
+            public void setImg(String img) {
+                this.img = img;
+            }
+
+            public String getSummary() {
+                return summary;
+            }
+
+            public void setSummary(String summary) {
+                this.summary = summary;
+            }
+        }
+
+        public static class OfflineDataBean {
+            /**
+             * status : 0
+             * data : {"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}
+             */
+
+            private int status;
+            private DataBean data;
+
+            public int getStatus() {
+                return status;
+            }
+
+            public void setStatus(int status) {
+                this.status = status;
+            }
+
+            public DataBean getData() {
+                return data;
+            }
+
+            public void setData(DataBean data) {
+                this.data = data;
+            }
+
+            public static class DataBean {
+                /**
+                 * projectId : 1
+                 * version : 7.2.5
+                 * nopic : 0
+                 * ft : 0
+                 * client : 866493031799950
+                 * advId : null
+                 * night : 0
+                 * uid : null
+                 * cid : 42372938
+                 * leaguesEn : nba
+                 * puid :
+                 * user_name :
+                 * header :
+                 * news : {"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]}
+                 * is_admin : 0
+                 */
+
+                private String projectId;
+                private String version;
+                private int nopic;
+                private int ft;
+                private String client;
+                private Object advId;
+                private int night;
+                private Object uid;
+                private String cid;
+                private String leaguesEn;
+                private String puid;
+                private String user_name;
+                private String header;
+                private NewsBean news;
+                private int is_admin;
+
+                public String getProjectId() {
+                    return projectId;
+                }
+
+                public void setProjectId(String projectId) {
+                    this.projectId = projectId;
+                }
+
+                public String getVersion() {
+                    return version;
+                }
+
+                public void setVersion(String version) {
+                    this.version = version;
+                }
+
+                public int getNopic() {
+                    return nopic;
+                }
+
+                public void setNopic(int nopic) {
+                    this.nopic = nopic;
+                }
+
+                public int getFt() {
+                    return ft;
+                }
+
+                public void setFt(int ft) {
+                    this.ft = ft;
+                }
+
+                public String getClient() {
+                    return client;
+                }
+
+                public void setClient(String client) {
+                    this.client = client;
+                }
+
+                public Object getAdvId() {
+                    return advId;
+                }
+
+                public void setAdvId(Object advId) {
+                    this.advId = advId;
+                }
+
+                public int getNight() {
+                    return night;
+                }
+
+                public void setNight(int night) {
+                    this.night = night;
+                }
+
+                public Object getUid() {
+                    return uid;
+                }
+
+                public void setUid(Object uid) {
+                    this.uid = uid;
+                }
+
+                public String getCid() {
+                    return cid;
+                }
+
+                public void setCid(String cid) {
+                    this.cid = cid;
+                }
+
+                public String getLeaguesEn() {
+                    return leaguesEn;
+                }
+
+                public void setLeaguesEn(String leaguesEn) {
+                    this.leaguesEn = leaguesEn;
+                }
+
+                public String getPuid() {
+                    return puid;
+                }
+
+                public void setPuid(String puid) {
+                    this.puid = puid;
+                }
+
+                public String getUser_name() {
+                    return user_name;
+                }
+
+                public void setUser_name(String user_name) {
+                    this.user_name = user_name;
+                }
+
+                public String getHeader() {
+                    return header;
+                }
+
+                public void setHeader(String header) {
+                    this.header = header;
+                }
+
+                public NewsBean getNews() {
+                    return news;
+                }
+
+                public void setNews(NewsBean news) {
+                    this.news = news;
+                }
+
+                public int getIs_admin() {
+                    return is_admin;
+                }
+
+                public void setIs_admin(int is_admin) {
+                    this.is_admin = is_admin;
+                }
+
+                public static class NewsBean {
+                    /**
+                     * nid : 2334107
+                     * lights : 811
+                     * replies : 81
+                     * title : 活力无限！杜兰特和布克一起训练打爆全场
+                     * type : 1
+                     * origin : Twitter
+                     * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+                     * img_m : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60
+                     * content : <p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。</p>
+
+                     <p><a href="browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220">视频：杜兰特的训练视频（1分钟）&gt;&gt;</a></p>
+
+                     <p><a href="browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861">视频：布克的训练视频（59秒）&gt;&gt;</a></p>
+
+                     <p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。</p>
+                     * addtime : 30分钟前
+                     * league : 1
+                     * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
+                     * origin_url : https://twitter.com/Ballislife/status/1029142287752749056
+                     * replyurl : http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply
+                     * app_url :
+                     * m_url :
+                     * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
+                     * tags : [{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]
+                     */
+
+                    private String nid;
+                    private String lights;
+                    private String replies;
+                    private String title;
+                    private String type;
+                    private String origin;
+                    private String img;
+                    private String img_m;
+                    private String content;
+                    private String addtime;
+                    private String league;
+                    private String summary;
+                    private String origin_url;
+                    private String replyurl;
+                    private String app_url;
+                    private String m_url;
+                    private ShareBeanX share;
+                    private List<TagsBean> tags;
+
+                    public String getNid() {
+                        return nid;
+                    }
+
+                    public void setNid(String nid) {
+                        this.nid = nid;
+                    }
+
+                    public String getLights() {
+                        return lights;
+                    }
+
+                    public void setLights(String lights) {
+                        this.lights = lights;
+                    }
+
+                    public String getReplies() {
+                        return replies;
+                    }
+
+                    public void setReplies(String replies) {
+                        this.replies = replies;
+                    }
+
+                    public String getTitle() {
+                        return title;
+                    }
+
+                    public void setTitle(String title) {
+                        this.title = title;
+                    }
+
+                    public String getType() {
+                        return type;
+                    }
+
+                    public void setType(String type) {
+                        this.type = type;
+                    }
+
+                    public String getOrigin() {
+                        return origin;
+                    }
+
+                    public void setOrigin(String origin) {
+                        this.origin = origin;
+                    }
+
+                    public String getImg() {
+                        return img;
+                    }
+
+                    public void setImg(String img) {
+                        this.img = img;
+                    }
+
+                    public String getImg_m() {
+                        return img_m;
+                    }
+
+                    public void setImg_m(String img_m) {
+                        this.img_m = img_m;
+                    }
+
+                    public String getContent() {
+                        return content;
+                    }
+
+                    public void setContent(String content) {
+                        this.content = content;
+                    }
+
+                    public String getAddtime() {
+                        return addtime;
+                    }
+
+                    public void setAddtime(String addtime) {
+                        this.addtime = addtime;
+                    }
+
+                    public String getLeague() {
+                        return league;
+                    }
+
+                    public void setLeague(String league) {
+                        this.league = league;
+                    }
+
+                    public String getSummary() {
+                        return summary;
+                    }
+
+                    public void setSummary(String summary) {
+                        this.summary = summary;
+                    }
+
+                    public String getOrigin_url() {
+                        return origin_url;
+                    }
+
+                    public void setOrigin_url(String origin_url) {
+                        this.origin_url = origin_url;
+                    }
+
+                    public String getReplyurl() {
+                        return replyurl;
+                    }
+
+                    public void setReplyurl(String replyurl) {
+                        this.replyurl = replyurl;
+                    }
+
+                    public String getApp_url() {
+                        return app_url;
+                    }
+
+                    public void setApp_url(String app_url) {
+                        this.app_url = app_url;
+                    }
+
+                    public String getM_url() {
+                        return m_url;
+                    }
+
+                    public void setM_url(String m_url) {
+                        this.m_url = m_url;
+                    }
+
+                    public ShareBeanX getShare() {
+                        return share;
+                    }
+
+                    public void setShare(ShareBeanX share) {
+                        this.share = share;
+                    }
+
+                    public List<TagsBean> getTags() {
+                        return tags;
+                    }
+
+                    public void setTags(List<TagsBean> tags) {
+                        this.tags = tags;
+                    }
+
+                    public static class ShareBeanX {
+                        /**
+                         * url : http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
+                         * wechat_moments : 活力无限！杜兰特和布克一起训练打爆全场
+                         * wechat : 活力无限！杜兰特和布克一起训练打爆全场
+                         * qzone : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
+                         * weibo : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）
+                         * qq : 活力无限！杜兰特和布克一起训练打爆全场
+                         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+                         * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
+                         */
+
+                        private String url;
+                        private String wechat_moments;
+                        private String wechat;
+                        private String qzone;
+                        private String weibo;
+                        private String qq;
+                        private String img;
+                        private String summary;
+
+                        public String getUrl() {
+                            return url;
+                        }
+
+                        public void setUrl(String url) {
+                            this.url = url;
+                        }
+
+                        public String getWechat_moments() {
+                            return wechat_moments;
+                        }
+
+                        public void setWechat_moments(String wechat_moments) {
+                            this.wechat_moments = wechat_moments;
+                        }
+
+                        public String getWechat() {
+                            return wechat;
+                        }
+
+                        public void setWechat(String wechat) {
+                            this.wechat = wechat;
+                        }
+
+                        public String getQzone() {
+                            return qzone;
+                        }
+
+                        public void setQzone(String qzone) {
+                            this.qzone = qzone;
+                        }
+
+                        public String getWeibo() {
+                            return weibo;
+                        }
+
+                        public void setWeibo(String weibo) {
+                            this.weibo = weibo;
+                        }
+
+                        public String getQq() {
+                            return qq;
+                        }
+
+                        public void setQq(String qq) {
+                            this.qq = qq;
+                        }
+
+                        public String getImg() {
+                            return img;
+                        }
+
+                        public void setImg(String img) {
+                            this.img = img;
+                        }
+
+                        public String getSummary() {
+                            return summary;
+                        }
+
+                        public void setSummary(String summary) {
+                            this.summary = summary;
+                        }
+                    }
+
+                    public static class TagsBean {
+                        /**
+                         * name : 勇士
+                         * url : huputiyu://nba/nba/team/28
+                         */
+
+                        private String name;
+                        private String url;
+
+                        public String getName() {
+                            return name;
+                        }
+
+                        public void setName(String name) {
+                            this.name = name;
+                        }
+
+                        public String getUrl() {
+                            return url;
+                        }
+
+                        public void setUrl(String url) {
+                            this.url = url;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

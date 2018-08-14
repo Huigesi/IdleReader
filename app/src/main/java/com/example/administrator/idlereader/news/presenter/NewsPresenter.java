@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.presenter;
 
 
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
@@ -10,6 +11,7 @@ import com.example.administrator.idlereader.news.model.INewsLoadListener;
 import com.example.administrator.idlereader.news.model.INewsModel;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.news.view.INBAView;
+import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
 
 /**
@@ -21,6 +23,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INewsModel iNewsModel;
     private INewsView iNewsView;
     private INBAView mINBAView;
+    private INbaDetailView mINbaDetailView;
     private onNidChangeListener mOnNidChangeListener;
 
     public NewsPresenter(INewsView iNewsView) {
@@ -31,6 +34,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public NewsPresenter(INBAView INBAView) {
         this.iNewsModel = new NewsModel();
         mINBAView = INBAView;
+    }
+
+    public NewsPresenter(INbaDetailView INbaDetailView) {
+        mINbaDetailView = INbaDetailView;
+        this.iNewsModel=new NewsModel();
     }
 
     @Override
@@ -65,6 +73,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
+    public void loadNbaDetail(String nid) {
+        iNewsModel.loadNbaDetails(nid,this);
+    }
+
+    @Override
     public void success(NewsBean newsBean) {
         iNewsView.hideDialog();
         if (newsBean != null) {
@@ -94,6 +107,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadMoreNbaSuccess(HupuNews hupuNews) {
         mINBAView.hideDialog();
         mINBAView.showMoreData(hupuNews);
+    }
+
+    @Override
+    public void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews) {
+        mINbaDetailView.showData(nbaDetailNews);
     }
 
     public interface onNidChangeListener {
