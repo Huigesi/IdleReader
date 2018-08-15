@@ -26,13 +26,15 @@ public class WebViewActivity extends SwipeBackActivity {
     private TextView tv_bar_title;
     private ImageView iv_back;
     private SwipeBackLayout swipeBackLayout;
+    public static final String  WEB_URL= "WEB_URL";
+    public static final String  WEB_TITLE= "WEB_TITLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        loadUrl = getIntent().getStringExtra("url");
-        title = getIntent().getStringExtra("title");
+        loadUrl = getIntent().getStringExtra(WEB_URL);
+        title = getIntent().getStringExtra(WEB_TITLE);
         setSwipeBackEnable(true);
         swipeBackLayout = getSwipeBackLayout();
         swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);

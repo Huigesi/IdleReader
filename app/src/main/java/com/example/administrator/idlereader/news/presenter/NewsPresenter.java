@@ -76,7 +76,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaDetail(String nid) {
         iNewsModel.loadNbaDetails(nid,this);
-        //iNewsModel.loadNbaComment(nid, this);
+        iNewsModel.loadNbaComment(nid, this);
     }
 
     @Override

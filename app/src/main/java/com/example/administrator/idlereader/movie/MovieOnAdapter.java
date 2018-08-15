@@ -83,8 +83,8 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WebViewActivity.class);
-                intent.putExtra("url", data.getAlt());
-                intent.putExtra("title", data.getTitle());
+                intent.putExtra(WebViewActivity.WEB_URL, data.getAlt());
+                intent.putExtra(WebViewActivity.WEB_TITLE, data.getTitle());
                 mContext.startActivity(intent);
             }
         });

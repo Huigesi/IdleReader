@@ -108,8 +108,8 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, WebViewActivity.class);
-                            intent.putExtra("url", data.getWap_pluginfo().get(3).getUrl());
-                            intent.putExtra("title", data.getWap_pluginfo().get(3).getTitle());
+                            intent.putExtra(WebViewActivity.WEB_URL, data.getWap_pluginfo().get(3).getUrl());
+                            intent.putExtra(WebViewActivity.WEB_TITLE, data.getWap_pluginfo().get(3).getTitle());
                             mContext.startActivity(intent);
                         }
                     });
