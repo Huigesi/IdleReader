@@ -13,7 +13,7 @@ import com.example.administrator.idlereader.news.NbaDetailFragment;
 import java.lang.reflect.Field;
 
 public class UIUtils {
-    private static final String FRAGMENT_CLASS = "FRAGMENT_CLASS";
+    public static final String FRAGMENT_CLASS = "FRAGMENT_CLASS";
     public static void startNbaNewsFragment(Context context,String nid) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());

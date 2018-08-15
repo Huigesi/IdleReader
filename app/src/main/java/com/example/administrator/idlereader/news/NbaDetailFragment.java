@@ -24,12 +24,16 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView{
     RecyclerView mRvNbaDetail;
     Unbinder unbinder;
     private NewsPresenter mNewsPresenter;
-
+    public static NbaDetailFragment getInstance() {
+        NbaDetailFragment fragment = new NbaDetailFragment();
+        return fragment;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nba_detail, container, false);
         unbinder = ButterKnife.bind(this, view);
+        Log.i(TAG, "onCreateView: ");
         return view;
     }
 
