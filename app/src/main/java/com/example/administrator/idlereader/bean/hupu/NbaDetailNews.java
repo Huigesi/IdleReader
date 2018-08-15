@@ -3,8 +3,9 @@ package com.example.administrator.idlereader.bean.hupu;
 import java.util.List;
 
 public class NbaDetailNews {
+
     /**
-     * result : {"url":"https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334107&client=868643034824092&night=0&nopic=0&leaguesEn=nba&replies=79&entrance=1&ft=18&top_ncid=-1","title":"活力无限！杜兰特和布克一起训练打爆全场","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"replies":"81","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","lights":2,"offline_data":{"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}},"domain_list":["hoopchina.com.cn","hupu.com","shihuo.cn"]}
+     * result : {"url":"https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334565&client=869033023675946&night=0&nopic=0&leaguesEn=nba&replies=37&entrance=1&ft=18&top_ncid=-1","title":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"replies":"42","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","lights":1,"offline_data":{"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950 HTTP/1.1","advId":null,"night":0,"uid":null,"cid":"42403510","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334565","lights":"100","replies":"42","title":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","type":"1","origin":"Facebook","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月15日讯&nbsp;在获得NBA特批代表菲律宾国家队参加2018年雅加达亚运会的许可后，骑士后卫乔丹-克拉克森在个人Facebook上发布了两张照片，展示自己在菲律宾国家队的6号球衣（见新闻配图）。<\/p>\r\n\r\n<p>&ldquo;PUSO（菲律宾语，大意为勇气）！对于所有助力于实现这件事的人，我都心怀感激。很快会见到你们的！（爱心与菲律宾国旗的表情）&rdquo;克拉克森配文道。<\/p>\r\n\r\n<p><img data-url=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_1000/format,webp\" src=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60\" alt=\"\" /><\/p>\r\n\r\n<p>克拉克森目前从洛杉矶飞赴新加坡，预计将于16日抵达雅加达，将错过菲律宾小组赛首场和哈萨克斯坦的比赛，克拉克森很有可能会在和中国男篮红队的比赛中迎来首秀。据报道，他还将担任菲律宾代表团的开幕式旗手。<\/p>\r\n\r\n<p>按照本届亚运会赛程安排，中国男篮和菲律宾、哈萨克斯坦同分在D组，中国男篮红队将于8月21日17点对阵菲律宾队。<\/p>\r\n\r\n<p>2017-18赛季常规赛，克拉克森场均上场23.3分钟，得到13.9分2.7篮板2.7助攻。<\/p>","addtime":"7分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://www.facebook.com/OfficialJordanClarkson/posts/1902562543099780","replyurl":"http://m.hupu.com/nba/news/2334565.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"骑士","url":"huputiyu://nba/nba/team/10"},{"name":"乔丹-克拉克森","url":"huputiyu://nba/nba/player/4933"}]},"is_admin":0}},"domain_list":["hoopchina.com.cn","hupu.com","shihuo.cn"]}
      * is_login : 0
      */
 
@@ -29,14 +30,14 @@ public class NbaDetailNews {
 
     public static class ResultBean {
         /**
-         * url : https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334107&client=868643034824092&night=0&nopic=0&leaguesEn=nba&replies=79&entrance=1&ft=18&top_ncid=-1
-         * title : 活力无限！杜兰特和布克一起训练打爆全场
+         * url : https://lite.hupu.com/1/7.2.5/news/createNewsDetailH5?nid=2334565&client=869033023675946&night=0&nopic=0&leaguesEn=nba&replies=37&entrance=1&ft=18&top_ncid=-1
+         * title : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
          * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
-         * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
-         * replies : 81
-         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png
-         * lights : 2
-         * offline_data : {"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}}
+         * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
+         * replies : 42
+         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg
+         * lights : 1
+         * offline_data : {"status":0,"data":{"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950 HTTP/1.1","advId":null,"night":0,"uid":null,"cid":"42403510","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334565","lights":"100","replies":"42","title":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","type":"1","origin":"Facebook","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月15日讯&nbsp;在获得NBA特批代表菲律宾国家队参加2018年雅加达亚运会的许可后，骑士后卫乔丹-克拉克森在个人Facebook上发布了两张照片，展示自己在菲律宾国家队的6号球衣（见新闻配图）。<\/p>\r\n\r\n<p>&ldquo;PUSO（菲律宾语，大意为勇气）！对于所有助力于实现这件事的人，我都心怀感激。很快会见到你们的！（爱心与菲律宾国旗的表情）&rdquo;克拉克森配文道。<\/p>\r\n\r\n<p><img data-url=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_1000/format,webp\" src=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60\" alt=\"\" /><\/p>\r\n\r\n<p>克拉克森目前从洛杉矶飞赴新加坡，预计将于16日抵达雅加达，将错过菲律宾小组赛首场和哈萨克斯坦的比赛，克拉克森很有可能会在和中国男篮红队的比赛中迎来首秀。据报道，他还将担任菲律宾代表团的开幕式旗手。<\/p>\r\n\r\n<p>按照本届亚运会赛程安排，中国男篮和菲律宾、哈萨克斯坦同分在D组，中国男篮红队将于8月21日17点对阵菲律宾队。<\/p>\r\n\r\n<p>2017-18赛季常规赛，克拉克森场均上场23.3分钟，得到13.9分2.7篮板2.7助攻。<\/p>","addtime":"7分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://www.facebook.com/OfficialJordanClarkson/posts/1902562543099780","replyurl":"http://m.hupu.com/nba/news/2334565.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"骑士","url":"huputiyu://nba/nba/team/10"},{"name":"乔丹-克拉克森","url":"huputiyu://nba/nba/player/4933"}]},"is_admin":0}}
          * domain_list : ["hoopchina.com.cn","hupu.com","shihuo.cn"]
          */
 
@@ -124,13 +125,13 @@ public class NbaDetailNews {
 
         public static class ShareBean {
             /**
-             * url : http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
-             * wechat_moments : 活力无限！杜兰特和布克一起训练打爆全场
-             * wechat : 活力无限！杜兰特和布克一起训练打爆全场
-             * qzone : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
-             * weibo : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）
-             * qq : 活力无限！杜兰特和布克一起训练打爆全场
-             * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+             * url : http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26
+             * wechat_moments : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+             * wechat : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+             * qzone : 克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26
+             * weibo : 克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）
+             * qq : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+             * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg
              * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
              */
 
@@ -211,7 +212,7 @@ public class NbaDetailNews {
         public static class OfflineDataBean {
             /**
              * status : 0
-             * data : {"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950","advId":null,"night":0,"uid":null,"cid":"42372938","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]},"is_admin":0}
+             * data : {"projectId":"1","version":"7.2.5","nopic":0,"ft":0,"client":"866493031799950 HTTP/1.1","advId":null,"night":0,"uid":null,"cid":"42403510","leaguesEn":"nba","puid":"","user_name":"","header":"","news":{"nid":"2334565","lights":"100","replies":"42","title":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","type":"1","origin":"Facebook","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月15日讯&nbsp;在获得NBA特批代表菲律宾国家队参加2018年雅加达亚运会的许可后，骑士后卫乔丹-克拉克森在个人Facebook上发布了两张照片，展示自己在菲律宾国家队的6号球衣（见新闻配图）。<\/p>\r\n\r\n<p>&ldquo;PUSO（菲律宾语，大意为勇气）！对于所有助力于实现这件事的人，我都心怀感激。很快会见到你们的！（爱心与菲律宾国旗的表情）&rdquo;克拉克森配文道。<\/p>\r\n\r\n<p><img data-url=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_1000/format,webp\" src=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60\" alt=\"\" /><\/p>\r\n\r\n<p>克拉克森目前从洛杉矶飞赴新加坡，预计将于16日抵达雅加达，将错过菲律宾小组赛首场和哈萨克斯坦的比赛，克拉克森很有可能会在和中国男篮红队的比赛中迎来首秀。据报道，他还将担任菲律宾代表团的开幕式旗手。<\/p>\r\n\r\n<p>按照本届亚运会赛程安排，中国男篮和菲律宾、哈萨克斯坦同分在D组，中国男篮红队将于8月21日17点对阵菲律宾队。<\/p>\r\n\r\n<p>2017-18赛季常规赛，克拉克森场均上场23.3分钟，得到13.9分2.7篮板2.7助攻。<\/p>","addtime":"7分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://www.facebook.com/OfficialJordanClarkson/posts/1902562543099780","replyurl":"http://m.hupu.com/nba/news/2334565.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"骑士","url":"huputiyu://nba/nba/team/10"},{"name":"乔丹-克拉克森","url":"huputiyu://nba/nba/player/4933"}]},"is_admin":0}
              */
 
             private int status;
@@ -239,16 +240,16 @@ public class NbaDetailNews {
                  * version : 7.2.5
                  * nopic : 0
                  * ft : 0
-                 * client : 866493031799950
+                 * client : 866493031799950 HTTP/1.1
                  * advId : null
                  * night : 0
                  * uid : null
-                 * cid : 42372938
+                 * cid : 42403510
                  * leaguesEn : nba
                  * puid :
                  * user_name :
                  * header :
-                 * news : {"nid":"2334107","lights":"811","replies":"81","title":"活力无限！杜兰特和布克一起训练打爆全场","type":"1","origin":"Twitter","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。<\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220\">视频：杜兰特的训练视频（1分钟）&gt;&gt;<\/a><\/p>\r\n\r\n<p><a href=\"browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861\">视频：布克的训练视频（59秒）&gt;&gt;<\/a><\/p>\r\n\r\n<p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。<\/p>","addtime":"30分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://twitter.com/Ballislife/status/1029142287752749056","replyurl":"http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]}
+                 * news : {"nid":"2334565","lights":"100","replies":"42","title":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","type":"1","origin":"Facebook","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","img_m":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60","content":"<p>虎扑8月15日讯&nbsp;在获得NBA特批代表菲律宾国家队参加2018年雅加达亚运会的许可后，骑士后卫乔丹-克拉克森在个人Facebook上发布了两张照片，展示自己在菲律宾国家队的6号球衣（见新闻配图）。<\/p>\r\n\r\n<p>&ldquo;PUSO（菲律宾语，大意为勇气）！对于所有助力于实现这件事的人，我都心怀感激。很快会见到你们的！（爱心与菲律宾国旗的表情）&rdquo;克拉克森配文道。<\/p>\r\n\r\n<p><img data-url=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_1000/format,webp\" src=\"https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60\" alt=\"\" /><\/p>\r\n\r\n<p>克拉克森目前从洛杉矶飞赴新加坡，预计将于16日抵达雅加达，将错过菲律宾小组赛首场和哈萨克斯坦的比赛，克拉克森很有可能会在和中国男篮红队的比赛中迎来首秀。据报道，他还将担任菲律宾代表团的开幕式旗手。<\/p>\r\n\r\n<p>按照本届亚运会赛程安排，中国男篮和菲律宾、哈萨克斯坦同分在D组，中国男篮红队将于8月21日17点对阵菲律宾队。<\/p>\r\n\r\n<p>2017-18赛季常规赛，克拉克森场均上场23.3分钟，得到13.9分2.7篮板2.7助攻。<\/p>","addtime":"7分钟前","league":"1","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。","origin_url":"https://www.facebook.com/OfficialJordanClarkson/posts/1902562543099780","replyurl":"http://m.hupu.com/nba/news/2334565.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply","app_url":"","m_url":"","share":{"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"},"tags":[{"name":"骑士","url":"huputiyu://nba/nba/team/10"},{"name":"乔丹-克拉克森","url":"huputiyu://nba/nba/player/4933"}]}
                  * is_admin : 0
                  */
 
@@ -390,30 +391,34 @@ public class NbaDetailNews {
 
                 public static class NewsBean {
                     /**
-                     * nid : 2334107
-                     * lights : 811
-                     * replies : 81
-                     * title : 活力无限！杜兰特和布克一起训练打爆全场
+                     * nid : 2334565
+                     * lights : 100
+                     * replies : 42
+                     * title : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
                      * type : 1
-                     * origin : Twitter
-                     * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/thumbnail-24b3537ad462be07f33f0a658a8b2232d4304f66.png
-                     * img_m : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png?x-oss-process=image/resize,w_800/format,webp/quality,Q_60
-                     * content : <p>虎扑8月14日讯&nbsp;篮球媒体Ballislife今天在官方推特上发布了两段勇士球员凯文-杜兰特和太阳球员德文-布克一起在加州大学洛杉矶分校训练的视频（见新闻视频）。</p>
+                     * origin : Facebook
+                     * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180815/bmiddle-b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg
+                     * img_m : https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60
+                     * content : <p>虎扑8月15日讯&nbsp;在获得NBA特批代表菲律宾国家队参加2018年雅加达亚运会的许可后，骑士后卫乔丹-克拉克森在个人Facebook上发布了两张照片，展示自己在菲律宾国家队的6号球衣（见新闻配图）。</p>
 
-                     <p><a href="browser://https://weibo.com/tv/v/GuzAzzk14?fid=1034:4272866162865220">视频：杜兰特的训练视频（1分钟）&gt;&gt;</a></p>
+                     <p>&ldquo;PUSO（菲律宾语，大意为勇气）！对于所有助力于实现这件事的人，我都心怀感激。很快会见到你们的！（爱心与菲律宾国旗的表情）&rdquo;克拉克森配文道。</p>
 
-                     <p><a href="browser://https://weibo.com/tv/v/GuzAKwAZ2?fid=1034:4272866527481861">视频：布克的训练视频（59秒）&gt;&gt;</a></p>
+                     <p><img data-url="https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_1000/format,webp" src="https://c1.hoopchina.com.cn/uploads/images/20180815/20/c52e9a3e4c85537fe8d07ed262ec2d3f.jpeg?x-oss-process=image/resize,w_800/format,webp/quality,Q_60" alt="" /></p>
 
-                     <p>杜兰特2017-18赛季常规赛共出场68次，场均得到26.4分6.8篮板5.4助攻；季后赛共出场21次，场均得到29分7.8篮板4.7助攻；2017-18赛季常规赛，布克共出场54次，场均上场34.5分钟，可以得到24.9分4.5篮板4.7助攻。</p>
-                     * addtime : 30分钟前
+                     <p>克拉克森目前从洛杉矶飞赴新加坡，预计将于16日抵达雅加达，将错过菲律宾小组赛首场和哈萨克斯坦的比赛，克拉克森很有可能会在和中国男篮红队的比赛中迎来首秀。据报道，他还将担任菲律宾代表团的开幕式旗手。</p>
+
+                     <p>按照本届亚运会赛程安排，中国男篮和菲律宾、哈萨克斯坦同分在D组，中国男篮红队将于8月21日17点对阵菲律宾队。</p>
+
+                     <p>2017-18赛季常规赛，克拉克森场均上场23.3分钟，得到13.9分2.7篮板2.7助攻。</p>
+                     * addtime : 7分钟前
                      * league : 1
                      * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
-                     * origin_url : https://twitter.com/Ballislife/status/1029142287752749056
-                     * replyurl : http://m.hupu.com/nba/news/2334107.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply
+                     * origin_url : https://www.facebook.com/OfficialJordanClarkson/posts/1902562543099780
+                     * replyurl : http://m.hupu.com/nba/news/2334565.html?utm_source=1&utm_medium=games&utm_content=nbanews&utm_campaign=games#top_reply
                      * app_url :
                      * m_url :
-                     * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","wechat_moments":"活力无限！杜兰特和布克一起训练打爆全场","wechat":"活力无限！杜兰特和布克一起训练打爆全场","qzone":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26","weibo":"活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）","qq":"活力无限！杜兰特和布克一起训练打爆全场","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
-                     * tags : [{"name":"勇士","url":"huputiyu://nba/nba/team/28"},{"name":"太阳","url":"huputiyu://nba/nba/team/26"},{"name":"凯文-杜兰特","url":"huputiyu://nba/nba/player/1236"},{"name":"德文-布克","url":"huputiyu://nba/nba/player/150044"}]
+                     * share : {"url":"http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","wechat_moments":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","wechat":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","qzone":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26","weibo":"克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）","qq":"克拉克森展示菲律宾国家队6号球衣照：心怀感激","img":"https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg","summary":"虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。"}
+                     * tags : [{"name":"骑士","url":"huputiyu://nba/nba/team/10"},{"name":"乔丹-克拉克森","url":"huputiyu://nba/nba/player/4933"}]
                      */
 
                     private String nid;
@@ -581,13 +586,13 @@ public class NbaDetailNews {
 
                     public static class ShareBeanX {
                         /**
-                         * url : http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
-                         * wechat_moments : 活力无限！杜兰特和布克一起训练打爆全场
-                         * wechat : 活力无限！杜兰特和布克一起训练打爆全场
-                         * qzone : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26
-                         * weibo : 活力无限！杜兰特和布克一起训练打爆全场 http://lite.hupu.com/s?u=nba/news/2334107&type=1&entrance=26 （分享自 @虎扑App）
-                         * qq : 活力无限！杜兰特和布克一起训练打爆全场
-                         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180814/bmiddle-24b3537ad462be07f33f0a658a8b2232d4304f66.png
+                         * url : http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26
+                         * wechat_moments : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+                         * wechat : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+                         * qzone : 克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26
+                         * weibo : 克拉克森展示菲律宾国家队6号球衣照：心怀感激 http://lite.hupu.com/s?u=nba/news/2334565&type=1&entrance=26 （分享自 @虎扑App）
+                         * qq : 克拉克森展示菲律宾国家队6号球衣照：心怀感激
+                         * img : https://c2.hoopchina.com.cn/uploads/star/event/images/180815/b6edf5f35f461c3c95ab7a327060c9910d308aaa.jpg
                          * summary : 虎扑的这篇文章已经引发热烈讨论，赶快来看看吧。
                          */
 
@@ -667,8 +672,8 @@ public class NbaDetailNews {
 
                     public static class TagsBean {
                         /**
-                         * name : 勇士
-                         * url : huputiyu://nba/nba/team/28
+                         * name : 骑士
+                         * url : huputiyu://nba/nba/team/10
                          */
 
                         private String name;

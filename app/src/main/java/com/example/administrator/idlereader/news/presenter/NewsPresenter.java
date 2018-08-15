@@ -3,6 +3,7 @@ package com.example.administrator.idlereader.news.presenter;
 
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
+import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
@@ -75,6 +76,12 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaDetail(String nid) {
         iNewsModel.loadNbaDetails(nid,this);
+        //iNewsModel.loadNbaComment(nid, this);
+    }
+
+    @Override
+    public void loadNbaComment(String nid) {
+
     }
 
     @Override
@@ -112,6 +119,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews) {
         mINbaDetailView.showData(nbaDetailNews);
+    }
+
+    @Override
+    public void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
+        mINbaDetailView.showCommentData(nbaNewsComment);
     }
 
     public interface onNidChangeListener {

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
+import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
@@ -20,7 +21,7 @@ import static com.example.administrator.idlereader.http.Api.HUPU_NBA;
  */
 
 public class NewsModel implements INewsModel {
-
+    private static final String TAG = "NewsModel";
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
                          final INewsLoadListener iNewsLoadListener) {
@@ -95,12 +96,36 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.i(TAG, "onError: ");
                     }
 
                     @Override
                     public void onNext(NbaDetailNews nbaDetailNews) {
                         iNewsLoadListener.loadNbaDetailSuccess(nbaDetailNews);
+                    }
+                });
+    }
+
+    @Override
+    public void loadNbaComment(String nid, final INewsLoadListener iNewsLoadListener) {
+        RetrofitHelper.getInstance(Api.HUPU_NBA)
+                .getNbaComment(nid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<NbaNewsComment>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: ");
+                    }
+
+                    @Override
+                    public void onNext(NbaNewsComment nbaNewsComment) {
+                        iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
                     }
                 });
     }

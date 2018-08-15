@@ -17,7 +17,7 @@ public class UIUtils {
     public static void startNbaNewsFragment(Context context,String nid) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
-        intent.putExtra("nid",nid);
+        intent.putExtra(NbaDetailFragment.NBA_NID,nid);
         context.startActivity(intent);
     }
     public static void setUpIndicatorWidth(TabLayout tabLayout, int marginLeft, int marginRight) {

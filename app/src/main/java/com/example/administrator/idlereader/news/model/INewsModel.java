@@ -15,4 +15,7 @@ public interface INewsModel {
 
     void loadNbaDetails(String nid,
                         INewsLoadListener iNewsLoadListener);
+
+    void loadNbaComment(String nid,
+                        INewsLoadListener iNewsLoadListener);
 }

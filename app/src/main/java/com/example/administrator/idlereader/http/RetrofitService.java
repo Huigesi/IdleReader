@@ -3,6 +3,7 @@ package com.example.administrator.idlereader.http;
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
+import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -87,6 +88,10 @@ public interface RetrofitService {
     @GET("nba/getNewsDetailSchema")
     Observable<NbaDetailNews> getNbaNewsDetail(@Query("nid") String nid,
                                                @Query("client") String client);
+    //http://games.mobileapi.hupu.com/1/7.2.5/news/getCommentH5?nid=2334431&client=866493031799950%20HTTP/1.1
+    @GET("news/getCommentH5")
+    Observable<NbaNewsComment> getNewsComment(@Query("nid") String nid,
+                                              @Query("client") String client);
     /*
     * http://api.weibo.cn/2/statuses/friends_timeline?since_id=4272884404727884&s=606388e6&gsid=_2A252dj4mDeRxGeNH61cX8yvNyT6IHXVTIjburDV6PUJbkdAKLUfykWpNSvDZSoix4-U-J81fM0h-0Wgync7r9M9c&c=weicoabroad&page=1%20HTTP/1.1
     *since_id决定加载数

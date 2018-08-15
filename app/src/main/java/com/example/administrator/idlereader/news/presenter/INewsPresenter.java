@@ -11,4 +11,6 @@ public interface INewsPresenter {
                      int count);
 
     void loadNbaDetail(String nid);
+
+    void loadNbaComment(String nid);
 }
