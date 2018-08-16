@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -83,16 +84,35 @@ public class NbaDetailHeaderView extends LinearLayout {
         });
         mTvNbaDetailTitleTime.setText(mNbaDetailNews.getResult().getOffline_data().getData()
                 .getNews().getAddtime());
-        int weight = Resolution.dipToPx(getContext(), 20);
+        int weight = Resolution.getScreenPixWidth(getContext());
         GlideUtils.loadAuto(getContext(), mNbaDetailNews.getResult().getOffline_data()
                 .getData().getNews().getImg_m(), mImgNbaDetailContent,weight);
         String htmls = mNbaDetailNews.getResult().getOffline_data().getData().getNews().getContent();
         mWvNbaDetailContent.getSettings().setUseWideViewPort(false);
         mWvNbaDetailContent.getSettings().setLoadsImagesAutomatically(true);
         mWvNbaDetailContent.getSettings().setDefaultFontSize(18);
+        mWvNbaDetailContent.getSettings().setJavaScriptEnabled(true);
+        mWvNbaDetailContent.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                imgReset();
+            }
+        });
+        //imgReset(mWvNbaDetailContent);
         String css ="<style>*{line-height:30px;} p.thicker{font-weight: 100;} p{color:#666;}</style>";
         mWvNbaDetailContent.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         mWvNbaDetailContent.loadDataWithBaseURL(null,css+htmls,
                 "text/html","utf-8", null);
+    }
+    private void imgReset() {
+        mWvNbaDetailContent.loadUrl("javascript:(function(){" +
+                "var objs = document.getElementsByTagName('img'); " +
+                "for(var i=0;i<objs.length;i++)  " +
+                "{"
+                + "var img = objs[i];   " +
+                " img.style.maxWidth = '100%';img.style.height='auto';" +
+                "}" +
+                "})()");
     }
 }
