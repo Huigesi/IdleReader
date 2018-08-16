@@ -64,31 +64,7 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorLine"/>
-    <LinearLayout
-        android:layout_marginVertical="5dp"
-        android:paddingLeft="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
 
-        <View
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="5dp"
-            android:background="@color/colorTheme" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="评论"
-            android:textSize="18sp" />
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

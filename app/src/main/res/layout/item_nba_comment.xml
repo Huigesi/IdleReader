@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/tv_nba_comment_user"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:text="username"
@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/tv_nba_comment_time"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="10:00"
                 android:textSize="12sp" />
@@ -86,7 +86,7 @@
 
     <LinearLayout
         android:id="@+id/ll_nba_comment_light"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:gravity="center_vertical"
@@ -100,7 +100,7 @@
 
         <TextView
             android:id="@+id/tv_nba_comment_light"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="99"
             android:textColor="@color/colorSubtitle"

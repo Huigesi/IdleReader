@@ -34,6 +34,7 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
     private NewsPresenter mNewsPresenter;
     private NbaDetailAdapter mNbaDetailAdapter;
     private NbaDetailHeaderView mNbaDetailHeaderView;
+    private NbaDetailLightView mNbaDetailLightView;
 
     public static NbaDetailFragment getInstance() {
         NbaDetailFragment fragment = new NbaDetailFragment();
@@ -65,6 +66,7 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
         });
 
         mNbaDetailHeaderView = new NbaDetailHeaderView(getActivity());
+        mNbaDetailLightView = new NbaDetailLightView(getActivity());
         final String nid = getActivity().getIntent().getStringExtra(NBA_NID);
         mNewsPresenter.loadNbaDetail(nid);
         mRvNbaDetail.setAdapter(mNbaDetailAdapter);
@@ -93,8 +95,9 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
     @Override
     public void showCommentData(NbaNewsComment commentData) {
         mNbaDetailAdapter.setData(commentData.getData(), false);
-        if (commentData.getLight_comments() != null) {
-            //mNbaDetailAdapter.setHeaderView();
+        if (commentData.getLight_comments()!= null&&commentData.getLight_comments().size()>0) {
+            mNbaDetailLightView.setData(commentData);
+            mNbaDetailAdapter.setLightCommentView(mNbaDetailLightView);
         }
         if (commentData.getData() == null) {
             mNbaDetailHeaderView.setNomore(true);
