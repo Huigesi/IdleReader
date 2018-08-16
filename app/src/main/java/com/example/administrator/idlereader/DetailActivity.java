@@ -9,10 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.idlereader.utils.UIUtils;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class DetailActivity extends SwipeBackActivity {
     @BindView(R.id.iv_back)

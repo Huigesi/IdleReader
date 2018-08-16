@@ -27,7 +27,7 @@
 
     <!--item的分割线-->
     <color name="colorLineItem">#FFDDDDDD</color>
-
+    <color name="black_p50">#7f000000</color>
     <!--tab标签栏文字的颜色-->
     <color name="colorTabText">#585858</color>
     <!--正文文字颜色-->

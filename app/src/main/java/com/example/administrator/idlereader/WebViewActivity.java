@@ -15,8 +15,9 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
+
 
 public class WebViewActivity extends SwipeBackActivity {
     private static final String TAG = "WebViewActivity";
@@ -35,9 +36,7 @@ public class WebViewActivity extends SwipeBackActivity {
         setContentView(R.layout.activity_webview);
         loadUrl = getIntent().getStringExtra(WEB_URL);
         title = getIntent().getStringExtra(WEB_TITLE);
-        setSwipeBackEnable(true);
         swipeBackLayout = getSwipeBackLayout();
-        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         initView();
         setWebViewClient();
     }

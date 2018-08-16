@@ -13,9 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
 
-import me.imid.swipebacklayout.lib.SwipeBackLayout;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class GameActivity extends SwipeBackActivity {
     private String mLoadUrl,mTitle;
@@ -32,9 +32,7 @@ public class GameActivity extends SwipeBackActivity {
         setContentView(R.layout.activity_webview_notframe);
         mLoadUrl = getIntent().getStringExtra("url");
         mTitle = getIntent().getStringExtra("title");
-        setSwipeBackEnable(true);
         swipeBackLayout = getSwipeBackLayout();
-        swipeBackLayout.setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         initView();
         setWebViewClient();
     }

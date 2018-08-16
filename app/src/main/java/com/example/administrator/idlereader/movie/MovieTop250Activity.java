@@ -13,11 +13,11 @@ import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
+import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public class MovieTop250Activity extends SwipeBackActivity implements IMoviesView {
 
