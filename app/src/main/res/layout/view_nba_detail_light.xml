@@ -31,6 +31,7 @@
         android:background="@color/colorLine"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
+        android:background="@color/colorLine"
         android:layout_height="wrap_content"
         android:id="@+id/rv_nba_detail_light">
     </android.support.v7.widget.RecyclerView>
