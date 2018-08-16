@@ -16,7 +16,7 @@ import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
 
-public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.DataBean>{
+public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.DataBean> {
 
     public NbaNewsAdapter(Context context) {
         super(context);
@@ -37,42 +37,48 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
             }
             int weight = Resolution.dipToPx(mContext, 100);
             int height = Resolution.dipToPx(mContext, 80);
-            if (data.getThumbs() != null) {
+            if (data.getThumbs() != null && data.getBadge() == null) {
                 ((ViewHolder) holder).llNbaThumbs.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).llNbaDefault.setVisibility(View.GONE);
                 ((ViewHolder) holder).tvNbaThumbs.setText(data.getTitle());
-                GlideUtils.load(mContext,data.getThumbs().get(0),((ViewHolder) holder).imgNbaThumbs1);
-                GlideUtils.load(mContext,data.getThumbs().get(1),((ViewHolder) holder).imgNbaThumbs2);
-                GlideUtils.load(mContext,data.getThumbs().get(2),((ViewHolder) holder).imgNbaThumbs3);
+                GlideUtils.load(mContext, data.getThumbs().get(0), ((ViewHolder) holder).imgNbaThumbs1);
+                GlideUtils.load(mContext, data.getThumbs().get(1), ((ViewHolder) holder).imgNbaThumbs2);
+                GlideUtils.load(mContext, data.getThumbs().get(2), ((ViewHolder) holder).imgNbaThumbs3);
                 if (data.getLights().equals("0")) {
                     ((ViewHolder) holder).llNbaLightThumbs.setVisibility(View.GONE);
-                }else {
+                } else {
                     ((ViewHolder) holder).llNbaLightThumbs.setVisibility(View.VISIBLE);
                     ((ViewHolder) holder).tvNbaLightThumbs.setText(data.getLights());
                 }
                 ((ViewHolder) holder).tvNbaCommentThumbs.setText(data.getReplies());
-            }else {
+            } else {
                 ((ViewHolder) holder).llNbaThumbs.setVisibility(View.GONE);
                 ((ViewHolder) holder).llNbaDefault.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).tvNba.setText(data.getTitle());
-                GlideUtils.load(mContext,data.getImg(),((ViewHolder) holder).imgNba,weight,height);
+                GlideUtils.load(mContext, data.getImg(), ((ViewHolder) holder).imgNba, weight, height);
                 if (data.getLights().equals("0")) {
                     ((ViewHolder) holder).llNbaLight.setVisibility(View.GONE);
-                }else {
+                } else {
                     ((ViewHolder) holder).llNbaLight.setVisibility(View.VISIBLE);
                     ((ViewHolder) holder).tvNbaLight.setText(data.getLights());
                 }
                 ((ViewHolder) holder).tvNbaComment.setText(data.getReplies());
             }
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    UIUtils.startNbaNewsFragment(mContext,data.getNid());
-                }
-            });
+            if (data.getType() == 1) {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UIUtils.startNbaNewsFragment(mContext, data.getNid());
+                    }
+                });
+            }else {
+                //this.notifyItemRemoved(position);
+                holder.itemView.setClickable(false);
+            }
         }
     }
-    protected class ViewHolder extends RecyclerView.ViewHolder{
+
+    protected class ViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout llNbaDefault;
         private ImageView imgNba;
         private TextView tvNba;

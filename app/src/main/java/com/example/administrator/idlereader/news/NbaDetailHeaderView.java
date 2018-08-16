@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,6 +14,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.Resolution;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +36,8 @@ public class NbaDetailHeaderView extends LinearLayout {
     LinearLayout mLlNbaDetailContent;
     @BindView(R.id.img_nba_detail_content)
     ImageView mImgNbaDetailContent;
+    @BindView(R.id.ll_nomore)
+    LinearLayout mLlNomore;
     private Unbinder mUnbinder;
     private NbaDetailNews mNbaDetailNews;
 
@@ -50,6 +54,14 @@ public class NbaDetailHeaderView extends LinearLayout {
     public void setData(NbaDetailNews data) {
         mNbaDetailNews = data;
         refreshUI();
+    }
+
+    public void setNomore(boolean isNoMore) {
+        if (isNoMore) {
+            mLlNomore.setVisibility(VISIBLE);
+        } else {
+            mLlNomore.setVisibility(GONE);
+        }
     }
 
     private void refreshUI() {
@@ -71,9 +83,16 @@ public class NbaDetailHeaderView extends LinearLayout {
         });
         mTvNbaDetailTitleTime.setText(mNbaDetailNews.getResult().getOffline_data().getData()
                 .getNews().getAddtime());
-        GlideUtils.load(getContext(),mNbaDetailNews.getResult().getOffline_data()
-                .getData().getNews().getImg_m(),mImgNbaDetailContent);
-        String htmls=mNbaDetailNews.getResult().getOffline_data().getData().getNews().getContent();
-        mWvNbaDetailContent.loadData(htmls, "text/html;charset=UTF-8", null);
+        int weight = Resolution.dipToPx(getContext(), 20);
+        GlideUtils.loadAuto(getContext(), mNbaDetailNews.getResult().getOffline_data()
+                .getData().getNews().getImg_m(), mImgNbaDetailContent,weight);
+        String htmls = mNbaDetailNews.getResult().getOffline_data().getData().getNews().getContent();
+        mWvNbaDetailContent.getSettings().setUseWideViewPort(false);
+        mWvNbaDetailContent.getSettings().setLoadsImagesAutomatically(true);
+        mWvNbaDetailContent.getSettings().setDefaultFontSize(18);
+        String css ="<style>*{line-height:30px;} p.thicker{font-weight: 100;} p{color:#666;}</style>";
+        mWvNbaDetailContent.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        mWvNbaDetailContent.loadDataWithBaseURL(null,css+htmls,
+                "text/html","utf-8", null);
     }
 }

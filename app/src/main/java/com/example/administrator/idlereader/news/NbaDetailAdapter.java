@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.Resolution;
 
 public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.DataBean>{
     public NbaDetailAdapter(Context context) {
@@ -34,16 +36,19 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
     public void onBind(RecyclerView.ViewHolder holder, int position,
                        NbaNewsComment.DataBean data) {
         if (holder instanceof ViewHolder) {
-            GlideUtils.load(mContext, data.getHeader(), ((ViewHolder) holder).imgNbaCommentUser);
+            int weight = Resolution.dipToPx(mContext, 35);
+            GlideUtils.load(mContext, data.getHeader(), ((ViewHolder) holder).imgNbaCommentUser,weight,weight);
             ((ViewHolder) holder).tvNbaCommentUser.setText(data.getUser_name());
             ((ViewHolder) holder).tvNbaCommentTime.setText(data.getFormat_time());
-            ((ViewHolder) holder).wvNbaDetailComment.loadData(data.getContent(),
-                    "text/html;charset=UTF-8", null);
+            String htmls=data.getContent();
+            CharSequence charSequence = Html.fromHtml(htmls);
+            ((ViewHolder) holder).tvNbaDetailComment.setText(charSequence);
             ((ViewHolder) holder).tvNbaCommentLight.setText("亮了("+data.getLight_count()+")");
             if (data.getQuote_data() != null) {
                 ((ViewHolder) holder).llNbaCommentQuote.setVisibility(View.VISIBLE);
-                ((ViewHolder) holder).wvNbaDetailQuoteComment.loadData(data.getQuote_data().getContent(),
-                        "text/html;charset=UTF-8", null);
+                String quote=data.getQuote_data().getContent();
+                CharSequence sequence=Html.fromHtml(quote);
+                ((ViewHolder) holder).tvNbaDetailQuoteComment.setText(sequence);
                 ((ViewHolder) holder).tvNbaCommentQuoteUser.setText(data.getQuote_data().getUser_name());
             }else {
                 ((ViewHolder) holder).llNbaCommentQuote.setVisibility(View.GONE);
@@ -56,8 +61,8 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
         private TextView tvNbaCommentTime;
         private LinearLayout llNbaCommentQuote;
         private TextView tvNbaCommentQuoteUser;
-        private WebView wvNbaDetailQuoteComment;
-        private WebView wvNbaDetailComment;
+        private TextView tvNbaDetailQuoteComment;
+        private TextView tvNbaDetailComment;
         private LinearLayout llNbaCommentLight;
         private TextView tvNbaCommentLight;
 
@@ -68,8 +73,8 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
             tvNbaCommentTime = (TextView) view.findViewById(R.id.tv_nba_comment_time);
             llNbaCommentQuote = (LinearLayout) view.findViewById(R.id.ll_nba_comment_quote);
             tvNbaCommentQuoteUser = (TextView) view.findViewById(R.id.tv_nba_comment_quote_user);
-            wvNbaDetailQuoteComment = (WebView) view.findViewById(R.id.wv_nba_detail_quote_comment);
-            wvNbaDetailComment = (WebView) view.findViewById(R.id.wv_nba_detail_comment);
+            tvNbaDetailQuoteComment = (TextView) view.findViewById(R.id.wv_nba_detail_quote_comment);
+            tvNbaDetailComment = (TextView) view.findViewById(R.id.wv_nba_detail_comment);
             llNbaCommentLight = (LinearLayout) view.findViewById(R.id.ll_nba_comment_light);
             tvNbaCommentLight = (TextView) view.findViewById(R.id.tv_nba_comment_light);
         }

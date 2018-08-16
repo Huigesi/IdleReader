@@ -1,8 +1,10 @@
 package com.example.administrator.idlereader.news;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +17,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
+import com.example.administrator.idlereader.utils.Resolution;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +29,8 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
     RecyclerView mRvNbaDetail;
     Unbinder unbinder;
     public static final String NBA_NID = "NBA_NID";
+    @BindView(R.id.srl_nba_detail)
+    SwipeRefreshLayout mSrlNbaDetail;
     private NewsPresenter mNewsPresenter;
     private NbaDetailAdapter mNbaDetailAdapter;
     private NbaDetailHeaderView mNbaDetailHeaderView;
@@ -50,10 +55,25 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
         mNbaDetailAdapter = new NbaDetailAdapter(getActivity());
         mNewsPresenter = new NewsPresenter(this);
         mRvNbaDetail.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRvNbaDetail.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                int line = Resolution.dipToPx(getContext(), 1);
+                outRect.set(0, 0, 0, line);
+            }
+        });
+
         mNbaDetailHeaderView = new NbaDetailHeaderView(getActivity());
-        String nid = getActivity().getIntent().getStringExtra(NBA_NID);
+        final String nid = getActivity().getIntent().getStringExtra(NBA_NID);
         mNewsPresenter.loadNbaDetail(nid);
         mRvNbaDetail.setAdapter(mNbaDetailAdapter);
+        mSrlNbaDetail.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mNewsPresenter.loadNbaDetail(nid);
+            }
+        });
     }
 
     @Override
@@ -72,12 +92,20 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
 
     @Override
     public void showCommentData(NbaNewsComment commentData) {
-        mNbaDetailAdapter.setData(commentData.getData(),false);
+        mNbaDetailAdapter.setData(commentData.getData(), false);
+        if (commentData.getLight_comments() != null) {
+            //mNbaDetailAdapter.setHeaderView();
+        }
+        if (commentData.getData() == null) {
+            mNbaDetailHeaderView.setNomore(true);
+        } else {
+            mNbaDetailHeaderView.setNomore(false);
+        }
     }
 
     @Override
     public void hideDialog() {
-
+        mSrlNbaDetail.setRefreshing(false);
     }
 
     @Override

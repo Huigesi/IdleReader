@@ -119,11 +119,13 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews) {
         mINbaDetailView.showData(nbaDetailNews);
+        mINbaDetailView.hideDialog();
     }
 
     @Override
     public void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
         mINbaDetailView.showCommentData(nbaNewsComment);
+        mINbaDetailView.hideDialog();
     }
 
     public interface onNidChangeListener {
