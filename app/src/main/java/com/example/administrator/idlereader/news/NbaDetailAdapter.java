@@ -58,7 +58,9 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
     public int getItemViewType(int position) {
         if (mLightCommentView != null && position == 1) {
             return ITEM_TYPE_LIGHT;
-        } else if (position == 2) {
+        } else if (mLightCommentView==null&&position == 1) {
+            return ITEM_TYPE_COMMENT;
+        } else if (mLightCommentView != null && position == 2) {
             return ITEM_TYPE_COMMENT;
         }else {
             return super.getItemViewType(position);
