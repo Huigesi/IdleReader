@@ -2,22 +2,28 @@ package com.example.administrator.idlereader.news;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INBAView;
+import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +36,9 @@ public class HupuNBAFragment extends Fragment implements INBAView {
     private static final String TAG = "HupuNBAFragment";
     @BindView(R.id.rv_news)
     RecyclerView mRvNews;
-    @BindView(R.id.srl_news)
-    SwipeRefreshLayout mSrlNews;
     Unbinder unbinder;
+    @BindView(R.id.srl_news)
+    SmartRefreshLayout mSrlNews;
     private NewsPresenter mNewsPresenter;
     private NbaNewsAdapter mNbaNewsAdapter;
     private LinearLayoutManager mLinearLayoutManager;
@@ -61,21 +67,29 @@ public class HupuNBAFragment extends Fragment implements INBAView {
         mNbaNewsAdapter = new NbaNewsAdapter(getActivity());
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-        mSrlNews.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        mSrlNews.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
+                getResources().getColor(R.color.colorTheme)));
+        mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
+        mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onRefresh() {
-                mNewsPresenter.loadNbaNews("", 0);
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mNewsPresenter.loadNbaNews("",0);
+            }
+        });
+        mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                loadMore();
             }
         });
         mNewsPresenter.loadNbaNews("", 0);
         mRvNews.setLayoutManager(mLinearLayoutManager);
         mRvNews.setHasFixedSize(true);
         mRvNews.setAdapter(mNbaNewsAdapter);
-        initListener();
+        //initListener();
     }
 
-    private void initListener() {
+    /*private void initListener() {
         mBaseEndlessListener = new BaseEndlessListener<>(getContext(), mNbaNewsAdapter);
         mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
             @Override
@@ -89,7 +103,7 @@ public class HupuNBAFragment extends Fragment implements INBAView {
             }
         });
         mRvNews.addOnScrollListener(mBaseEndlessListener);
-    }
+    }*/
 
     private void loadMore() {
         mCount += 20;
@@ -114,17 +128,20 @@ public class HupuNBAFragment extends Fragment implements INBAView {
         mResults = hupuNews.getResult().getData();
         mNid = mResults.get(mResults.size() - 1).getNid();
         mNbaNewsAdapter.setData(mResults, false);
+        if (mResults == null || mResults.size() == 0) {
+            mSrlNews.setNoMoreData(true);
+        }
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override
     public void hideDialog() {
-        mSrlNews.setRefreshing(false);
-        mBaseEndlessListener.onLoadComplete();
+        mSrlNews.finishRefresh(0);
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override
     public void showDialog() {
-        mSrlNews.setRefreshing(true);
     }
 
     @Override

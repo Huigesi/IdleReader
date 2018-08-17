@@ -1,6 +1,7 @@
 package com.example.administrator.idlereader.news;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,11 +13,17 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INewsView;
+import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
@@ -25,7 +32,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
 
     private NewsPresenter presenter;
     private int type;
-    private SwipeRefreshLayout srl_news;
+    private SmartRefreshLayout srl_news;
     private RecyclerView rv_news;
     private ItemNewsAdapter adapter;
     private List<NewsBean.Bean> newsBeanList;
@@ -56,31 +63,22 @@ public class FgNewsListFragment extends Fragment implements INewsView {
         rv_news = view.findViewById(R.id.rv_news);
         adapter = new ItemNewsAdapter(getActivity());
         srl_news = view.findViewById(R.id.srl_news);
-        srl_news.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        srl_news.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srl_news.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
+                getResources().getColor(R.color.colorTheme)));
+        srl_news.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
+        srl_news.setOnRefreshListener(new OnRefreshListener() {
             @Override
-            public void onRefresh() {
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 presenter.loadNews(type, 0);
             }
         });
-        presenter.loadNews(type, 0);
-        initListener();
-    }
-
-    private void initListener() {
-        mBaseEndlessListener = new BaseEndlessListener<>(getContext(),adapter);
-        mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
+        srl_news.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
-            public void onLoadData() {
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 loadMore();
             }
-
-            @Override
-            public boolean shouldLoadData() {
-                return true;
-            }
         });
-        rv_news.addOnScrollListener(mBaseEndlessListener);
+        presenter.loadNews(type, 0);
     }
 
     private void loadMore() {
@@ -113,7 +111,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
 
     @Override
     public void showMoreNews(NewsBean newsBean) {
-
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
                 adapter.setData(newsBean.getTop(),false);
@@ -125,17 +122,19 @@ public class FgNewsListFragment extends Fragment implements INewsView {
                 adapter.setData(newsBean.getGame(),false);
                 break;
         }
+        srl_news.finishLoadMore(0);
+        if (newsBean == null) {
+            srl_news.setNoMoreData(true);
+        }
     }
 
     @Override
     public void hideDialog() {
-        srl_news.setRefreshing(false);
-        mBaseEndlessListener.onLoadComplete();
+        srl_news.finishRefresh(0);
     }
 
     @Override
     public void showDialog() {
-        srl_news.setRefreshing(true);
     }
 
     @Override
