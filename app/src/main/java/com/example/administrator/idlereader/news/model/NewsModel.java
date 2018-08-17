@@ -107,9 +107,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadNbaComment(String nid, final INewsLoadListener iNewsLoadListener) {
+    public void loadNbaComment(String nid, final String ncid, final String createTime,
+                               final INewsLoadListener iNewsLoadListener) {
         RetrofitHelper.getInstance(Api.HUPU_NBA)
-                .getNbaComment(nid)
+                .getNbaComment(nid,ncid,createTime)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NbaNewsComment>() {
@@ -125,7 +126,11 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(NbaNewsComment nbaNewsComment) {
-                        iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
+                        if (ncid != null && createTime != null) {
+                            iNewsLoadListener.loadMoreNbaCommentSuccess(nbaNewsComment);
+                        }else {
+                            iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
+                        }
                     }
                 });
     }

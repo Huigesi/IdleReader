@@ -12,5 +12,7 @@ public interface INewsPresenter {
 
     void loadNbaDetail(String nid);
 
+    void loadMoreNbaComment(String nid,String ncid,String createTime);
+
     void loadNbaComment(String nid);
 }

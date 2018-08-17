@@ -8,6 +8,8 @@ public interface INbaDetailView {
 
     void showCommentData(NbaNewsComment commentData);
 
+    void showMoreCommentData(NbaNewsComment commentData);
+
     void hideDialog();
 
     void showDialog();

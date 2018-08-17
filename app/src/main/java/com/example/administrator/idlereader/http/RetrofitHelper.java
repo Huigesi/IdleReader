@@ -11,6 +11,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNewsList;
 import com.example.administrator.idlereader.utils.klog.KLog;
 
 import java.io.IOException;
@@ -86,8 +87,16 @@ public class RetrofitHelper {
         return retrofitService.getNbaNewsDetail(nid, Api.HUPU_CLIENT_ID);
     }
 
-    public Observable<NbaNewsComment> getNbaComment(String nid) {
-        return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID);
+    public Observable<NbaNewsComment> getNbaComment(String nid,String ncid,String createTime) {
+        return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID,ncid,createTime);
+    }
+
+    public Observable<WeiBoNewsList> getWeiBoNews(String sinceId, String s, String gsid, int page, String c) {
+        String form = "1273095010";
+        String wm = "2468_1001";
+        String source = "4215535043";
+        String advance_enable = "false";
+        return retrofitService.getWeiBoNews(sinceId,s,gsid,page,c,form,wm,source,advance_enable);
     }
 
     public OkHttpClient getOkHttpClient() {

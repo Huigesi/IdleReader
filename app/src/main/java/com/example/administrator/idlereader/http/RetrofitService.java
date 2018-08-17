@@ -8,6 +8,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNewsList;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -88,16 +89,30 @@ public interface RetrofitService {
     @GET("nba/getNewsDetailSchema")
     Observable<NbaDetailNews> getNbaNewsDetail(@Query("nid") String nid,
                                                @Query("client") String client);
-    //http://games.mobileapi.hupu.com/1/7.2.5/news/getCommentH5?nid=2334431&client=866493031799950%20HTTP/1.1
+
+    //http://games.mobileapi.hupu.com/1/7.2.5/news/getCommentH5?nid=2334431&client=866493031799950&ncid=51801640&create_time=1534484055%20HTTP/1.1
     @GET("news/getCommentH5")
     Observable<NbaNewsComment> getNewsComment(@Query("nid") String nid,
-                                              @Query("client") String client);
-    /*
-    * http://api.weibo.cn/2/statuses/friends_timeline?since_id=4272884404727884&s=606388e6&gsid=_2A252dj4mDeRxGeNH61cX8yvNyT6IHXVTIjburDV6PUJbkdAKLUfykWpNSvDZSoix4-U-J81fM0h-0Wgync7r9M9c&c=weicoabroad&page=1%20HTTP/1.1
-    *since_id决定加载数
-    * s 校验参数
-    * gsid 登录用户参数
-    * page 不写会为空
-    * c	 ？weicoabroad
-    * */
+                                              @Query("client") String client,
+                                              @Query("ncid") String ncid,
+                                              @Query("create_time") String create_time);
+
+    /*_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc
+     * http://api.weibo.cn/2/statuses/friends_timeline?since_id=4272884404727884&s=606388e6&gsid=_2A252dj4mDeRxGeNH61cX8yvNyT6IHXVTIjburDV6PUJbkdAKLUfykWpNSvDZSoix4-U-J81fM0h-0Wgync7r9M9c&c=weicoabroad&page=1%20HTTP/1.1
+     *since_id决定加载数
+     * s 校验参数
+     * gsid 登录用户参数
+     * page 不写会为空
+     * c	 ？weicoabroad
+     * */
+    @GET("statuses/friends_timeline")
+    Observable<WeiBoNewsList> getWeiBoNews(@Query("since_id") String sinceId,
+                                           @Query("s") String s,
+                                           @Query("gsid") String gsid,
+                                           @Query("page") int page,
+                                           @Query("c") String c,
+                                           @Query("from") String from,
+                                           @Query("wm") String wm,
+                                           @Query("source") String source,
+                                           @Query("advance_enable") String advance_enable);
 }

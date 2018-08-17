@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
@@ -35,6 +36,10 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
     private NbaDetailAdapter mNbaDetailAdapter;
     private NbaDetailHeaderView mNbaDetailHeaderView;
     private NbaDetailLightView mNbaDetailLightView;
+    private BaseEndlessListener<NbaNewsComment.DataBean> mEndlessListener;
+    public String mNcid, mCreateTime;
+    public String nid;
+    public boolean isHasMore=true;
 
     public static NbaDetailFragment getInstance() {
         NbaDetailFragment fragment = new NbaDetailFragment();
@@ -64,18 +69,40 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
                 outRect.set(0, 0, 0, line);
             }
         });
-
         mNbaDetailHeaderView = new NbaDetailHeaderView(getActivity());
         mNbaDetailLightView = new NbaDetailLightView(getActivity());
-        final String nid = getActivity().getIntent().getStringExtra(NBA_NID);
+        nid = getActivity().getIntent().getStringExtra(NBA_NID);
+        mNewsPresenter.loadNbaComment(nid);
         mNewsPresenter.loadNbaDetail(nid);
         mRvNbaDetail.setAdapter(mNbaDetailAdapter);
         mSrlNbaDetail.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 mNewsPresenter.loadNbaDetail(nid);
+                mNewsPresenter.loadNbaComment(nid);
             }
         });
+        mEndlessListener = new BaseEndlessListener<>(getContext(), mNbaDetailAdapter);
+        mRvNbaDetail.addOnScrollListener(mEndlessListener);
+        setEndlessListener();
+    }
+
+    private void setEndlessListener() {
+        mEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
+            @Override
+            public void onLoadData() {
+                loadMoreData();
+            }
+
+            @Override
+            public boolean shouldLoadData() {
+                return isHasMore;
+            }
+        });
+    }
+
+    private void loadMoreData() {
+        mNewsPresenter.loadMoreNbaComment(nid, mNcid, mCreateTime);
     }
 
     @Override
@@ -94,21 +121,33 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
 
     @Override
     public void showCommentData(NbaNewsComment commentData) {
-        mNbaDetailAdapter.setData(commentData.getData(), false);
-        if (commentData.getLight_comments()!= null&&commentData.getLight_comments().size()>0) {
+        mNbaDetailAdapter.setData(commentData.getData(), true);
+        if (commentData.getLight_comments() != null && commentData.getLight_comments().size() > 0) {
             mNbaDetailLightView.setData(commentData);
             mNbaDetailAdapter.setLightCommentView(mNbaDetailLightView);
+        }else {
+            mNbaDetailAdapter.removeLightCommentView();
         }
-        if (commentData.getData() == null) {
-            mNbaDetailHeaderView.setNomore(true);
-        } else {
-            mNbaDetailHeaderView.setNomore(false);
+        mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
+        mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
+    }
+
+    @Override
+    public void showMoreCommentData(NbaNewsComment commentData) {
+        if (commentData.getData() != null && commentData.getData().size() > 0) {
+            mNbaDetailAdapter.setData(commentData.getData(), false);
+            mNcid = commentData.getData().get(commentData.getData().size()-1).getNcid();
+            mCreateTime = commentData.getData().get(commentData.getData().size()-1).getCreate_time();
+        }else {
+            isHasMore=false;
+            mEndlessListener.onLoadComplete();
         }
     }
 
     @Override
     public void hideDialog() {
         mSrlNbaDetail.setRefreshing(false);
+        mEndlessListener.onLoadComplete();
     }
 
     @Override

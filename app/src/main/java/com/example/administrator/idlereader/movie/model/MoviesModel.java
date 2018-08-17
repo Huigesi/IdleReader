@@ -36,7 +36,6 @@ public class MoviesModel implements IMoviesModel {
                     @Override
                     public void onNext(MoviesBean moviesBean) {
                         iMoviesLoadListener.success(moviesBean);
-                        Log.i(TAG, "onNext: "+moviesBean.getTotal());
                     }
                 });
     }

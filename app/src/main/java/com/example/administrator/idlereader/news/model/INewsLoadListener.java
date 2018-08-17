@@ -24,4 +24,5 @@ public interface INewsLoadListener {
     void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews);
 
     void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment);
+    void loadMoreNbaCommentSuccess(NbaNewsComment nbaNewsComment);
 }

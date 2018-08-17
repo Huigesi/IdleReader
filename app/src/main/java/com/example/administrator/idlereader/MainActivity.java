@@ -12,9 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.administrator.idlereader.bean.WeatherBean;
-import com.example.administrator.idlereader.bean.hupu.HupuNews;
-import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNewsList;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
@@ -23,13 +21,9 @@ import com.example.administrator.idlereader.video.FgVideoFragment;
 
 import java.util.ArrayList;
 
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
-
-import static com.example.administrator.idlereader.http.Api.HUPU_NBA;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
@@ -52,7 +46,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
         initContentFragment();
+        String sinceid = "0";
+        String s = "606388e6";
+        String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
+        int page = 1;
+        String c = "weicoabroad";
+        RetrofitHelper.getInstance(Api.WEIBO_LIST)
+                .getWeiBoNews(sinceid,s,gsid,page,c)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoNewsList>() {
+                    @Override
+                    public void onCompleted() {
 
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: ");
+                        //java.lang.NumberFormatException: Invalid double: ""
+                    }
+
+                    @Override
+                    public void onNext(WeiBoNewsList weiBoNewsList) {
+                        Log.i(TAG, "onNext: ");
+                    }
+                });
     }
 
 

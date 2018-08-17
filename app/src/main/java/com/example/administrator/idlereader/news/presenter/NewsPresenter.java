@@ -76,12 +76,16 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaDetail(String nid) {
         iNewsModel.loadNbaDetails(nid,this);
-        iNewsModel.loadNbaComment(nid, this);
+    }
+
+    @Override
+    public void loadMoreNbaComment(String nid, String ncid, String createTime) {
+        iNewsModel.loadNbaComment(nid,ncid,createTime,this);
     }
 
     @Override
     public void loadNbaComment(String nid) {
-
+        iNewsModel.loadNbaComment(nid, null,null,this);
     }
 
     @Override
@@ -125,6 +129,12 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
         mINbaDetailView.showCommentData(nbaNewsComment);
+        mINbaDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadMoreNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
+        mINbaDetailView.showMoreCommentData(nbaNewsComment);
         mINbaDetailView.hideDialog();
     }
 

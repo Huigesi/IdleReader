@@ -17,5 +17,6 @@ public interface INewsModel {
                         INewsLoadListener iNewsLoadListener);
 
     void loadNbaComment(String nid,
+                        String ncid,String createTime,
                         INewsLoadListener iNewsLoadListener);
 }

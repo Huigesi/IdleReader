@@ -26,6 +26,10 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
         this.mLightCommentView = lightCommentView;
         notifyDataSetChanged();
     }
+    public void removeLightCommentView() {
+        this.mLightCommentView = null;
+        notifyDataSetChanged();
+    }
 
     public NbaDetailAdapter(Context context) {
         super(context);
