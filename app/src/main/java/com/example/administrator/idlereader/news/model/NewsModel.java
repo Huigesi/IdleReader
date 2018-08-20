@@ -10,7 +10,27 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
-import com.example.administrator.idlereader.news.view.IWeiBoView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -143,8 +163,13 @@ public class NewsModel implements INewsModel {
         String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
         int page = 1;
         String c = "weicoabroad";
-        RetrofitHelper.getInstance(Api.WEIBO_LIST)
-                .getWeiBoNews(sinceid,s,gsid,page,c)
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Integer.class, new IntegerDefault0Adapter());
+        gsonBuilder.registerTypeAdapter(int.class, new IntegerDefault0Adapter());
+        Gson gson = gsonBuilder.create();
+
+        RetrofitHelper.getInstance(Api.WEIBO_LIST,gson)
+                .getWeiBoNews(sinceid, s, gsid, page, c)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoNews>() {
@@ -157,14 +182,68 @@ public class NewsModel implements INewsModel {
                     public void onError(Throwable e) {
                         Log.i(TAG, "onError: ");
                         iNewsLoadListener.fail(e);
-                        //java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 93835 path $.statuses[11].annotations[0]
+                        //java.lang.IllegalStateException: Expected a double but was END_ARRAY at line 1 column 5863 path $.statuses[0].retweeted_status.biz_ids[1]
                     }
 
                     @Override
                     public void onNext(WeiBoNews weiBoNewsList) {
-                        Log.i(TAG, "onNext: "+weiBoNewsList.getStatuses().get(0).getText());
+                        Log.i(TAG, "onNext: " + weiBoNewsList.getStatuses().get(0).getText());
                         iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
                     }
                 });
     }
+
+    public class IntegerDefault0Adapter implements JsonSerializer, JsonDeserializer {
+        @Override
+        public Integer deserialize(JsonElement json, Type typeOfT,
+                                   JsonDeserializationContext context)
+                throws JsonParseException {
+            try {
+                if (json.getAsString().equals("")){
+                    return 0;
+                }
+            } catch (Exception ignore){
+            }
+            try {
+                return json.getAsInt();
+            } catch (NumberFormatException e) {
+                throw new JsonSyntaxException(e);
+            }
+        }
+
+        @Override
+        public JsonElement serialize(Object src, Type typeOfSrc, JsonSerializationContext context) {
+            return new JsonPrimitive(String.valueOf(src));
+        }
+    }
+
+
+    public class IntegerTypeAdapter extends TypeAdapter<Number> {
+        @Override
+        public void write(JsonWriter jsonWriter, Number number) throws IOException {
+            if (number == null) {
+                jsonWriter.nullValue();
+                return;
+            }
+            jsonWriter.value(number);
+        }
+
+        @Override
+        public Number read(JsonReader jsonReader) throws IOException {
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.nextNull();
+                return null;
+            }
+            try {
+                String value = jsonReader.nextString();
+                if ("".equals(value)) {
+                    return 0;
+                }
+                return Integer.parseInt(value);
+            } catch (NumberFormatException e) {
+                throw new JsonSyntaxException(e);
+            }
+        }
+    }
+
 }

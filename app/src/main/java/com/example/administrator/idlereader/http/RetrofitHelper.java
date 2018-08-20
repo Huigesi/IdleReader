@@ -13,6 +13,7 @@ import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.utils.klog.KLog;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -51,11 +52,32 @@ public class RetrofitHelper {
                 .build();
          retrofitService = retrofit.create(RetrofitService.class);
     }
+    //自定义Gson适配器时用到
+    public RetrofitHelper(int host,Gson gson) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.getHost(host))
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        retrofitService = retrofit.create(RetrofitService.class);
+    }
 
     public static RetrofitHelper getInstance(int hostType) {
         RetrofitHelper instance = sInstanceManager.get(hostType);
         if (instance == null) {
             instance = new RetrofitHelper(hostType);
+            sInstanceManager.put(hostType, instance);
+            return instance;
+        } else {
+            return instance;
+        }
+    }
+
+    public static RetrofitHelper getInstance(int hostType,Gson gson) {
+        RetrofitHelper instance = sInstanceManager.get(hostType);
+        if (instance == null) {
+            instance = new RetrofitHelper(hostType,gson);
             sInstanceManager.put(hostType, instance);
             return instance;
         } else {

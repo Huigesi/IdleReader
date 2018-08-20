@@ -5607,7 +5607,6 @@ public class WeiBoNews {
             private int weibo_position;
             private EditConfigDataX edit_config;
             private List<?> pic_ids;
-            private List<Integer> biz_ids;
             private List<?> text_tag_tips;
 
             public String getCreated_at() {
@@ -5984,14 +5983,6 @@ public class WeiBoNews {
 
             public void setPic_ids(List<?> pic_ids) {
                 this.pic_ids = pic_ids;
-            }
-
-            public List<Integer> getBiz_ids() {
-                return biz_ids;
-            }
-
-            public void setBiz_ids(List<Integer> biz_ids) {
-                this.biz_ids = biz_ids;
             }
 
             public List<?> getText_tag_tips() {
