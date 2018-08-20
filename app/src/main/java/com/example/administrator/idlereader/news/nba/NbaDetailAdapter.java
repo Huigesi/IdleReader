@@ -72,7 +72,8 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
                        NbaNewsComment.DataBean data) {
         if (holder instanceof ViewHolder) {
             int weight = Resolution.dipToPx(mContext, 35);
-            GlideUtils.load(mContext, data.getHeader(), ((ViewHolder) holder).imgNbaCommentUser, weight, weight);
+            GlideUtils.loadCircle(mContext, data.getHeader(), ((ViewHolder) holder).imgNbaCommentUser,
+                    weight, weight);
             ((ViewHolder) holder).tvNbaCommentUser.setText(data.getUser_name());
             ((ViewHolder) holder).tvNbaCommentTime.setText(data.getFormat_time());
             String htmls = data.getContent();

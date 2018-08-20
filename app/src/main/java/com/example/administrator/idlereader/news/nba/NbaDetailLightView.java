@@ -42,7 +42,7 @@ public class NbaDetailLightView extends LinearLayout {
     }
 
     public void setData(NbaNewsComment data) {
-        mLightAdapter.setData(data.getLight_comments(),false);
+        mLightAdapter.setData(data.getLight_comments(), false);
         refreshUI();
     }
 
@@ -53,7 +53,7 @@ public class NbaDetailLightView extends LinearLayout {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.set(0,0,0,1);
+                outRect.set(0, 0, 0, 1);
             }
         });
         mRvNbaDetailLight.setAdapter(mLightAdapter);
@@ -78,7 +78,8 @@ public class NbaDetailLightView extends LinearLayout {
         public void onBind(RecyclerView.ViewHolder holder, int position, NbaNewsComment.LightCommentsBean data) {
             if (holder instanceof ViewHolder) {
                 int weight = Resolution.dipToPx(mContext, 35);
-                GlideUtils.load(mContext, data.getHeader(), ((ViewHolder) holder).imgNbaCommentUser, weight, weight);
+                GlideUtils.loadCircle(mContext, data.getHeader(), ((ViewHolder) holder)
+                        .imgNbaCommentUser, weight, weight);
                 ((ViewHolder) holder).tvNbaCommentUser.setText(data.getUser_name());
                 ((ViewHolder) holder).tvNbaCommentTime.setText(data.getFormat_time());
                 String htmls = data.getContent();
@@ -97,6 +98,7 @@ public class NbaDetailLightView extends LinearLayout {
             }
         }
     }
+
     protected class ViewHolder extends BaseRecyclerViewAdapter.Holder {
         private ImageView imgNbaCommentUser;
         private TextView tvNbaCommentUser;
