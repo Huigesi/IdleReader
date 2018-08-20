@@ -76,7 +76,7 @@
                         android:layout_height="20dp"
                         android:layout_marginRight="2dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/speech" />
+                        android:src="@drawable/speach" />
 
                     <TextView
                         android:id="@+id/tv_nba_comment"
@@ -177,7 +177,7 @@
                     android:layout_height="20dp"
                     android:layout_marginRight="2dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/speech" />
+                    android:src="@drawable/speach" />
 
                 <TextView
                     android:id="@+id/tv_nba_comment_thumbs"

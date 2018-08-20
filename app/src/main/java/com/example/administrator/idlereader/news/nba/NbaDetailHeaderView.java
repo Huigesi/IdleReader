@@ -84,9 +84,8 @@ public class NbaDetailHeaderView extends LinearLayout {
         });
         mTvNbaDetailTitleTime.setText(mNbaDetailNews.getResult().getOffline_data().getData()
                 .getNews().getAddtime());
-        int weight = Resolution.getScreenPixWidth(getContext());
         GlideUtils.loadAuto(getContext(), mNbaDetailNews.getResult().getOffline_data()
-                .getData().getNews().getImg_m(), mImgNbaDetailContent,weight);
+                .getData().getNews().getImg_m(), mImgNbaDetailContent);
         String htmls = mNbaDetailNews.getResult().getOffline_data().getData().getNews().getContent();
         mWvNbaDetailContent.getSettings().setUseWideViewPort(false);
         mWvNbaDetailContent.getSettings().setLoadsImagesAutomatically(true);

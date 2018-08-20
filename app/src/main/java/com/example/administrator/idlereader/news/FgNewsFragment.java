@@ -46,7 +46,7 @@ public class FgNewsFragment extends Fragment  {
         vp_news = (ViewPager) view.findViewById(R.id.vp_news);
         setViewPager();
         //预加载界面数
-        vp_news.setOffscreenPageLimit(2);
+        vp_news.setOffscreenPageLimit(3);
         tl_news.setupWithViewPager(vp_news);
         int marge = Resolution.dipToPx(getContext(), 25);
         UIUtils.setUpIndicatorWidth(tl_news,marge,marge);

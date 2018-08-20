@@ -49,7 +49,7 @@ public class GlideUtils {
                 .into(view);
     }
 
-    public static void loadAuto(final Context context, String url, final ImageView view, final int weight) {
+    public static void loadAuto(final Context context, String url, final ImageView view) {
         Glide.with(context)
                 .load(url)
                 .asBitmap()
