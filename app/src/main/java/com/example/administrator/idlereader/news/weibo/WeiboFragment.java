@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.weibo;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +21,8 @@ import com.example.administrator.idlereader.news.view.IWeiBoView;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,6 +61,12 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
                 getResources().getColor(R.color.colorTheme)));
         mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
         mRvNews.setLayoutManager(mLinearLayoutManager);
+        mSrlNews.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mNewsPresenter.loadWeibo(String.valueOf(0));
+            }
+        });
         final int line = Resolution.dipToPx(getActivity(), 5);
         mRvNews.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
@@ -89,7 +98,6 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
 
     @Override
     public void showData(WeiBoNews data) {
-        Log.i(TAG, "showData: "+data.getStatuses().get(0).getText());
         mWeiboNewsAdapter.setData(data.getStatuses(), true);
     }
 
