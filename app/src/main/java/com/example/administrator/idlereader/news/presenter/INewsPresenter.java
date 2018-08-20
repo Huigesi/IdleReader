@@ -15,4 +15,6 @@ public interface INewsPresenter {
     void loadMoreNbaComment(String nid,String ncid,String createTime);
 
     void loadNbaComment(String nid);
+
+    void loadWeibo(String sinceid);
 }

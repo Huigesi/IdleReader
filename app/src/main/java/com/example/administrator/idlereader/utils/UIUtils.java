@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.administrator.idlereader.DetailActivity;
-import com.example.administrator.idlereader.news.NbaDetailFragment;
+import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 
 import java.lang.reflect.Field;
 

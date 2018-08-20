@@ -1,4 +1,4 @@
-package com.example.administrator.idlereader.news;
+package com.example.administrator.idlereader.news.nba;
 
 import android.content.Context;
 import android.graphics.Rect;

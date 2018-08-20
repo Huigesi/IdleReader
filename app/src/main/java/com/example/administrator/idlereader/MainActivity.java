@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.administrator.idlereader.bean.weibo.WeiBoNewsList;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
@@ -51,27 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
         int page = 1;
         String c = "weicoabroad";
-        RetrofitHelper.getInstance(Api.WEIBO_LIST)
-                .getWeiBoNews(sinceid,s,gsid,page,c)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<WeiBoNewsList>() {
-                    @Override
-                    public void onCompleted() {
 
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i(TAG, "onError: ");
-                        //java.lang.NumberFormatException: Invalid double: ""
-                    }
-
-                    @Override
-                    public void onNext(WeiBoNewsList weiBoNewsList) {
-                        Log.i(TAG, "onNext: ");
-                    }
-                });
     }
 
 

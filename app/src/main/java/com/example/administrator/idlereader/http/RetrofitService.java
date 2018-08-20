@@ -8,7 +8,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
-import com.example.administrator.idlereader.bean.weibo.WeiBoNewsList;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -106,13 +106,13 @@ public interface RetrofitService {
      * c	 ？weicoabroad
      * */
     @GET("statuses/friends_timeline")
-    Observable<WeiBoNewsList> getWeiBoNews(@Query("since_id") String sinceId,
-                                           @Query("s") String s,
-                                           @Query("gsid") String gsid,
-                                           @Query("page") int page,
-                                           @Query("c") String c,
-                                           @Query("from") String from,
-                                           @Query("wm") String wm,
-                                           @Query("source") String source,
-                                           @Query("advance_enable") String advance_enable);
+    Observable<WeiBoNews> getWeiBoNews(@Query("since_id") String sinceId,
+                                       @Query("s") String s,
+                                       @Query("gsid") String gsid,
+                                       @Query("page") int page,
+                                       @Query("c") String c,
+                                       @Query("from") String from,
+                                       @Query("wm") String wm,
+                                       @Query("source") String source,
+                                       @Query("advance_enable") String advance_enable);
 }

@@ -10,6 +10,8 @@ import android.os.Bundle;
 
 import com.example.administrator.idlereader.MyFragmentAdapter;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.news.nba.HupuNBAFragment;
+import com.example.administrator.idlereader.news.weibo.WeiboFragment;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
 
@@ -46,16 +48,18 @@ public class FgNewsFragment extends Fragment  {
         //预加载界面数
         vp_news.setOffscreenPageLimit(2);
         tl_news.setupWithViewPager(vp_news);
-        int marge = Resolution.dipToPx(getContext(), 35);
+        int marge = Resolution.dipToPx(getContext(), 25);
         UIUtils.setUpIndicatorWidth(tl_news,marge,marge);
     }
 
     private void setViewPager() {
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
         fragments.add(HupuNBAFragment.getInstance());
+        fragments.add(WeiboFragment.getInstance());
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_GAME));
         fragmentTitles.add("头条");
         fragmentTitles.add("NBA");
+        fragmentTitles.add("微博");
         fragmentTitles.add("游戏");
         MyFragmentAdapter adapter=new MyFragmentAdapter(getChildFragmentManager(),
                 fragments,fragmentTitles);

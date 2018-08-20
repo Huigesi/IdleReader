@@ -7,8 +7,10 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
+import com.example.administrator.idlereader.news.view.IWeiBoView;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -131,6 +133,37 @@ public class NewsModel implements INewsModel {
                         }else {
                             iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
                         }
+                    }
+                });
+    }
+
+    @Override
+    public void loadWeibo(String sinceid, final INewsLoadListener iNewsLoadListener) {
+        String s = "606388e6";
+        String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
+        int page = 1;
+        String c = "weicoabroad";
+        RetrofitHelper.getInstance(Api.WEIBO_LIST)
+                .getWeiBoNews(sinceid,s,gsid,page,c)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoNews>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: ");
+                        iNewsLoadListener.fail(e);
+                        //java.lang.IllegalStateException: Expected BEGIN_OBJECT but was BEGIN_ARRAY at line 1 column 93835 path $.statuses[11].annotations[0]
+                    }
+
+                    @Override
+                    public void onNext(WeiBoNews weiBoNewsList) {
+                        Log.i(TAG, "onNext: "+weiBoNewsList.getStatuses().get(0).getText());
+                        iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
                     }
                 });
     }

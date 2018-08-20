@@ -5,6 +5,7 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 
 /**
  * Created by Administrator on 2018/5/19.
@@ -24,5 +25,10 @@ public interface INewsLoadListener {
     void loadNbaDetailSuccess(NbaDetailNews nbaDetailNews);
 
     void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment);
+
     void loadMoreNbaCommentSuccess(NbaNewsComment nbaNewsComment);
+
+    void loadWeiBoSuccess(WeiBoNews weiBoNews);
+
+    void loadMoreWeiBoSuccess(WeiBoNews weiBoNews);
 }

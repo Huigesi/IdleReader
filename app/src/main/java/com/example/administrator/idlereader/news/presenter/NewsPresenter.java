@@ -5,15 +5,16 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
-import com.example.administrator.idlereader.news.HupuNBAFragment;
 import com.example.administrator.idlereader.news.model.INewsLoadListener;
 import com.example.administrator.idlereader.news.model.INewsModel;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.news.view.INBAView;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
+import com.example.administrator.idlereader.news.view.IWeiBoView;
 
 /**
  * Created by Administrator on 2018/5/19.
@@ -24,6 +25,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INewsModel iNewsModel;
     private INewsView iNewsView;
     private INBAView mINBAView;
+    private IWeiBoView mIWeiBoView;
     private INbaDetailView mINbaDetailView;
     private onNidChangeListener mOnNidChangeListener;
 
@@ -40,6 +42,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public NewsPresenter(INbaDetailView INbaDetailView) {
         mINbaDetailView = INbaDetailView;
         this.iNewsModel=new NewsModel();
+    }
+
+    public NewsPresenter(IWeiBoView IWeiBoView) {
+        mIWeiBoView = IWeiBoView;
+        this.iNewsModel = new NewsModel();
     }
 
     @Override
@@ -86,6 +93,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaComment(String nid) {
         iNewsModel.loadNbaComment(nid, null,null,this);
+    }
+
+    @Override
+    public void loadWeibo(String sinceid) {
+        iNewsModel.loadWeibo(sinceid,this);
     }
 
     @Override
@@ -136,6 +148,16 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadMoreNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
         mINbaDetailView.showMoreCommentData(nbaNewsComment);
         mINbaDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadWeiBoSuccess(WeiBoNews weiBoNews) {
+        mIWeiBoView.showData(weiBoNews);
+    }
+
+    @Override
+    public void loadMoreWeiBoSuccess(WeiBoNews weiBoNews) {
+
     }
 
     public interface onNidChangeListener {

@@ -19,4 +19,7 @@ public interface INewsModel {
     void loadNbaComment(String nid,
                         String ncid,String createTime,
                         INewsLoadListener iNewsLoadListener);
+
+    void loadWeibo(String sinceid,
+                   INewsLoadListener iNewsLoadListener);
 }
