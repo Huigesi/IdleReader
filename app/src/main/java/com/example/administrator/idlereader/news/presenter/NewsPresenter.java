@@ -153,6 +153,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadWeiBoSuccess(WeiBoNews weiBoNews) {
         mIWeiBoView.showData(weiBoNews);
+        mIWeiBoView.hideDialog();
     }
 
     @Override

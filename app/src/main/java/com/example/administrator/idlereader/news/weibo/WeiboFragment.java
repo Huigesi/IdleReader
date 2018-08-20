@@ -88,7 +88,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
 
     @Override
     public void hideDialog() {
-
+        mSrlNews.finishRefresh(0);
     }
 
     @Override

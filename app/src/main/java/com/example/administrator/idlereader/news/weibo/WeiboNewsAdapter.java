@@ -17,6 +17,8 @@ import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 
+import cn.jzvd.JZVideoPlayerStandard;
+
 public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.StatusesData>{
     public ImgAdapter mImgAdapter;
     public WeiboNewsAdapter(Context context) {
@@ -35,6 +37,9 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
     @Override
     public void onBind(RecyclerView.ViewHolder holder, int position, WeiBoNews.StatusesData data) {
         if (holder instanceof NewsViewHolder) {
+            if (data == null) {
+                return;
+            }
             int weight = Resolution.dipToPx(mContext, 35);
             GlideUtils.loadCircle(mContext,data.getUser().getProfile_image_url(),
                     ((NewsViewHolder) holder).imgWeiboUser,weight,weight);
@@ -54,6 +59,16 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             }else {
                 ((NewsViewHolder) holder).llWeiboImg.setVisibility(View.GONE);
             }
+            if (data.getPage_info()!=null&&data.getPage_info().getMedia_info() != null) {
+                ((NewsViewHolder) holder).mVideo.setVisibility(View.VISIBLE);
+                GlideUtils.loadAuto(mContext,data.getPage_info().getPage_pic(),
+                        ((NewsViewHolder) holder).mVideo.thumbImageView);
+                ((NewsViewHolder) holder).mVideo.setUp(
+                        data.getPage_info().getMedia_info().getMp4_hd_url(),
+                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+            }else {
+                ((NewsViewHolder) holder).mVideo.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -68,6 +83,7 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         private TextView tvWeiboLike;
         private TextView tvWeiboComment;
         private TextView tvWeiboZhuan;
+        private JZVideoPlayerStandard mVideo;
 
         public NewsViewHolder(View view) {
             super(view);
@@ -81,6 +97,7 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             tvWeiboLike = (TextView) view.findViewById(R.id.tv_weibo_like);
             tvWeiboComment = (TextView) view.findViewById(R.id.tv_weibo_comment);
             tvWeiboZhuan = (TextView) view.findViewById(R.id.tv_weibo_zhuan);
+            mVideo = (JZVideoPlayerStandard) view.findViewById(R.id.video_weibo);
         }
     }
 
@@ -101,7 +118,7 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         @Override
         public void onBind(RecyclerView.ViewHolder holder, int position, String data) {
             if (holder instanceof ViewHolder) {
-                int weight = Resolution.dipToPx(this.mContext, 100);
+                int weight = Resolution.dipToPx(this.mContext, 120);
                 String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
                 GlideUtils.load(mContext,imgUrl,((ViewHolder) holder).mImageView,weight,weight);
                 ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
