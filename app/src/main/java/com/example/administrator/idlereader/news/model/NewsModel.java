@@ -187,7 +187,6 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(WeiBoNews weiBoNewsList) {
-                        Log.i(TAG, "onNext: " + weiBoNewsList.getStatuses().get(0).getText());
                         iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
                     }
                 });

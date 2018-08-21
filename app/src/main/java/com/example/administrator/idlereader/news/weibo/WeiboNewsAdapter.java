@@ -19,8 +19,9 @@ import com.example.administrator.idlereader.utils.Resolution;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
-public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.StatusesData>{
+public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.StatusesData> {
     public ImgAdapter mImgAdapter;
+
     public WeiboNewsAdapter(Context context) {
         super(context);
     }
@@ -41,8 +42,8 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 return;
             }
             int weight = Resolution.dipToPx(mContext, 35);
-            GlideUtils.loadCircle(mContext,data.getUser().getProfile_image_url(),
-                    ((NewsViewHolder) holder).imgWeiboUser,weight,weight);
+            GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
+                    ((NewsViewHolder) holder).imgWeiboUser, weight, weight);
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             ((NewsViewHolder) holder).tvWeiboTime.setText(data.getCreated_at());
             ((NewsViewHolder) holder).tvWeiboContentText.setText(data.getText());
@@ -52,22 +53,45 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             if (data.getPic_ids() != null && data.getPic_ids().size() > 0) {
                 ((NewsViewHolder) holder).llWeiboImg.setVisibility(View.VISIBLE);
                 ((NewsViewHolder) holder).rvWeiboImgs.setLayoutManager(new GridLayoutManager(
-                        mContext,3));
+                        mContext, 3));
                 mImgAdapter = new ImgAdapter(mContext);
                 mImgAdapter.setData(data.getPic_ids(), true);
                 ((NewsViewHolder) holder).rvWeiboImgs.setAdapter(mImgAdapter);
-            }else {
+            } else {
                 ((NewsViewHolder) holder).llWeiboImg.setVisibility(View.GONE);
             }
-            if (data.getPage_info()!=null&&data.getPage_info().getMedia_info() != null) {
-                ((NewsViewHolder) holder).mVideo.setVisibility(View.VISIBLE);
-                GlideUtils.loadAuto(mContext,data.getPage_info().getPage_pic(),
-                        ((NewsViewHolder) holder).mVideo.thumbImageView);
-                ((NewsViewHolder) holder).mVideo.setUp(
+            if (data.getRetweeted_status() != null) {
+                ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.VISIBLE);
+                ((NewsViewHolder) holder).tvRetweetedContent.setText(data.getRetweeted_status()
+                        .getUser().getName() + " : " + data.getRetweeted_status().getText());
+                ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()
+                        .getReposts_count());
+                ((NewsViewHolder) holder).tvRetweetedComment.setText("评论 " + data.getRetweeted_status()
+                        .getComments_count());
+                ((NewsViewHolder) holder).tvRetweetedLike.setText("赞 " + data.getRetweeted_status()
+                        .getAttitudes_count());
+                if (data.getRetweeted_status().getPic_ids() != null && data.getPic_ids().size() > 0) {
+                    ((NewsViewHolder) holder).llWeiboRetweetedImg.setVisibility(View.VISIBLE);
+                    mImgAdapter = new ImgAdapter(mContext);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setAdapter(mImgAdapter);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setLayoutManager(new GridLayoutManager(
+                            mContext, 3));
+                    mImgAdapter.setData(data.getRetweeted_status().getPic_ids(), true);
+                }else {
+                    ((NewsViewHolder) holder).llWeiboRetweetedImg.setVisibility(View.GONE);
+                }
+            } else {
+                ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.GONE);
+            }
+            if (data.getPage_info() != null && data.getPage_info().getMedia_info() != null) {
+                ((NewsViewHolder) holder).videoWeibo.setVisibility(View.VISIBLE);
+                GlideUtils.loadAuto(mContext, data.getPage_info().getPage_pic(),
+                        ((NewsViewHolder) holder).videoWeibo.thumbImageView);
+                ((NewsViewHolder) holder).videoWeibo.setUp(
                         data.getPage_info().getMedia_info().getMp4_sd_url(),
                         JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
-            }else {
-                ((NewsViewHolder) holder).mVideo.setVisibility(View.GONE);
+            } else {
+                ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
             }
         }
     }
@@ -77,13 +101,20 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         private TextView tvWeiboUser;
         private TextView tvWeiboTime;
         private TextView tvWeiboContentText;
+        private JZVideoPlayerStandard videoWeibo;
         private LinearLayout llWeiboImg;
         private RecyclerView rvWeiboImgs;
+        private LinearLayout llWeiboRetweeted;
+        private TextView tvRetweetedContent;
+        private TextView tvRetweetedReport;
+        private TextView tvRetweetedComment;
+        private TextView tvRetweetedLike;
+        private LinearLayout llWeiboRetweetedImg;
+        private RecyclerView rvRetweetedImgs;
         private LinearLayout llWeiboBtns;
         private TextView tvWeiboLike;
         private TextView tvWeiboComment;
         private TextView tvWeiboZhuan;
-        private JZVideoPlayerStandard mVideo;
 
         public NewsViewHolder(View view) {
             super(view);
@@ -91,13 +122,20 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             tvWeiboUser = (TextView) view.findViewById(R.id.tv_weibo_user);
             tvWeiboTime = (TextView) view.findViewById(R.id.tv_weibo_time);
             tvWeiboContentText = (TextView) view.findViewById(R.id.tv_weibo_contentText);
+            videoWeibo = (JZVideoPlayerStandard) view.findViewById(R.id.video_weibo);
             llWeiboImg = (LinearLayout) view.findViewById(R.id.ll_weibo_img);
             rvWeiboImgs = (RecyclerView) view.findViewById(R.id.rv_weibo_imgs);
+            llWeiboRetweeted = (LinearLayout) view.findViewById(R.id.ll_weibo_retweeted);
+            tvRetweetedContent = (TextView) view.findViewById(R.id.tv_retweeted_content);
+            tvRetweetedReport = (TextView) view.findViewById(R.id.tv_retweeted_report);
+            tvRetweetedComment = (TextView) view.findViewById(R.id.tv_retweeted_comment);
+            tvRetweetedLike = (TextView) view.findViewById(R.id.tv_retweeted_like);
+            llWeiboRetweetedImg = (LinearLayout) view.findViewById(R.id.ll_weibo_retweeted_img);
+            rvRetweetedImgs = (RecyclerView) view.findViewById(R.id.rv_retweeted_imgs);
             llWeiboBtns = (LinearLayout) view.findViewById(R.id.ll_weibo_btns);
             tvWeiboLike = (TextView) view.findViewById(R.id.tv_weibo_like);
             tvWeiboComment = (TextView) view.findViewById(R.id.tv_weibo_comment);
             tvWeiboZhuan = (TextView) view.findViewById(R.id.tv_weibo_zhuan);
-            mVideo = (JZVideoPlayerStandard) view.findViewById(R.id.video_weibo);
         }
     }
 
@@ -120,15 +158,17 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             if (holder instanceof ViewHolder) {
                 int weight = Resolution.dipToPx(this.mContext, 120);
                 String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
-                GlideUtils.load(mContext,imgUrl,((ViewHolder) holder).mImageView,weight,weight);
+                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
                 ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
                 int margin4 = Resolution.dipToPx(mContext, 3);
                 params.setMargins(0, 0, margin4, margin4);
                 holder.itemView.setLayoutParams(params);
             }
         }
-        public class ViewHolder extends Holder{
+
+        public class ViewHolder extends Holder {
             public ImageView mImageView;
+
             public ViewHolder(View itemView) {
                 super(itemView);
                 mImageView = itemView.findViewById(R.id.img_rv);

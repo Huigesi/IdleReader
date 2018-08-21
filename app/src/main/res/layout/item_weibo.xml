@@ -4,14 +4,13 @@
     android:layout_height="wrap_content"
     android:background="@color/colorWhite"
     android:orientation="vertical"
-    android:paddingTop="10dp"
-    >
+    android:paddingTop="10dp">
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -47,113 +46,198 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/tv_weibo_contentText"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/text_common"
-            android:lineSpacingExtra="7dp"
-            android:textSize="16sp"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_weibo_contentText"/>
-        <cn.jzvd.JZVideoPlayerStandard
+            android:lineSpacingExtra="7dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/text_common"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_weibo_img"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/video_weibo"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
             android:visibility="gone">
 
-        </cn.jzvd.JZVideoPlayerStandard>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ll_weibo_img"
-            android:layout_marginBottom="10dp"
-            android:visibility="gone"
-            android:orientation="vertical"
-            android:focusableInTouchMode="true"
-            android:focusable="true">
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_weibo_imgs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rv_weibo_imgs">
+                android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_weibo_retweeted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTabret"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_retweeted_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:lineSpacingExtra="6dp"
+            android:textColor="@color/colorTabText"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_retweeted_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text=" 22"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_retweeted_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text=" 22"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tv_retweeted_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 22"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_weibo_retweeted_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_retweeted_imgs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <cn.jzvd.JZVideoPlayerStandard
+            android:id="@+id/video_weibo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone">
+
+        </cn.jzvd.JZVideoPlayerStandard>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="10dp"
         android:layout_height="1dp"
-        android:background="@color/colorLine"/>
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/colorLine" />
+
     <LinearLayout
+        android:id="@+id/ll_weibo_btns"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:id="@+id/ll_weibo_btns"
         android:gravity="center"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:src="@drawable/like"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginRight="5dp"
+                android:src="@drawable/like" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/colorSubtitle"
                 android:id="@+id/tv_weibo_like"
-                android:text="99"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="12sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginTop="1dp"
-                android:layout_height="15dp"
-                android:src="@drawable/comment"
-                android:layout_marginRight="5dp"/>
+                android:src="@drawable/comment" />
+
             <TextView
+                android:id="@+id/tv_weibo_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:text="99"
                 android:textColor="@color/colorSubtitle"
-                android:id="@+id/tv_weibo_comment"
-                android:text="99"/>
+                android:textSize="12sp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:layout_marginRight="5dp"
                 android:padding="1dp"
-                android:src="@drawable/share"
-                android:layout_marginRight="5dp"/>
+                android:src="@drawable/share" />
+
             <TextView
-                android:textSize="12sp"
-                android:textColor="@color/colorSubtitle"
+                android:id="@+id/tv_weibo_zhuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_weibo_zhuan"
-                android:text="99"/>
+                android:text="99"
+                android:textColor="@color/colorSubtitle"
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

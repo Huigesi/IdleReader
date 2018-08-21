@@ -14,7 +14,7 @@
     <color name="colorTabBg">#ffffffff</color>
     <color name="colorTabTextCheck">#ffce3d3a</color>
     <color name="colorTabTextNormal">#e28b89</color>
-
+    <color name="colorTabret">#F4F4F4</color>
     <!--侧边栏分割线-->
     <color name="colorNavLine">#E0E0E0</color>
 
