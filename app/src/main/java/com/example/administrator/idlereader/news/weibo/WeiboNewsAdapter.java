@@ -64,8 +64,8 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 GlideUtils.loadAuto(mContext,data.getPage_info().getPage_pic(),
                         ((NewsViewHolder) holder).mVideo.thumbImageView);
                 ((NewsViewHolder) holder).mVideo.setUp(
-                        data.getPage_info().getMedia_info().getMp4_hd_url(),
-                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+                        data.getPage_info().getMedia_info().getMp4_sd_url(),
+                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL,mContext);
             }else {
                 ((NewsViewHolder) holder).mVideo.setVisibility(View.GONE);
             }

@@ -63,7 +63,7 @@
             android:id="@+id/tv_weibo_contentText"/>
         <cn.jzvd.JZVideoPlayerStandard
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:id="@+id/video_weibo"
             android:visibility="gone">
 
