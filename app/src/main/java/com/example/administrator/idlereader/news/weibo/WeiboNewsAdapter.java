@@ -65,7 +65,7 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                         ((NewsViewHolder) holder).mVideo.thumbImageView);
                 ((NewsViewHolder) holder).mVideo.setUp(
                         data.getPage_info().getMedia_info().getMp4_sd_url(),
-                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL,mContext);
+                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
             }else {
                 ((NewsViewHolder) holder).mVideo.setVisibility(View.GONE);
             }
