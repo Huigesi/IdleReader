@@ -46,7 +46,7 @@ import android.widget.ScrollView;
 public class SwipeBackLayout extends ViewGroup {
 
     private static final String TAG = "SwipeBackLayout";
-    private static final int MIN_FLING_VELOCITY = 400;
+    private static final int MIN_FLING_VELOCITY = 200;
     private int mScreenWidth;
 
     public enum DragDirectMode {
