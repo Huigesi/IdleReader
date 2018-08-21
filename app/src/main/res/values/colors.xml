@@ -17,6 +17,8 @@
     <color name="colorTabret">#F4F4F4</color>
     <color name="DoderBlue">#1E90FF</color>
     <color name="RoyalBlue">#4169E1</color>
+    <color name="LightSteelBlue">#B0C4DE</color>
+    <color name="weiboLight">#507DAF</color>
     <!--侧边栏分割线-->
     <color name="colorNavLine">#E0E0E0</color>
 

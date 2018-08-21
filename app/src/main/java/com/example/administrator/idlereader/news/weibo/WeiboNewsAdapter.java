@@ -19,6 +19,7 @@ import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.UIUtils;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
@@ -49,7 +50,8 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                     ((NewsViewHolder) holder).imgWeiboUser, weight, weight);
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             ((NewsViewHolder) holder).tvWeiboTime.setText(data.getCreated_at());
-            ((NewsViewHolder) holder).tvWeiboContentText.setText(data.getText());
+            SpannableString content = UIUtils.setTextHighLight(mContext,data.getText(),null);
+            ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
             ((NewsViewHolder) holder).tvWeiboComment.setText(String.valueOf(data.getComments_count()));
             ((NewsViewHolder) holder).tvWeiboZhuan.setText(String.valueOf(data.getReposts_count()));
@@ -79,12 +81,13 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                         .getUser().getName();
                 String retWeedText = data.getRetweeted_status()
                         .getText();
-                SpannableString spannableString = new SpannableString(userName+ " : " + retWeedText);
-                ForegroundColorSpan span = new ForegroundColorSpan(holder.itemView.getContext()
+                SpannableString retweeted = UIUtils.setTextHighLight(mContext,userName+" : "+retWeedText,userName);
+                /*ForegroundColorSpan span = new ForegroundColorSpan(holder.itemView.getContext()
                         .getResources().getColor(R.color.RoyalBlue));
                 spannableString.setSpan(span, 0, userName.length(),
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                ((NewsViewHolder) holder).tvRetweetedContent.setText(spannableString);
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
+                ((NewsViewHolder) holder).tvRetweetedContent.setText(
+                        retweeted);
                 ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()
                         .getReposts_count());
                 ((NewsViewHolder) holder).tvRetweetedComment.setText("评论 " + data.getRetweeted_status()
