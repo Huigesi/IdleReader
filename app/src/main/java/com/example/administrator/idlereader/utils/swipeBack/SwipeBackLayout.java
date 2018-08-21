@@ -167,6 +167,7 @@ public class SwipeBackLayout extends ViewGroup {
     float offsetX = 0;
     private float mDownX;
     private float mSlidDistantX;
+
     private void chkDragable() {
         setOnTouchListener(new View.OnTouchListener() {
             @Override
