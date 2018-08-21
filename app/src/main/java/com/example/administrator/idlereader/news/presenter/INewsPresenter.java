@@ -16,5 +16,5 @@ public interface INewsPresenter {
 
     void loadNbaComment(String nid);
 
-    void loadWeibo(String sinceid);
+    void loadWeibo(String sinceid,int page);
 }

@@ -21,5 +21,6 @@ public interface INewsModel {
                         INewsLoadListener iNewsLoadListener);
 
     void loadWeibo(String sinceid,
+                   int page,
                    INewsLoadListener iNewsLoadListener);
 }

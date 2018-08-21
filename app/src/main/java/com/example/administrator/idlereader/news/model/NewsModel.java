@@ -158,10 +158,9 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeibo(String sinceid, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeibo(String sinceid, final int page, final INewsLoadListener iNewsLoadListener) {
         String s = "606388e6";
         String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
-        int page = 1;
         String c = "weicoabroad";
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Integer.class, new IntegerDefault0Adapter());
@@ -180,14 +179,17 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: ");
                         iNewsLoadListener.fail(e);
                         //java.lang.IllegalStateException: Expected a double but was END_ARRAY at line 1 column 5863 path $.statuses[0].retweeted_status.biz_ids[1]
                     }
 
                     @Override
                     public void onNext(WeiBoNews weiBoNewsList) {
-                        iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
+                        if (page > 1) {
+                            iNewsLoadListener.loadMoreWeiBoSuccess(weiBoNewsList);
+                        }else {
+                            iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
+                        }
                     }
                 });
     }

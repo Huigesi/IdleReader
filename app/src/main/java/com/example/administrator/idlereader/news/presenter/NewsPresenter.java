@@ -96,8 +96,8 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
-    public void loadWeibo(String sinceid) {
-        iNewsModel.loadWeibo(sinceid,this);
+    public void loadWeibo(String sinceid,int page) {
+        iNewsModel.loadWeibo(sinceid,page,this);
     }
 
     @Override
@@ -158,7 +158,8 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     @Override
     public void loadMoreWeiBoSuccess(WeiBoNews weiBoNews) {
-
+        mIWeiBoView.showMoreData(weiBoNews);
+        mIWeiBoView.hideDialog();
     }
 
     public interface onNidChangeListener {

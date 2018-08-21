@@ -22,6 +22,7 @@ import com.example.administrator.idlereader.utils.Resolution;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
@@ -38,6 +39,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
     private LinearLayoutManager mLinearLayoutManager;
     private NewsPresenter mNewsPresenter;
     private WeiboNewsAdapter mWeiboNewsAdapter;
+    private int page=1;
 
     public static WeiboFragment getInstance() {
         WeiboFragment fragment = new WeiboFragment();
@@ -64,7 +66,14 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeibo(String.valueOf(0));
+                mNewsPresenter.loadWeibo(String.valueOf(0),1);
+            }
+        });
+        mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                mNewsPresenter.loadWeibo(String.valueOf(0),page);
             }
         });
         final int line = Resolution.dipToPx(getActivity(), 5);
@@ -76,7 +85,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
             }
         });
         mRvNews.setHasFixedSize(true);
-        mNewsPresenter.loadWeibo(String.valueOf(0));
+        mNewsPresenter.loadWeibo(String.valueOf(0),1);
         mRvNews.setAdapter(mWeiboNewsAdapter);
     }
 
@@ -89,6 +98,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
     @Override
     public void hideDialog() {
         mSrlNews.finishRefresh(0);
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override
@@ -103,6 +113,6 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
 
     @Override
     public void showMoreData(WeiBoNews moreData) {
-
+        mWeiboNewsAdapter.setData(moreData.getStatuses(), false);
     }
 }
