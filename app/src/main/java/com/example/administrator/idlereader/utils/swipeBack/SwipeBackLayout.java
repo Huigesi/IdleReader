@@ -46,6 +46,8 @@ import android.widget.ScrollView;
 public class SwipeBackLayout extends ViewGroup {
 
     private static final String TAG = "SwipeBackLayout";
+    private static final int MIN_FLING_VELOCITY = 400;
+    private int mScreenWidth;
 
     public enum DragDirectMode {
         EDGE,
@@ -80,7 +82,10 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    private static final double AUTO_FINISHED_SPEED_LIMIT = 2000.0;
+    private static final double AUTO_FINISHED_SPEED_LIMIT = 1000.0;
+
+    final float density = getResources().getDisplayMetrics().density;
+    final float minVel = MIN_FLING_VELOCITY * density;
 
     private final ViewDragHelper viewDragHelper;
 
@@ -147,6 +152,9 @@ public class SwipeBackLayout extends ViewGroup {
         super(context, attrs);
 
         viewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelperCallBack());
+        viewDragHelper.setMinVelocity(minVel);
+        mScreenWidth = getResources().getDisplayMetrics().widthPixels;
+        mSlidDistantX = mScreenWidth / 20.0f;
         chkDragable();
     }
 
@@ -157,7 +165,8 @@ public class SwipeBackLayout extends ViewGroup {
     float lastX = 0;
     float newX = 0;
     float offsetX = 0;
-
+    private float mDownX;
+    private float mSlidDistantX;
     private void chkDragable() {
         setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -166,7 +175,11 @@ public class SwipeBackLayout extends ViewGroup {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     lastY = motionEvent.getRawY();
                     lastX = motionEvent.getRawX();
+                    mDownX = motionEvent.getX();
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
+                    if (motionEvent.getX() - mDownX < mSlidDistantX) {
+                        return false;
+                    }
                     newY = motionEvent.getRawY();
                     lastX = motionEvent.getRawX();
 
@@ -304,6 +317,17 @@ public class SwipeBackLayout extends ViewGroup {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         boolean handled = false;
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                mDownX = ev.getX();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                // 优化侧滑的逻辑，不要一有稍微的滑动就被ViewDragHelper拦截掉了
+                if (ev.getX() - mDownX < mSlidDistantX) {
+                    return false;
+                }
+                break;
+        }
         ensureTarget();
         if (isEnabled()) {
             handled = viewDragHelper.shouldInterceptTouchEvent(ev);
