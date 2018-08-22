@@ -107,10 +107,12 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
         mWeiBoDetailHeaderView.setData(data);
         if (data.getRoot_comments() != null && data.getRoot_comments().size() > 0) {
             mWeiBoDetailAdapter.setData(data.getRoot_comments(), true);
-            mMaxId = data.getMax_id();
-        } else {
+        }
+        if (data.getMax_id() == 0) {
             mSrlNews.finishLoadMore(0);
             mSrlNews.setNoMoreData(true);
+        }else {
+            mMaxId = data.getMax_id();
         }
     }
 
@@ -118,10 +120,12 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
     public void showMoreData(WeiBoDetail data) {
         if (data.getRoot_comments() != null && data.getRoot_comments().size() > 0) {
             mWeiBoDetailAdapter.setData(data.getRoot_comments(), false);
-            mMaxId = data.getMax_id();
-        } else {
+        }
+        if (data.getMax_id() == 0) {
             mSrlNews.finishLoadMore(0);
             mSrlNews.setNoMoreData(true);
+        }else {
+            mMaxId = data.getMax_id();
         }
     }
 

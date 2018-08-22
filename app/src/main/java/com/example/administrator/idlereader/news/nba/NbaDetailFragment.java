@@ -44,7 +44,6 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
     private BaseEndlessListener<NbaNewsComment.DataBean> mEndlessListener;
     public String mNcid, mCreateTime;
     public String nid;
-    public boolean isHasMore = true;
 
     public static NbaDetailFragment getInstance() {
         NbaDetailFragment fragment = new NbaDetailFragment();
@@ -134,7 +133,6 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
             mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
             mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
         } else {
-            isHasMore = false;
             mSrlNbaDetail.finishLoadMore(0);
             mSrlNbaDetail.setNoMoreData(true);
         }

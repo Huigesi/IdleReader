@@ -16,6 +16,7 @@ import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
 import cn.jzvd.JZVideoPlayerStandard;
@@ -46,8 +47,9 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((NewsViewHolder) holder).imgWeiboUser, weight, weight);
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
-            ((NewsViewHolder) holder).tvWeiboTime.setText(data.getCreated_at());
-            SpannableString content = UIUtils.setTextHighLight(mContext,data.getText(),null);
+            ((NewsViewHolder) holder).tvWeiboTime.setText(
+                    TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            SpannableString content = UIUtils.setTextHighLight(mContext, data.getText(), null);
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
             ((NewsViewHolder) holder).tvWeiboComment.setText(String.valueOf(data.getComments_count()));
@@ -72,13 +74,13 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             } else {
                 ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
             }
-            if (data.getRetweeted_status() != null) {
+            if (data.getRetweeted_status() != null && data.getRetweeted_status().getUser() != null) {
                 ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.VISIBLE);
                 String userName = data.getRetweeted_status()
                         .getUser().getName();
                 String retWeedText = data.getRetweeted_status()
                         .getText();
-                SpannableString retweeted = UIUtils.setTextHighLight(mContext,userName+" : "+retWeedText,userName);
+                SpannableString retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName);
                 ((NewsViewHolder) holder).tvRetweetedContent.setText(
                         retweeted);
                 ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()
@@ -110,13 +112,17 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                     ((NewsViewHolder) holder).videoRetweetedWeibo.setVisibility(View.GONE);
                     ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
                 }
+            } else if (data.getRetweeted_status() != null &&
+                    data.getRetweeted_status().getUser() == null) {
+                ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.VISIBLE);
+                ((NewsViewHolder) holder).tvRetweetedContent.setText("抱歉，这条微博已被删除");
             } else {
                 ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.GONE);
             }
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    UIUtils.startWeiBoDetailFragment(mContext,data.getIdstr());
+                    UIUtils.startWeiBoDetailFragment(mContext, data.getIdstr());
                 }
             });
         }

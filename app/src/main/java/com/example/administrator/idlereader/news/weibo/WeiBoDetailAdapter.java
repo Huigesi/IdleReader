@@ -15,6 +15,7 @@ import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
 public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.RootCommentsData> {
@@ -42,33 +43,34 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((WeiBoViewHolder) holder).imgWeiboUser, weight, weight);
             ((WeiBoViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
-            ((WeiBoViewHolder) holder).tvWeiboTime.setText(data.getCreated_at());
+            ((WeiBoViewHolder) holder).tvWeiboTime.setText(
+                    TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
             SpannableString commentText = UIUtils.setTextHighLight(mContext, data.getText(),
                     null);
             ((WeiBoViewHolder) holder).tvWeiboCommenttext.setText(commentText);
             if (data.getLike_counts() == 0) {
                 ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText("");
             } else {
-                ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText(data.getLike_counts()+"");
+                ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText(data.getLike_counts() + "");
             }
             if (data.getComments() != null && data.getComments().size() > 0) {
                 ((WeiBoViewHolder) holder).llWeiboCommentReply.setVisibility(View.VISIBLE);
                 SpannableString reply1 = UIUtils.setTextHighLight(mContext,
-                        data.getComments().get(0).getUser().getName()+" "
-                                +data.getComments().get(0).getText(),
+                        data.getComments().get(0).getUser().getName() + " "
+                                + data.getComments().get(0).getText(),
                         data.getComments().get(0).getUser().getName());
                 ((WeiBoViewHolder) holder).tvWeiboCommentReply1.setText(reply1);
                 if (data.getComments().size() > 1) {
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setVisibility(View.VISIBLE);
                     SpannableString reply2 = UIUtils.setTextHighLight(mContext,
-                            data.getComments().get(1).getUser().getName()+" "
-                                    +data.getComments().get(1).getText(),
+                            data.getComments().get(1).getUser().getName() + " "
+                                    + data.getComments().get(1).getText(),
                             data.getComments().get(1).getUser().getName());
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setText(reply2);
-                    if (data.getMore_info()!=null) {
+                    if (data.getMore_info() != null) {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.VISIBLE);
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setText(
-                                 data.getMore_info().getText());
+                                data.getMore_info().getText());
                     } else {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.GONE);
                     }

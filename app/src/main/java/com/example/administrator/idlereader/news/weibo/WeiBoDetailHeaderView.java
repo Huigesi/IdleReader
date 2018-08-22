@@ -15,6 +15,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
 import butterknife.BindView;
@@ -88,7 +89,8 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         GlideUtils.loadCircle(getContext(), mWeiBoDetail.getStatus().getUser().getProfile_image_url(),
                 mImgWeiboUser, weight, weight);
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
-        mTvWeiboTime.setText(mWeiBoDetail.getStatus().getCreated_at());
+        mTvWeiboTime.setText(
+                TimeUtils.prettyTime4(TimeUtils.prettyDate1(mWeiBoDetail.getStatus().getCreated_at())));
         SpannableString content;
         if (mWeiBoDetail.getStatus().isIsLongText() == true) {
             content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getLongText().getLongTextContent(), null);
@@ -154,7 +156,11 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                 mVideoRetweetedWeibo.setUp(
                         mWeiBoDetail.getStatus().getPage_info().getMedia_info().getMp4_sd_url(),
                         JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
-            } else {
+            } else if (mWeiBoDetail.getStatus().getRetweeted_status() != null &&
+                    mWeiBoDetail.getStatus().getRetweeted_status().getUser() == null) {
+                mLlWeiboRetweeted.setVisibility(View.VISIBLE);
+                mTvRetweetedContent.setText("抱歉，这条微博已被删除");
+            }else {
                 mVideoRetweetedWeibo.setVisibility(View.GONE);
                 mVideoWeibo.setVisibility(View.GONE);
             }

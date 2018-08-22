@@ -171,8 +171,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginHorizontal="10dp"
+        android:layout_height="5dp"
         android:background="@color/colorLine" />
 
     <LinearLayout
@@ -250,4 +249,9 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/colorLine" />
 </LinearLayout>
