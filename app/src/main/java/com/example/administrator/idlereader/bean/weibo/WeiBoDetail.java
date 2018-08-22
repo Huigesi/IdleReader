@@ -2199,6 +2199,15 @@ public class WeiBoDetail {
                 private int urank;
                 private int story_read_state;
                 private int vclub_member;
+                private String source;
+
+                public String getSource() {
+                    return source;
+                }
+
+                public void setSource(String source) {
+                    this.source = source;
+                }
 
                 public long getId() {
                     return id;
@@ -6289,6 +6298,16 @@ public class WeiBoDetail {
             private String domain;
             private String weihao;
             private String gender;
+            private String source;
+
+            public String getSource() {
+                return source;
+            }
+
+            public void setSource(String source) {
+                this.source = source;
+            }
+
             private int followers_count;
             private int friends_count;
             private int pagefriends_count;
@@ -7488,6 +7507,15 @@ public class WeiBoDetail {
                 private int urank;
                 private int story_read_state;
                 private int vclub_member;
+                private String source;
+
+                public String getSource() {
+                    return source;
+                }
+
+                public void setSource(String source) {
+                    this.source = source;
+                }
 
                 public int getIdX() {
                     return idX;

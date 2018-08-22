@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.weibo;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
@@ -87,6 +89,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
         private ImageView imgWeiboUser;
         private TextView tvWeiboUser;
         private TextView tvWeiboTime;
+        private TextView tvWeiboSource;
         private TextView tvWeiboCommentLike;
         private TextView tvWeiboCommenttext;
         private LinearLayout llWeiboCommentReply;
@@ -99,6 +102,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             imgWeiboUser = (ImageView) view.findViewById(R.id.img_weibo_user);
             tvWeiboUser = (TextView) view.findViewById(R.id.tv_weibo_user);
             tvWeiboTime = (TextView) view.findViewById(R.id.tv_weibo_time);
+            tvWeiboSource = (TextView) view.findViewById(R.id.tv_weibo_source);
             tvWeiboCommentLike = (TextView) view.findViewById(R.id.tv_weibo_comment_like);
             tvWeiboCommenttext = (TextView) view.findViewById(R.id.tv_weibo_commenttext);
             llWeiboCommentReply = (LinearLayout) view.findViewById(R.id.ll_weibo_comment_reply);

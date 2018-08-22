@@ -1,9 +1,9 @@
 package com.example.administrator.idlereader.news.weibo;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +14,13 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +66,8 @@ public class WeiBoDetailHeaderView extends LinearLayout {
     TextView mTvWeiboZhuan;
     @BindView(R.id.ll_weibo_btns)
     LinearLayout mLlWeiboBtns;
+    @BindView(R.id.tv_weibo_source)
+    TextView mTvWeiboSource;
     private Unbinder mUnbinder;
     private WeiBoDetail mWeiBoDetail;
     private ImgAdapter mImgAdapter;
@@ -91,6 +97,8 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
         mTvWeiboTime.setText(
                 TimeUtils.prettyTime4(TimeUtils.prettyDate1(mWeiBoDetail.getStatus().getCreated_at())));
+        String s=RegularUtils.getA(mWeiBoDetail.getStatus().getSource());
+        mTvWeiboSource.setText(s);
         SpannableString content;
         if (mWeiBoDetail.getStatus().isIsLongText() == true) {
             content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getLongText().getLongTextContent(), null);
@@ -160,7 +168,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                     mWeiBoDetail.getStatus().getRetweeted_status().getUser() == null) {
                 mLlWeiboRetweeted.setVisibility(View.VISIBLE);
                 mTvRetweetedContent.setText("抱歉，这条微博已被删除");
-            }else {
+            } else {
                 mVideoRetweetedWeibo.setVisibility(View.GONE);
                 mVideoWeibo.setVisibility(View.GONE);
             }

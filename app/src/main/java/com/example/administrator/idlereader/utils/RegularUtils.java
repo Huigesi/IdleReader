@@ -1,5 +1,6 @@
 package com.example.administrator.idlereader.utils;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegularUtils {
@@ -17,6 +18,8 @@ public class RegularUtils {
     static final String regex_at = "@[\\u4e00-\\u9fa5\\w\\-]+";
     static final String regex_sharp="#([^\\#|.]+)#";
     static final String regex_emoji="\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
+
+    static final String regex_a="<a[^>]*>([^<]*)</a>";
     public static final Pattern PATTERN_TOPIC = Pattern.compile(REGEX_TOPIC);
     public static final Pattern PATTERN_EMOTION = Pattern.compile(REGEX_EMOTION);
     public static final Pattern PATTERN_URL = Pattern.compile(REGEX_URL);
@@ -25,4 +28,14 @@ public class RegularUtils {
     public static final String SCHEME_TOPIC = "topic:";
     public static final String SCHEME_URL = "url:";
     public static final String SCHEME_AT = "at:";
+
+    public static String getA(String str) {
+        Pattern p = Pattern.compile(regex_a);
+        Matcher m = p.matcher(str);
+        String source = "";
+        if (m.find()) {
+            source=m.group(1);
+        }
+        return source;
+    }
 }

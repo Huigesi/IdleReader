@@ -3,7 +3,9 @@ package com.example.administrator.idlereader.news.weibo;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.text.SpannableString;
+import android.text.SpannedString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
@@ -49,6 +52,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             ((NewsViewHolder) holder).tvWeiboTime.setText(
                     TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            ((NewsViewHolder) holder).tvWeiboSource.setText(RegularUtils.getA(data.getSource()));
             SpannableString content = UIUtils.setTextHighLight(mContext, data.getText(), null);
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
@@ -132,6 +136,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         private ImageView imgWeiboUser;
         private TextView tvWeiboUser;
         private TextView tvWeiboTime;
+        private TextView tvWeiboSource;
         private TextView tvWeiboContentText;
         private LinearLayout llWeiboImg;
         private RecyclerView rvWeiboImgs;
@@ -154,6 +159,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             imgWeiboUser = (ImageView) view.findViewById(R.id.img_weibo_user);
             tvWeiboUser = (TextView) view.findViewById(R.id.tv_weibo_user);
             tvWeiboTime = (TextView) view.findViewById(R.id.tv_weibo_time);
+            tvWeiboSource = (TextView) view.findViewById(R.id.tv_weibo_source);
             tvWeiboContentText = (TextView) view.findViewById(R.id.tv_weibo_contentText);
             llWeiboImg = (LinearLayout) view.findViewById(R.id.ll_weibo_img);
             rvWeiboImgs = (RecyclerView) view.findViewById(R.id.rv_weibo_imgs);
