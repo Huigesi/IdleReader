@@ -5,6 +5,7 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 
 /**
@@ -31,4 +32,6 @@ public interface INewsLoadListener {
     void loadWeiBoSuccess(WeiBoNews weiBoNews);
 
     void loadMoreWeiBoSuccess(WeiBoNews weiBoNews);
+
+    void loadWeiBoDetailSuccess(WeiBoDetail weiBoDetail);
 }

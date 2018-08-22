@@ -3,9 +3,7 @@ package com.example.administrator.idlereader.news.weibo;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,17 +14,16 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
-import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
-public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.StatusesData> {
+public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.StatusesData> {
     public ImgAdapter mImgAdapter;
 
-    public WeiboNewsAdapter(Context context) {
+    public WeiBoNewsAdapter(Context context) {
         super(context);
     }
 
@@ -40,7 +37,7 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, WeiBoNews.StatusesData data) {
+    public void onBind(RecyclerView.ViewHolder holder, int position, final WeiBoNews.StatusesData data) {
         if (holder instanceof NewsViewHolder) {
             if (data == null) {
                 return;
@@ -82,10 +79,6 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 String retWeedText = data.getRetweeted_status()
                         .getText();
                 SpannableString retweeted = UIUtils.setTextHighLight(mContext,userName+" : "+retWeedText,userName);
-                /*ForegroundColorSpan span = new ForegroundColorSpan(holder.itemView.getContext()
-                        .getResources().getColor(R.color.RoyalBlue));
-                spannableString.setSpan(span, 0, userName.length(),
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);*/
                 ((NewsViewHolder) holder).tvRetweetedContent.setText(
                         retweeted);
                 ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()
@@ -120,6 +113,12 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             } else {
                 ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.GONE);
             }
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UIUtils.startWeiBoDetailFragment(mContext,data.getIdstr());
+                }
+            });
         }
     }
 
@@ -165,43 +164,6 @@ public class WeiboNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             tvWeiboLike = (TextView) view.findViewById(R.id.tv_weibo_like);
             tvWeiboComment = (TextView) view.findViewById(R.id.tv_weibo_comment);
             tvWeiboZhuan = (TextView) view.findViewById(R.id.tv_weibo_zhuan);
-        }
-    }
-
-    public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
-        public ImgAdapter(Context context) {
-            super(context);
-        }
-
-        @Override
-        public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_img, null, false);
-            view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBind(RecyclerView.ViewHolder holder, int position, String data) {
-            if (holder instanceof ViewHolder) {
-                int weight = Resolution.dipToPx(this.mContext, 120);
-                String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
-                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
-                ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
-                int margin4 = Resolution.dipToPx(mContext, 3);
-                params.setMargins(0, 0, margin4, margin4);
-                holder.itemView.setLayoutParams(params);
-            }
-        }
-
-        public class ViewHolder extends Holder {
-            public ImageView mImageView;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                mImageView = itemView.findViewById(R.id.img_rv);
-            }
         }
     }
 }

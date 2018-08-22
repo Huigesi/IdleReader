@@ -11,7 +11,7 @@ import android.os.Bundle;
 import com.example.administrator.idlereader.MyFragmentAdapter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.HupuNBAFragment;
-import com.example.administrator.idlereader.news.weibo.WeiboFragment;
+import com.example.administrator.idlereader.news.weibo.WeiBoFragment;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
 
@@ -55,7 +55,7 @@ public class FgNewsFragment extends Fragment  {
     private void setViewPager() {
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_TOP));
         fragments.add(HupuNBAFragment.getInstance());
-        fragments.add(WeiboFragment.getInstance());
+        fragments.add(WeiBoFragment.getInstance());
         fragments.add(FgNewsListFragment.newInstance(NEWS_TYPE_GAME));
         fragmentTitles.add("头条");
         fragmentTitles.add("NBA");

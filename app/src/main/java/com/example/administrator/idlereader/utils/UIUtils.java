@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
+import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
 
 import java.lang.reflect.Field;
 import java.util.regex.Matcher;
@@ -32,12 +33,21 @@ import static com.example.administrator.idlereader.utils.RegularUtils.regex_shar
 
 public class UIUtils {
     public static final String FRAGMENT_CLASS = "FRAGMENT_CLASS";
-    public static void startNbaNewsFragment(Context context,String nid) {
+
+    public static void startNbaNewsFragment(Context context, String nid) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
-        intent.putExtra(NbaDetailFragment.NBA_NID,nid);
+        intent.putExtra(NbaDetailFragment.NBA_NID, nid);
         context.startActivity(intent);
     }
+
+    public static void startWeiBoDetailFragment(Context context, String nid) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(FRAGMENT_CLASS, WeiBoDetailFragment.class.getName());
+        intent.putExtra(WeiBoDetailFragment.WEIBO_NID, nid);
+        context.startActivity(intent);
+    }
+
     public static void setUpIndicatorWidth(TabLayout tabLayout, int marginLeft, int marginRight) {
         Class<?> tabLayoutClass = tabLayout.getClass();
         Field tabStrip = null;
@@ -69,8 +79,9 @@ public class UIUtils {
             e.printStackTrace();
         }
     }
+
     //文字转换
-    public static SpannableString setTextHighLight(Context context,String content,String nickName) {
+    public static SpannableString setTextHighLight(Context context, String content, String nickName) {
         SpannableString result = new SpannableString(content);
         if (nickName != null) {
             result.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight)),
@@ -88,7 +99,7 @@ public class UIUtils {
             }
         }
 
-        if (content.contains("#") ){
+        if (content.contains("#")) {
             Pattern p = Pattern.compile(regex_sharp);
             Matcher m = p.matcher(result);
             while (m.find()) {
@@ -100,7 +111,7 @@ public class UIUtils {
             }
         }
 
-        if (content.contains("http://") ){
+        if (content.contains("http://")) {
             Pattern p = Pattern.compile(regex_http);
             Matcher m = p.matcher(result);
             while (m.find()) {
@@ -113,6 +124,7 @@ public class UIUtils {
         }
         return result;
     }
+
     private static SpannableStringBuilder getUrlTextSpannableString(SpannableString source) {
         SpannableStringBuilder builder = new SpannableStringBuilder(source);
         String prefix = " ";

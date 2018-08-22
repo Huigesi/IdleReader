@@ -3,18 +3,29 @@ package com.example.administrator.idlereader;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
+import com.example.administrator.idlereader.http.Api;
+import com.example.administrator.idlereader.http.RetrofitHelper;
+import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.utils.UIUtils;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class DetailActivity extends SwipeBackActivity {
+    private static final String TAG = "DetailActivity";
     @BindView(R.id.iv_back)
     ImageView mIvBack;
     @BindView(R.id.tv_bar_title)

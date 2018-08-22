@@ -30,6 +30,8 @@ import android.webkit.WebView;
 import android.widget.AbsListView;
 import android.widget.ScrollView;
 
+import com.example.administrator.idlereader.R;
+
 /**
  * Swipe or Pull to finish a Activity.
  * <p/>
@@ -46,7 +48,6 @@ import android.widget.ScrollView;
 public class SwipeBackLayout extends ViewGroup {
 
     private static final String TAG = "SwipeBackLayout";
-    private static final int MIN_FLING_VELOCITY = 200;
     private int mScreenWidth;
 
     public enum DragDirectMode {
@@ -85,7 +86,6 @@ public class SwipeBackLayout extends ViewGroup {
     private static final double AUTO_FINISHED_SPEED_LIMIT = 1000.0;
 
     final float density = getResources().getDisplayMetrics().density;
-    final float minVel = MIN_FLING_VELOCITY * density;
 
     private final ViewDragHelper viewDragHelper;
 
@@ -152,7 +152,6 @@ public class SwipeBackLayout extends ViewGroup {
         super(context, attrs);
 
         viewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelperCallBack());
-        viewDragHelper.setMinVelocity(minVel);
         mScreenWidth = getResources().getDisplayMetrics().widthPixels;
         mSlidDistantX = mScreenWidth / 20.0f;
         chkDragable();
@@ -176,11 +175,7 @@ public class SwipeBackLayout extends ViewGroup {
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     lastY = motionEvent.getRawY();
                     lastX = motionEvent.getRawX();
-                    mDownX = motionEvent.getX();
                 } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
-                    if (motionEvent.getX() - mDownX < mSlidDistantX) {
-                        return false;
-                    }
                     newY = motionEvent.getRawY();
                     lastX = motionEvent.getRawX();
 
@@ -370,7 +365,7 @@ public class SwipeBackLayout extends ViewGroup {
     private void finish() {
         Activity act = (Activity) getContext();
         act.finish();
-        act.overridePendingTransition(0, android.R.anim.fade_out);
+        act.overridePendingTransition(0, R.anim.swipe_fade_out);
     }
 
     private class ViewDragHelperCallBack extends ViewDragHelper.Callback {

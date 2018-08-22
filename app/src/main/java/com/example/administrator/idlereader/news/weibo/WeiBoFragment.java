@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
@@ -29,8 +28,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class WeiboFragment extends Fragment implements IWeiBoView {
-    private static final String TAG = "WeiboFragment";
+public class WeiBoFragment extends Fragment implements IWeiBoView {
+    private static final String TAG = "WeiBoFragment";
     @BindView(R.id.rv_news)
     RecyclerView mRvNews;
     @BindView(R.id.srl_news)
@@ -38,11 +37,11 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
     Unbinder unbinder;
     private LinearLayoutManager mLinearLayoutManager;
     private NewsPresenter mNewsPresenter;
-    private WeiboNewsAdapter mWeiboNewsAdapter;
+    private WeiBoNewsAdapter mWeiBoNewsAdapter;
     private int page=1;
 
-    public static WeiboFragment getInstance() {
-        WeiboFragment fragment = new WeiboFragment();
+    public static WeiBoFragment getInstance() {
+        WeiBoFragment fragment = new WeiBoFragment();
         return fragment;
     }
     @Override
@@ -58,7 +57,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
         mNewsPresenter = new NewsPresenter(this);
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-        mWeiboNewsAdapter = new WeiboNewsAdapter(getActivity());
+        mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
         mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
                 getResources().getColor(R.color.colorTheme)));
         mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
@@ -86,7 +85,7 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
         });
         mRvNews.setHasFixedSize(true);
         mNewsPresenter.loadWeibo(String.valueOf(0),1);
-        mRvNews.setAdapter(mWeiboNewsAdapter);
+        mRvNews.setAdapter(mWeiBoNewsAdapter);
     }
 
     @Override
@@ -108,11 +107,11 @@ public class WeiboFragment extends Fragment implements IWeiBoView {
 
     @Override
     public void showData(WeiBoNews data) {
-        mWeiboNewsAdapter.setData(data.getStatuses(), true);
+        mWeiBoNewsAdapter.setData(data.getStatuses(), true);
     }
 
     @Override
     public void showMoreData(WeiBoNews moreData) {
-        mWeiboNewsAdapter.setData(moreData.getStatuses(), false);
+        mWeiBoNewsAdapter.setData(moreData.getStatuses(), false);
     }
 }

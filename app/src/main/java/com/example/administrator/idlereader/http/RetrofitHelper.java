@@ -11,6 +11,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.utils.klog.KLog;
 import com.google.gson.Gson;
@@ -119,6 +120,10 @@ public class RetrofitHelper {
         String source = "4215535043";
         String advance_enable = "false";
         return retrofitService.getWeiBoNews(sinceId,s,gsid,page,c,form,wm,source,advance_enable);
+    }
+
+    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid) {
+        return retrofitService.getWeiBoDetail(s, c, id, gsid);
     }
 
     public OkHttpClient getOkHttpClient() {

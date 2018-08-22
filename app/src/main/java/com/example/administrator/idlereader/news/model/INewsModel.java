@@ -9,6 +9,7 @@ public interface INewsModel {
                   int startPage,
                   String id,
                   INewsLoadListener iNewsLoadListener);
+
     void loadNbaNews(String nid,
                      int count,
                      INewsLoadListener iNewsLoadListener);
@@ -17,10 +18,13 @@ public interface INewsModel {
                         INewsLoadListener iNewsLoadListener);
 
     void loadNbaComment(String nid,
-                        String ncid,String createTime,
+                        String ncid, String createTime,
                         INewsLoadListener iNewsLoadListener);
 
     void loadWeibo(String sinceid,
                    int page,
                    INewsLoadListener iNewsLoadListener);
+
+    void loadWeiBoDetail(String sinceid,
+                         INewsLoadListener iNewsLoadListener);
 }

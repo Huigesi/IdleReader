@@ -5,6 +5,7 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
@@ -14,6 +15,7 @@ import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.news.view.INBAView;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
+import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
 
 /**
@@ -27,6 +29,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INBAView mINBAView;
     private IWeiBoView mIWeiBoView;
     private INbaDetailView mINbaDetailView;
+    private IWeiBoDetailView mIWeiBoDetailView;
     private onNidChangeListener mOnNidChangeListener;
 
     public NewsPresenter(INewsView iNewsView) {
@@ -34,18 +37,23 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
         this.iNewsModel = new NewsModel();
     }
 
-    public NewsPresenter(INBAView INBAView) {
+    public NewsPresenter(INBAView inbaView) {
         this.iNewsModel = new NewsModel();
-        mINBAView = INBAView;
+        mINBAView = inbaView;
     }
 
-    public NewsPresenter(INbaDetailView INbaDetailView) {
-        mINbaDetailView = INbaDetailView;
+    public NewsPresenter(INbaDetailView iNbaDetailView) {
+        mINbaDetailView = iNbaDetailView;
         this.iNewsModel=new NewsModel();
     }
 
-    public NewsPresenter(IWeiBoView IWeiBoView) {
-        mIWeiBoView = IWeiBoView;
+    public NewsPresenter(IWeiBoView iWeiBoView) {
+        mIWeiBoView = iWeiBoView;
+        this.iNewsModel = new NewsModel();
+    }
+
+    public NewsPresenter(IWeiBoDetailView iWeiBoDetailView) {
+        mIWeiBoDetailView = iWeiBoDetailView;
         this.iNewsModel = new NewsModel();
     }
 
@@ -98,6 +106,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadWeibo(String sinceid,int page) {
         iNewsModel.loadWeibo(sinceid,page,this);
+    }
+
+    @Override
+    public void loadWeiBoDetail(String sinceid) {
+        iNewsModel.loadWeiBoDetail(sinceid,this);
     }
 
     @Override
@@ -160,6 +173,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadMoreWeiBoSuccess(WeiBoNews weiBoNews) {
         mIWeiBoView.showMoreData(weiBoNews);
         mIWeiBoView.hideDialog();
+    }
+
+    @Override
+    public void loadWeiBoDetailSuccess(WeiBoDetail weiBoDetail) {
+        mIWeiBoDetailView.showData(weiBoDetail);
     }
 
     public interface onNidChangeListener {

@@ -46,12 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
         initContentFragment();
-        String sinceid = "0";
-        String s = "606388e6";
-        String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
-        int page = 1;
-        String c = "weicoabroad";
-
     }
 
 

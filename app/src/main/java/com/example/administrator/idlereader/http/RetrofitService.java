@@ -8,6 +8,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 
 import retrofit2.http.GET;
@@ -115,4 +116,11 @@ public interface RetrofitService {
                                        @Query("wm") String wm,
                                        @Query("source") String source,
                                        @Query("advance_enable") String advance_enable);
+
+    //http://api.weibo.cn/2/statuses/show?s=606388e6&c=weicoabroad&id=4275531484257587&gsid=_2A252f6O1DeRxGeNH61cX8yvNyT6IHXVTLLB9rDV6PUJbkdAKLUfykWpNSvDZSiGWa7gnoPuUTJwYjvaIpOJpb1B-&%20HTTP/1.1
+    @GET("statuses/show")
+    Observable<WeiBoDetail> getWeiBoDetail(@Query("s") String s,
+                                           @Query("c") String c,
+                                           @Query("id") String id,
+                                           @Query("gsid") String gsid);
 }

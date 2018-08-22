@@ -7,6 +7,7 @@ import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
@@ -44,6 +45,11 @@ import static com.example.administrator.idlereader.http.Api.HUPU_NBA;
 
 public class NewsModel implements INewsModel {
     private static final String TAG = "NewsModel";
+    private Gson mGson;
+    private static final String s = "606388e6";
+    private static final String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
+    private static final String c = "weicoabroad";
+
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
                          final INewsLoadListener iNewsLoadListener) {
@@ -95,7 +101,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(HupuNews hupuNews) {
-                        if (count >0) {
+                        if (count > 0) {
                             iNewsLoadListener.loadMoreNbaSuccess(hupuNews);
                         } else {
                             iNewsLoadListener.loadNbaSuccess(hupuNews);
@@ -132,7 +138,7 @@ public class NewsModel implements INewsModel {
     public void loadNbaComment(String nid, final String ncid, final String createTime,
                                final INewsLoadListener iNewsLoadListener) {
         RetrofitHelper.getInstance(Api.HUPU_NBA)
-                .getNbaComment(nid,ncid,createTime)
+                .getNbaComment(nid, ncid, createTime)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NbaNewsComment>() {
@@ -150,24 +156,24 @@ public class NewsModel implements INewsModel {
                     public void onNext(NbaNewsComment nbaNewsComment) {
                         if (ncid != null && createTime != null) {
                             iNewsLoadListener.loadMoreNbaCommentSuccess(nbaNewsComment);
-                        }else {
+                        } else {
                             iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
                         }
                     }
                 });
     }
 
-    @Override
-    public void loadWeibo(String sinceid, final int page, final INewsLoadListener iNewsLoadListener) {
-        String s = "606388e6";
-        String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
-        String c = "weicoabroad";
+    public void setGsonAdapter() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Integer.class, new IntegerDefault0Adapter());
         gsonBuilder.registerTypeAdapter(int.class, new IntegerDefault0Adapter());
-        Gson gson = gsonBuilder.create();
+        mGson = gsonBuilder.create();
+    }
 
-        RetrofitHelper.getInstance(Api.WEIBO_LIST,gson)
+    @Override
+    public void loadWeibo(String sinceid, final int page, final INewsLoadListener iNewsLoadListener) {
+        setGsonAdapter();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
                 .getWeiBoNews(sinceid, s, gsid, page, c)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -180,30 +186,53 @@ public class NewsModel implements INewsModel {
                     @Override
                     public void onError(Throwable e) {
                         iNewsLoadListener.fail(e);
-                        //java.lang.IllegalStateException: Expected a double but was END_ARRAY at line 1 column 5863 path $.statuses[0].retweeted_status.biz_ids[1]
                     }
 
                     @Override
                     public void onNext(WeiBoNews weiBoNewsList) {
                         if (page > 1) {
                             iNewsLoadListener.loadMoreWeiBoSuccess(weiBoNewsList);
-                        }else {
+                        } else {
                             iNewsLoadListener.loadWeiBoSuccess(weiBoNewsList);
                         }
                     }
                 });
     }
 
-    public class IntegerDefault0Adapter implements JsonSerializer, JsonDeserializer {
+    @Override
+    public void loadWeiBoDetail(String sinceid, final INewsLoadListener iNewsLoadListener) {
+        setGsonAdapter();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
+                .getWeiBoDetail(s, c, sinceid, gsid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoDetail>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onNext(WeiBoDetail weiBoDetail) {
+                        iNewsLoadListener.loadWeiBoDetailSuccess(weiBoDetail);
+                    }
+                });
+    }
+
+    public static class IntegerDefault0Adapter implements JsonSerializer, JsonDeserializer {
         @Override
         public Integer deserialize(JsonElement json, Type typeOfT,
                                    JsonDeserializationContext context)
                 throws JsonParseException {
             try {
-                if (json.getAsString().equals("")){
+                if (json.getAsString().equals("")) {
                     return 0;
                 }
-            } catch (Exception ignore){
+            } catch (Exception ignore) {
             }
             try {
                 return json.getAsInt();
@@ -215,35 +244,6 @@ public class NewsModel implements INewsModel {
         @Override
         public JsonElement serialize(Object src, Type typeOfSrc, JsonSerializationContext context) {
             return new JsonPrimitive(String.valueOf(src));
-        }
-    }
-
-
-    public class IntegerTypeAdapter extends TypeAdapter<Number> {
-        @Override
-        public void write(JsonWriter jsonWriter, Number number) throws IOException {
-            if (number == null) {
-                jsonWriter.nullValue();
-                return;
-            }
-            jsonWriter.value(number);
-        }
-
-        @Override
-        public Number read(JsonReader jsonReader) throws IOException {
-            if (jsonReader.peek() == JsonToken.NULL) {
-                jsonReader.nextNull();
-                return null;
-            }
-            try {
-                String value = jsonReader.nextString();
-                if ("".equals(value)) {
-                    return 0;
-                }
-                return Integer.parseInt(value);
-            } catch (NumberFormatException e) {
-                throw new JsonSyntaxException(e);
-            }
         }
     }
 

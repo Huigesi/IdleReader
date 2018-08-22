@@ -57,14 +57,6 @@ public class NbaDetailHeaderView extends LinearLayout {
         refreshUI();
     }
 
-    public void setNomore(boolean isNoMore) {
-        if (isNoMore) {
-            mLlNomore.setVisibility(VISIBLE);
-        } else {
-            mLlNomore.setVisibility(GONE);
-        }
-    }
-
     private void refreshUI() {
         if (mNbaDetailNews == null) {
             return;
@@ -91,7 +83,7 @@ public class NbaDetailHeaderView extends LinearLayout {
         mWvNbaDetailContent.getSettings().setLoadsImagesAutomatically(true);
         mWvNbaDetailContent.getSettings().setDefaultFontSize(18);
         mWvNbaDetailContent.getSettings().setJavaScriptEnabled(true);
-        mWvNbaDetailContent.setWebViewClient(new WebViewClient(){
+        mWvNbaDetailContent.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -99,11 +91,12 @@ public class NbaDetailHeaderView extends LinearLayout {
             }
         });
         //imgReset(mWvNbaDetailContent);
-        String css ="<style>*{line-height:30px;} p.thicker{font-weight: 100;} p{color:#666;}</style>";
+        String css = "<style>*{line-height:30px;} p.thicker{font-weight: 100;} p{color:#666;}</style>";
         mWvNbaDetailContent.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        mWvNbaDetailContent.loadDataWithBaseURL(null,css+htmls,
-                "text/html","utf-8", null);
+        mWvNbaDetailContent.loadDataWithBaseURL(null, css + htmls,
+                "text/html", "utf-8", null);
     }
+
     private void imgReset() {
         mWvNbaDetailContent.loadUrl("javascript:(function(){" +
                 "var objs = document.getElementsByTagName('img'); " +
