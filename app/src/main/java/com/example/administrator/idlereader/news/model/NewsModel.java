@@ -200,10 +200,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeiBoDetail(String sinceid, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeiBoDetail(String sinceid, final long max_id, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoDetail(s, c, sinceid, gsid)
+                .getWeiBoDetail(s, c, sinceid, gsid,max_id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoDetail>() {
@@ -219,7 +219,11 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(WeiBoDetail weiBoDetail) {
-                        iNewsLoadListener.loadWeiBoDetailSuccess(weiBoDetail);
+                        if (max_id == 0) {
+                            iNewsLoadListener.loadWeiBoDetailSuccess(weiBoDetail);
+                        }else {
+                            iNewsLoadListener.loadMoreWeiBoDetailSuccess(weiBoDetail);
+                        }
                     }
                 });
     }

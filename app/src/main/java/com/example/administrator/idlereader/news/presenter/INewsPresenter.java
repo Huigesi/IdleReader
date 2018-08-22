@@ -18,5 +18,6 @@ public interface INewsPresenter {
 
     void loadWeibo(String sinceid,int page);
 
-    void loadWeiBoDetail(String sinceid);
+    void loadWeiBoDetail(String sinceid,long max_id);
+
 }

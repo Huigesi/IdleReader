@@ -39,6 +39,7 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
     public String nid;
     private WeiBoDetailAdapter mWeiBoDetailAdapter;
     private WeiBoDetailHeaderView mWeiBoDetailHeaderView;
+    private long mMaxId;
 
     public static WeiBoDetailFragment getInstance() {
         WeiBoDetailFragment fragment = new WeiBoDetailFragment();
@@ -69,20 +70,26 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeiBoDetail(nid);
+                mNewsPresenter.loadWeiBoDetail(nid, 0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                loadMoreComment();
             }
         });
-        mNewsPresenter.loadWeiBoDetail(nid);
+        mNewsPresenter.loadWeiBoDetail(nid, 0);
     }
 
     @Override
     public void hideDialog() {
-       mSrlNews.finishRefresh(0);
+        mSrlNews.finishRefresh(0);
+        mSrlNews.finishLoadMore(0);
+    }
+
+    public void loadMoreComment() {
+        mNewsPresenter.loadWeiBoDetail(nid, mMaxId);
     }
 
     @Override
@@ -99,7 +106,22 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
     public void showData(WeiBoDetail data) {
         mWeiBoDetailHeaderView.setData(data);
         if (data.getRoot_comments() != null && data.getRoot_comments().size() > 0) {
-            mWeiBoDetailAdapter.setData(data.getRoot_comments(),false);
+            mWeiBoDetailAdapter.setData(data.getRoot_comments(), true);
+            mMaxId = data.getMax_id();
+        } else {
+            mSrlNews.finishLoadMore(0);
+            mSrlNews.setNoMoreData(true);
+        }
+    }
+
+    @Override
+    public void showMoreData(WeiBoDetail data) {
+        if (data.getRoot_comments() != null && data.getRoot_comments().size() > 0) {
+            mWeiBoDetailAdapter.setData(data.getRoot_comments(), false);
+            mMaxId = data.getMax_id();
+        } else {
+            mSrlNews.finishLoadMore(0);
+            mSrlNews.setNoMoreData(true);
         }
     }
 

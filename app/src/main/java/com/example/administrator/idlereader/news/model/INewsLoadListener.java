@@ -34,4 +34,5 @@ public interface INewsLoadListener {
     void loadMoreWeiBoSuccess(WeiBoNews weiBoNews);
 
     void loadWeiBoDetailSuccess(WeiBoDetail weiBoDetail);
+    void loadMoreWeiBoDetailSuccess(WeiBoDetail weiBoDetail);
 }

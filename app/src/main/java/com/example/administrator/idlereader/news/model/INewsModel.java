@@ -26,5 +26,7 @@ public interface INewsModel {
                    INewsLoadListener iNewsLoadListener);
 
     void loadWeiBoDetail(String sinceid,
+                         long max_id,
                          INewsLoadListener iNewsLoadListener);
+
 }

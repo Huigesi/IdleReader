@@ -124,10 +124,12 @@ public interface RetrofitService {
                                            @Query("id") String id,
                                            @Query("gsid") String gsid);*/
     //http://api.weibo.cn/2/comments/build_comments?s=606388e6&gsid=_2A252f6O1DeRxGeNH61cX8yvNyT6IHXVTLLB9rDV6PUJbkdAKLUfykWpNSvDZSiGWa7gnoPuUTJwYjvaIpOJpb1B-&c=weicoabroad&id=4275839388884486&is_show_bulletin=2%20HTTP/1.1
+    //http://api.weibo.cn/2/comments/build_comments?s=606388e6&source=4215535043&max_id_type=0&wm=2468_1001&gsid=_2A252f6O1DeRxGeNH61cX8yvNyT6IHXVTLLB9rDV6PUJbkdAKLUfykWpNSvDZSiGWa7gnoPuUTJwYjvaIpOJpb1B-&count=20&from=1073095010&c=weicoabroad&id=4275833457776921&lang=zh_CN&is_show_bulletin=2&flow=0&v_p=48&max_id=142540421497615%20HTTP/1.1
     @GET("comments/build_comments")
     Observable<WeiBoDetail> getWeiBoDetail(@Query("s") String s,
                                            @Query("c") String c,
                                            @Query("id") String id,
                                            @Query("gsid") String gsid,
+                                           @Query("max_id") long max_id,
                                            @Query("is_show_bulletin") int is_show_bulletin);
 }

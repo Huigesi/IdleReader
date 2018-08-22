@@ -122,8 +122,8 @@ public class RetrofitHelper {
         return retrofitService.getWeiBoNews(sinceId,s,gsid,page,c,form,wm,source,advance_enable);
     }
 
-    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid) {
-        return retrofitService.getWeiBoDetail(s, c, id, gsid,2);
+    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid,long max_id) {
+        return retrofitService.getWeiBoDetail(s, c, id, gsid,max_id,2);
     }
 
     public OkHttpClient getOkHttpClient() {

@@ -9,7 +9,7 @@ public class WeiBoDetail {
 
     private long id;
     private StatusData status;
-    private int max_id;
+    private long max_id;
     private int max_id_type;
     private int total_number;
     private int state_code;
@@ -34,11 +34,11 @@ public class WeiBoDetail {
         this.status = status;
     }
 
-    public int getMax_id() {
+    public long getMax_id() {
         return max_id;
     }
 
-    public void setMax_id(int max_id) {
+    public void setMax_id(long max_id) {
         this.max_id = max_id;
     }
 

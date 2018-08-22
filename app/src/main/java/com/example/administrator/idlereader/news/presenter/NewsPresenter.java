@@ -114,9 +114,8 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
-    public void loadWeiBoDetail(String sinceid) {
-        mIWeiBoDetailView.showDialog();
-        iNewsModel.loadWeiBoDetail(sinceid,this);
+    public void loadWeiBoDetail(String sinceid,long max_id) {
+        iNewsModel.loadWeiBoDetail(sinceid,max_id,this);
     }
 
     @Override
@@ -184,5 +183,12 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadWeiBoDetailSuccess(WeiBoDetail weiBoDetail) {
         mIWeiBoDetailView.showData(weiBoDetail);
+        mIWeiBoDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadMoreWeiBoDetailSuccess(WeiBoDetail weiBoDetail) {
+        mIWeiBoDetailView.showMoreData(weiBoDetail);
+        mIWeiBoDetailView.hideDialog();
     }
 }
