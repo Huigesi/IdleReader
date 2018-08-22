@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseEndlessListener;
+import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
@@ -29,14 +30,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class NbaDetailFragment extends Fragment implements INbaDetailView {
+public class NbaDetailFragment extends BaseRecyclerFragment implements INbaDetailView {
     private static final String TAG = "NbaDetailFragment";
-    @BindView(R.id.rv_nba_detail)
-    RecyclerView mRvNbaDetail;
-    Unbinder unbinder;
     public static final String NBA_NID = "NBA_NID";
-    @BindView(R.id.srl_nba_detail)
-    SmartRefreshLayout mSrlNbaDetail;
     private NewsPresenter mNewsPresenter;
     private NbaDetailAdapter mNbaDetailAdapter;
     private NbaDetailHeaderView mNbaDetailHeaderView;
@@ -50,21 +46,13 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
         return fragment;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_nba_detail, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void init() {
         mNbaDetailAdapter = new NbaDetailAdapter(getActivity());
         mNewsPresenter = new NewsPresenter(this);
-        mRvNbaDetail.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRvNbaDetail.addItemDecoration(new RecyclerView.ItemDecoration() {
+        mRvNews.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRvNews.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
@@ -77,11 +65,8 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
         nid = getActivity().getIntent().getStringExtra(NBA_NID);
         mNewsPresenter.loadNbaComment(nid);
         mNewsPresenter.loadNbaDetail(nid);
-        mRvNbaDetail.setAdapter(mNbaDetailAdapter);
-        mSrlNbaDetail.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
-                getResources().getColor(R.color.colorTheme)));
-        mSrlNbaDetail.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
-        mSrlNbaDetail.setOnRefreshListener(new OnRefreshListener() {
+        mRvNews.setAdapter(mNbaDetailAdapter);
+        mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 mNewsPresenter.loadNbaDetail(nid);
@@ -89,22 +74,16 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
             }
         });
 
-        mSrlNbaDetail.setOnLoadMoreListener(new OnLoadMoreListener() {
+        mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 loadMoreData();
             }
-        });;
+        });
     }
 
     private void loadMoreData() {
         mNewsPresenter.loadMoreNbaComment(nid, mNcid, mCreateTime);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 
     @Override
@@ -133,17 +112,17 @@ public class NbaDetailFragment extends Fragment implements INbaDetailView {
             mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
             mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
         } else {
-            mSrlNbaDetail.finishLoadMore(0);
-            mSrlNbaDetail.setNoMoreData(true);
+            mSrlNews.finishLoadMore(0);
+            mSrlNews.setNoMoreData(true);
         }
-        mSrlNbaDetail.finishRefresh();
-        mSrlNbaDetail.finishLoadMore(0);
+        mSrlNews.finishRefresh();
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override
     public void hideDialog() {
-        mSrlNbaDetail.finishRefresh();
-        mSrlNbaDetail.finishLoadMore(0);
+        mSrlNews.finishRefresh();
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override

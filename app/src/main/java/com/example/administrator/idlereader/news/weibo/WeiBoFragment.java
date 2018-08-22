@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
@@ -28,12 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class WeiBoFragment extends Fragment implements IWeiBoView {
+public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
     private static final String TAG = "WeiBoFragment";
-    @BindView(R.id.rv_news)
-    RecyclerView mRvNews;
-    @BindView(R.id.srl_news)
-    SmartRefreshLayout mSrlNews;
     Unbinder unbinder;
     private LinearLayoutManager mLinearLayoutManager;
     private NewsPresenter mNewsPresenter;
@@ -43,55 +40,6 @@ public class WeiBoFragment extends Fragment implements IWeiBoView {
     public static WeiBoFragment getInstance() {
         WeiBoFragment fragment = new WeiBoFragment();
         return fragment;
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_news_list, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mNewsPresenter = new NewsPresenter(this);
-        mLinearLayoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false);
-        mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
-        mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
-                getResources().getColor(R.color.colorTheme)));
-        mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
-        mRvNews.setLayoutManager(mLinearLayoutManager);
-        mSrlNews.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeibo(String.valueOf(0),1);
-            }
-        });
-        mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                page++;
-                mNewsPresenter.loadWeibo(String.valueOf(0),page);
-            }
-        });
-        final int line = Resolution.dipToPx(getActivity(), 5);
-        mRvNews.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                super.getItemOffsets(outRect, view, parent, state);
-                outRect.set(0,0,0,line);
-            }
-        });
-        mRvNews.setHasFixedSize(true);
-        mNewsPresenter.loadWeibo(String.valueOf(0),1);
-        mRvNews.setAdapter(mWeiBoNewsAdapter);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 
     @Override
@@ -117,5 +65,37 @@ public class WeiBoFragment extends Fragment implements IWeiBoView {
     @Override
     public void showMoreData(WeiBoNews moreData) {
         mWeiBoNewsAdapter.setData(moreData.getStatuses(), false);
+    }
+
+    @Override
+    public void init() {
+        mNewsPresenter = new NewsPresenter(this);
+        mLinearLayoutManager = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false);
+        mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
+        mSrlNews.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mNewsPresenter.loadWeibo(String.valueOf(0),1);
+            }
+        });
+        mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                mNewsPresenter.loadWeibo(String.valueOf(0),page);
+            }
+        });
+        final int line = Resolution.dipToPx(getActivity(), 5);
+        mRvNews.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                outRect.set(0,0,0,line);
+            }
+        });
+        mRvNews.setLayoutManager(mLinearLayoutManager);
+        mNewsPresenter.loadWeibo(String.valueOf(0),1);
+        mRvNews.setAdapter(mWeiBoNewsAdapter);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.administrator.idlereader.news.weibo;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
@@ -27,13 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
+public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoDetailView {
     private static final String TAG = "WeiBoDetailFragment";
-    @BindView(R.id.rv_news)
-    RecyclerView mRvNews;
-    @BindView(R.id.srl_news)
-    SmartRefreshLayout mSrlNews;
-    Unbinder unbinder;
     private NewsPresenter mNewsPresenter;
     public static final String WEIBO_NID = "WEIBO_NID";
     public String nid;
@@ -46,26 +43,14 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_news_list, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void init() {
         mNewsPresenter = new NewsPresenter(this);
         nid = getActivity().getIntent().getStringExtra(WEIBO_NID);
         mWeiBoDetailAdapter = new WeiBoDetailAdapter(getContext());
         mWeiBoDetailHeaderView = new WeiBoDetailHeaderView(getContext());
         mRvNews.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvNews.setAdapter(mWeiBoDetailAdapter);
-        mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
-                getResources().getColor(R.color.colorTheme)));
-        mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -127,11 +112,5 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
         }else {
             mMaxId = data.getMax_id();
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }
