@@ -111,7 +111,7 @@
                 android:text="reply2"
                 android:textColor="@color/colorTabText"
                 android:textSize="14sp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="3dp"
                 android:visibility="gone" />
 
             <TextView
@@ -121,7 +121,7 @@
                 android:text="replyCount"
                 android:textColor="@color/weiboLight"
                 android:visibility="gone"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

@@ -65,10 +65,10 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
                                     +data.getComments().get(1).getText(),
                             data.getComments().get(1).getUser().getName());
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setText(reply2);
-                    if (data.getComments().size() > 2) {
+                    if (data.getMore_info()!=null) {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.VISIBLE);
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setText(
-                                "共" + data.getComments().size() + "条回复");
+                                 data.getMore_info().getText());
                     } else {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.GONE);
                     }

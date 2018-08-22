@@ -6036,6 +6036,46 @@ public class WeiBoDetail {
         private List<?> url_objects;
         private List<CommentsData> comments;
 
+        public MoreInfoData getMore_info() {
+            return more_info;
+        }
+
+        public void setMore_info(MoreInfoData more_info) {
+            this.more_info = more_info;
+        }
+
+        private MoreInfoData more_info;
+
+        public static class MoreInfoData{
+            private String scheme;
+            private String text;
+            private String highlight_text;
+
+            public String getScheme() {
+                return scheme;
+            }
+
+            public void setScheme(String scheme) {
+                this.scheme = scheme;
+            }
+
+            public String getText() {
+                return text;
+            }
+
+            public void setText(String text) {
+                this.text = text;
+            }
+
+            public String getHighlight_text() {
+                return highlight_text;
+            }
+
+            public void setHighlight_text(String highlight_text) {
+                this.highlight_text = highlight_text;
+            }
+        }
+
         public String getCreated_at() {
             return created_at;
         }

@@ -61,7 +61,6 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
         nid = getActivity().getIntent().getStringExtra(WEIBO_NID);
         mWeiBoDetailAdapter = new WeiBoDetailAdapter(getContext());
         mWeiBoDetailHeaderView = new WeiBoDetailHeaderView(getContext());
-        mWeiBoDetailAdapter.setHeaderView(mWeiBoDetailHeaderView);
         mRvNews.setLayoutManager(new LinearLayoutManager(getContext()));
         mRvNews.setAdapter(mWeiBoDetailAdapter);
         mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
@@ -80,6 +79,7 @@ public class WeiBoDetailFragment extends Fragment implements IWeiBoDetailView {
             }
         });
         mNewsPresenter.loadWeiBoDetail(nid, 0);
+        mWeiBoDetailAdapter.setHeaderView(mWeiBoDetailHeaderView);
     }
 
     @Override
