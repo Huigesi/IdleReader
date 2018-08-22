@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical">
 
         <ImageView
@@ -63,13 +65,15 @@
     </RelativeLayout>
 
     <TextView
+        android:layout_marginVertical="20dp"
         android:id="@+id/tv_weibo_commenttext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="55dp"
+        android:layout_marginRight="10dp"
         android:text="sssssss"
         android:textColor="@color/text_common"
-        android:textSize="14sp" />
+        android:textSize="15sp" />
 
     <LinearLayout
         android:id="@+id/ll_weibo_comment_reply"
@@ -97,7 +101,7 @@
                 android:maxLines="2"
                 android:text="reply"
                 android:textColor="@color/colorTabText"
-                android:textSize="12sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_weibo_comment_reply2"
@@ -106,7 +110,8 @@
                 android:maxLines="2"
                 android:text="reply2"
                 android:textColor="@color/colorTabText"
-                android:textSize="12sp"
+                android:textSize="14sp"
+                android:layout_marginTop="2dp"
                 android:visibility="gone" />
 
             <TextView
@@ -116,8 +121,16 @@
                 android:text="replyCount"
                 android:textColor="@color/weiboLight"
                 android:visibility="gone"
-                android:textSize="12sp" />
+                android:layout_marginTop="2dp"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorLine" />
 
 </LinearLayout>

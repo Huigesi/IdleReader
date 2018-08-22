@@ -44,7 +44,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             ((WeiBoViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             ((WeiBoViewHolder) holder).tvWeiboTime.setText(data.getCreated_at());
             SpannableString commentText = UIUtils.setTextHighLight(mContext, data.getText(),
-                    data.getUser().getName());
+                    null);
             ((WeiBoViewHolder) holder).tvWeiboCommenttext.setText(commentText);
             if (data.getLike_counts() == 0) {
                 ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText("");
@@ -54,12 +54,16 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             if (data.getComments() != null && data.getComments().size() > 0) {
                 ((WeiBoViewHolder) holder).llWeiboCommentReply.setVisibility(View.VISIBLE);
                 SpannableString reply1 = UIUtils.setTextHighLight(mContext,
-                        data.getComments().get(0).getText(), data.getComments().get(0).getUser().getName());
+                        data.getComments().get(0).getUser().getName()+" "
+                                +data.getComments().get(0).getText(),
+                        data.getComments().get(0).getUser().getName());
                 ((WeiBoViewHolder) holder).tvWeiboCommentReply1.setText(reply1);
                 if (data.getComments().size() > 1) {
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setVisibility(View.VISIBLE);
                     SpannableString reply2 = UIUtils.setTextHighLight(mContext,
-                            data.getComments().get(1).getText(), data.getComments().get(1).getUser().getName());
+                            data.getComments().get(1).getUser().getName()+" "
+                                    +data.getComments().get(1).getText(),
+                            data.getComments().get(1).getUser().getName());
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setText(reply2);
                     if (data.getComments().size() > 2) {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.VISIBLE);

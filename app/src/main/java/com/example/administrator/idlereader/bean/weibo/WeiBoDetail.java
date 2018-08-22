@@ -6,18 +6,6 @@ import java.util.List;
 
 public class WeiBoDetail {
 
-    /**
-     * id : 4275782106515329
-     * status : {"created_at":"Wed Aug 22 11:42:37 +0800 2018","id":4275782106515329,"idstr":"4275782106515329","mid":"4275782106515329","can_edit":false,"text":"转发测试","source_allowclick":0,"source_type":1,"source":"<a href=\"http://app.weibo.com/t/feed/6NndUT\" rel=\"nofollow\">Weibo.intl<\/a>","appid":2204484,"favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_ids":[],"geo":null,"is_paid":false,"mblog_vip_type":0,"user":{"id":2776941061,"idstr":"2776941061","class":1,"screen_name":"Huigesi","name":"Huigesi","province":"44","city":"5","location":"广东 汕头","description":"我不要头发了","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.537.58.158.158.50/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/a1d3feabjw1ecat4uqw77j20hs0hsacp.jpg","profile_url":"u/2776941061","domain":"","weihao":"","gender":"m","followers_count":92,"friends_count":159,"pagefriends_count":1,"statuses_count":364,"video_status_count":0,"favourites_count":12,"created_at":"Fri Jul 06 17:16:20 +0800 2012","following":true,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.537.58.158.158.180/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.537.58.158.158.1024/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":true,"like":false,"like_me":false,"online_status":0,"bi_followers_count":17,"lang":"zh-cn","star":0,"mbtype":2,"mbrank":1,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":1,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":1,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":1,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33555456,"urank":30,"story_read_state":-1,"vclub_member":0},"retweeted_status":{"created_at":"Wed Aug 22 11:42:22 +0800 2018","id":4275782043765408,"idstr":"4275782043765408","mid":"4275782043765408","can_edit":false,"text":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 \u200b\u200b\u200b","textLength":596,"source_allowclick":0,"source_type":1,"source":"<a href=\"http://app.weibo.com/t/feed/19DcdW\" rel=\"nofollow\">微博视频<\/a>","appid":936,"favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_ids":[],"geo":null,"is_paid":false,"mblog_vip_type":0,"user":{"id":5905635122,"idstr":"5905635122","class":1,"screen_name":"双蛋肠粉","name":"双蛋肠粉","province":"44","city":"1000","location":"广东","description":"私藏快乐","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"u/5905635122","domain":"","weihao":"","gender":"m","followers_count":26,"friends_count":55,"pagefriends_count":0,"statuses_count":56,"video_status_count":0,"favourites_count":1,"created_at":"Sun Apr 24 02:20:53 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":1,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33554432,"urank":4,"story_read_state":-1,"vclub_member":0},"annotations":[{"mapi_request":true}],"reposts_count":2,"comments_count":1,"attitudes_count":0,"pending_approval_count":0,"isLongText":true,"longText":{"longTextContent":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字 http://t.cn/RkKlDZH","url_objects":[{"url_ori":"http://t.cn/RkKlDZH","object_id":"1034:4275782022027912","expire_time":3600,"info":{"url_short":"http://t.cn/RkKlDZH","url_long":"http://video.weibo.com/show?fid=1034:4275782022027912","type":39,"result":true,"title":"","description":"","last_modified":1534909342,"transcode":0},"object":{"object_id":"1034:4275782022027912","containerid":"2304444275782022027912","object_domain_id":"1034","object_type":"video","safe_status":1,"show_status":"11","act_status":"12","last_modified":"Wed Aug 22 11:42:31 CST 2018","timestamp":1534909351877,"uuid":4275782024221089,"activate_status":"0","object":{"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}},"like_count":0,"play_count":1,"isActionType":true,"follower_count":0,"asso_like_count":0,"card_info_un_integrity":false,"super_topic_status_count":0,"super_topic_photo_count":0,"is_follow_object_author":false,"object_author_video_status_count":0}]},"hide_flag":0,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_ids":[230444],"biz_feature":4294967304,"hasActionTypeCard":1,"text_tag_tips":[],"mblogtype":0,"userType":0,"more_info_type":0,"positive_recom_flag":0,"content_auth":0,"gif_ids":"","is_show_bulletin":2,"comment_manage_info":{"comment_permission_type":-1,"approval_comment_type":0},"mblogid":"GvNr6fNyo","scheme":"sinaweibo://detail/?mblogid=GvNr6fNyo","attitudes_status":0,"recom_state":-1,"continue_tag":{"title":"全文","pic":"http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article.png","scheme":"sinaweibo://detail?mblogid=4275782043765408&id=4275782043765408"},"preload_type":1,"preload_data":{"longtexts":["4275782043765408"]},"weibo_position":2,"edit_config":{"edited":false},"is_fold":0},"annotations":[{"mapi_request":true}],"reposts_count":1,"comments_count":1,"attitudes_count":1,"pending_approval_count":0,"isLongText":false,"liked":true,"like_attitude_type":1,"hide_flag":0,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_feature":0,"hasActionTypeCard":0,"text_tag_tips":[],"mblogtype":0,"userType":0,"more_info_type":0,"positive_recom_flag":0,"content_auth":0,"gif_ids":"","is_show_bulletin":2,"comment_manage_info":{"comment_permission_type":-1,"approval_comment_type":0},"mblogtypename":"","mblogid":"GvNrcrkVX","scheme":"sinaweibo://detail/?mblogid=GvNrcrkVX","attitudes_status":1,"recom_state":-1,"weibo_position":3,"obj_ext":"1次观看","page_info":{"type":"11","page_id":"2304444275782022027912","object_type":"video","object_id":"1034:4275782022027912","content1":"双蛋肠粉的秒拍视频","content2":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","act_status":1,"media_info":{"video_orientation":"vertical","name":"双蛋肠粉的秒拍视频","duration":3,"stream_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","stream_url_hd":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h5_url":"http://video.weibo.com/show?fid=1034:4275782022027912","mp4_sd_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h265_mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video","h265_mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","inch_4_mp4_hd":"","inch_5_mp4_hd":"","inch_5_5_mp4_hd":"","mp4_720p_mp4":"","hevc_mp4_720p":"","prefetch_type":1,"prefetch_size":152976,"act_status":1,"protocol":"","media_id":"4275782022027912","origin_total_bitrate":0,"next_title":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 \u200b\u200b\u200b","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd_url"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_sd_url"}],"play_completion_actions":[{"type":"1","icon":"http://img.t.sinajs.cn/t6/style/images/face/feed_c_r.png","text":"重播","link":"","btn_code":1000,"show_position":1,"actionlog":{"oid":"2304444275782022027912","act_code":1221,"act_type":0,"source":"video"}}],"video_publish_time":1534909337,"play_loop_type":0,"author_mid":"4275782043765408","author_name":"双蛋肠粉","has_recommend_video":1,"online_users":"1次观看","online_users_number":1,"ttl":3600,"storage_type":"unistore"},"page_pic":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","page_title":"双蛋肠粉的秒拍视频","page_url":"sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=2","pic_info":{"pic_big":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_small":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_middle":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","height":"640","width":"360"}},"oid":"5905635122","type_icon":"","author_id":"5905635122","authorid":"5905635122","warn":"","actionlog":{"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:native|analysis_card:page_info"}},"url_struct":[{"url_title":"双蛋肠粉的秒拍视频","url_type_pic":"https://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video.png","ori_url":"sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=1","page_id":"2304444275782022027912","short_url":"http://t.cn/RkKlDZH","url_type":39,"result":false,"actionlog":{"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:web"},"storage_type":"unistore","hide":0,"object_type":"","ttl":3600,"need_save_obj":0}],"edit_config":{"edited":false},"is_fold":0}
-     * root_comments : [{"created_at":"Wed Aug 22 11:44:34 +0800 2018","id":4275782597221994,"rootid":4275782597221994,"floor_number":1,"text":"回到家大家//@Huigesi:转发测试","disable_reply":0,"user":{"id":5905635122,"idstr":"5905635122","class":1,"screen_name":"双蛋肠粉","name":"双蛋肠粉","province":"44","city":"1000","location":"广东","description":"私藏快乐","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"u/5905635122","domain":"","weihao":"","gender":"m","followers_count":25,"friends_count":52,"pagefriends_count":0,"statuses_count":55,"video_status_count":0,"favourites_count":1,"created_at":"Sun Apr 24 02:20:53 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":1,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33554432,"urank":4,"story_read_state":-1,"vclub_member":0},"mid":"4275782597221994","idstr":"4275782597221994","url_objects":[],"liked":false,"comments":[],"max_id":0,"total_number":0,"isLikedByMblogAuthor":false,"like_counts":0}]
-     * max_id : 0
-     * max_id_type : 0
-     * total_number : 1
-     * state_code : 0
-     * filter_group_info : {"title":"按热度","icon":"https://h5.sinaimg.cn/upload/260/2017/09/12/shaixuan.png","icon_name":"Hot","icon_scheme":""}
-     * filter_group : [{"param":"flow=0","scheme":"","title":"按热度","isDefault":1},{"param":"flow=1","scheme":"","title":"按时间","isDefault":0}]
-     * rootComment : {}
-     */
 
     private long id;
     private StatusData status;
@@ -111,62 +99,7 @@ public class WeiBoDetail {
     }
 
     public static class StatusData {
-        /**
-         * created_at : Wed Aug 22 11:42:37 +0800 2018
-         * id : 4275782106515329
-         * idstr : 4275782106515329
-         * mid : 4275782106515329
-         * can_edit : false
-         * text : 转发测试
-         * source_allowclick : 0
-         * source_type : 1
-         * source : <a href="http://app.weibo.com/t/feed/6NndUT" rel="nofollow">Weibo.intl</a>
-         * appid : 2204484
-         * favorited : false
-         * truncated : false
-         * in_reply_to_status_id :
-         * in_reply_to_user_id :
-         * in_reply_to_screen_name :
-         * pic_ids : []
-         * geo : null
-         * is_paid : false
-         * mblog_vip_type : 0
-         * user : {"id":2776941061,"idstr":"2776941061","class":1,"screen_name":"Huigesi","name":"Huigesi","province":"44","city":"5","location":"广东 汕头","description":"我不要头发了","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.537.58.158.158.50/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/a1d3feabjw1ecat4uqw77j20hs0hsacp.jpg","profile_url":"u/2776941061","domain":"","weihao":"","gender":"m","followers_count":92,"friends_count":159,"pagefriends_count":1,"statuses_count":364,"video_status_count":0,"favourites_count":12,"created_at":"Fri Jul 06 17:16:20 +0800 2012","following":true,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.537.58.158.158.180/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.537.58.158.158.1024/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":true,"like":false,"like_me":false,"online_status":0,"bi_followers_count":17,"lang":"zh-cn","star":0,"mbtype":2,"mbrank":1,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":1,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":1,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":1,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33555456,"urank":30,"story_read_state":-1,"vclub_member":0}
-         * retweeted_status : {"created_at":"Wed Aug 22 11:42:22 +0800 2018","id":4275782043765408,"idstr":"4275782043765408","mid":"4275782043765408","can_edit":false,"text":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 \u200b\u200b\u200b","textLength":596,"source_allowclick":0,"source_type":1,"source":"<a href=\"http://app.weibo.com/t/feed/19DcdW\" rel=\"nofollow\">微博视频<\/a>","appid":936,"favorited":false,"truncated":false,"in_reply_to_status_id":"","in_reply_to_user_id":"","in_reply_to_screen_name":"","pic_ids":[],"geo":null,"is_paid":false,"mblog_vip_type":0,"user":{"id":5905635122,"idstr":"5905635122","class":1,"screen_name":"双蛋肠粉","name":"双蛋肠粉","province":"44","city":"1000","location":"广东","description":"私藏快乐","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"u/5905635122","domain":"","weihao":"","gender":"m","followers_count":26,"friends_count":55,"pagefriends_count":0,"statuses_count":56,"video_status_count":0,"favourites_count":1,"created_at":"Sun Apr 24 02:20:53 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":1,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33554432,"urank":4,"story_read_state":-1,"vclub_member":0},"annotations":[{"mapi_request":true}],"reposts_count":2,"comments_count":1,"attitudes_count":0,"pending_approval_count":0,"isLongText":true,"longText":{"longTextContent":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字 http://t.cn/RkKlDZH","url_objects":[{"url_ori":"http://t.cn/RkKlDZH","object_id":"1034:4275782022027912","expire_time":3600,"info":{"url_short":"http://t.cn/RkKlDZH","url_long":"http://video.weibo.com/show?fid=1034:4275782022027912","type":39,"result":true,"title":"","description":"","last_modified":1534909342,"transcode":0},"object":{"object_id":"1034:4275782022027912","containerid":"2304444275782022027912","object_domain_id":"1034","object_type":"video","safe_status":1,"show_status":"11","act_status":"12","last_modified":"Wed Aug 22 11:42:31 CST 2018","timestamp":1534909351877,"uuid":4275782024221089,"activate_status":"0","object":{"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}},"like_count":0,"play_count":1,"isActionType":true,"follower_count":0,"asso_like_count":0,"card_info_un_integrity":false,"super_topic_status_count":0,"super_topic_photo_count":0,"is_follow_object_author":false,"object_author_video_status_count":0}]},"hide_flag":0,"mlevel":0,"visible":{"type":0,"list_id":0},"biz_ids":[230444],"biz_feature":4294967304,"hasActionTypeCard":1,"text_tag_tips":[],"mblogtype":0,"userType":0,"more_info_type":0,"positive_recom_flag":0,"content_auth":0,"gif_ids":"","is_show_bulletin":2,"comment_manage_info":{"comment_permission_type":-1,"approval_comment_type":0},"mblogid":"GvNr6fNyo","scheme":"sinaweibo://detail/?mblogid=GvNr6fNyo","attitudes_status":0,"recom_state":-1,"continue_tag":{"title":"全文","pic":"http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article.png","scheme":"sinaweibo://detail?mblogid=4275782043765408&id=4275782043765408"},"preload_type":1,"preload_data":{"longtexts":["4275782043765408"]},"weibo_position":2,"edit_config":{"edited":false},"is_fold":0}
-         * annotations : [{"mapi_request":true}]
-         * reposts_count : 1
-         * comments_count : 1
-         * attitudes_count : 1
-         * pending_approval_count : 0
-         * isLongText : false
-         * liked : true
-         * like_attitude_type : 1
-         * hide_flag : 0
-         * mlevel : 0
-         * visible : {"type":0,"list_id":0}
-         * biz_feature : 0
-         * hasActionTypeCard : 0
-         * text_tag_tips : []
-         * mblogtype : 0
-         * userType : 0
-         * more_info_type : 0
-         * positive_recom_flag : 0
-         * content_auth : 0
-         * gif_ids :
-         * is_show_bulletin : 2
-         * comment_manage_info : {"comment_permission_type":-1,"approval_comment_type":0}
-         * mblogtypename :
-         * mblogid : GvNrcrkVX
-         * scheme : sinaweibo://detail/?mblogid=GvNrcrkVX
-         * attitudes_status : 1
-         * recom_state : -1
-         * weibo_position : 3
-         * obj_ext : 1次观看
-         * page_info : {"type":"11","page_id":"2304444275782022027912","object_type":"video","object_id":"1034:4275782022027912","content1":"双蛋肠粉的秒拍视频","content2":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","act_status":1,"media_info":{"video_orientation":"vertical","name":"双蛋肠粉的秒拍视频","duration":3,"stream_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","stream_url_hd":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h5_url":"http://video.weibo.com/show?fid=1034:4275782022027912","mp4_sd_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h265_mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video","h265_mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","inch_4_mp4_hd":"","inch_5_mp4_hd":"","inch_5_5_mp4_hd":"","mp4_720p_mp4":"","hevc_mp4_720p":"","prefetch_type":1,"prefetch_size":152976,"act_status":1,"protocol":"","media_id":"4275782022027912","origin_total_bitrate":0,"next_title":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 \u200b\u200b\u200b","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd_url"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_sd_url"}],"play_completion_actions":[{"type":"1","icon":"http://img.t.sinajs.cn/t6/style/images/face/feed_c_r.png","text":"重播","link":"","btn_code":1000,"show_position":1,"actionlog":{"oid":"2304444275782022027912","act_code":1221,"act_type":0,"source":"video"}}],"video_publish_time":1534909337,"play_loop_type":0,"author_mid":"4275782043765408","author_name":"双蛋肠粉","has_recommend_video":1,"online_users":"1次观看","online_users_number":1,"ttl":3600,"storage_type":"unistore"},"page_pic":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","page_title":"双蛋肠粉的秒拍视频","page_url":"sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=2","pic_info":{"pic_big":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_small":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_middle":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","height":"640","width":"360"}},"oid":"5905635122","type_icon":"","author_id":"5905635122","authorid":"5905635122","warn":"","actionlog":{"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:native|analysis_card:page_info"}}
-         * url_struct : [{"url_title":"双蛋肠粉的秒拍视频","url_type_pic":"https://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video.png","ori_url":"sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=1","page_id":"2304444275782022027912","short_url":"http://t.cn/RkKlDZH","url_type":39,"result":false,"actionlog":{"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:web"},"storage_type":"unistore","hide":0,"object_type":"","ttl":3600,"need_save_obj":0}]
-         * edit_config : {"edited":false}
-         * is_fold : 0
-         */
+
 
         private String created_at;
         private long id;
@@ -665,71 +598,6 @@ public class WeiBoDetail {
         }
 
         public static class UserData {
-            /**
-             * id : 2776941061
-             * idstr : 2776941061
-             * class : 1
-             * screen_name : Huigesi
-             * name : Huigesi
-             * province : 44
-             * city : 5
-             * location : 广东 汕头
-             * description : 我不要头发了
-             * url :
-             * profile_image_url : https://tvax2.sinaimg.cn/crop.537.58.158.158.50/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg
-             * cover_image_phone : https://ww1.sinaimg.cn/crop.0.0.640.640.640/a1d3feabjw1ecat4uqw77j20hs0hsacp.jpg
-             * profile_url : u/2776941061
-             * domain :
-             * weihao :
-             * gender : m
-             * followers_count : 92
-             * friends_count : 159
-             * pagefriends_count : 1
-             * statuses_count : 364
-             * video_status_count : 0
-             * favourites_count : 12
-             * created_at : Fri Jul 06 17:16:20 +0800 2012
-             * following : true
-             * allow_all_act_msg : false
-             * geo_enabled : true
-             * verified : false
-             * verified_type : -1
-             * remark :
-             * insecurity : {"sexual_content":false}
-             * ptype : 0
-             * allow_all_comment : true
-             * avatar_large : https://tvax2.sinaimg.cn/crop.537.58.158.158.180/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg
-             * avatar_hd : https://tvax2.sinaimg.cn/crop.537.58.158.158.1024/a584c205ly8fr2i9rlab6j20ku0dwakj.jpg
-             * verified_reason :
-             * verified_trade :
-             * verified_reason_url :
-             * verified_source :
-             * verified_source_url :
-             * follow_me : true
-             * like : false
-             * like_me : false
-             * online_status : 0
-             * bi_followers_count : 17
-             * lang : zh-cn
-             * star : 0
-             * mbtype : 2
-             * mbrank : 1
-             * block_word : 0
-             * block_app : 0
-             * level : 1
-             * type : 1
-             * ulevel : 0
-             * user_limit : 0
-             * badge : {"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":1,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":1,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":1,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0}
-             * badge_top :
-             * has_ability_tag : 0
-             * extend : {"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"}
-             * credit_score : 80
-             * user_ability : 33555456
-             * urank : 30
-             * story_read_state : -1
-             * vclub_member : 0
-             */
 
             private long id;
             private String idstr;
@@ -1786,61 +1654,6 @@ public class WeiBoDetail {
         }
 
         public static class RetweetedStatusData {
-            /**
-             * created_at : Wed Aug 22 11:42:22 +0800 2018
-             * id : 4275782043765408
-             * idstr : 4275782043765408
-             * mid : 4275782043765408
-             * can_edit : false
-             * text : 长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 ​​​
-             * textLength : 596
-             * source_allowclick : 0
-             * source_type : 1
-             * source : <a href="http://app.weibo.com/t/feed/19DcdW" rel="nofollow">微博视频</a>
-             * appid : 936
-             * favorited : false
-             * truncated : false
-             * in_reply_to_status_id :
-             * in_reply_to_user_id :
-             * in_reply_to_screen_name :
-             * pic_ids : []
-             * geo : null
-             * is_paid : false
-             * mblog_vip_type : 0
-             * user : {"id":5905635122,"idstr":"5905635122","class":1,"screen_name":"双蛋肠粉","name":"双蛋肠粉","province":"44","city":"1000","location":"广东","description":"私藏快乐","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"u/5905635122","domain":"","weihao":"","gender":"m","followers_count":26,"friends_count":55,"pagefriends_count":0,"statuses_count":56,"video_status_count":0,"favourites_count":1,"created_at":"Sun Apr 24 02:20:53 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":1,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33554432,"urank":4,"story_read_state":-1,"vclub_member":0}
-             * annotations : [{"mapi_request":true}]
-             * reposts_count : 2
-             * comments_count : 1
-             * attitudes_count : 0
-             * pending_approval_count : 0
-             * isLongText : true
-             * longText : {"longTextContent":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字 http://t.cn/RkKlDZH","url_objects":[{"url_ori":"http://t.cn/RkKlDZH","object_id":"1034:4275782022027912","expire_time":3600,"info":{"url_short":"http://t.cn/RkKlDZH","url_long":"http://video.weibo.com/show?fid=1034:4275782022027912","type":39,"result":true,"title":"","description":"","last_modified":1534909342,"transcode":0},"object":{"object_id":"1034:4275782022027912","containerid":"2304444275782022027912","object_domain_id":"1034","object_type":"video","safe_status":1,"show_status":"11","act_status":"12","last_modified":"Wed Aug 22 11:42:31 CST 2018","timestamp":1534909351877,"uuid":4275782024221089,"activate_status":"0","object":{"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}},"like_count":0,"play_count":1,"isActionType":true,"follower_count":0,"asso_like_count":0,"card_info_un_integrity":false,"super_topic_status_count":0,"super_topic_photo_count":0,"is_follow_object_author":false,"object_author_video_status_count":0}]}
-             * hide_flag : 0
-             * mlevel : 0
-             * visible : {"type":0,"list_id":0}
-             * biz_ids : [230444]
-             * biz_feature : 4294967304
-             * hasActionTypeCard : 1
-             * text_tag_tips : []
-             * mblogtype : 0
-             * userType : 0
-             * more_info_type : 0
-             * positive_recom_flag : 0
-             * content_auth : 0
-             * gif_ids :
-             * is_show_bulletin : 2
-             * comment_manage_info : {"comment_permission_type":-1,"approval_comment_type":0}
-             * mblogid : GvNr6fNyo
-             * scheme : sinaweibo://detail/?mblogid=GvNr6fNyo
-             * attitudes_status : 0
-             * recom_state : -1
-             * continue_tag : {"title":"全文","pic":"http://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_article.png","scheme":"sinaweibo://detail?mblogid=4275782043765408&id=4275782043765408"}
-             * preload_type : 1
-             * preload_data : {"longtexts":["4275782043765408"]}
-             * weibo_position : 2
-             * edit_config : {"edited":false}
-             * is_fold : 0
-             */
 
             private String created_at;
             private long id;
@@ -2321,71 +2134,6 @@ public class WeiBoDetail {
             }
 
             public static class UserDataX {
-                /**
-                 * id : 5905635122
-                 * idstr : 5905635122
-                 * class : 1
-                 * screen_name : 双蛋肠粉
-                 * name : 双蛋肠粉
-                 * province : 44
-                 * city : 1000
-                 * location : 广东
-                 * description : 私藏快乐
-                 * url :
-                 * profile_image_url : https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-                 * cover_image_phone : https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg
-                 * profile_url : u/5905635122
-                 * domain :
-                 * weihao :
-                 * gender : m
-                 * followers_count : 26
-                 * friends_count : 55
-                 * pagefriends_count : 0
-                 * statuses_count : 56
-                 * video_status_count : 0
-                 * favourites_count : 1
-                 * created_at : Sun Apr 24 02:20:53 +0800 2016
-                 * following : false
-                 * allow_all_act_msg : false
-                 * geo_enabled : true
-                 * verified : false
-                 * verified_type : -1
-                 * remark :
-                 * insecurity : {"sexual_content":false}
-                 * ptype : 0
-                 * allow_all_comment : true
-                 * avatar_large : https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-                 * avatar_hd : https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-                 * verified_reason :
-                 * verified_trade :
-                 * verified_reason_url :
-                 * verified_source :
-                 * verified_source_url :
-                 * follow_me : false
-                 * like : false
-                 * like_me : false
-                 * online_status : 0
-                 * bi_followers_count : 1
-                 * lang : zh-cn
-                 * star : 0
-                 * mbtype : 0
-                 * mbrank : 0
-                 * block_word : 0
-                 * block_app : 0
-                 * level : 1
-                 * type : 1
-                 * ulevel : 0
-                 * user_limit : 0
-                 * badge : {"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0}
-                 * badge_top :
-                 * has_ability_tag : 0
-                 * extend : {"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"}
-                 * credit_score : 80
-                 * user_ability : 33554432
-                 * urank : 4
-                 * story_read_state : -1
-                 * vclub_member : 0
-                 */
 
                 private long id;
                 private String idstr;
@@ -3442,10 +3190,6 @@ public class WeiBoDetail {
             }
 
             public static class LongTextData {
-                /**
-                 * longTextContent : 长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字 http://t.cn/RkKlDZH
-                 * url_objects : [{"url_ori":"http://t.cn/RkKlDZH","object_id":"1034:4275782022027912","expire_time":3600,"info":{"url_short":"http://t.cn/RkKlDZH","url_long":"http://video.weibo.com/show?fid=1034:4275782022027912","type":39,"result":true,"title":"","description":"","last_modified":1534909342,"transcode":0},"object":{"object_id":"1034:4275782022027912","containerid":"2304444275782022027912","object_domain_id":"1034","object_type":"video","safe_status":1,"show_status":"11","act_status":"12","last_modified":"Wed Aug 22 11:42:31 CST 2018","timestamp":1534909351877,"uuid":4275782024221089,"activate_status":"0","object":{"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}},"like_count":0,"play_count":1,"isActionType":true,"follower_count":0,"asso_like_count":0,"card_info_un_integrity":false,"super_topic_status_count":0,"super_topic_photo_count":0,"is_follow_object_author":false,"object_author_video_status_count":0}]
-                 */
 
                 private String longTextContent;
                 private List<UrlObjectsData> url_objects;
@@ -3467,23 +3211,6 @@ public class WeiBoDetail {
                 }
 
                 public static class UrlObjectsData {
-                    /**
-                     * url_ori : http://t.cn/RkKlDZH
-                     * object_id : 1034:4275782022027912
-                     * expire_time : 3600
-                     * info : {"url_short":"http://t.cn/RkKlDZH","url_long":"http://video.weibo.com/show?fid=1034:4275782022027912","type":39,"result":true,"title":"","description":"","last_modified":1534909342,"transcode":0}
-                     * object : {"object_id":"1034:4275782022027912","containerid":"2304444275782022027912","object_domain_id":"1034","object_type":"video","safe_status":1,"show_status":"11","act_status":"12","last_modified":"Wed Aug 22 11:42:31 CST 2018","timestamp":1534909351877,"uuid":4275782024221089,"activate_status":"0","object":{"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}}
-                     * like_count : 0
-                     * play_count : 1
-                     * isActionType : true
-                     * follower_count : 0
-                     * asso_like_count : 0
-                     * card_info_un_integrity : false
-                     * super_topic_status_count : 0
-                     * super_topic_photo_count : 0
-                     * is_follow_object_author : false
-                     * object_author_video_status_count : 0
-                     */
 
                     private String url_ori;
                     private String object_id;
@@ -3708,20 +3435,6 @@ public class WeiBoDetail {
                     }
 
                     public static class ObjectDataX {
-                        /**
-                         * object_id : 1034:4275782022027912
-                         * containerid : 2304444275782022027912
-                         * object_domain_id : 1034
-                         * object_type : video
-                         * safe_status : 1
-                         * show_status : 11
-                         * act_status : 12
-                         * last_modified : Wed Aug 22 11:42:31 CST 2018
-                         * timestamp : 1534909351877
-                         * uuid : 4275782024221089
-                         * activate_status : 0
-                         * object : {"display_name":"双蛋肠粉的秒拍视频","summary":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文","url":"http://video.weibo.com/show?fid=1034:4275782022027912","target_url":"http://video.weibo.com/show?fid=1034:4275782022027912","object_type":"video","author":{"id":"5905635122","display_name":"双蛋肠粉","object_type":"person","avatar_large":"http://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","followers_count":25,"verified_type":-1,"verified_type_ext":0,"verified_reason":"","verified":false,"verified_level":3},"created_at":"2018-08-22","updated_at":"2018-08-22","object_type_detail":"weibovideo","id":"1034:4275782022027912","image":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":360,"height":640},"cover_image":false,"urls":{"mp4_hd_mp4":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","mp4_ld_mp4":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video"},"screenshots":{"1":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","2":"http://wx2.sinaimg.cn/sq480/006rFrtogy1fuibw807c5j30a00hsjro.jpg","3":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw85zdlj30a00hs0su.jpg","4":"http://wx1.sinaimg.cn/sq480/006rFrtogy1fuibw87k9lj30a00hs0su.jpg","5":"http://wx3.sinaimg.cn/sq480/006rFrtogy1fuibw88vo9j30a00hs0su.jpg"},"duration":3,"file_create_type":"localfile","links":{"url":"http://video.weibo.com/show?fid=1034:4275782022027912"},"custom_data":{"source":"新浪微博"},"stream":{"duration":3,"format":"mp4","url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","width":360,"height":640},"original_url":"http://f.us.sinaimg.cn/0040TuyIgx07n1BzdwNF010f1200341s0k010","storage_type":"unistore","embed_code":"http://video.weibo.com/player/1034:4275782022027912/v.swf","original_file_md5":"db361da89113c76831afbb2948e82d7f","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_ld"}],"author_mid":"4275782043765408","client_ip":"116.22.33.244","raw_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f"},"compressed_file_meta":{"md5":"db361da89113c76831afbb2948e82d7f","video_media_info":{"width":360,"height":640}},"client":"other","video_type":"normal","fid":4275782018695490,"copyright":0,"definition":"normal","scrubber_preview":{"previews":[{"width":80,"height":45,"row":10,"col":10,"interval":1,"label":"ld","urls":["http://wx3.sinaimg.cn/large/006rFrtogy1fuibwf4pswj30m80cit8o.jpg"]}]},"appid":28,"slides":{"pids":["006rFrtogy1fuibwalcmdj30a00hsjro","006rFrtogy1fuibwamk8yj30a00hsjro","006rFrtogy1fuibwanwk4j30a00hsaac","006rFrtogy1fuibwapaudj30a00hsjro"]},"video_cover":"006rFrtogy1fuibwak5j2j30a00hsmx3","biz_type":"video","file_monitor_type":"after","timeMonitorMeta":{"uploadCompleteTimeStamp":1534909337166,"transBackTimeStamp":1534909342706,"monitorReturnTimeStamp":0,"initTimeStamp":1534909336000},"domesticOnly":false,"input_tags":{"creation_time":"2018-08-22 03:42:15"},"video_orientation":"vertical","ext_info":{"video_orientation":"vertical"},"logos":["other"],"biz":{"biz_id":"230444","containerid":"2304444275782022027912"}}
-                         */
 
                         private String object_id;
                         private String containerid;
@@ -3732,7 +3445,6 @@ public class WeiBoDetail {
                         private String act_status;
                         private String last_modified;
                         private long timestamp;
-                        private long uuid;
                         private String activate_status;
                         private ObjectData object;
 
@@ -3806,14 +3518,6 @@ public class WeiBoDetail {
 
                         public void setTimestamp(long timestamp) {
                             this.timestamp = timestamp;
-                        }
-
-                        public long getUuid() {
-                            return uuid;
-                        }
-
-                        public void setUuid(long uuid) {
-                            this.uuid = uuid;
                         }
 
                         public String getActivate_status() {
@@ -5152,26 +4856,6 @@ public class WeiBoDetail {
         }
 
         public static class PageInfoData {
-            /**
-             * type : 11
-             * page_id : 2304444275782022027912
-             * object_type : video
-             * object_id : 1034:4275782022027912
-             * content1 : 双蛋肠粉的秒拍视频
-             * content2 : 长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文
-             * act_status : 1
-             * media_info : {"video_orientation":"vertical","name":"双蛋肠粉的秒拍视频","duration":3,"stream_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","stream_url_hd":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h5_url":"http://video.weibo.com/show?fid=1034:4275782022027912","mp4_sd_url":"http://f.us.sinaimg.cn/002qEWbfgx07n1BA6Imz010402000M6U0k010.mp4?label=mp4_ld&template=360x640.28&Expires=1534913137&ssig=vqr2rME3IX&KID=unistore,video","mp4_hd_url":"http://f.us.sinaimg.cn/0012MlMbgx07n1BA5CjC010402000P4E0k010.mp4?label=mp4_hd&template=360x640.28&Expires=1534913137&ssig=CoQIDxrhfv&KID=unistore,video","h265_mp4_hd":"http://f.us.sinaimg.cn/001F6iZQgx07n1BA7zaL010f020000220k010.m3u8?Expires=1534913137&ssig=TIEZJnr7gK&KID=unistore,video","h265_mp4_ld":"http://f.us.sinaimg.cn/004o8wlHgx07n1BA8oWs010f020000220k010.m3u8?Expires=1534913137&ssig=qEx7QXfXf1&KID=unistore,video","inch_4_mp4_hd":"","inch_5_mp4_hd":"","inch_5_5_mp4_hd":"","mp4_720p_mp4":"","hevc_mp4_720p":"","prefetch_type":1,"prefetch_size":152976,"act_status":1,"protocol":"","media_id":"4275782022027912","origin_total_bitrate":0,"next_title":"长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文字长文 \u200b\u200b\u200b","video_details":[{"size":196332,"bitrate":397,"prefetch_size":152976,"label":"mp4_hd_url"},{"size":184940,"bitrate":374,"prefetch_size":144318,"label":"mp4_sd_url"}],"play_completion_actions":[{"type":"1","icon":"http://img.t.sinajs.cn/t6/style/images/face/feed_c_r.png","text":"重播","link":"","btn_code":1000,"show_position":1,"actionlog":{"oid":"2304444275782022027912","act_code":1221,"act_type":0,"source":"video"}}],"video_publish_time":1534909337,"play_loop_type":0,"author_mid":"4275782043765408","author_name":"双蛋肠粉","has_recommend_video":1,"online_users":"1次观看","online_users_number":1,"ttl":3600,"storage_type":"unistore"}
-             * page_pic : http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg
-             * page_title : 双蛋肠粉的秒拍视频
-             * page_url : sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=2
-             * pic_info : {"pic_big":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_small":{"height":"640","url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","width":"360"},"pic_middle":{"url":"http://wx1.sinaimg.cn/orj480/006rFrtogy1fuibw7yg4lj30a00hsjro.jpg","height":"640","width":"360"}}
-             * oid : 5905635122
-             * type_icon :
-             * author_id : 5905635122
-             * authorid : 5905635122
-             * warn :
-             * actionlog : {"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:native|analysis_card:page_info"}
-             */
 
             private String type;
             private String page_id;
@@ -5985,19 +5669,6 @@ public class WeiBoDetail {
             }
 
             public static class ActionlogDataX {
-                /**
-                 * act_type : 1
-                 * act_code : 799
-                 * cardid :
-                 * lcardid :
-                 * fid :
-                 * uid : 5905635122
-                 * mid : 4275782043765408
-                 * oid : 1034:4275782022027912
-                 * uuid : 4275782024221089
-                 * source : video
-                 * ext : uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:native|analysis_card:page_info
-                 */
 
                 private int act_type;
                 private int act_code;
@@ -6007,7 +5678,6 @@ public class WeiBoDetail {
                 private String uid;
                 private String mid;
                 private String oid;
-                private long uuid;
                 private String source;
                 private String ext;
 
@@ -6075,14 +5745,6 @@ public class WeiBoDetail {
                     this.oid = oid;
                 }
 
-                public long getUuid() {
-                    return uuid;
-                }
-
-                public void setUuid(long uuid) {
-                    this.uuid = uuid;
-                }
-
                 public String getSource() {
                     return source;
                 }
@@ -6134,21 +5796,6 @@ public class WeiBoDetail {
         }
 
         public static class UrlStructData {
-            /**
-             * url_title : 双蛋肠粉的秒拍视频
-             * url_type_pic : https://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video.png
-             * ori_url : sinaweibo://infopage?containerid=2304444275782022027912&containerid=2304444275782022027912&url_type=39&object_type=video&pos=1
-             * page_id : 2304444275782022027912
-             * short_url : http://t.cn/RkKlDZH
-             * url_type : 39
-             * result : false
-             * actionlog : {"act_type":1,"act_code":799,"cardid":"","lcardid":"","fid":"","uid":"5905635122","mid":"4275782043765408","oid":"1034:4275782022027912","uuid":4275782024221089,"source":"video","ext":"uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:web"}
-             * storage_type : unistore
-             * hide : 0
-             * object_type :
-             * ttl : 3600
-             * need_save_obj : 0
-             */
 
             private String url_title;
             private String url_type_pic;
@@ -6269,19 +5916,6 @@ public class WeiBoDetail {
             }
 
             public static class ActionlogDataXX {
-                /**
-                 * act_type : 1
-                 * act_code : 799
-                 * cardid :
-                 * lcardid :
-                 * fid :
-                 * uid : 5905635122
-                 * mid : 4275782043765408
-                 * oid : 1034:4275782022027912
-                 * uuid : 4275782024221089
-                 * source : video
-                 * ext : uid:5905635122|mid:4275782043765408|objectid:1034%3A4275782022027912|from:1|object_duration:3|miduid:5905635122|rootuid:5905635122|rootmid:4275782043765408|authorid:5905635122|video_orientation:vertical|third_vid:|detail:web
-                 */
 
                 private int act_type;
                 private int act_code;
@@ -6291,7 +5925,6 @@ public class WeiBoDetail {
                 private String uid;
                 private String mid;
                 private String oid;
-                private long uuid;
                 private String source;
                 private String ext;
 
@@ -6359,14 +5992,6 @@ public class WeiBoDetail {
                     this.oid = oid;
                 }
 
-                public long getUuid() {
-                    return uuid;
-                }
-
-                public void setUuid(long uuid) {
-                    this.uuid = uuid;
-                }
-
                 public String getSource() {
                     return source;
                 }
@@ -6393,24 +6018,6 @@ public class WeiBoDetail {
     }
 
     public static class RootCommentsData {
-        /**
-         * created_at : Wed Aug 22 11:44:34 +0800 2018
-         * id : 4275782597221994
-         * rootid : 4275782597221994
-         * floor_number : 1
-         * text : 回到家大家//@Huigesi:转发测试
-         * disable_reply : 0
-         * user : {"id":5905635122,"idstr":"5905635122","class":1,"screen_name":"双蛋肠粉","name":"双蛋肠粉","province":"44","city":"1000","location":"广东","description":"私藏快乐","url":"","profile_image_url":"https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","cover_image_phone":"https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"u/5905635122","domain":"","weihao":"","gender":"m","followers_count":25,"friends_count":52,"pagefriends_count":0,"statuses_count":55,"video_status_count":0,"favourites_count":1,"created_at":"Sun Apr 24 02:20:53 +0800 2016","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":-1,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","avatar_hd":"https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":1,"lang":"zh-cn","star":0,"mbtype":0,"mbrank":0,"block_word":0,"block_app":0,"level":1,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0},"badge_top":"","has_ability_tag":0,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"},"credit_score":80,"user_ability":33554432,"urank":4,"story_read_state":-1,"vclub_member":0}
-         * mid : 4275782597221994
-         * idstr : 4275782597221994
-         * url_objects : []
-         * liked : false
-         * comments : []
-         * max_id : 0
-         * total_number : 0
-         * isLikedByMblogAuthor : false
-         * like_counts : 0
-         */
 
         private String created_at;
         private long id;
@@ -6624,71 +6231,6 @@ public class WeiBoDetail {
             }
         }
         public static class UserDataXX {
-            /**
-             * id : 5905635122
-             * idstr : 5905635122
-             * class : 1
-             * screen_name : 双蛋肠粉
-             * name : 双蛋肠粉
-             * province : 44
-             * city : 1000
-             * location : 广东
-             * description : 私藏快乐
-             * url :
-             * profile_image_url : https://tvax2.sinaimg.cn/crop.206.229.270.270.50/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-             * cover_image_phone : https://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg
-             * profile_url : u/5905635122
-             * domain :
-             * weihao :
-             * gender : m
-             * followers_count : 25
-             * friends_count : 52
-             * pagefriends_count : 0
-             * statuses_count : 55
-             * video_status_count : 0
-             * favourites_count : 1
-             * created_at : Sun Apr 24 02:20:53 +0800 2016
-             * following : false
-             * allow_all_act_msg : false
-             * geo_enabled : true
-             * verified : false
-             * verified_type : -1
-             * remark :
-             * insecurity : {"sexual_content":false}
-             * ptype : 0
-             * allow_all_comment : true
-             * avatar_large : https://tvax2.sinaimg.cn/crop.206.229.270.270.180/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-             * avatar_hd : https://tvax2.sinaimg.cn/crop.206.229.270.270.1024/006rFrtoly8frvvzh84mqj30ku0dwakj.jpg
-             * verified_reason :
-             * verified_trade :
-             * verified_reason_url :
-             * verified_source :
-             * verified_source_url :
-             * follow_me : false
-             * like : false
-             * like_me : false
-             * online_status : 0
-             * bi_followers_count : 1
-             * lang : zh-cn
-             * star : 0
-             * mbtype : 0
-             * mbrank : 0
-             * block_word : 0
-             * block_app : 0
-             * level : 1
-             * type : 1
-             * ulevel : 0
-             * user_limit : 0
-             * badge : {"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":0,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":0,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":0,"self_media":0,"dzwbqlx_2016":0,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":0,"worldcup_2018":0,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":0}
-             * badge_top :
-             * has_ability_tag : 0
-             * extend : {"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000000000000"}
-             * credit_score : 80
-             * user_ability : 33554432
-             * urank : 4
-             * story_read_state : -1
-             * vclub_member : 0
-             */
 
             private long id;
             private String idstr;
@@ -7745,17 +7287,6 @@ public class WeiBoDetail {
         }
 
         public static class ReplyCommentData {
-            /**
-             * created_at : Wed Aug 22 09:45:27 +0800 2018
-             * id : 4275752620880506
-             * rootid : 4275752620880506
-             * floor_number : 21
-             * text : 14号线非常气愤，一脚踹飞一个15号线[doge] http://t.cn/RkKhxXx
-             * disable_reply : 0
-             * user : {"id":1497480083,"idstr":"1497480083","class":1,"screen_name":"庄生晓梦Void","name":"庄生晓梦Void","province":"11","city":"5","location":"北京 朝阳区","description":"死理性的文艺青年，B站up主","url":"","profile_image_url":"http://tva3.sinaimg.cn/crop.0.0.180.180.50/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg","cover_image_phone":"http://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg","profile_url":"keepercz","domain":"keepercz","weihao":"","gender":"m","followers_count":1247,"friends_count":1132,"pagefriends_count":7,"statuses_count":12283,"video_status_count":0,"favourites_count":108,"created_at":"Thu Aug 19 12:35:17 +0800 2010","following":false,"allow_all_act_msg":false,"geo_enabled":true,"verified":false,"verified_type":220,"remark":"","insecurity":{"sexual_content":false},"ptype":0,"allow_all_comment":true,"avatar_large":"http://tva3.sinaimg.cn/crop.0.0.180.180.180/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg","avatar_hd":"http://tva3.sinaimg.cn/crop.0.0.180.180.1024/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg","verified_reason":"","verified_trade":"","verified_reason_url":"","verified_source":"","verified_source_url":"","follow_me":false,"like":false,"like_me":false,"online_status":0,"bi_followers_count":149,"lang":"zh-cn","star":0,"mbtype":12,"mbrank":6,"block_word":0,"block_app":1,"level":7,"type":1,"ulevel":0,"user_limit":0,"badge":{"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":1,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":1,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":1,"self_media":0,"dzwbqlx_2016":1,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":1,"worldcup_2018":34,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":1},"badge_top":"","has_ability_tag":1,"extend":{"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000004c00208"},"credit_score":80,"user_ability":2097152,"urank":48,"story_read_state":-1,"vclub_member":0}
-             * mid : 4275752620880506
-             * idstr : 4275752620880506
-             */
 
             @SerializedName("created_at")
             private String created_atX;
@@ -7849,71 +7380,6 @@ public class WeiBoDetail {
             }
 
             public static class UserData {
-                /**
-                 * id : 1497480083
-                 * idstr : 1497480083
-                 * class : 1
-                 * screen_name : 庄生晓梦Void
-                 * name : 庄生晓梦Void
-                 * province : 11
-                 * city : 5
-                 * location : 北京 朝阳区
-                 * description : 死理性的文艺青年，B站up主
-                 * url :
-                 * profile_image_url : http://tva3.sinaimg.cn/crop.0.0.180.180.50/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg
-                 * cover_image_phone : http://ww1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg
-                 * profile_url : keepercz
-                 * domain : keepercz
-                 * weihao :
-                 * gender : m
-                 * followers_count : 1247
-                 * friends_count : 1132
-                 * pagefriends_count : 7
-                 * statuses_count : 12283
-                 * video_status_count : 0
-                 * favourites_count : 108
-                 * created_at : Thu Aug 19 12:35:17 +0800 2010
-                 * following : false
-                 * allow_all_act_msg : false
-                 * geo_enabled : true
-                 * verified : false
-                 * verified_type : 220
-                 * remark :
-                 * insecurity : {"sexual_content":false}
-                 * ptype : 0
-                 * allow_all_comment : true
-                 * avatar_large : http://tva3.sinaimg.cn/crop.0.0.180.180.180/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg
-                 * avatar_hd : http://tva3.sinaimg.cn/crop.0.0.180.180.1024/5941bb93jw1e8qgp5bmzyj2050050aa8.jpg
-                 * verified_reason :
-                 * verified_trade :
-                 * verified_reason_url :
-                 * verified_source :
-                 * verified_source_url :
-                 * follow_me : false
-                 * like : false
-                 * like_me : false
-                 * online_status : 0
-                 * bi_followers_count : 149
-                 * lang : zh-cn
-                 * star : 0
-                 * mbtype : 12
-                 * mbrank : 6
-                 * block_word : 0
-                 * block_app : 1
-                 * level : 7
-                 * type : 1
-                 * ulevel : 0
-                 * user_limit : 0
-                 * badge : {"uc_domain":0,"enterprise":0,"anniversary":0,"taobao":0,"gongyi":0,"gongyi_level":0,"bind_taobao":1,"dailv":0,"zongyiji":0,"vip_activity1":0,"unread_pool":1,"daiyan":0,"ali_1688":0,"vip_activity2":0,"fools_day_2016":0,"uefa_euro_2016":0,"unread_pool_ext":1,"self_media":0,"dzwbqlx_2016":1,"discount_2016":0,"follow_whitelist_video":0,"league_badge":0,"lol_msi_2017":0,"super_star_2017":0,"video_attention":0,"travel_2017":0,"lol_gm_2017":0,"cz_wed_2017":0,"inspector":0,"panda":0,"uve_icon":0,"user_name_certificate":1,"suishoupai_2018":0,"wenda":0,"wenchuan_10th":0,"super_star_2018":1,"worldcup_2018":34,"wenda_v2":0,"league_badge_2018":0,"dailv_2018":0,"asiad_2018":0,"qixi_2018":1}
-                 * badge_top :
-                 * has_ability_tag : 1
-                 * extend : {"privacy":{"mobile":1},"mbprivilege":"0000000000000000000000000000000000000000000000000000000004c00208"}
-                 * credit_score : 80
-                 * user_ability : 2097152
-                 * urank : 48
-                 * story_read_state : -1
-                 * vclub_member : 0
-                 */
 
                 @SerializedName("id")
                 private int idX;
@@ -8516,25 +7982,6 @@ public class WeiBoDetail {
         }
 
         public static class UrlStructData {
-            /**
-             * url_title : 查看图片
-             * url_type_pic : http://h5.sinaimg.cn/upload/2015/01/21/20/timeline_card_small_photo.png
-             * ori_url : http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd
-             * short_url : http://t.cn/RkKhxXx
-             * url_type : 39
-             * result : false
-             * actionlog : {"act_type":1,"act_code":300,"oid":"1022:230597ef7ae721dad184d512d8048cf10551cd","uuid":4275752622128188,"cardid":"","lcardid":"","uicode":"","luicode":"","fid":"","lfid":"","ext":"mid:|rid:|short_url:http://t.cn/RkKhxXx|long_url:http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd|analysis_card:url_struct"}
-             * storage_type :
-             * hide : 0
-             * object_type :
-             * position : 2
-             * pic_infos : {"5941bb93ly1fui8gp1krij20q90k4wh5":{"thumbnail":{"type":null,"url":"http://wx1.sinaimg.cn/thumbnail/5941bb93ly1fui8gp1krij20q90k4wh5.jpg","cut_type":1,"width":120,"height":91,"croped":false},"bmiddle":{"type":null,"url":"http://wx1.sinaimg.cn/bmiddle/5941bb93ly1fui8gp1krij20q90k4wh5.jpg","cut_type":1,"width":440,"height":337,"croped":false},"large":{"type":null,"url":"http://wx1.sinaimg.cn/large/5941bb93ly1fui8gp1krij20q90k4wh5.jpg","cut_type":1,"width":"945","height":"724","croped":false},"woriginal":{"type":null,"url":"http://wx1.sinaimg.cn/woriginal/5941bb93ly1fui8gp1krij20q90k4wh5.jpg","cut_type":1,"width":"945","height":"724","croped":false}}}
-             * pic_ids : ["5941bb93ly1fui8gp1krij20q90k4wh5"]
-             * gif_name :
-             * vip_gif : {"biz":{"biz_id":"230597","containerid":"230597ef7ae721dad184d512d8048cf10551cd"},"object_type":"collection","pic_ids":["5941bb93ly1fui8gp1krij20q90k4wh5"],"target_url":"http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd?from=1073095010&wm=2468_1001&weiboauthoruid=","id":"1022:230597ef7ae721dad184d512d8048cf10551cd","display_name":"评论配图","comment_id":"4275752620880506","url":"http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd","object_id":"1022:230597ef7ae721dad184d512d8048cf10551cd","containerid":"230597ef7ae721dad184d512d8048cf10551cd","object_domain_id":"1022","safe_status":1,"show_status":"10","act_status":"00","last_modified":"Wed Aug 22 09:45:27 CST 2018","timestamp":1534902327857,"uuid":4275752622128188,"activate_status":"0"}
-             * need_save_obj : 1
-             */
-
             private String url_title;
             private String url_type_pic;
             private String ori_url;
@@ -8681,24 +8128,10 @@ public class WeiBoDetail {
             }
 
             public static class ActionlogData {
-                /**
-                 * act_type : 1
-                 * act_code : 300
-                 * oid : 1022:230597ef7ae721dad184d512d8048cf10551cd
-                 * uuid : 4275752622128188
-                 * cardid :
-                 * lcardid :
-                 * uicode :
-                 * luicode :
-                 * fid :
-                 * lfid :
-                 * ext : mid:|rid:|short_url:http://t.cn/RkKhxXx|long_url:http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd|analysis_card:url_struct
-                 */
 
                 private int act_type;
                 private int act_code;
                 private String oid;
-                private long uuid;
                 private String cardid;
                 private String lcardid;
                 private String uicode;
@@ -8729,14 +8162,6 @@ public class WeiBoDetail {
 
                 public void setOid(String oid) {
                     this.oid = oid;
-                }
-
-                public long getUuid() {
-                    return uuid;
-                }
-
-                public void setUuid(long uuid) {
-                    this.uuid = uuid;
                 }
 
                 public String getCardid() {
@@ -9124,26 +8549,6 @@ public class WeiBoDetail {
             }
 
             public static class VipGifData {
-                /**
-                 * biz : {"biz_id":"230597","containerid":"230597ef7ae721dad184d512d8048cf10551cd"}
-                 * object_type : collection
-                 * pic_ids : ["5941bb93ly1fui8gp1krij20q90k4wh5"]
-                 * target_url : http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd?from=1073095010&wm=2468_1001&weiboauthoruid=
-                 * id : 1022:230597ef7ae721dad184d512d8048cf10551cd
-                 * display_name : 评论配图
-                 * comment_id : 4275752620880506
-                 * url : http://photo.weibo.com/h5/comment/compic_id/1022:230597ef7ae721dad184d512d8048cf10551cd
-                 * object_id : 1022:230597ef7ae721dad184d512d8048cf10551cd
-                 * containerid : 230597ef7ae721dad184d512d8048cf10551cd
-                 * object_domain_id : 1022
-                 * safe_status : 1
-                 * show_status : 10
-                 * act_status : 00
-                 * last_modified : Wed Aug 22 09:45:27 CST 2018
-                 * timestamp : 1534902327857
-                 * uuid : 4275752622128188
-                 * activate_status : 0
-                 */
 
                 private BizData biz;
                 private String object_type;
@@ -9161,7 +8566,6 @@ public class WeiBoDetail {
                 private String act_status;
                 private String last_modified;
                 private long timestamp;
-                private long uuid;
                 private String activate_status;
                 private List<String> pic_ids;
 
@@ -9283,14 +8687,6 @@ public class WeiBoDetail {
 
                 public void setTimestamp(long timestamp) {
                     this.timestamp = timestamp;
-                }
-
-                public long getUuid() {
-                    return uuid;
-                }
-
-                public void setUuid(long uuid) {
-                    this.uuid = uuid;
                 }
 
                 public String getActivate_status() {
