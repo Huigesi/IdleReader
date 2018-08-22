@@ -8,6 +8,6 @@ public interface IWeiBoView {
     void showErrorMsg(Throwable throwable);
 
     void showData(WeiBoNews data);
-
+    void showDialog();
     void showMoreData(WeiBoNews moreData);
 }

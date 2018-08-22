@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/img_weibo_user"
@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/img_weibo_user"
             android:orientation="vertical">
 
             <TextView
@@ -40,20 +41,83 @@
                 android:text="10:00"
                 android:textSize="12sp" />
         </LinearLayout>
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="sssssss"
-        android:textSize="14sp"
-        android:textColor="@color/text_common"
-        android:id="@+id/tv_weibo_commenttext"
-        android:layout_marginLeft="55dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_weibo_comment_like"
+                android:text="999"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="5dp"
+                android:src="@drawable/like"/>
+        </LinearLayout>
+    </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_weibo_commenttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:text="sssssss"
+        android:textColor="@color/text_common"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_weibo_comment_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="55dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorHomeLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_weibo_comment_reply1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="reply"
+                android:textColor="@color/colorTabText"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_weibo_comment_reply2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="reply2"
+                android:textColor="@color/colorTabText"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_weibo_comment_replycount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="replyCount"
+                android:textColor="@color/weiboLight"
+                android:visibility="gone"
+                android:textSize="12sp" />
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

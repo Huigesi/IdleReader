@@ -214,6 +214,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
+                        iNewsLoadListener.fail(e);
                     }
 
                     @Override

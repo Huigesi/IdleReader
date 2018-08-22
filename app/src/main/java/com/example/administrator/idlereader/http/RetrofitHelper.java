@@ -123,7 +123,7 @@ public class RetrofitHelper {
     }
 
     public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid) {
-        return retrofitService.getWeiBoDetail(s, c, id, gsid);
+        return retrofitService.getWeiBoDetail(s, c, id, gsid,2);
     }
 
     public OkHttpClient getOkHttpClient() {

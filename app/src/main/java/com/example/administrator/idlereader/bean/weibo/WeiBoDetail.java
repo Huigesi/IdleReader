@@ -6563,6 +6563,25 @@ public class WeiBoDetail {
             private int shouldShowColon;
             @SerializedName("url_objects")
             private List<?> url_objectsX;
+            private String text;
+            private StatusData.UserData user;
+
+            public StatusData.UserData getUser() {
+                return user;
+            }
+
+            public void setUser(StatusData.UserData user) {
+                this.user = user;
+            }
+
+            public String getText() {
+                return text;
+            }
+
+            public void setText(String text) {
+                this.text = text;
+            }
+
             private List<UrlStructData> url_struct;
             public ReplyCommentData getReply_comment() {
                 return reply_comment;

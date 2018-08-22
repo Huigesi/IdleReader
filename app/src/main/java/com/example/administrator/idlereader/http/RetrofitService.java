@@ -118,9 +118,16 @@ public interface RetrofitService {
                                        @Query("advance_enable") String advance_enable);
 
     //http://api.weibo.cn/2/statuses/show?s=606388e6&c=weicoabroad&id=4275531484257587&gsid=_2A252f6O1DeRxGeNH61cX8yvNyT6IHXVTLLB9rDV6PUJbkdAKLUfykWpNSvDZSiGWa7gnoPuUTJwYjvaIpOJpb1B-&%20HTTP/1.1
-    @GET("statuses/show")
+   /* @GET("statuses/show")
     Observable<WeiBoDetail> getWeiBoDetail(@Query("s") String s,
                                            @Query("c") String c,
                                            @Query("id") String id,
-                                           @Query("gsid") String gsid);
+                                           @Query("gsid") String gsid);*/
+    //http://api.weibo.cn/2/comments/build_comments?s=606388e6&gsid=_2A252f6O1DeRxGeNH61cX8yvNyT6IHXVTLLB9rDV6PUJbkdAKLUfykWpNSvDZSiGWa7gnoPuUTJwYjvaIpOJpb1B-&c=weicoabroad&id=4275839388884486&is_show_bulletin=2%20HTTP/1.1
+    @GET("comments/build_comments")
+    Observable<WeiBoDetail> getWeiBoDetail(@Query("s") String s,
+                                           @Query("c") String c,
+                                           @Query("id") String id,
+                                           @Query("gsid") String gsid,
+                                           @Query("is_show_bulletin") int is_show_bulletin);
 }

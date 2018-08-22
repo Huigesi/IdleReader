@@ -30,7 +30,6 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private IWeiBoView mIWeiBoView;
     private INbaDetailView mINbaDetailView;
     private IWeiBoDetailView mIWeiBoDetailView;
-    private onNidChangeListener mOnNidChangeListener;
 
     public NewsPresenter(INewsView iNewsView) {
         this.iNewsView = iNewsView;
@@ -90,26 +89,33 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     @Override
     public void loadNbaDetail(String nid) {
+        mINbaDetailView.showDialog();
         iNewsModel.loadNbaDetails(nid,this);
     }
 
     @Override
     public void loadMoreNbaComment(String nid, String ncid, String createTime) {
+        mINbaDetailView.showDialog();
         iNewsModel.loadNbaComment(nid,ncid,createTime,this);
     }
 
     @Override
     public void loadNbaComment(String nid) {
+        mINbaDetailView.showDialog();
         iNewsModel.loadNbaComment(nid, null,null,this);
     }
 
     @Override
     public void loadWeibo(String sinceid,int page) {
+        if (page == 1) {
+            mIWeiBoView.showDialog();
+        }
         iNewsModel.loadWeibo(sinceid,page,this);
     }
 
     @Override
     public void loadWeiBoDetail(String sinceid) {
+        mIWeiBoDetailView.showDialog();
         iNewsModel.loadWeiBoDetail(sinceid,this);
     }
 
@@ -178,13 +184,5 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadWeiBoDetailSuccess(WeiBoDetail weiBoDetail) {
         mIWeiBoDetailView.showData(weiBoDetail);
-    }
-
-    public interface onNidChangeListener {
-        void nidChange(String nid);
-    }
-
-    public void setOnNidChangeListener(onNidChangeListener onNidChangeListener) {
-        this.mOnNidChangeListener = onNidChangeListener;
     }
 }

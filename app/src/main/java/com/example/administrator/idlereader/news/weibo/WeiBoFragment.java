@@ -111,6 +111,10 @@ public class WeiBoFragment extends Fragment implements IWeiBoView {
     }
 
     @Override
+    public void showDialog() {
+    }
+
+    @Override
     public void showMoreData(WeiBoNews moreData) {
         mWeiBoNewsAdapter.setData(moreData.getStatuses(), false);
     }

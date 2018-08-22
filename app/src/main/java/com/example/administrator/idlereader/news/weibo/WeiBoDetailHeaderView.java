@@ -81,7 +81,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
     }
 
     private void refreshUI() {
-        if (mWeiBoDetail == null) {
+        if (mWeiBoDetail.getStatus() == null) {
             return;
         }
         int weight = Resolution.dipToPx(getContext(), 35);
