@@ -3,9 +3,9 @@ package com.example.administrator.idlereader.news.weibo;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,9 +18,6 @@ import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,8 +35,6 @@ public class WeiBoDetailHeaderView extends LinearLayout {
     TextView mTvWeiboContentText;
     @BindView(R.id.rv_weibo_imgs)
     RecyclerView mRvWeiboImgs;
-    @BindView(R.id.ll_weibo_img)
-    LinearLayout mLlWeiboImg;
     @BindView(R.id.video_weibo)
     JZVideoPlayerStandard mVideoWeibo;
     @BindView(R.id.tv_retweeted_content)
@@ -56,8 +51,6 @@ public class WeiBoDetailHeaderView extends LinearLayout {
     LinearLayout mLlWeiboRetweetedImg;
     @BindView(R.id.video_retweeted_weibo)
     JZVideoPlayerStandard mVideoRetweetedWeibo;
-    @BindView(R.id.ll_weibo_retweeted)
-    LinearLayout mLlWeiboRetweeted;
     @BindView(R.id.tv_weibo_like)
     TextView mTvWeiboLike;
     @BindView(R.id.tv_weibo_comment)
@@ -68,6 +61,10 @@ public class WeiBoDetailHeaderView extends LinearLayout {
     LinearLayout mLlWeiboBtns;
     @BindView(R.id.tv_weibo_source)
     TextView mTvWeiboSource;
+    @BindView(R.id.ll_weibo_img)
+    LinearLayout mLlWeiboImg;
+    @BindView(R.id.ll_weibo_retweeted)
+    LinearLayout mLlWeiboRetweeted;
     private Unbinder mUnbinder;
     private WeiBoDetail mWeiBoDetail;
     private ImgAdapter mImgAdapter;
@@ -97,7 +94,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
         mTvWeiboTime.setText(
                 TimeUtils.prettyTime4(TimeUtils.prettyDate1(mWeiBoDetail.getStatus().getCreated_at())));
-        String s=RegularUtils.getA(mWeiBoDetail.getStatus().getSource());
+        String s = RegularUtils.getA(mWeiBoDetail.getStatus().getSource());
         mTvWeiboSource.setText(s);
         SpannableString content;
         if (mWeiBoDetail.getStatus().isIsLongText() == true) {
@@ -145,6 +142,13 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                     .getComments_count());
             mTvRetweetedLike.setText("赞 " + mWeiBoDetail.getStatus().getRetweeted_status()
                     .getAttitudes_count());
+            mLlWeiboRetweeted.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UIUtils.startWeiBoDetailFragment(getContext(),
+                            mWeiBoDetail.getStatus().getRetweeted_status().getIdstr());
+                }
+            });
             if (mWeiBoDetail.getStatus().getRetweeted_status().getPic_ids() != null &&
                     mWeiBoDetail.getStatus().getRetweeted_status().getPic_ids().size() > 0) {
                 mLlWeiboRetweetedImg.setVisibility(View.VISIBLE);
@@ -152,6 +156,15 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                 mRvRetweetedImgs.setAdapter(mImgAdapter);
                 mRvRetweetedImgs.setLayoutManager(new GridLayoutManager(
                         getContext(), 3));
+                mRvRetweetedImgs.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            mLlWeiboRetweeted.performClick();  //模拟父控件的点击
+                        }
+                        return false;
+                    }
+                });
                 mImgAdapter.setData(mWeiBoDetail.getStatus().getRetweeted_status().getPic_ids(), true);
             } else {
                 mLlWeiboRetweetedImg.setVisibility(View.GONE);

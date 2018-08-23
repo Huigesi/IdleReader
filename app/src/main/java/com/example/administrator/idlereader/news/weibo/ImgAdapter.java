@@ -12,8 +12,14 @@ import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.bigImgViewPager.ImagePreview;
+import com.example.administrator.idlereader.utils.bigImgViewPager.bean.ImageInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
+    private List<ImageInfo> imageInfoList;
 
     public ImgAdapter(Context context) {
         super(context);
@@ -23,13 +29,13 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_img, null, false);
-        view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         return new ImgAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, String data) {
+    public void onBind(RecyclerView.ViewHolder holder, final int position, String data) {
         if (holder instanceof ViewHolder) {
             int weight = Resolution.dipToPx(this.mContext, 120);
             String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
@@ -38,6 +44,38 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
             int margin4 = Resolution.dipToPx(mContext, 3);
             params.setMargins(0, 0, margin4, margin4);
             holder.itemView.setLayoutParams(params);
+            initPictureData();
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ImagePreview
+                            .getInstance()
+                            .setContext(mContext)
+                            .setIndex(position)
+                            .setImageInfoList(imageInfoList)
+                            .setShowDownButton(true)
+                            .setLoadStrategy(ImagePreview.LoadStrategy.AlwaysOrigin)
+                            .setFolderName("BigImageViewDownload")
+                            .setScaleLevel(1, 3, 8)
+                            .setZoomTransitionDuration(300)
+                            .start();
+                }
+            });
+        }
+    }
+
+    public void initPictureData() {
+        imageInfoList = new ArrayList<>();
+        ImageInfo imageInfo;
+        for (String image : mList) {
+            String OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".jpg";
+            String thumbnail = Api.IMG_WEIBO_WAP180 + image + ".jpg";
+            imageInfo = new ImageInfo();
+            imageInfo.setOriginUrl(OrlimgUrl);// 原图
+            imageInfo.setThumbnailUrl(
+                    thumbnail);// 缩略图，实际使用中，根据需求传入缩略图路径。如果没有缩略图url，可以将两项设置为一样，并隐藏查看原图按钮即可。
+            imageInfoList.add(imageInfo);
+            imageInfo = null;
         }
     }
 

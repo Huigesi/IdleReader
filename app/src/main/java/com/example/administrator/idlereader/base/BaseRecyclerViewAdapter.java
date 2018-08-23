@@ -16,6 +16,9 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
     protected List<T> mList = new ArrayList<>();
     protected View mHeaderView, mFooterView;
 
+    protected OnItemClickListener<T> mItemClickListener;
+    private OnItemLongClickListener<T> mItemLongClickListener;
+
     public BaseRecyclerViewAdapter(Context context) {
         mContext = context;
     }
@@ -23,6 +26,14 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
     public BaseRecyclerViewAdapter(Context context, @NonNull List<T> data) {
         mContext = context;
         mList = data;
+    }
+
+    public void setItemClickListener(OnItemClickListener<T> itemClickListener) {
+        mItemClickListener = itemClickListener;
+    }
+
+    public void setItemLongClickListener(OnItemLongClickListener<T> itemLongClickListener) {
+        mItemLongClickListener = itemLongClickListener;
     }
 
     @Override

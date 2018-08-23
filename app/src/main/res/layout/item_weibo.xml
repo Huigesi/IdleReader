@@ -40,20 +40,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tv_weibo_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:text="10:00"
-                    android:textSize="12sp"
                     android:textColor="@color/colorSubtitle"
-                    android:layout_marginRight="10dp"/>
+                    android:textSize="12sp" />
+
                 <TextView
                     android:id="@+id/tv_weibo_source"
                     android:layout_width="wrap_content"
-                    android:textColor="@color/colorSubtitle"
                     android:layout_height="wrap_content"
                     android:text="10:00"
+                    android:textColor="@color/colorSubtitle"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -61,6 +63,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_weibo_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
@@ -76,23 +79,14 @@
             android:textColor="@color/text_common"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:id="@+id/ll_weibo_img"
-            android:layout_width="match_parent"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_weibo_imgs"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
             android:visibility="gone">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_weibo_imgs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
+        </android.support.v7.widget.RecyclerView>
 
         <cn.jzvd.JZVideoPlayerStandard
             android:id="@+id/video_weibo"
@@ -156,24 +150,16 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_weibo_retweeted_img"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_retweeted_imgs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginHorizontal="10dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="vertical"
             android:visibility="gone">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_retweeted_imgs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
 
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
         <cn.jzvd.JZVideoPlayerStandard
             android:id="@+id/video_retweeted_weibo"
             android:layout_width="match_parent"

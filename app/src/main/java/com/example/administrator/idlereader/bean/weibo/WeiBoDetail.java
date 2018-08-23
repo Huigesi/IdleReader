@@ -152,7 +152,6 @@ public class WeiBoDetail {
         private EditConfigDataX edit_config;
         private int is_fold;
         private List<String> pic_ids;
-        private List<AnnotationsDataX> annotations;
         private List<?> text_tag_tips;
         private List<UrlStructData> url_struct;
         private RetweetedStatusData.LongTextData longText;
@@ -571,14 +570,6 @@ public class WeiBoDetail {
 
         public void setPic_ids(List<String> pic_ids) {
             this.pic_ids = pic_ids;
-        }
-
-        public List<AnnotationsDataX> getAnnotations() {
-            return annotations;
-        }
-
-        public void setAnnotations(List<AnnotationsDataX> annotations) {
-            this.annotations = annotations;
         }
 
         public List<?> getText_tag_tips() {
@@ -1705,7 +1696,6 @@ public class WeiBoDetail {
             private EditConfigData edit_config;
             private int is_fold;
             private List<String> pic_ids;
-            private List<AnnotationsData> annotations;
             private List<Integer> biz_ids;
             private List<?> text_tag_tips;
 
@@ -2109,13 +2099,6 @@ public class WeiBoDetail {
                 this.pic_ids = pic_ids;
             }
 
-            public List<AnnotationsData> getAnnotations() {
-                return annotations;
-            }
-
-            public void setAnnotations(List<AnnotationsData> annotations) {
-                this.annotations = annotations;
-            }
 
             public List<Integer> getBiz_ids() {
                 return biz_ids;

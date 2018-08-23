@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.idlereader">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/news"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/news"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -22,6 +24,8 @@
         <activity android:name=".movie.MovieTop250Activity"></activity>
         <activity android:name=".news.GameActivity"></activity>
         <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".utils.bigImgViewPager.view.ImagePreviewActivity"
+            android:theme="@style/Theme.ImagePreview"/>
     </application>
 
 </manifest>

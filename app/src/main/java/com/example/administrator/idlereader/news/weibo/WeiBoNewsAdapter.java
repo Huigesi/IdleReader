@@ -7,6 +7,7 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.SpannedString;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,11 +17,17 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
+import com.example.administrator.idlereader.utils.bigImgViewPager.ImagePreview;
+import com.example.administrator.idlereader.utils.bigImgViewPager.bean.ImageInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.jzvd.JZVideoPlayerStandard;
 
@@ -41,7 +48,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, final WeiBoNews.StatusesData data) {
+    public void onBind(final RecyclerView.ViewHolder holder, int position, final WeiBoNews.StatusesData data) {
         if (holder instanceof NewsViewHolder) {
             if (data == null) {
                 return;
@@ -58,16 +65,27 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
             ((NewsViewHolder) holder).tvWeiboComment.setText(String.valueOf(data.getComments_count()));
             ((NewsViewHolder) holder).tvWeiboZhuan.setText(String.valueOf(data.getReposts_count()));
+
             if (data.getPic_ids() != null && data.getPic_ids().size() > 0) {
-                ((NewsViewHolder) holder).llWeiboImg.setVisibility(View.VISIBLE);
+                ((NewsViewHolder) holder).rvWeiboImgs.setVisibility(View.VISIBLE);
                 ((NewsViewHolder) holder).rvWeiboImgs.setLayoutManager(new GridLayoutManager(
                         mContext, 3));
                 mImgAdapter = new ImgAdapter(mContext);
                 mImgAdapter.setData(data.getPic_ids(), true);
                 ((NewsViewHolder) holder).rvWeiboImgs.setAdapter(mImgAdapter);
+                ((NewsViewHolder) holder).rvWeiboImgs.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_UP) {
+                            ((NewsViewHolder) holder).itemView.performClick();  //模拟父控件的点击
+                        }
+                        return false;
+                    }
+                });
             } else {
-                ((NewsViewHolder) holder).llWeiboImg.setVisibility(View.GONE);
+                ((NewsViewHolder) holder).rvWeiboImgs.setVisibility(View.GONE);
             }
+
             if (data.getPage_info() != null && data.getPage_info().getMedia_info() != null) {
                 ((NewsViewHolder) holder).videoWeibo.setVisibility(View.VISIBLE);
                 GlideUtils.loadAuto(mContext, data.getPage_info().getPage_pic(),
@@ -78,6 +96,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             } else {
                 ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
             }
+
             if (data.getRetweeted_status() != null && data.getRetweeted_status().getUser() != null) {
                 ((NewsViewHolder) holder).llWeiboRetweeted.setVisibility(View.VISIBLE);
                 String userName = data.getRetweeted_status()
@@ -93,17 +112,33 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                         .getComments_count());
                 ((NewsViewHolder) holder).tvRetweetedLike.setText("赞 " + data.getRetweeted_status()
                         .getAttitudes_count());
+                ((NewsViewHolder) holder).llWeiboRetweeted.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        UIUtils.startWeiBoDetailFragment(mContext, data.getRetweeted_status().getIdstr());
+                    }
+                });
                 if (data.getRetweeted_status().getPic_ids() != null &&
                         data.getRetweeted_status().getPic_ids().size() > 0) {
-                    ((NewsViewHolder) holder).llWeiboRetweetedImg.setVisibility(View.VISIBLE);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setVisibility(View.VISIBLE);
                     mImgAdapter = new ImgAdapter(holder.itemView.getContext());
                     ((NewsViewHolder) holder).rvRetweetedImgs.setAdapter(mImgAdapter);
                     ((NewsViewHolder) holder).rvRetweetedImgs.setLayoutManager(new GridLayoutManager(
                             mContext, 3));
                     mImgAdapter.setData(data.getRetweeted_status().getPic_ids(), true);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            if (event.getAction() == MotionEvent.ACTION_UP) {
+                                ((NewsViewHolder) holder).itemView.performClick();  //模拟父控件的点击
+                            }
+                            return false;
+                        }
+                    });
                 } else {
-                    ((NewsViewHolder) holder).llWeiboRetweetedImg.setVisibility(View.GONE);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setVisibility(View.GONE);
                 }
+
                 if (data.getPage_info() != null && data.getPage_info().getMedia_info() != null) {
                     ((NewsViewHolder) holder).videoRetweetedWeibo.setVisibility(View.VISIBLE);
                     ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
@@ -138,7 +173,6 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         private TextView tvWeiboTime;
         private TextView tvWeiboSource;
         private TextView tvWeiboContentText;
-        private LinearLayout llWeiboImg;
         private RecyclerView rvWeiboImgs;
         private JZVideoPlayerStandard videoWeibo;
         private LinearLayout llWeiboRetweeted;
@@ -146,13 +180,13 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
         private TextView tvRetweetedReport;
         private TextView tvRetweetedComment;
         private TextView tvRetweetedLike;
-        private LinearLayout llWeiboRetweetedImg;
         private RecyclerView rvRetweetedImgs;
         private JZVideoPlayerStandard videoRetweetedWeibo;
         private LinearLayout llWeiboBtns;
         private TextView tvWeiboLike;
         private TextView tvWeiboComment;
         private TextView tvWeiboZhuan;
+        private LinearLayout mLinearLayout;
 
         public NewsViewHolder(View view) {
             super(view);
@@ -161,7 +195,6 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             tvWeiboTime = (TextView) view.findViewById(R.id.tv_weibo_time);
             tvWeiboSource = (TextView) view.findViewById(R.id.tv_weibo_source);
             tvWeiboContentText = (TextView) view.findViewById(R.id.tv_weibo_contentText);
-            llWeiboImg = (LinearLayout) view.findViewById(R.id.ll_weibo_img);
             rvWeiboImgs = (RecyclerView) view.findViewById(R.id.rv_weibo_imgs);
             videoWeibo = (JZVideoPlayerStandard) view.findViewById(R.id.video_weibo);
             llWeiboRetweeted = (LinearLayout) view.findViewById(R.id.ll_weibo_retweeted);
@@ -169,13 +202,13 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             tvRetweetedReport = (TextView) view.findViewById(R.id.tv_retweeted_report);
             tvRetweetedComment = (TextView) view.findViewById(R.id.tv_retweeted_comment);
             tvRetweetedLike = (TextView) view.findViewById(R.id.tv_retweeted_like);
-            llWeiboRetweetedImg = (LinearLayout) view.findViewById(R.id.ll_weibo_retweeted_img);
             rvRetweetedImgs = (RecyclerView) view.findViewById(R.id.rv_retweeted_imgs);
             videoRetweetedWeibo = (JZVideoPlayerStandard) view.findViewById(R.id.video_retweeted_weibo);
             llWeiboBtns = (LinearLayout) view.findViewById(R.id.ll_weibo_btns);
             tvWeiboLike = (TextView) view.findViewById(R.id.tv_weibo_like);
             tvWeiboComment = (TextView) view.findViewById(R.id.tv_weibo_comment);
             tvWeiboZhuan = (TextView) view.findViewById(R.id.tv_weibo_zhuan);
+            mLinearLayout = (LinearLayout) view.findViewById(R.id.ll_weibo_content);
         }
     }
 }

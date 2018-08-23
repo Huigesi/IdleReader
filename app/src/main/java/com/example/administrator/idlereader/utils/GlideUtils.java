@@ -7,6 +7,8 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.view.ViewGroup;
@@ -16,51 +18,54 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
-import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.administrator.idlereader.R;
 
+import java.security.MessageDigest;
+
 public class GlideUtils {
+    public static RequestOptions options = new RequestOptions()
+            .centerCrop()
+            .placeholder(R.drawable.picture)
+            .skipMemoryCache(false)
+            .error(R.drawable.picture_error)
+            .diskCacheStrategy(DiskCacheStrategy.NONE);
 
     public static void load(Context context, String url, ImageView view, int weight, int height) {
-
-        Glide.with(context)
-                .load(url)
-                .asBitmap()
+         RequestOptions weightoptions = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.drawable.picture)
                 .skipMemoryCache(false)
                 .error(R.drawable.picture_error)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .override(weight, height)
+                 .override(weight, height)
+                .diskCacheStrategy(DiskCacheStrategy.NONE);
+        Glide.with(context).asBitmap()
+                .load(url)
+                .apply(weightoptions)
                 .into(view);
     }
 
     public static void load(Context context, String url, ImageView view) {
         Glide.with(context)
-                .load(url)
                 .asBitmap()
-                .centerCrop()
-                .placeholder(R.drawable.picture)
-                .skipMemoryCache(false)
-                .error(R.drawable.picture_error)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .load(url)
+                .apply(options)
                 .into(view);
     }
 
     public static void loadAuto(final Context context, String url, final ImageView view) {
+
         Glide.with(context)
-                .load(url)
                 .asBitmap()
-                .centerCrop()
-                .placeholder(R.drawable.picture)
-                .skipMemoryCache(false)
-                .error(R.drawable.picture_error)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .load(url)
+                .apply(options)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
-                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+
                         int imageWidth = resource.getWidth();
                         int imageHeight = resource.getHeight();
                         int width = Resolution.getScreenPixWidth(context);//固定宽度
@@ -73,18 +78,20 @@ public class GlideUtils {
                     }
                 });
     }
-    public static void loadCircle(final Context context, String url, ImageView view, int weight, int height) {
 
-        Glide.with(context)
-                .load(url)
-                .asBitmap()
+    public static void loadCircle(final Context context, String url, ImageView view, int weight, int height) {
+        RequestOptions weightoptions = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.drawable.picture)
                 .skipMemoryCache(false)
                 .error(R.drawable.picture_error)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .override(weight, height)
-                .into(new BitmapImageViewTarget(view){
+                .diskCacheStrategy(DiskCacheStrategy.NONE);
+        Glide.with(context)
+                .asBitmap()
+                .load(url)
+                .apply(weightoptions)
+                .into(new BitmapImageViewTarget(view) {
                     @Override
                     protected void setResource(Bitmap resource) {
                         RoundedBitmapDrawable circularBitmapDrawable =
@@ -105,7 +112,6 @@ public class GlideUtils {
         }
 
         public GlideRoundTransform(Context context, int dp) {
-            super(context);
             this.radius = Resources.getSystem().getDisplayMetrics().density * dp;
         }
 
@@ -131,9 +137,13 @@ public class GlideUtils {
             return result;
         }
 
-        @Override
         public String getId() {
             return getClass().getName() + Math.round(radius);
+        }
+
+        @Override
+        public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+
         }
     }
 

@@ -16,6 +16,7 @@ import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.MoviesBean;
+import com.example.administrator.idlereader.utils.GlideUtils;
 
 import java.util.List;
 
@@ -51,13 +52,7 @@ public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.Subjects
         if (data==null){
             return;
         }
-        Glide.with(mContext)
-                .load(data.getImages().getSmall())
-                .asBitmap()
-                .fitCenter().placeholder(R.mipmap.loads)
-                .skipMemoryCache(false)
-                .error(R.mipmap.img_error)
-                .into(((MovieTop250ViewHolder)holder).ivMovieTop);
+        GlideUtils.load(mContext,data.getImages().getSmall(),((MovieTop250ViewHolder)holder).ivMovieTop);
         ((MovieTop250ViewHolder)holder).tvMovieTopTitle.setText(data.getTitle());
         ((MovieTop250ViewHolder)holder).rlMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
