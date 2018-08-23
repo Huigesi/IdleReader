@@ -64,7 +64,6 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
             }
         });
         mNewsPresenter.loadWeiBoDetail(nid, 0);
-        mWeiBoDetailAdapter.setHeaderView(mWeiBoDetailHeaderView);
     }
 
     @Override
@@ -90,6 +89,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
     @Override
     public void showData(WeiBoDetail data) {
         mWeiBoDetailHeaderView.setData(data);
+        mWeiBoDetailAdapter.setHeaderView(mWeiBoDetailHeaderView);
         if (data.getRoot_comments() != null && data.getRoot_comments().size() > 0) {
             mWeiBoDetailAdapter.setData(data.getRoot_comments(), true);
         }
