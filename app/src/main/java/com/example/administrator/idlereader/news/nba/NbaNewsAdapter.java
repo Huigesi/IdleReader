@@ -76,7 +76,7 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "暂时没有页面", Toast.LENGTH_SHORT).show();
+                        //UIUtils.startNbaH5Fragment(mContext, data.getNid());
                     }
                 });
             }

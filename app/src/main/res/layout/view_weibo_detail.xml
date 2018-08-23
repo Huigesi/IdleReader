@@ -136,7 +136,7 @@
                 android:layout_marginRight="10dp"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_retweeted_comment"
@@ -145,7 +145,7 @@
                 android:layout_marginRight="10dp"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_retweeted_like"
@@ -153,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout

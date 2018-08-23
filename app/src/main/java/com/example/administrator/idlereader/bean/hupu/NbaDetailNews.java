@@ -44,7 +44,7 @@ public class NbaDetailNews {
         private String url;
         private String title;
         private String summary;
-        private ShareBean share;
+        //private ShareBean share;
         private String replies;
         private String img;
         private int lights;
@@ -74,14 +74,14 @@ public class NbaDetailNews {
         public void setSummary(String summary) {
             this.summary = summary;
         }
-
+/*
         public ShareBean getShare() {
             return share;
         }
 
         public void setShare(ShareBean share) {
             this.share = share;
-        }
+        }*/
 
         public String getReplies() {
             return replies;

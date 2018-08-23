@@ -67,6 +67,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <TextView
@@ -130,7 +132,7 @@
                 android:layout_marginRight="10dp"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_retweeted_comment"
@@ -139,7 +141,7 @@
                 android:layout_marginRight="10dp"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tv_retweeted_like"
@@ -147,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:text=" 22"
                 android:textColor="@color/colorSubtitle"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView

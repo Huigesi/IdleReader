@@ -16,22 +16,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-import com.google.gson.stream.JsonWriter;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -112,7 +104,12 @@ public class NewsModel implements INewsModel {
 
     @Override
     public void loadNbaDetails(String nid, final INewsLoadListener iNewsLoadListener) {
-        RetrofitHelper.getInstance(Api.HUPU_NBA)
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Integer.class, new IntegerDefault0Adapter());
+        gsonBuilder.registerTypeAdapter(int.class, new IntegerDefault0Adapter());
+        gsonBuilder.registerTypeAdapter(NbaDetailNews.ResultBean.ShareBean.class, new ShareBeanAdapter());
+        Gson mgson = gsonBuilder.create();
+        RetrofitHelper.getInstance(Api.HUPU_NBA, mgson)
                 .getNbaNewsDetail(nid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -124,7 +121,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: ");
+                        Log.i(TAG, "onError: " + e.getMessage());
                     }
 
                     @Override
@@ -203,7 +200,7 @@ public class NewsModel implements INewsModel {
     public void loadWeiBoDetail(String sinceid, final long max_id, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoDetail(s, c, sinceid, gsid,max_id)
+                .getWeiBoDetail(s, c, sinceid, gsid, max_id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoDetail>() {
@@ -221,7 +218,7 @@ public class NewsModel implements INewsModel {
                     public void onNext(WeiBoDetail weiBoDetail) {
                         if (max_id == 0) {
                             iNewsLoadListener.loadWeiBoDetailSuccess(weiBoDetail);
-                        }else {
+                        } else {
                             iNewsLoadListener.loadMoreWeiBoDetailSuccess(weiBoDetail);
                         }
                     }
@@ -244,6 +241,36 @@ public class NewsModel implements INewsModel {
             } catch (NumberFormatException e) {
                 throw new JsonSyntaxException(e);
             }
+        }
+
+        @Override
+        public JsonElement serialize(Object src, Type typeOfSrc, JsonSerializationContext context) {
+            return new JsonPrimitive(String.valueOf(src));
+        }
+    }
+
+    public static class ShareBeanAdapter implements JsonSerializer, JsonDeserializer<NbaDetailNews.ResultBean.ShareBean> {
+        @Override
+        public NbaDetailNews.ResultBean.ShareBean deserialize(JsonElement json, Type typeOfT,
+                                                              JsonDeserializationContext context)
+                throws JsonParseException {
+            NbaDetailNews.ResultBean.ShareBean shareBean = new NbaDetailNews.ResultBean.ShareBean();
+            if (json.isJsonObject()) {
+                JsonObject jsonObject = json.getAsJsonObject();
+                shareBean.setImg(jsonObject.get("img").getAsString());
+                shareBean.setUrl(jsonObject.get("url").getAsString());
+                shareBean.setWechat_moments(jsonObject.get("wechat_moments").getAsString());
+                shareBean.setWechat(jsonObject.get("wechat").getAsString());
+                shareBean.setQzone(jsonObject.get("qzone").getAsString());
+                shareBean.setQq(jsonObject.get("qq").getAsString());
+                shareBean.setSummary(jsonObject.get("summary").getAsString());
+            } else {
+                String value = json.getAsString();
+                if (value.equals("")) {
+                    shareBean = null;
+                }
+            }
+            return shareBean;
         }
 
         @Override

@@ -54,8 +54,8 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
                             .setIndex(position)
                             .setImageInfoList(imageInfoList)
                             .setShowDownButton(true)
-                            .setLoadStrategy(ImagePreview.LoadStrategy.AlwaysOrigin)
-                            .setFolderName("BigImageViewDownload")
+                            .setLoadStrategy(ImagePreview.LoadStrategy.NetworkAuto)
+                            .setFolderName("IdleReader")
                             .setScaleLevel(1, 3, 8)
                             .setZoomTransitionDuration(300)
                             .start();

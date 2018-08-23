@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
+import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
 
 import java.lang.reflect.Field;
@@ -38,6 +39,13 @@ public class UIUtils {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
         intent.putExtra(NbaDetailFragment.NBA_NID, nid);
+        context.startActivity(intent);
+    }
+
+    public static void startNbaH5Fragment(Context context, String nid) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(FRAGMENT_CLASS, NbaH5Fragment.class.getName());
+        intent.putExtra(NbaH5Fragment.NBA_H5_NID, nid);
         context.startActivity(intent);
     }
 
