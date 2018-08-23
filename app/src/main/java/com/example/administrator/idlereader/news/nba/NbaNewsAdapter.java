@@ -13,10 +13,16 @@ import android.widget.Toast;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
+import com.example.administrator.idlereader.utils.bigImgViewPager.ImagePreview;
+import com.example.administrator.idlereader.utils.bigImgViewPager.bean.ImageInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.DataBean> {
 
@@ -66,21 +72,39 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 }
                 ((ViewHolder) holder).tvNbaComment.setText(data.getReplies());
             }
-            if (data.getType() == 1) {
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (data.getType() == 1) {
                         UIUtils.startNbaNewsFragment(mContext, data.getNid());
+                    } else if (data.getType() == 5) {
+                        UIUtils.startNbaH5Fragment(mContext, data.getNid(), RegularUtils.getTid(data.getLink()));
+                    } else if (data.getType() == 3) {
+                        List<ImageInfo>imageInfoList = new ArrayList<>();
+                        ImageInfo imageInfo;
+                        for (String image : data.getThumbs()) {
+                            imageInfo = new ImageInfo();
+                            imageInfo.setOriginUrl(image);// 原图
+                            imageInfo.setThumbnailUrl(
+                                    image);// 缩略图，实际使用中，根据需求传入缩略图路径。如果没有缩略图url，可以将两项设置为一样，并隐藏查看原图按钮即可。
+                            imageInfoList.add(imageInfo);
+                            imageInfo = null;
+                        }
+                        ImagePreview
+                                .getInstance()
+                                .setContext(mContext)
+                                .setIndex(0)
+                                .setImageInfoList(imageInfoList)
+                                .setShowDownButton(true)
+                                .setLoadStrategy(ImagePreview.LoadStrategy.NetworkAuto)
+                                .setFolderName("IdleReader")
+                                .setScaleLevel(1, 3, 8)
+                                .setZoomTransitionDuration(300)
+                                .start();
                     }
-                });
-            }else if (data.getType()==5){
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        UIUtils.startNbaH5Fragment(mContext, data.getNid(),RegularUtils.getTid(data.getLink()));
-                    }
-                });
-            }
+                }
+            });
         }
     }
 
