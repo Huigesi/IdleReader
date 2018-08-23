@@ -42,10 +42,11 @@ public class UIUtils {
         context.startActivity(intent);
     }
 
-    public static void startNbaH5Fragment(Context context, String nid) {
+    public static void startNbaH5Fragment(Context context, String nid,String tid) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaH5Fragment.class.getName());
         intent.putExtra(NbaH5Fragment.NBA_H5_NID, nid);
+        intent.putExtra(NbaH5Fragment.NBA_H5_TID, tid);
         context.startActivity(intent);
     }
 

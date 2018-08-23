@@ -17,6 +17,7 @@ import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
+import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.video.FgVideoFragment;
 
 import java.util.ArrayList;

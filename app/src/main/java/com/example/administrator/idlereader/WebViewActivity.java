@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
@@ -79,6 +80,15 @@ public class WebViewActivity extends SwipeBackActivity {
         wbNews.canGoBack();
         wbNews.canGoForward();
         wbNews.loadUrl(loadUrl);
+        wbNews.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    wbNews.performClick();  //模拟父控件的点击
+                }
+                return false;
+            }
+        });
         Log.i(TAG, "onClick: "+loadUrl);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
         tv_bar_title.setText(title);

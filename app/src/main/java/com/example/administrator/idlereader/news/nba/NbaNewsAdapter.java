@@ -14,6 +14,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.UIUtils;
 
@@ -72,11 +73,11 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                         UIUtils.startNbaNewsFragment(mContext, data.getNid());
                     }
                 });
-            }else {
+            }else if (data.getType()==5){
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //UIUtils.startNbaH5Fragment(mContext, data.getNid());
+                        UIUtils.startNbaH5Fragment(mContext, data.getNid(),RegularUtils.getTid(data.getLink()));
                     }
                 });
             }

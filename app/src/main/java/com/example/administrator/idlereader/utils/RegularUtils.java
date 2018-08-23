@@ -18,6 +18,7 @@ public class RegularUtils {
     static final String regex_at = "@[\\u4e00-\\u9fa5\\w\\-]+";
     static final String regex_sharp="#([^\\#|.]+)#";
     static final String regex_emoji="\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
+    static final String regex_Tid="[0-9]+";
 
     static final String regex_a="<a[^>]*>([^<]*)</a>";
     public static final Pattern PATTERN_TOPIC = Pattern.compile(REGEX_TOPIC);
@@ -37,5 +38,14 @@ public class RegularUtils {
             source=m.group(1);
         }
         return source;
+    }
+    public static String getTid(String str) {
+        Pattern p = Pattern.compile(regex_Tid);
+        Matcher m = p.matcher(str);
+        String source1 = "";
+        if (m.find()) {
+            source1=m.group(0);
+        }
+        return source1;
     }
 }

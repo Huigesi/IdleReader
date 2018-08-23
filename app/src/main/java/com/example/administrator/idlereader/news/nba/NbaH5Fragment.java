@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -24,13 +25,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class NbaH5Fragment extends Fragment implements INbaDetailView {
+public class NbaH5Fragment extends Fragment{
     @BindView(R.id.wb_news)
     WebView mWbNews;
     Unbinder unbinder;
-    public String nid, loadUrl;
-    private NewsPresenter mNewsPresenter;
+    public String nid, tid;
     public static final String NBA_H5_NID = "NBA_H5_NID";
+    public static final String NBA_H5_TID = "NBA_H5_TID";
 
     public static NbaH5Fragment getInstance() {
         NbaH5Fragment fragment = new NbaH5Fragment();
@@ -48,45 +49,25 @@ public class NbaH5Fragment extends Fragment implements INbaDetailView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mNewsPresenter = new NewsPresenter(this);
         nid = getActivity().getIntent().getStringExtra(NBA_H5_NID);
-        mNewsPresenter.loadNbaDetail(nid);
-    }
-
-    @Override
-    public void showData(NbaDetailNews data) {
+        tid = getActivity().getIntent().getStringExtra(NBA_H5_TID);
         mWbNews.getSettings().setJavaScriptEnabled(true);
         mWbNews.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         mWbNews.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         mWbNews.canGoBack();
         mWbNews.canGoForward();
-        mWbNews.loadUrl(data.getResult().getUrl());
+        String url = "http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=";
+        mWbNews.loadUrl(url+tid);
         mWbNews.setWebViewClient(new WebViewClient());
-    }
-
-    @Override
-    public void showCommentData(NbaNewsComment commentData) {
-
-    }
-
-    @Override
-    public void showMoreCommentData(NbaNewsComment commentData) {
-
-    }
-
-    @Override
-    public void hideDialog() {
-
-    }
-
-    @Override
-    public void showDialog() {
-
-    }
-
-    @Override
-    public void showErrorMsg(Throwable throwable) {
-
+        mWbNews.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    mWbNews.performClick();  //模拟父控件的点击
+                }
+                return false;
+            }
+        });
     }
 
     @Override

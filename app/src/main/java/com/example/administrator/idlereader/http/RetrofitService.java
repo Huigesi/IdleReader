@@ -132,4 +132,5 @@ public interface RetrofitService {
                                            @Query("gsid") String gsid,
                                            @Query("max_id") long max_id,
                                            @Query("is_show_bulletin") int is_show_bulletin);
+    //http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=23331153
 }
