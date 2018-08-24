@@ -1,17 +1,17 @@
 package com.example.administrator.idlereader.base;
 
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
-import com.example.administrator.idlereader.utils.Resolution;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
@@ -25,6 +25,8 @@ public abstract class BaseRecyclerFragment extends Fragment {
     @BindView(R.id.srl_news)
     protected SmartRefreshLayout mSrlNews;
     Unbinder unbinder;
+    @BindView(R.id.img_top)
+    ImageView mImgTop;
 
     @Nullable
     @Override
@@ -40,7 +42,27 @@ public abstract class BaseRecyclerFragment extends Fragment {
         mSrlNews.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
                 getResources().getColor(R.color.colorTheme)));
         mSrlNews.setRefreshFooter(new DefaultsFooter(getActivity()).setFinishDuration(0));
-
+        mRvNews.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                RecyclerView.LayoutManager layoutManager=recyclerView.getLayoutManager();
+                if (layoutManager instanceof LinearLayoutManager) {
+                    int firstPosition=((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                    if (firstPosition > 3) {
+                        mImgTop.setVisibility(View.VISIBLE);
+                    }else {
+                        mImgTop.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
+        mImgTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mRvNews.scrollToPosition(0);
+            }
+        });
         mRvNews.setHasFixedSize(true);
         init();
     }

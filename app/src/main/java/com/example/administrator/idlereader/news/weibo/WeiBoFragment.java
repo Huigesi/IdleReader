@@ -72,6 +72,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
         mNewsPresenter = new NewsPresenter(this);
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
+
         mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
