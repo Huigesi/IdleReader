@@ -12,13 +12,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
+import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.utils.RegularUtils;
 import com.example.administrator.idlereader.video.FgVideoFragment;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 
@@ -47,6 +52,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initView();
         initContentFragment();
+        final String s = "606388e6";
+        final String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
+        final String c = "weicoabroad";
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Integer.class, new NewsModel.IntegerDefault0Adapter());
+        gsonBuilder.registerTypeAdapter(int.class, new NewsModel.IntegerDefault0Adapter());
+        Gson mGson = gsonBuilder.create();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
+                .getWeiBoUserHeaderNews("0", s, gsid, c, "1219022557")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoSpaceUser>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: "+e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(WeiBoSpaceUser weiBoNewsList) {
+                        Log.i(TAG, "onNext: "+weiBoNewsList.getIdstr());
+                    }
+                });
     }
 
 

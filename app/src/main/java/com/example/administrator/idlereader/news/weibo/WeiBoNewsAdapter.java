@@ -57,6 +57,12 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             int weight = Resolution.dipToPx(mContext, 35);
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((NewsViewHolder) holder).imgWeiboUser, weight, weight);
+            ((NewsViewHolder) holder).imgWeiboUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UIUtils.startSpaceFragment(mContext,data.getUser().getIdstr());
+                }
+            });
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             try {
                 ((NewsViewHolder) holder).tvWeiboTime.setText(

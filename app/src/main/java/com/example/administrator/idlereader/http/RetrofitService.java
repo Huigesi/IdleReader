@@ -10,6 +10,7 @@ import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 
 import java.util.Map;
 
@@ -143,4 +144,27 @@ public interface RetrofitService {
     /*@GET("threads/getsThreadPostList")
     @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
     Observable<ThreadReplyData> getsThreadReplyList(@QueryMap Map<String, String> params);*/
+
+    //http://api.weibo.cn/2/statuses/user_timeline?since_id=0&s=606388e6&source=4215535043&gsid=_2A252evSNDeRxGeNH61cX8yvNyT6IHXVTLg9FrDV6PUJbkdAKLUfykWpNSvDZShYMkVspdJ9M8k0Zb7-bXokiidm6&from=1055095010&c=weicoabroad&uid=1219022557&page=1&%20HTTP/1.1
+    @GET("statuses/user_timeline")
+    Observable<WeiBoNews> getWeiBoUser(@Query("since_id") String sinceId,
+                                       @Query("s") String s,
+                                       @Query("gsid") String gsid,
+                                       @Query("page") int page,
+                                       @Query("c") String c,
+                                       @Query("from") String from,
+                                       @Query("wm") String wm,
+                                       @Query("source") String source,
+                                       @Query("uid") String uid);
+
+    //http://api.weibo.cn/2/users/show?s=606388e6&source=4215535043&c=weicoabroad&wm=2468_1001&gsid=_2A252evSNDeRxGeNH61cX8yvNyT6IHXVTLg9FrDV6PUJbkdAKLUfykWpNSvDZShYMkVspdJ9M8k0Zb7-bXokiidm6&lang=zh_CN&uid=1219022557&from=1055095010%20HTTP/1.1
+    @GET("users/show")
+    Observable<WeiBoSpaceUser> getWeiBoUserHead(@Query("since_id") String sinceId,
+                                                @Query("s") String s,
+                                                @Query("gsid") String gsid,
+                                                @Query("c") String c,
+                                                @Query("from") String from,
+                                                @Query("wm") String wm,
+                                                @Query("source") String source,
+                                                @Query("uid") String uid);
 }

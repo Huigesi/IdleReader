@@ -29,4 +29,10 @@ public interface INewsModel {
                          long max_id,
                          INewsLoadListener iNewsLoadListener);
 
+    void loadWeiBoUserNews(String uid,
+                           int page,
+                           INewsLoadListener iNewsLoadListener);
+    void loadWeiBoUserHeaderNews(String uid,
+                           INewsLoadListener iNewsLoadListener);
+
 }

@@ -7,6 +7,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.INewsLoadListener;
@@ -16,6 +17,7 @@ import com.example.administrator.idlereader.news.view.INBAView;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
 import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
+import com.example.administrator.idlereader.news.view.IWeiBoSpaceView;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
 
 /**
@@ -29,7 +31,13 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INBAView mINBAView;
     private IWeiBoView mIWeiBoView;
     private INbaDetailView mINbaDetailView;
+    private IWeiBoSpaceView mIWeiBoSpaceView;
     private IWeiBoDetailView mIWeiBoDetailView;
+
+    public NewsPresenter(IWeiBoSpaceView iNewsView) {
+        this.mIWeiBoSpaceView = iNewsView;
+        this.iNewsModel = new NewsModel();
+    }
 
     public NewsPresenter(INewsView iNewsView) {
         this.iNewsView = iNewsView;
@@ -119,6 +127,16 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
+    public void loadWeiBoUserNews(String uid, int page) {
+        iNewsModel.loadWeiBoUserNews(uid,page,this);
+    }
+
+    @Override
+    public void loadWeiBoUserHeaderNews(String uid) {
+        iNewsModel.loadWeiBoUserHeaderNews(uid,this);
+    }
+
+    @Override
     public void success(NewsBean newsBean) {
         iNewsView.hideDialog();
         if (newsBean != null) {
@@ -190,5 +208,23 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadMoreWeiBoDetailSuccess(WeiBoDetail weiBoDetail) {
         mIWeiBoDetailView.showMoreData(weiBoDetail);
         mIWeiBoDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadMoreWeiBoUserSuccess(WeiBoNews weiBoDetail) {
+        mIWeiBoSpaceView.showMoreData(weiBoDetail);
+        mIWeiBoSpaceView.hideDialog();
+    }
+
+    @Override
+    public void loadWeiBoUserSuccess(WeiBoNews weiBoDetail) {
+        mIWeiBoSpaceView.hideDialog();
+        mIWeiBoSpaceView.showData(weiBoDetail);
+    }
+
+    @Override
+    public void loadWeiBoUserHeaderSuccess(WeiBoSpaceUser weiBoDetail) {
+        mIWeiBoSpaceView.hideDialog();
+        mIWeiBoSpaceView.showHeader(weiBoDetail);
     }
 }

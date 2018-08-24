@@ -13,6 +13,7 @@ import com.example.administrator.idlereader.bean.VideoUrlBean;
 import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.utils.klog.KLog;
 import com.google.gson.Gson;
 
@@ -120,6 +121,19 @@ public class RetrofitHelper {
         String source = "4215535043";
         String advance_enable = "false";
         return retrofitService.getWeiBoNews(sinceId,s,gsid,page,c,form,wm,source,advance_enable);
+    }
+
+    public Observable<WeiBoNews> getWeiBoUserNews(String sinceId, String s, String gsid, int page, String c,String uid) {
+        String form = "1273095010";
+        String wm = "2468_1001";
+        String source = "4215535043";
+        return retrofitService.getWeiBoUser(sinceId,s,gsid,page,c,form,wm,source,uid);
+    }
+    public Observable<WeiBoSpaceUser> getWeiBoUserHeaderNews(String sinceId, String s, String gsid, String c, String uid) {
+        String form = "1273095010";
+        String wm = "2468_1001";
+        String source = "4215535043";
+        return retrofitService.getWeiBoUserHead(sinceId,s,gsid,c,form,wm,source,uid);
     }
 
     public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid,long max_id) {

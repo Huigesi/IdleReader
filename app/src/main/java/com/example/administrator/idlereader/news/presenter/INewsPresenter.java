@@ -20,4 +20,7 @@ public interface INewsPresenter {
 
     void loadWeiBoDetail(String sinceid,long max_id);
 
+    void loadWeiBoUserNews(String uid, int page);
+    void loadWeiBoUserHeaderNews(String uid);
+
 }

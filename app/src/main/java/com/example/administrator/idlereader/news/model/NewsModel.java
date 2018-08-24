@@ -9,6 +9,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.google.gson.Gson;
@@ -41,6 +42,9 @@ public class NewsModel implements INewsModel {
     private static final String s = "606388e6";
     private static final String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
     private static final String c = "weicoabroad";
+    private static final String form = "1273095010";
+    private static final String wm = "2468_1001";
+    private static final String source = "4215535043";
 
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
@@ -221,6 +225,60 @@ public class NewsModel implements INewsModel {
                         } else {
                             iNewsLoadListener.loadMoreWeiBoDetailSuccess(weiBoDetail);
                         }
+                    }
+                });
+    }
+
+    @Override
+    public void loadWeiBoUserNews(String uid, final int page, final INewsLoadListener iNewsLoadListener) {
+        setGsonAdapter();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
+                .getWeiBoUserNews("0", s, gsid, 1, c, uid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoNews>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        iNewsLoadListener.fail(e);
+                    }
+
+                    @Override
+                    public void onNext(WeiBoNews weiBoNewsList) {
+                        if (page > 1) {
+                            iNewsLoadListener.loadMoreWeiBoUserSuccess(weiBoNewsList);
+                        } else {
+                            iNewsLoadListener.loadWeiBoUserSuccess(weiBoNewsList);
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void loadWeiBoUserHeaderNews(String uid, final INewsLoadListener iNewsLoadListener) {
+        setGsonAdapter();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
+                .getWeiBoUserHeaderNews("0", s, gsid, c, uid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoSpaceUser>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        iNewsLoadListener.fail(e);
+                    }
+
+                    @Override
+                    public void onNext(WeiBoSpaceUser weiBoNewsList) {
+                        iNewsLoadListener.loadWeiBoUserHeaderSuccess(weiBoNewsList);
                     }
                 });
     }

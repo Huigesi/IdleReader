@@ -2,27 +2,21 @@ package com.example.administrator.idlereader.utils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.URLSpan;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
+import com.example.administrator.idlereader.news.weibo.WeiBoSpaceActivity;
 
 import java.lang.reflect.Field;
 import java.util.regex.Matcher;
@@ -47,6 +41,12 @@ public class UIUtils {
         intent.putExtra(FRAGMENT_CLASS, NbaH5Fragment.class.getName());
         intent.putExtra(NbaH5Fragment.NBA_H5_NID, nid);
         intent.putExtra(NbaH5Fragment.NBA_H5_TID, tid);
+        context.startActivity(intent);
+    }
+
+    public static void startSpaceFragment(Context context,String uid) {
+        Intent intent = new Intent(context, WeiBoSpaceActivity.class);
+        intent.putExtra(WeiBoSpaceActivity.WEIBO_SPACE_UID, uid);
         context.startActivity(intent);
     }
 
