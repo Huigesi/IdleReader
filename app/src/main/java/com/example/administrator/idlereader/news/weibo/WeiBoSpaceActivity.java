@@ -47,6 +47,18 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
     RecyclerView mRvNews;
     @BindView(R.id.srl_news)
     SmartRefreshLayout mSrlNews;
+    @BindView(R.id.img_weibo_user_cover)
+    ImageView mImgWeiboUserCover;
+    @BindView(R.id.tv_weibo_user_name)
+    TextView mTvWeiboUserName;
+    @BindView(R.id.tv_weibo_user_intro)
+    TextView mTvWeiboUserIntro;
+    @BindView(R.id.tv_weibo_user_location)
+    TextView mTvWeiboUserLocation;
+    @BindView(R.id.tv_weibo_user_friends_count)
+    TextView mTvWeiboUserFriendsCount;
+    @BindView(R.id.tv_weibo_user_followers_count)
+    TextView mTvWeiboUserFollowersCount;
     private LinearLayoutManager mLinearLayoutManager;
     private NewsPresenter mNewsPresenter;
     private WeiBoNewsAdapter mWeiBoNewsAdapter;
@@ -66,27 +78,6 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mSrlNews.setRefreshHeader(new MaterialHeader(this).setColorSchemeColors(
                 getResources().getColor(R.color.colorTheme)));
         mSrlNews.setRefreshFooter(new DefaultsFooter(this).setFinishDuration(0));
-        mRvNews.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-                if (layoutManager instanceof LinearLayoutManager) {
-                    int firstPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
-                    if (firstPosition > 3) {
-                        mIvBack.setVisibility(View.VISIBLE);
-                    } else {
-                        mIvBack.setVisibility(View.GONE);
-                    }
-                }
-            }
-        });
-        mIvBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRvNews.scrollToPosition(0);
-            }
-        });
         mRvNews.setHasFixedSize(true);
         mNewsPresenter = new NewsPresenter(this);
         mLinearLayoutManager = new LinearLayoutManager(this,
@@ -118,6 +109,12 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mNewsPresenter.loadWeiBoUserNews(uid, 0);
         mNewsPresenter.loadWeiBoUserHeaderNews(uid);
         mRvNews.setAdapter(mWeiBoNewsAdapter);
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -148,6 +145,13 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
 
     @Override
     public void showHeader(WeiBoSpaceUser data) {
+        int weight=Resolution.dipToPx(this,100);
         GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop);
+        GlideUtils.loadCircle(this,data.getAvatar_hd(),mImgWeiboUserCover,weight,weight);
+        mTvWeiboUserName.setText(data.getName());
+        mTvWeiboUserIntro.setText(data.getDescription());
+        mTvWeiboUserLocation.setText(data.getLocation());
+        mTvWeiboUserFriendsCount.setText(data.getFriends_count()+" 关注");
+        mTvWeiboUserFollowersCount.setText(data.getFollowers_count()+" 粉丝");
     }
 }
