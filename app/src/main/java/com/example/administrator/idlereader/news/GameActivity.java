@@ -11,15 +11,21 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class GameActivity extends SwipeBackActivity {
-    private String mLoadUrl,mTitle;
+    @BindView(R.id.fl_web)
+    LinearLayout mFlWeb;
+    private String mLoadUrl, mTitle;
     private ImageView iv_back;
     private TextView tv_bar_title;
     private WebView wb_news;
@@ -31,6 +37,7 @@ public class GameActivity extends SwipeBackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_notframe);
+        ButterKnife.bind(this);
         mLoadUrl = getIntent().getStringExtra("url");
         mTitle = getIntent().getStringExtra("title");
         swipeBackLayout = getSwipeBackLayout();
@@ -46,18 +53,7 @@ public class GameActivity extends SwipeBackActivity {
         wb_news.getSettings().setJavaScriptEnabled(true);
         wb_news.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wb_news.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        wb_news.canGoBack();
-        wb_news.canGoForward();
         wb_news.loadUrl(mLoadUrl);
-        wb_news.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    wb_news.performClick();  //模拟父控件的点击
-                }
-                return false;
-            }
-        });
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
         tv_bar_title.setText(mTitle);
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -68,6 +64,7 @@ public class GameActivity extends SwipeBackActivity {
             }
         });
     }
+
     private void setWebViewClient() {
         webViewClient = new WebViewClient() {
             @Override
@@ -86,6 +83,7 @@ public class GameActivity extends SwipeBackActivity {
         };
         wb_news.setWebViewClient(webViewClient);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

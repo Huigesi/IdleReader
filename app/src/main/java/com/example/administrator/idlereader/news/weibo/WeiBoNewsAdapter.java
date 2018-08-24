@@ -26,6 +26,7 @@ import com.example.administrator.idlereader.utils.UIUtils;
 import com.example.administrator.idlereader.utils.bigImgViewPager.ImagePreview;
 import com.example.administrator.idlereader.utils.bigImgViewPager.bean.ImageInfo;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,8 +58,12 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((NewsViewHolder) holder).imgWeiboUser, weight, weight);
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
-            ((NewsViewHolder) holder).tvWeiboTime.setText(
-                    TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            try {
+                ((NewsViewHolder) holder).tvWeiboTime.setText(
+                        TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             ((NewsViewHolder) holder).tvWeiboSource.setText(RegularUtils.getA(data.getSource()));
             SpannableString content = UIUtils.setTextHighLight(mContext, data.getText(), null);
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);

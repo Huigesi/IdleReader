@@ -13,28 +13,35 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class WebViewActivity extends SwipeBackActivity {
     private static final String TAG = "WebViewActivity";
+    @BindView(R.id.fl_web)
+    FrameLayout mFlWeb;
     private WebView wbNews;
     private String loadUrl, title;
     private WebViewClient webViewClient;
     private TextView tv_bar_title;
     private ImageView iv_back;
     private SwipeBackLayout swipeBackLayout;
-    public static final String  WEB_URL= "WEB_URL";
-    public static final String  WEB_TITLE= "WEB_TITLE";
+    public static final String WEB_URL = "WEB_URL";
+    public static final String WEB_TITLE = "WEB_TITLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
+        ButterKnife.bind(this);
         loadUrl = getIntent().getStringExtra(WEB_URL);
         title = getIntent().getStringExtra(WEB_TITLE);
         swipeBackLayout = getSwipeBackLayout();
@@ -51,7 +58,7 @@ public class WebViewActivity extends SwipeBackActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 String js = getClearAdDivJs(WebViewActivity.this);
-                Log.i(TAG, "onPageFinished: "+js);
+                Log.i(TAG, "onPageFinished: " + js);
                 view.loadUrl(js);
             }
 
@@ -77,19 +84,8 @@ public class WebViewActivity extends SwipeBackActivity {
         wbNews.getSettings().setJavaScriptEnabled(true);
         wbNews.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wbNews.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        wbNews.canGoBack();
-        wbNews.canGoForward();
         wbNews.loadUrl(loadUrl);
-        wbNews.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    wbNews.performClick();  //模拟父控件的点击
-                }
-                return false;
-            }
-        });
-        Log.i(TAG, "onClick: "+loadUrl);
+        Log.i(TAG, "onClick: " + loadUrl);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
         tv_bar_title.setText(title);
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -134,7 +130,7 @@ public class WebViewActivity extends SwipeBackActivity {
         Resources res = context.getResources();
         String[] adDivs = res.getStringArray(R.array.adBlockDiv);
         for (int i = 0; i < adDivs.length; i++) {
-            js += "var elements = document.getElementsByClassName('"+adDivs[i]+"');\n" +
+            js += "var elements = document.getElementsByClassName('" + adDivs[i] + "');\n" +
                     "while(elements.length > 0){\n" +
                     "elements[0].parentNode.removeChild(elements[0]);\n" +
                     "}";

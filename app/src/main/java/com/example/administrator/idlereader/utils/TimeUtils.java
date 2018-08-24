@@ -6,17 +6,11 @@ import java.util.Date;
 import java.util.Locale;
 
 public class TimeUtils {
-    public static long prettyDate1(String time) {
+    public static long prettyDate1(String time) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat(
                 "EEE MMM dd HH:mm:ss Z yyyy", new Locale("ENGLISH", "CHINA"));
-        Date myDate = null;
-        try {
-            myDate = sdf.parse(time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        long miliSeconds = myDate.getTime();
-        return miliSeconds;
+        Date myDate = sdf.parse(time);
+        return myDate.getTime();
     }
 
     public static String prettyTime4(long millisecond) {

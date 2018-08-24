@@ -20,6 +20,8 @@ import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
+import java.text.ParseException;
+
 public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.RootCommentsData> {
 
     public WeiBoDetailAdapter(Context context) {
@@ -45,8 +47,12 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((WeiBoViewHolder) holder).imgWeiboUser, weight, weight);
             ((WeiBoViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
-            ((WeiBoViewHolder) holder).tvWeiboTime.setText(
-                    TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            try {
+                ((WeiBoViewHolder) holder).tvWeiboTime.setText(
+                        TimeUtils.prettyTime4(TimeUtils.prettyDate1(data.getCreated_at())));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             SpannableString commentText = UIUtils.setTextHighLight(mContext, data.getText(),
                     null);
             ((WeiBoViewHolder) holder).tvWeiboCommenttext.setText(commentText);

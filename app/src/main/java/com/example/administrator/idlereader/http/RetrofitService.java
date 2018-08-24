@@ -11,9 +11,13 @@ import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 
+import java.util.Map;
+
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 import rx.Observable;
 
@@ -133,4 +137,10 @@ public interface RetrofitService {
                                            @Query("max_id") long max_id,
                                            @Query("is_show_bulletin") int is_show_bulletin);
     //http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=23331153
+   /* @GET("threads/getsThreadLightReplyList")
+    @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
+    Observable<ThreadLightReplyData> getThreadLightReplyList(@QueryMap Map<String, String> params);*/
+    /*@GET("threads/getsThreadPostList")
+    @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
+    Observable<ThreadReplyData> getsThreadReplyList(@QueryMap Map<String, String> params);*/
 }

@@ -19,6 +19,8 @@ import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
+import java.text.ParseException;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -92,8 +94,12 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         GlideUtils.loadCircle(getContext(), mWeiBoDetail.getStatus().getUser().getProfile_image_url(),
                 mImgWeiboUser, weight, weight);
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
-        mTvWeiboTime.setText(
-                TimeUtils.prettyTime4(TimeUtils.prettyDate1(mWeiBoDetail.getStatus().getCreated_at())));
+        try {
+            mTvWeiboTime.setText(
+                    TimeUtils.prettyTime4(TimeUtils.prettyDate1(mWeiBoDetail.getStatus().getCreated_at())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String s = RegularUtils.getA(mWeiBoDetail.getStatus().getSource());
         mTvWeiboSource.setText(s);
         SpannableString content;

@@ -54,8 +54,6 @@ public class NbaH5Fragment extends Fragment{
         mWbNews.getSettings().setJavaScriptEnabled(true);
         mWbNews.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         mWbNews.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        mWbNews.canGoBack();
-        mWbNews.canGoForward();
         String url = "http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=";
         mWbNews.loadUrl(url+tid);
         mWbNews.setWebViewClient(new WebViewClient());
