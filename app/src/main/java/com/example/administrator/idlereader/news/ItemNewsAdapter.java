@@ -63,8 +63,8 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, GameActivity.class);
-                            intent.putExtra("url", data.getWap_pluginfo().get(0).getUrl());
-                            intent.putExtra("title", data.getWap_pluginfo().get(0).getTitle());
+                            intent.putExtra(GameActivity.WEB_URL, data.getWap_pluginfo().get(0).getUrl());
+                            intent.putExtra(GameActivity.WEB_TITLE, data.getWap_pluginfo().get(0).getTitle());
                             mContext.startActivity(intent);
                         }
                     });
@@ -78,8 +78,8 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, GameActivity.class);
-                            intent.putExtra("url", data.getWap_pluginfo().get(1).getUrl());
-                            intent.putExtra("title", data.getWap_pluginfo().get(1).getTitle());
+                            intent.putExtra(GameActivity.WEB_URL, data.getWap_pluginfo().get(1).getUrl());
+                            intent.putExtra(GameActivity.WEB_TITLE, data.getWap_pluginfo().get(1).getTitle());
                             mContext.startActivity(intent);
                         }
                     });
@@ -93,8 +93,8 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, GameActivity.class);
-                            intent.putExtra("url", data.getWap_pluginfo().get(2).getUrl());
-                            intent.putExtra("title", data.getWap_pluginfo().get(2).getTitle());
+                            intent.putExtra(GameActivity.WEB_URL, data.getWap_pluginfo().get(2).getUrl());
+                            intent.putExtra(GameActivity.WEB_TITLE, data.getWap_pluginfo().get(2).getTitle());
                             mContext.startActivity(intent);
                         }
                     });
@@ -107,9 +107,9 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
                     ((ItemNewsHolder) holder).llTemplateGame4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(mContext, WebViewActivity.class);
-                            intent.putExtra(WebViewActivity.WEB_URL, data.getWap_pluginfo().get(3).getUrl());
-                            intent.putExtra(WebViewActivity.WEB_TITLE, data.getWap_pluginfo().get(3).getTitle());
+                            Intent intent = new Intent(mContext, GameActivity.class);
+                            intent.putExtra(GameActivity.WEB_URL, data.getWap_pluginfo().get(3).getUrl());
+                            intent.putExtra(GameActivity.WEB_TITLE, data.getWap_pluginfo().get(3).getTitle());
                             mContext.startActivity(intent);
                         }
                     });

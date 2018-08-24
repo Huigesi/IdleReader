@@ -31,6 +31,8 @@ public class GameActivity extends SwipeBackActivity {
     private WebView wb_news;
     private WebViewClient webViewClient;
     private SwipeBackLayout swipeBackLayout;
+    public static final String WEB_URL = "WEB_URL";
+    public static final String WEB_TITLE = "WEB_TITLE";
 
 
     @Override
@@ -38,8 +40,8 @@ public class GameActivity extends SwipeBackActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview_notframe);
         ButterKnife.bind(this);
-        mLoadUrl = getIntent().getStringExtra("url");
-        mTitle = getIntent().getStringExtra("title");
+        mLoadUrl = getIntent().getStringExtra(WEB_URL);
+        mTitle = getIntent().getStringExtra(WEB_TITLE);
         swipeBackLayout = getSwipeBackLayout();
         initView();
         setWebViewClient();
@@ -48,7 +50,6 @@ public class GameActivity extends SwipeBackActivity {
     private void initView() {
         iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
-        wb_news = (WebView) findViewById(R.id.wb_news);
         wb_news = (WebView) findViewById(R.id.wb_news);
         wb_news.getSettings().setJavaScriptEnabled(true);
         wb_news.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
