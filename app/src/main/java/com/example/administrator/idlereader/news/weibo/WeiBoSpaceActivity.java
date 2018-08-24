@@ -153,5 +153,6 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mTvWeiboUserLocation.setText(data.getLocation());
         mTvWeiboUserFriendsCount.setText(data.getFriends_count()+" 关注");
         mTvWeiboUserFollowersCount.setText(data.getFollowers_count()+" 粉丝");
+        mTvBarTitle.setText(data.getName()+"的微博");
     }
 }
