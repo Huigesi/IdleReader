@@ -93,6 +93,12 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         int weight = Resolution.dipToPx(getContext(), 35);
         GlideUtils.loadCircle(getContext(), mWeiBoDetail.getStatus().getUser().getProfile_image_url(),
                 mImgWeiboUser, weight, weight);
+        mImgWeiboUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UIUtils.startSpaceFragment(getContext(),mWeiBoDetail.getStatus().getUser().getIdstr());
+            }
+        });
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
         try {
             mTvWeiboTime.setText(

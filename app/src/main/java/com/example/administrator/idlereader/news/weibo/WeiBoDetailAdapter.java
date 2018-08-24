@@ -38,7 +38,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, WeiBoDetail.RootCommentsData data) {
+    public void onBind(RecyclerView.ViewHolder holder, int position, final WeiBoDetail.RootCommentsData data) {
         if (holder instanceof WeiBoViewHolder) {
             if (data == null) {
                 return;
@@ -46,6 +46,12 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             int weight = Resolution.dipToPx(mContext, 35);
             GlideUtils.loadCircle(mContext, data.getUser().getProfile_image_url(),
                     ((WeiBoViewHolder) holder).imgWeiboUser, weight, weight);
+            ((WeiBoViewHolder) holder).imgWeiboUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UIUtils.startSpaceFragment(mContext,data.getUser().getIdstr());
+                }
+            });
             ((WeiBoViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
             try {
                 ((WeiBoViewHolder) holder).tvWeiboTime.setText(
