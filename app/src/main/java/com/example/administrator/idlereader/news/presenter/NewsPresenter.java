@@ -1,6 +1,10 @@
 package com.example.administrator.idlereader.news.presenter;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
@@ -8,6 +12,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.INewsLoadListener;
@@ -96,6 +101,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
+    public void weiBoLogin(String user, String password,Context context) {
+        iNewsModel.weiBoLogin(user,password,context,this);
+    }
+
+    @Override
     public void loadNbaDetail(String nid) {
         mINbaDetailView.showDialog();
         iNewsModel.loadNbaDetails(nid,this);
@@ -114,26 +124,26 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
-    public void loadWeibo(String sinceid,int page) {
+    public void loadWeibo(String sinceid,String gsid,int page) {
         if (page == 1) {
             mIWeiBoView.showDialog();
         }
-        iNewsModel.loadWeibo(sinceid,page,this);
+        iNewsModel.loadWeibo(sinceid,page,gsid,this);
     }
 
     @Override
-    public void loadWeiBoDetail(String sinceid,long max_id) {
-        iNewsModel.loadWeiBoDetail(sinceid,max_id,this);
+    public void loadWeiBoDetail(String sinceid,String gsid,long max_id) {
+        iNewsModel.loadWeiBoDetail(sinceid,max_id,gsid,this);
     }
 
     @Override
-    public void loadWeiBoUserNews(String uid, int page) {
-        iNewsModel.loadWeiBoUserNews(uid,page,this);
+    public void loadWeiBoUserNews(String uid, String gsid,int page) {
+        iNewsModel.loadWeiBoUserNews(uid,page,gsid,this);
     }
 
     @Override
-    public void loadWeiBoUserHeaderNews(String uid) {
-        iNewsModel.loadWeiBoUserHeaderNews(uid,this);
+    public void loadWeiBoUserHeaderNews(String uid,String gsid) {
+        iNewsModel.loadWeiBoUserHeaderNews(uid,gsid,this);
     }
 
     @Override

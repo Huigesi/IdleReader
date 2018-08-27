@@ -14,6 +14,7 @@ import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 import com.example.administrator.idlereader.utils.klog.KLog;
 import com.google.gson.Gson;
 
@@ -44,6 +45,8 @@ public class RetrofitHelper {
     private static OkHttpClient okHttpClient;
     private RetrofitService retrofitService;
     private static SparseArray<RetrofitHelper> sInstanceManager = new SparseArray<>(3);
+    private static final String c = "weicoabroad";
+    private static final String s = "18909f1e";
 
     public RetrofitHelper(int host) {
         Retrofit retrofit = new Retrofit.Builder()
@@ -113,6 +116,10 @@ public class RetrofitHelper {
 
     public Observable<NbaNewsComment> getNbaComment(String nid,String ncid,String createTime) {
         return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID,ncid,createTime);
+    }
+
+    public Observable<WeiBoUserInfo> login(String user, String password) {
+        return retrofitService.login(c,s,user,password);
     }
 
     public Observable<WeiBoNews> getWeiBoNews(String sinceId, String s, String gsid, int page, String c) {

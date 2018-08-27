@@ -8,6 +8,7 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 
 /**
  * Created by Administrator on 2018/5/19.

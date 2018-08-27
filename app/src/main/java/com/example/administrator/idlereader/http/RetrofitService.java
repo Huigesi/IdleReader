@@ -11,11 +11,16 @@ import com.example.administrator.idlereader.bean.WeatherBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 
 import java.util.Map;
 
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
@@ -167,4 +172,10 @@ public interface RetrofitService {
                                                 @Query("wm") String wm,
                                                 @Query("source") String source,
                                                 @Query("uid") String uid);
+    @FormUrlEncoded
+    @POST("account/login")
+    Observable<WeiBoUserInfo> login(@Field("c") String c,
+                                               @Field("s") String s,
+                                               @Field("u") String user,
+                                               @Field("p") String password);
 }

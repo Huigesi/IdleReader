@@ -19,6 +19,7 @@ import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
+import com.example.administrator.idlereader.utils.SPreUtils;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -37,6 +38,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
     private WeiBoDetailAdapter mWeiBoDetailAdapter;
     private WeiBoDetailHeaderView mWeiBoDetailHeaderView;
     private long mMaxId;
+    private String mGsid;
 
     public static WeiBoDetailFragment getInstance() {
         WeiBoDetailFragment fragment = new WeiBoDetailFragment();
@@ -46,6 +48,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
     @Override
     public void init() {
         mNewsPresenter = new NewsPresenter(this);
+        mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, getActivity());
         nid = getActivity().getIntent().getStringExtra(WEIBO_NID);
         mWeiBoDetailAdapter = new WeiBoDetailAdapter(getContext());
         mWeiBoDetailHeaderView = new WeiBoDetailHeaderView(getContext());
@@ -54,7 +57,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeiBoDetail(nid, 0);
+                mNewsPresenter.loadWeiBoDetail(nid, mGsid,0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -63,7 +66,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
                 loadMoreComment();
             }
         });
-        mNewsPresenter.loadWeiBoDetail(nid, 0);
+        mNewsPresenter.loadWeiBoDetail(nid, mGsid,0);
     }
 
     @Override
@@ -73,7 +76,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
     }
 
     public void loadMoreComment() {
-        mNewsPresenter.loadWeiBoDetail(nid, mMaxId);
+        mNewsPresenter.loadWeiBoDetail(nid,mGsid, mMaxId);
     }
 
     @Override

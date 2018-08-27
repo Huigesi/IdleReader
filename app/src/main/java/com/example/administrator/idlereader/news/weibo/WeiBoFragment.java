@@ -1,32 +1,23 @@
 package com.example.administrator.idlereader.news.weibo;
 
 import android.graphics.Rect;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.administrator.idlereader.DefaultsFooter;
-import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
 import com.example.administrator.idlereader.utils.Resolution;
-import com.scwang.smartrefresh.header.MaterialHeader;
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.example.administrator.idlereader.utils.SPreUtils;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
@@ -36,6 +27,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
     private NewsPresenter mNewsPresenter;
     private WeiBoNewsAdapter mWeiBoNewsAdapter;
     private int page=1;
+    private String mGsid;
 
     public static WeiBoFragment getInstance() {
         WeiBoFragment fragment = new WeiBoFragment();
@@ -71,6 +63,8 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
     @Override
     public void init() {
         mNewsPresenter = new NewsPresenter(this);
+        mNewsPresenter.weiBoLogin("13242317873","huigesi",getActivity());
+        mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, getActivity());
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
 
@@ -78,14 +72,14 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeibo(String.valueOf(0),1);
+                mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,1);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page++;
-                mNewsPresenter.loadWeibo(String.valueOf(0),page);
+                mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,page);
             }
         });
         final int line = Resolution.dipToPx(getActivity(), 5);
@@ -97,7 +91,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
             }
         });
         mRvNews.setLayoutManager(mLinearLayoutManager);
-        mNewsPresenter.loadWeibo(String.valueOf(0),1);
+        mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,1);
         mRvNews.setAdapter(mWeiBoNewsAdapter);
     }
 }

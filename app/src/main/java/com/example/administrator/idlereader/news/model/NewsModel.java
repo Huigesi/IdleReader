@@ -1,8 +1,10 @@
 package com.example.administrator.idlereader.news.model;
 
 
+import android.content.Context;
 import android.util.Log;
 
+import com.example.administrator.idlereader.MainActivity;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
@@ -10,8 +12,10 @@ import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
+import com.example.administrator.idlereader.utils.SPreUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -40,7 +44,6 @@ public class NewsModel implements INewsModel {
     private static final String TAG = "NewsModel";
     private Gson mGson;
     private static final String s = "606388e6";
-    private static final String gsid = "_2A252e6umDeRxGeNH61cX8yvNyT6IHXVTELhurDV6PUJbkdAKLUfykWpNSvDZSpzJS4LsUBrWAErY4s0zmBFCDFQz";
     private static final String c = "weicoabroad";
     private static final String form = "1273095010";
     private static final String wm = "2468_1001";
@@ -164,6 +167,32 @@ public class NewsModel implements INewsModel {
                 });
     }
 
+    @Override
+    public void weiBoLogin(String user, String password, final Context context, final INewsLoadListener iNewsLoadListener) {
+        setGsonAdapter();
+        RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
+                .login(user, password)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<WeiBoUserInfo>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        iNewsLoadListener.fail(e);
+                    }
+
+                    @Override
+                    public void onNext(WeiBoUserInfo weiBoUserInfo) {
+                        Log.i(TAG, "onNext: " + weiBoUserInfo.getGsid());
+                        SPreUtils.setWeiBoUserInfo(weiBoUserInfo, context);
+                    }
+                });
+    }
+
     public void setGsonAdapter() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Integer.class, new IntegerDefault0Adapter());
@@ -172,10 +201,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeibo(String sinceid, final int page, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeibo(String sinceid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoNews(sinceid, s, gsid, page, c)
+                .getWeiBoNews(sinceid, s, gsId, page, c)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoNews>() {
@@ -201,10 +230,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeiBoDetail(String sinceid, final long max_id, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeiBoDetail(String sinceid, final long max_id, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoDetail(s, c, sinceid, gsid, max_id)
+                .getWeiBoDetail(s, c, sinceid, gsId, max_id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoDetail>() {
@@ -230,10 +259,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeiBoUserNews(String uid, final int page, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeiBoUserNews(String uid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoUserNews("0", s, gsid, 1, c, uid)
+                .getWeiBoUserNews("0", s, gsId, 1, c, uid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoNews>() {
@@ -259,10 +288,10 @@ public class NewsModel implements INewsModel {
     }
 
     @Override
-    public void loadWeiBoUserHeaderNews(String uid, final INewsLoadListener iNewsLoadListener) {
+    public void loadWeiBoUserHeaderNews(String uid, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoUserHeaderNews("0", s, gsid, c, uid)
+                .getWeiBoUserHeaderNews("0", s, gsId, c, uid)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoSpaceUser>() {

@@ -21,6 +21,7 @@ import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.utils.RegularUtils;
+import com.example.administrator.idlereader.utils.SPreUtils;
 import com.example.administrator.idlereader.video.FgVideoFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#ffce3d3a"));
         }
+        new SPreUtils(this);
 
         initView();
         initContentFragment();

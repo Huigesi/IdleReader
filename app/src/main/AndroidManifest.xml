@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.idlereader">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -24,9 +25,10 @@
         <activity android:name=".movie.MovieTop250Activity"></activity>
         <activity android:name=".news.GameActivity"></activity>
         <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".utils.bigImgViewPager.view.ImagePreviewActivity"
-            android:theme="@style/Theme.ImagePreview"/>
-        <activity android:name=".news.weibo.WeiBoSpaceActivity"/>
+        <activity
+            android:name=".utils.bigImgViewPager.view.ImagePreviewActivity"
+            android:theme="@style/Theme.ImagePreview" />
+        <activity android:name=".news.weibo.WeiBoSpaceActivity" />
     </application>
 
 </manifest>

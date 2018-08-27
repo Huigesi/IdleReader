@@ -21,6 +21,7 @@ import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.IWeiBoSpaceView;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
+import com.example.administrator.idlereader.utils.SPreUtils;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -65,6 +66,7 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
     public static final String WEIBO_SPACE_UID = "WEIBO_SPACE_UID";
     private int page = 0;
     private String uid;
+    private String mGsid;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,6 +82,7 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mSrlNews.setRefreshFooter(new DefaultsFooter(this).setFinishDuration(0));
         mRvNews.setHasFixedSize(true);
         mNewsPresenter = new NewsPresenter(this);
+        mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, this);
         mLinearLayoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
         uid = getIntent().getStringExtra(WEIBO_SPACE_UID);
@@ -87,14 +90,14 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeiBoUserNews(uid, 0);
+                mNewsPresenter.loadWeiBoUserNews(uid, mGsid,0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page++;
-                mNewsPresenter.loadWeiBoUserNews(uid, page);
+                mNewsPresenter.loadWeiBoUserNews(uid,mGsid, page);
             }
         });
         final int line = Resolution.dipToPx(this, 5);
@@ -106,8 +109,8 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
             }
         });
         mRvNews.setLayoutManager(mLinearLayoutManager);
-        mNewsPresenter.loadWeiBoUserNews(uid, 0);
-        mNewsPresenter.loadWeiBoUserHeaderNews(uid);
+        mNewsPresenter.loadWeiBoUserNews(uid,mGsid, 0);
+        mNewsPresenter.loadWeiBoUserHeaderNews(uid,mGsid);
         mRvNews.setAdapter(mWeiBoNewsAdapter);
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
