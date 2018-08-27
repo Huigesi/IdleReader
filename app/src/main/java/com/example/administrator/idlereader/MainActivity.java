@@ -31,7 +31,9 @@ import com.example.administrator.idlereader.utils.bigImgViewPager.tool.ToastUtil
 import com.example.administrator.idlereader.video.FgVideoFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import org.json.JSONObject;
+
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -89,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menu_Setting:
                         break;
                     case R.id.menu_Login_QQ:
-                        mTencent.login(MainActivity.this,"all",new BaseUiListener());
+                        mTencent.login(MainActivity.this, "all", new BaseUiListener());
                         break;
                     case R.id.menu_Login_WeiBo:
                         break;
@@ -198,9 +200,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.img_menu:
-                if (drawerLayout.isDrawerOpen(navigationView)){
+                if (drawerLayout.isDrawerOpen(navigationView)) {
                     drawerLayout.closeDrawer(navigationView);
-                }else{
+                } else {
                     drawerLayout.openDrawer(navigationView);
                 }
                 break;
@@ -233,9 +235,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         try {
                             int weight = Resolution.dipToPx(MainActivity.this, 72);
                             GlideUtils.loadCircle(MainActivity.this,
-                                    ((JSONObject)response).getString("figureurl_2"),
-                                    img_person,weight,weight);
-                            mUserName.setText(((JSONObject)response).getString("nickname"));
+                                    ((JSONObject) response).getString("figureurl_2"),
+                                    img_person, weight, weight);
+                            mUserName.setText(((JSONObject) response).getString("nickname"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
