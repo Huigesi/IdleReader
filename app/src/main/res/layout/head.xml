@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#2196F3">
+    android:background="@color/colorTheme">
     <ImageView
         android:id="@+id/person"
         android:layout_width="72dp"
@@ -17,14 +17,8 @@
         android:textSize="20sp"
         android:layout_marginTop="24dp"
         android:textColor="#ffffff"
-        android:text="户外植物识别系统v1版"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="12dp"
-        android:textColor="#ffffff"
-        android:layout_marginBottom="18dp"
-        android:text="让你快速知道植物信息"/>
+        android:id="@+id/tv_user_name"
+        android:text="请登录"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

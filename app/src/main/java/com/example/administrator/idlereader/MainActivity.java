@@ -17,17 +17,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.NewsModel;
+import com.example.administrator.idlereader.utils.GlideUtils;
+import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.SPreUtils;
 import com.example.administrator.idlereader.utils.bigImgViewPager.glide.ImageLoader;
 import com.example.administrator.idlereader.utils.bigImgViewPager.tool.ToastUtil;
 import com.example.administrator.idlereader.video.FgVideoFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.json.JSONObject;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -51,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView iv_title_movie;
     private ImageView iv_title_video;
     private ImageView img_menu;
+    private ImageView img_person;
+    private TextView mUserName;
     private ViewPager vp_content;
     private Toolbar toolbars;
     private static final String APP_ID = "1105602574";//官方获取的APPID
@@ -76,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav);
         View headerView = navigationView.getHeaderView(0);
+        img_person = (ImageView) headerView.findViewById(R.id.person);
+        mUserName = (TextView) headerView.findViewById(R.id.tv_user_name);
         //开启手势滑动打开侧滑菜单栏，如果要关闭手势滑动，将后面的UNLOCKED替换成LOCKED_CLOSED 即可
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -222,6 +230,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onComplete(Object response) {
                         Log.e(TAG, "登录成功" + response.toString());
+                        try {
+                            int weight = Resolution.dipToPx(MainActivity.this, 72);
+                            GlideUtils.loadCircle(MainActivity.this,
+                                    ((JSONObject)response).getString("figureurl_2"),
+                                    img_person,weight,weight);
+                            mUserName.setText(((JSONObject)response).getString("nickname"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
