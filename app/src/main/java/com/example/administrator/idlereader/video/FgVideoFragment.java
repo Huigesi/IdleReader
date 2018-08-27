@@ -99,7 +99,7 @@ public class FgVideoFragment extends Fragment implements IVideoView {
 
     @Override
     public void hideDialog() {
-        srl_video.finishRefresh(0);
+        //srl_video.finishRefresh(0);
     }
 
     @Override

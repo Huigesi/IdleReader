@@ -40,7 +40,7 @@ public class NewsModel implements INewsModel {
     private static final String TAG = "NewsModel";
     private Gson mGson;
     private static final String s = "606388e6";
-    private static final String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
+    private static final String gsid = "_2A252e6umDeRxGeNH61cX8yvNyT6IHXVTELhurDV6PUJbkdAKLUfykWpNSvDZSpzJS4LsUBrWAErY4s0zmBFCDFQz";
     private static final String c = "weicoabroad";
     private static final String form = "1273095010";
     private static final String wm = "2468_1001";

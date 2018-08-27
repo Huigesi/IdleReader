@@ -55,6 +55,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
 
     @Override
     public void showData(WeiBoNews data) {
+        if(data!=null)
         mWeiBoNewsAdapter.setData(data.getStatuses(), true);
     }
 

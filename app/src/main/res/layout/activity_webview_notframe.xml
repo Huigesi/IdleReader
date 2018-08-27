@@ -23,7 +23,6 @@
             android:layout_marginBottom="3dp"
             android:textColor="@color/colorWhite"
             android:textSize="20sp"
-            android:text="ssss"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:id="@+id/tv_bar_title"/>

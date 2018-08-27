@@ -71,7 +71,12 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 e.printStackTrace();
             }
             ((NewsViewHolder) holder).tvWeiboSource.setText(RegularUtils.getA(data.getSource()));
-            SpannableString content = UIUtils.setTextHighLight(mContext, data.getText(), null);
+            SpannableString content;
+            if (data.isIsLongText()){
+                content = UIUtils.setTextHighLight(mContext, data.getText()+"...全文", null,true);
+            }else {
+                content = UIUtils.setTextHighLight(mContext, data.getText(), null,false);
+            }
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
             ((NewsViewHolder) holder).tvWeiboComment.setText(String.valueOf(data.getComments_count()));
@@ -114,7 +119,12 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                         .getUser().getName();
                 String retWeedText = data.getRetweeted_status()
                         .getText();
-                SpannableString retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName);
+                SpannableString retweeted;
+                if (data.getRetweeted_status().isIsLongText()){
+                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText+"...全文", userName,true);
+                }else {
+                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName,false);
+                }
                 ((NewsViewHolder) holder).tvRetweetedContent.setText(
                         retweeted);
                 ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()

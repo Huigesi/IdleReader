@@ -96,7 +96,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         mImgWeiboUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIUtils.startSpaceFragment(getContext(),mWeiBoDetail.getStatus().getUser().getIdstr());
+                UIUtils.startSpaceFragment(getContext(), mWeiBoDetail.getStatus().getUser().getIdstr());
             }
         });
         mTvWeiboUser.setText(mWeiBoDetail.getStatus().getUser().getScreen_name());
@@ -110,9 +110,9 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         mTvWeiboSource.setText(s);
         SpannableString content;
         if (mWeiBoDetail.getStatus().isIsLongText() == true) {
-            content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getLongText().getLongTextContent(), null);
+            content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getLongText().getLongTextContent(), null, false);
         } else {
-            content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getText(), null);
+            content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getText(), null, false);
         }
         mTvWeiboContentText.setText(content);
         mTvWeiboLike.setText(String.valueOf(mWeiBoDetail.getStatus().getAttitudes_count()));
@@ -145,7 +145,14 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                     .getUser().getName();
             String retWeedText = mWeiBoDetail.getStatus().getRetweeted_status()
                     .getText();
-            SpannableString retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " + retWeedText, userName);
+            SpannableString retweeted;
+            if (mWeiBoDetail.getStatus().getRetweeted_status().isIsLongText()) {
+                retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " +
+                        retWeedText+"...全文", userName, true);
+            } else {
+                retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " +
+                        retWeedText, userName, false);
+            }
             mTvRetweetedContent.setText(
                     retweeted);
             mTvRetweetedReport.setText("转发 " + mWeiBoDetail.getStatus().getRetweeted_status()

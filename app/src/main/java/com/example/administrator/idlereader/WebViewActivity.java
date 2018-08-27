@@ -33,7 +33,6 @@ public class WebViewActivity extends SwipeBackActivity {
     private WebViewClient webViewClient;
     private TextView tv_bar_title;
     private ImageView iv_back;
-    private SwipeBackLayout swipeBackLayout;
     public static final String WEB_URL = "WEB_URL";
     public static final String WEB_TITLE = "WEB_TITLE";
 
@@ -44,7 +43,6 @@ public class WebViewActivity extends SwipeBackActivity {
         ButterKnife.bind(this);
         loadUrl = getIntent().getStringExtra(WEB_URL);
         title = getIntent().getStringExtra(WEB_TITLE);
-        swipeBackLayout = getSwipeBackLayout();
         initView();
         setWebViewClient();
     }
@@ -58,7 +56,6 @@ public class WebViewActivity extends SwipeBackActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 String js = getClearAdDivJs(WebViewActivity.this);
-                Log.i(TAG, "onPageFinished: " + js);
                 view.loadUrl(js);
             }
 
@@ -85,7 +82,6 @@ public class WebViewActivity extends SwipeBackActivity {
         wbNews.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wbNews.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         wbNews.loadUrl(loadUrl);
-        Log.i(TAG, "onClick: " + loadUrl);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);
         tv_bar_title.setText(title);
         iv_back = (ImageView) findViewById(R.id.iv_back);

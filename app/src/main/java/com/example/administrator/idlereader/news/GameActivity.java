@@ -30,7 +30,6 @@ public class GameActivity extends SwipeBackActivity {
     private TextView tv_bar_title;
     private WebView wb_news;
     private WebViewClient webViewClient;
-    private SwipeBackLayout swipeBackLayout;
     public static final String WEB_URL = "WEB_URL";
     public static final String WEB_TITLE = "WEB_TITLE";
 
@@ -42,7 +41,6 @@ public class GameActivity extends SwipeBackActivity {
         ButterKnife.bind(this);
         mLoadUrl = getIntent().getStringExtra(WEB_URL);
         mTitle = getIntent().getStringExtra(WEB_TITLE);
-        swipeBackLayout = getSwipeBackLayout();
         initView();
         setWebViewClient();
     }
@@ -53,6 +51,15 @@ public class GameActivity extends SwipeBackActivity {
         wb_news = (WebView) findViewById(R.id.wb_news);
         wb_news.getSettings().setJavaScriptEnabled(true);
         wb_news.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        wb_news.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    mFlWeb.performClick();  //模拟父控件的点击
+                }
+                return false;
+            }
+        });
         wb_news.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
         wb_news.loadUrl(mLoadUrl);
         tv_bar_title = (TextView) findViewById(R.id.tv_bar_title);

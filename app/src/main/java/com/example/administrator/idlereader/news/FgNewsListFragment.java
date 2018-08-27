@@ -38,7 +38,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     private List<NewsBean.Bean> newsBeanList;
     private LinearLayoutManager layoutManager;
     private int startPage = 0;
-    private BaseEndlessListener<NewsBean.Bean> mBaseEndlessListener;
 
     public static FgNewsListFragment newInstance(int type) {
         Bundle args = new Bundle();
@@ -99,7 +98,6 @@ public class FgNewsListFragment extends Fragment implements INewsView {
                 newsBeanList = newsBean.getGame();
                 break;
         }
-        Log.i("list", "showNews: " + newsBeanList.size());
         adapter.setData(newsBeanList,true);
         layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);

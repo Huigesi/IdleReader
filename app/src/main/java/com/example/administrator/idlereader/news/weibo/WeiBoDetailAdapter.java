@@ -60,7 +60,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
                 e.printStackTrace();
             }
             SpannableString commentText = UIUtils.setTextHighLight(mContext, data.getText(),
-                    null);
+                    null,false);
             ((WeiBoViewHolder) holder).tvWeiboCommenttext.setText(commentText);
             if (data.getLike_counts() == 0) {
                 ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText("");
@@ -72,14 +72,14 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
                 SpannableString reply1 = UIUtils.setTextHighLight(mContext,
                         data.getComments().get(0).getUser().getName() + " "
                                 + data.getComments().get(0).getText(),
-                        data.getComments().get(0).getUser().getName());
+                        data.getComments().get(0).getUser().getName(),false);
                 ((WeiBoViewHolder) holder).tvWeiboCommentReply1.setText(reply1);
                 if (data.getComments().size() > 1) {
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setVisibility(View.VISIBLE);
                     SpannableString reply2 = UIUtils.setTextHighLight(mContext,
                             data.getComments().get(1).getUser().getName() + " "
                                     + data.getComments().get(1).getText(),
-                            data.getComments().get(1).getUser().getName());
+                            data.getComments().get(1).getUser().getName(),false);
                     ((WeiBoViewHolder) holder).tvWeiboCommentReply2.setText(reply2);
                     if (data.getMore_info() != null) {
                         ((WeiBoViewHolder) holder).tvWeiboCommentReplycount.setVisibility(View.VISIBLE);

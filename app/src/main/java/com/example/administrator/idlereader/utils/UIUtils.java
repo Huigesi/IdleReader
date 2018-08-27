@@ -90,11 +90,16 @@ public class UIUtils {
     }
 
     //文字转换
-    public static SpannableString setTextHighLight(Context context, String content, String nickName) {
+    public static SpannableString setTextHighLight(Context context, String content, String nickName,
+                                                   boolean isLongText) {
         SpannableString result = new SpannableString(content);
         if (nickName != null) {
             result.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight)),
                     0, nickName.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+        }
+        if (isLongText){
+            result.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight)),
+                    result.length()-2, result.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         }
         if (content.contains("@")) {
             Pattern p = Pattern.compile(regex_at);
