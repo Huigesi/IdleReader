@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +23,8 @@ import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.utils.SPreUtils;
+import com.example.administrator.idlereader.utils.bigImgViewPager.glide.ImageLoader;
+import com.example.administrator.idlereader.utils.bigImgViewPager.tool.ToastUtil;
 import com.example.administrator.idlereader.video.FgVideoFragment;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,12 +50,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView iv_title_news;
     private ImageView iv_title_movie;
     private ImageView iv_title_video;
+    private ImageView img_menu;
     private ViewPager vp_content;
     private Toolbar toolbars;
     private static final String APP_ID = "1105602574";//官方获取的APPID
     private Tencent mTencent;
     private BaseUiListener mIUiListener;
     private UserInfo mUserInfo;
+    private NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,16 +70,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         new SPreUtils(this);
 
-        mTencent = Tencent.createInstance(APP_ID,MainActivity.this.getApplicationContext());
+        mTencent = Tencent.createInstance(APP_ID, MainActivity.this.getApplicationContext());
         initView();
         initContentFragment();
-        final String s = "606388e6";
-        final String gsid = "_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc";
-        final String c = "weicoabroad";
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Integer.class, new NewsModel.IntegerDefault0Adapter());
-        gsonBuilder.registerTypeAdapter(int.class, new NewsModel.IntegerDefault0Adapter());
-        Gson mGson = gsonBuilder.create();
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav);
+        View headerView = navigationView.getHeaderView(0);
+        //开启手势滑动打开侧滑菜单栏，如果要关闭手势滑动，将后面的UNLOCKED替换成LOCKED_CLOSED 即可
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menu_Setting:
+                        break;
+                    case R.id.menu_Login_QQ:
+                        mTencent.login(MainActivity.this,"all",new BaseUiListener());
+                        break;
+                    case R.id.menu_Login_WeiBo:
+                        break;
+                    case R.id.menu_Clear:
+                        ImageLoader.cleanDiskCache(MainActivity.this);
+                        ToastUtil.getInstance()._short(MainActivity.this, "磁盘缓存已成功清除");
+                        break;
+                    case R.id.menu_AboutUs:
+                        break;
+                }
+                drawerLayout.closeDrawer(navigationView);
+                return true;
+            }
+        });
     }
 
 
@@ -78,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         iv_title_news = (ImageView) findViewById(R.id.iv_title_news);
         iv_title_movie = (ImageView) findViewById(R.id.iv_title_movie);
         iv_title_video = (ImageView) findViewById(R.id.iv_title_video);
+        img_menu = (ImageView) findViewById(R.id.img_menu);
+        img_menu.setOnClickListener(this);
         vp_content = (ViewPager) findViewById(R.id.vp_content);
         toolbars = (Toolbar) findViewById(R.id.toolbars);
         iv_title_news.setOnClickListener(this);
@@ -157,13 +189,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     setCurrentItem(2);
                 }
                 break;
+            case R.id.img_menu:
+                if (drawerLayout.isDrawerOpen(navigationView)){
+                    drawerLayout.closeDrawer(navigationView);
+                }else{
+                    drawerLayout.openDrawer(navigationView);
+                }
+                break;
         }
     }
+
     /**
      * 自定义监听器实现IUiListener接口后，需要实现的3个方法
      * onComplete完成 onError错误 onCancel取消
      */
-    private class BaseUiListener implements IUiListener{
+    private class BaseUiListener implements IUiListener {
 
         @Override
         public void onComplete(Object response) {
@@ -175,23 +215,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String accessToken = obj.getString("access_token");
                 String expires = obj.getString("expires_in");
                 mTencent.setOpenId(openID);
-                mTencent.setAccessToken(accessToken,expires);
+                mTencent.setAccessToken(accessToken, expires);
                 QQToken qqToken = mTencent.getQQToken();
-                mUserInfo = new UserInfo(getApplicationContext(),qqToken);
+                mUserInfo = new UserInfo(getApplicationContext(), qqToken);
                 mUserInfo.getUserInfo(new IUiListener() {
                     @Override
                     public void onComplete(Object response) {
-                        Log.e(TAG,"登录成功"+response.toString());
+                        Log.e(TAG, "登录成功" + response.toString());
                     }
 
                     @Override
                     public void onError(UiError uiError) {
-                        Log.e(TAG,"登录失败"+uiError.toString());
+                        Log.e(TAG, "登录失败" + uiError.toString());
                     }
 
                     @Override
                     public void onCancel() {
-                        Log.e(TAG,"登录取消");
+                        Log.e(TAG, "登录取消");
 
                     }
                 });
@@ -216,14 +256,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * 在调用Login的Activity或者Fragment中重写onActivityResult方法
+     *
      * @param requestCode
      * @param resultCode
      * @param data
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == Constants.REQUEST_LOGIN){
-            Tencent.onActivityResultData(requestCode,resultCode,data,mIUiListener);
+        if (requestCode == Constants.REQUEST_LOGIN) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, mIUiListener);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
