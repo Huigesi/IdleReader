@@ -278,7 +278,7 @@ public class NbaZhuanti {
 
             private String orderby;
             private String title;
-            private List<NewsData> news;
+            private List<HupuNews.ResultBean.DataBean> news;
 
             public String getOrderby() {
                 return orderby;
@@ -296,11 +296,11 @@ public class NbaZhuanti {
                 this.title = title;
             }
 
-            public List<NewsData> getNews() {
+            public List<HupuNews.ResultBean.DataBean> getNews() {
                 return news;
             }
 
-            public void setNews(List<NewsData> news) {
+            public void setNews(List<HupuNews.ResultBean.DataBean> news) {
                 this.news = news;
             }
 
