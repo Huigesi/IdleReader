@@ -10,11 +10,13 @@ public class Api {
     public static final int TOADAY_NEWS = 2;
     public static final int HUPU_NBA = 3;
     public static final int WEIBO_LIST = 4;
+    public static final int HUPU_BBS = 5;
 
     public static final String NEWS_HOST = "https://c.m.163.com/";
     public static final String MOVIE_HOST = "https://api.douban.com/";
     public static final String TODAY_HOST = "http://is.snssdk.com/api/";
     public static final String HUPU_HOST = "http://games.mobileapi.hupu.com/1/7.2.5/";
+    public static final String HUPU_BBS_HOST = "http://bbs.mobileapi.hupu.com";
     public static final String WEIBO_HOST = "http://api.weibo.cn/2/";
 
     public static final String HEADLINE_ID = "T1348647909107";
@@ -24,8 +26,8 @@ public class Api {
     public static final String HUPU_CLIENT_ID = "866493031799950";
 
     /*
-    * 新浪微博图片链接
-    * */
+     * 新浪微博图片链接
+     * */
     public static final String IMG_WEIBO_WAP180 = "https://wx3.sinaimg.cn/wap180/";
     public static final String IMG_WEIBO_WAP360 = "https://wx3.sinaimg.cn/wap360/";
     public static final String IMG_WEIBO_WAP720 = "https://wx3.sinaimg.cn/wap720/";
@@ -43,6 +45,8 @@ public class Api {
                 return HUPU_HOST;
             case WEIBO_LIST:
                 return WEIBO_HOST;
+            case HUPU_BBS:
+                return HUPU_BBS_HOST;
         }
         return "";
     }

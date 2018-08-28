@@ -2,6 +2,8 @@ package com.example.administrator.idlereader.news.presenter;
 
 import android.content.Context;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2018/5/19.
  */
@@ -21,6 +23,10 @@ public interface INewsPresenter {
     void loadNbaComment(String nid);
 
     void loadNbaZhuanTi(String nid);
+
+    void loadNbaBBSComment(Map<String, String> parms);
+
+    void loadNbaLightBBSComment(Map<String, String> parms);
 
     void loadWeibo(String sinceid, String gsid,int page);
 

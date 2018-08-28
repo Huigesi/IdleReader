@@ -2,6 +2,8 @@ package com.example.administrator.idlereader.news.model;
 
 import android.content.Context;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2018/5/19.
  */
@@ -25,6 +27,12 @@ public interface INewsModel {
 
     void loadNbaZhuanTi(String nid,
                         INewsLoadListener iNewsLoadListener);
+
+    void loadNbaBBSComment(Map<String, String> params,
+                           INewsLoadListener iNewsLoadListener);
+
+    void loadLightNbaBBSComment(Map<String, String> params,
+                           INewsLoadListener iNewsLoadListener);
 
     void weiBoLogin(String user,
                     String password,
