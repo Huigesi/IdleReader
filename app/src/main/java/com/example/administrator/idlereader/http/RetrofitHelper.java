@@ -7,6 +7,7 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
+import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -112,6 +113,10 @@ public class RetrofitHelper {
 
     public Observable<NbaDetailNews> getNbaNewsDetail(String nid){
         return retrofitService.getNbaNewsDetail(nid, Api.HUPU_CLIENT_ID);
+    }
+
+    public Observable<NbaZhuanti> getNbaZhuanTi(String nid) {
+        return retrofitService.getNewsZhuanTi(nid,Api.HUPU_CLIENT_ID);
     }
 
     public Observable<NbaNewsComment> getNbaComment(String nid,String ncid,String createTime) {

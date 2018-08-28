@@ -23,6 +23,9 @@ public interface INewsModel {
                         String ncid, String createTime,
                         INewsLoadListener iNewsLoadListener);
 
+    void loadNbaZhuanTi(String nid,
+                        INewsLoadListener iNewsLoadListener);
+
     void weiBoLogin(String user,
                     String password,
                     Context context,

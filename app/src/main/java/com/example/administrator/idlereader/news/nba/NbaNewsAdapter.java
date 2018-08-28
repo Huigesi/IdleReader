@@ -78,7 +78,9 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 public void onClick(View v) {
                     if (data.getType() == 1) {
                         UIUtils.startNbaNewsFragment(mContext, data.getNid());
-                    } else if (data.getType() == 5) {
+                    }else if (data.getType()==2){
+                        UIUtils.startNbaZhuanTiFragment(mContext,data.getNid());
+                    }else if (data.getType() == 5) {
                         UIUtils.startNbaH5Fragment(mContext, data.getNid(), RegularUtils.getTid(data.getLink()));
                     } else if (data.getType() == 3) {
                         List<ImageInfo>imageInfoList = new ArrayList<>();

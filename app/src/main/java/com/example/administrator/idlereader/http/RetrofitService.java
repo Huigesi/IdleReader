@@ -4,6 +4,7 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
+import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -65,31 +66,6 @@ public interface RetrofitService {
     @GET("weather_mini")
     Observable<WeatherBean> getWeather(@Query("citykey") int cityKey);
 
-    /*
-    *crt	1534158890303
-    night	0
-    channel	hupucom
-    sign	7c1538b4ca3924cd846a153cab76abad
-    client	866493031799950
-    _ssid	IkxpZUJhb1dpRmk1NzEi
-    time_zone	Asia/Shanghai
-    android_id	8e204243037d4aa1
-    entrance	-1
-    preload	1
-
-    crt	1534158910428
-    night	0
-    channel	hupucom
-    nid	2333899
-    sign	a3cc4366cacc61ffd9783bd907591eb5
-    _ssid	IkxpZUJhb1dpRmk1NzEi
-    time_zone	Asia/Shanghai
-    client	866493031799950
-    direc	next
-    android_id	8e204243037d4aa1
-    entrance	-1
-    pre_count	20
-    */
     /*http://games.mobileapi.hupu.com/1/7.2.5/nba/getNews?&client=866493031799950*/
     @GET("nba/getNews")
     Observable<HupuNews> getHupuNews(@Query("client") String client,
@@ -107,6 +83,11 @@ public interface RetrofitService {
                                               @Query("client") String client,
                                               @Query("ncid") String ncid,
                                               @Query("create_time") String create_time);
+
+    //http://games.mobileapi.hupu.com/1/7.2.5/nba/getSubjectNewsDetail?nid=226381
+    @GET("nba/getSubjectNewsDetail")
+    Observable<NbaZhuanti> getNewsZhuanTi(@Query("nid") String nid,
+                                          @Query("client") String client);
 
     /*_2A252cRzBDeRxGeNH61cX8yvNyT6IHXVTJxcJrDV6PUJbkdAKLUfykWpNSvDZShbJn5J7L7wv7ZqcP0d-KAnwRoKc
      * http://api.weibo.cn/2/statuses/friends_timeline?since_id=4272884404727884&s=606388e6&gsid=_2A252dj4mDeRxGeNH61cX8yvNyT6IHXVTIjburDV6PUJbkdAKLUfykWpNSvDZSoix4-U-J81fM0h-0Wgync7r9M9c&c=weicoabroad&page=1%20HTTP/1.1

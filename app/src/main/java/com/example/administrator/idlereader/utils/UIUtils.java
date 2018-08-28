@@ -16,6 +16,7 @@ import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
+import com.example.administrator.idlereader.news.nba.NbaZhuanTiFragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoLoginActivity;
 import com.example.administrator.idlereader.news.weibo.WeiBoSpaceActivity;
@@ -35,6 +36,13 @@ public class UIUtils {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
         intent.putExtra(NbaDetailFragment.NBA_NID, nid);
+        context.startActivity(intent);
+    }
+
+    public static void startNbaZhuanTiFragment(Context context, String nid) {
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.putExtra(FRAGMENT_CLASS, NbaZhuanTiFragment.class.getName());
+        intent.putExtra(NbaZhuanTiFragment.NBA_NID, nid);
         context.startActivity(intent);
     }
 

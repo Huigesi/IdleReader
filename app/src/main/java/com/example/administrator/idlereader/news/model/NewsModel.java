@@ -8,6 +8,7 @@ import com.example.administrator.idlereader.MainActivity;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
+import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
@@ -163,6 +164,32 @@ public class NewsModel implements INewsModel {
                         } else {
                             iNewsLoadListener.loadNbaCommentSuccess(nbaNewsComment);
                         }
+                    }
+                });
+    }
+
+    @Override
+    public void loadNbaZhuanTi(String nid, final INewsLoadListener iNewsLoadListener) {
+        RetrofitHelper.getInstance(Api.HUPU_NBA)
+                .getNbaZhuanTi(nid)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<NbaZhuanti>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "onError: "+e.getMessage());
+                        iNewsLoadListener.fail(e);
+                    }
+
+                    @Override
+                    public void onNext(NbaZhuanti nbaZhuanti) {
+                        Log.i(TAG, "onNext: "+nbaZhuanti.getResult().getTitle());
+                        iNewsLoadListener.loadNbaZhuanTiSuccess(nbaZhuanti);
                     }
                 });
     }

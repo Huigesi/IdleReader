@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
+import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
@@ -19,6 +20,7 @@ import com.example.administrator.idlereader.news.model.INewsLoadListener;
 import com.example.administrator.idlereader.news.model.INewsModel;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.news.view.INBAView;
+import com.example.administrator.idlereader.news.view.INBAZhuanTiView;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
 import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
@@ -34,8 +36,9 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INewsModel iNewsModel;
     private INewsView iNewsView;
     private INBAView mINBAView;
-    private IWeiBoView mIWeiBoView;
     private INbaDetailView mINbaDetailView;
+    private INBAZhuanTiView mINBAZhuanTiView;
+    private IWeiBoView mIWeiBoView;
     private IWeiBoSpaceView mIWeiBoSpaceView;
     private IWeiBoDetailView mIWeiBoDetailView;
 
@@ -56,7 +59,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     public NewsPresenter(INbaDetailView iNbaDetailView) {
         mINbaDetailView = iNbaDetailView;
-        this.iNewsModel=new NewsModel();
+        this.iNewsModel = new NewsModel();
     }
 
     public NewsPresenter(IWeiBoView iWeiBoView) {
@@ -66,6 +69,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     public NewsPresenter(IWeiBoDetailView iWeiBoDetailView) {
         mIWeiBoDetailView = iWeiBoDetailView;
+        this.iNewsModel = new NewsModel();
+    }
+
+    public NewsPresenter(INBAZhuanTiView inbaZhuanTiView) {
+        mINBAZhuanTiView=inbaZhuanTiView;
         this.iNewsModel = new NewsModel();
     }
 
@@ -101,49 +109,54 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
-    public void weiBoLogin(String user, String password,Context context) {
-        iNewsModel.weiBoLogin(user,password,context,this);
+    public void weiBoLogin(String user, String password, Context context) {
+        iNewsModel.weiBoLogin(user, password, context, this);
     }
 
     @Override
     public void loadNbaDetail(String nid) {
         mINbaDetailView.showDialog();
-        iNewsModel.loadNbaDetails(nid,this);
+        iNewsModel.loadNbaDetails(nid, this);
     }
 
     @Override
     public void loadMoreNbaComment(String nid, String ncid, String createTime) {
         mINbaDetailView.showDialog();
-        iNewsModel.loadNbaComment(nid,ncid,createTime,this);
+        iNewsModel.loadNbaComment(nid, ncid, createTime, this);
     }
 
     @Override
     public void loadNbaComment(String nid) {
         mINbaDetailView.showDialog();
-        iNewsModel.loadNbaComment(nid, null,null,this);
+        iNewsModel.loadNbaComment(nid, null, null, this);
     }
 
     @Override
-    public void loadWeibo(String sinceid,String gsid,int page) {
+    public void loadNbaZhuanTi(String nid) {
+        iNewsModel.loadNbaZhuanTi(nid, this);
+    }
+
+    @Override
+    public void loadWeibo(String sinceid, String gsid, int page) {
         if (page == 1) {
             mIWeiBoView.showDialog();
         }
-        iNewsModel.loadWeibo(sinceid,page,gsid,this);
+        iNewsModel.loadWeibo(sinceid, page, gsid, this);
     }
 
     @Override
-    public void loadWeiBoDetail(String sinceid,String gsid,long max_id) {
-        iNewsModel.loadWeiBoDetail(sinceid,max_id,gsid,this);
+    public void loadWeiBoDetail(String sinceid, String gsid, long max_id) {
+        iNewsModel.loadWeiBoDetail(sinceid, max_id, gsid, this);
     }
 
     @Override
-    public void loadWeiBoUserNews(String uid, String gsid,int page) {
-        iNewsModel.loadWeiBoUserNews(uid,page,gsid,this);
+    public void loadWeiBoUserNews(String uid, String gsid, int page) {
+        iNewsModel.loadWeiBoUserNews(uid, page, gsid, this);
     }
 
     @Override
-    public void loadWeiBoUserHeaderNews(String uid,String gsid) {
-        iNewsModel.loadWeiBoUserHeaderNews(uid,gsid,this);
+    public void loadWeiBoUserHeaderNews(String uid, String gsid) {
+        iNewsModel.loadWeiBoUserHeaderNews(uid, gsid, this);
     }
 
     @Override
@@ -188,6 +201,11 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void loadNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
         mINbaDetailView.showCommentData(nbaNewsComment);
         mINbaDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadNbaZhuanTiSuccess(NbaZhuanti data) {
+        mINBAZhuanTiView.showData(data);
     }
 
     @Override

@@ -20,6 +20,8 @@ public interface INewsPresenter {
 
     void loadNbaComment(String nid);
 
+    void loadNbaZhuanTi(String nid);
+
     void loadWeibo(String sinceid, String gsid,int page);
 
     void loadWeiBoDetail(String sinceid, String gsid,long max_id);
