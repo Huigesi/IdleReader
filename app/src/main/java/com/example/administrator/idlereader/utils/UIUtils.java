@@ -1,5 +1,6 @@
 package com.example.administrator.idlereader.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +17,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
+import com.example.administrator.idlereader.news.weibo.WeiBoLoginActivity;
 import com.example.administrator.idlereader.news.weibo.WeiBoSpaceActivity;
 
 import java.lang.reflect.Field;
@@ -55,6 +57,11 @@ public class UIUtils {
         intent.putExtra(FRAGMENT_CLASS, WeiBoDetailFragment.class.getName());
         intent.putExtra(WeiBoDetailFragment.WEIBO_NID, nid);
         context.startActivity(intent);
+    }
+
+    public static void startWeiBoLoginActivity(Activity activity){
+        Intent intent = new Intent(activity, WeiBoLoginActivity.class);
+        activity.startActivity(intent);
     }
 
     public static void setUpIndicatorWidth(TabLayout tabLayout, int marginLeft, int marginRight) {

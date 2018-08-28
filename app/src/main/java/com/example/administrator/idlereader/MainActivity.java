@@ -20,12 +20,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
+import com.example.administrator.idlereader.http.Api;
+import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.movie.FgMovieFragment;
 import com.example.administrator.idlereader.news.FgNewsFragment;
 import com.example.administrator.idlereader.news.model.NewsModel;
+import com.example.administrator.idlereader.news.weibo.WeiBoLoginActivity;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 import com.example.administrator.idlereader.utils.SPreUtils;
+import com.example.administrator.idlereader.utils.UIUtils;
 import com.example.administrator.idlereader.utils.bigImgViewPager.glide.ImageLoader;
 import com.example.administrator.idlereader.utils.bigImgViewPager.tool.ToastUtil;
 import com.example.administrator.idlereader.video.FgVideoFragment;
@@ -48,6 +53,9 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
@@ -67,6 +75,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private UserInfo mUserInfo;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+    public static final String WEIBO_USER = "WEIBO_USER";
+    public static final String WEIBO_PWD = "WEIBO_PWD";
 
 
     @Override
@@ -98,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         mTencent.login(MainActivity.this, "all", new BaseUiListener());
                         break;
                     case R.id.menu_Login_WeiBo:
+                        UIUtils.startWeiBoLoginActivity(MainActivity.this);
                         break;
                     case R.id.menu_Clear:
                         ImageLoader.cleanDiskCache(MainActivity.this);
@@ -282,8 +293,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Constants.REQUEST_LOGIN) {
-            Tencent.onActivityResultData(requestCode, resultCode, data, mIUiListener);
+        switch (requestCode) {
+            case Constants.REQUEST_LOGIN:
+                Tencent.onActivityResultData(requestCode, resultCode, data, mIUiListener);
+                break;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
