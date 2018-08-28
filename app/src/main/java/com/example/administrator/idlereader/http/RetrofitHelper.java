@@ -5,6 +5,8 @@ import android.util.SparseArray;
 
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
@@ -22,6 +24,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
@@ -121,6 +124,14 @@ public class RetrofitHelper {
 
     public Observable<NbaNewsComment> getNbaComment(String nid,String ncid,String createTime) {
         return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID,ncid,createTime);
+    }
+
+    public Observable<NbaBBSComment> getNbaBBSCommnet(Map<String, String> params) {
+        return retrofitService.getsThreadReplyList(params);
+    }
+
+    public Observable<NbaBBSLightComment> getNbaBBSLightCommnet(Map<String, String> params) {
+        return retrofitService.getThreadLightReplyList(params);
     }
 
     public Observable<WeiBoUserInfo> login(String user, String password) {

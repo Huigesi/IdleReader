@@ -6,6 +6,8 @@ import android.util.Log;
 
 import com.example.administrator.idlereader.MainActivity;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
@@ -30,6 +32,7 @@ import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 
 import java.lang.reflect.Type;
+import java.util.Map;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -182,14 +185,62 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: "+e.getMessage());
+                        Log.i(TAG, "onError: " + e.getMessage());
                         iNewsLoadListener.fail(e);
                     }
 
                     @Override
                     public void onNext(NbaZhuanti nbaZhuanti) {
-                        Log.i(TAG, "onNext: "+nbaZhuanti.getResult().getTitle());
+                        Log.i(TAG, "onNext: " + nbaZhuanti.getResult().getTitle());
                         iNewsLoadListener.loadNbaZhuanTiSuccess(nbaZhuanti);
+                    }
+                });
+    }
+
+    @Override
+    public void loadNbaBBSComment(Map<String, String> params, final INewsLoadListener iNewsLoadListener) {
+        RetrofitHelper.getInstance(Api.HUPU_BBS)
+                .getNbaBBSCommnet(params)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<NbaBBSComment>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NbaBBSComment nbaBBSComment) {
+                        iNewsLoadListener.loadNbaBBSCommentSuccess(nbaBBSComment);
+                    }
+                });
+    }
+
+    @Override
+    public void loadLightNbaBBSComment(Map<String, String> params, final INewsLoadListener iNewsLoadListener) {
+        RetrofitHelper.getInstance(Api.HUPU_BBS)
+                .getNbaBBSLightCommnet(params)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<NbaBBSLightComment>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NbaBBSLightComment data) {
+                        iNewsLoadListener.loadNbaBBSLightCommentSuccess(data);
                     }
                 });
     }

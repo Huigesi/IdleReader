@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
@@ -21,11 +23,14 @@ import com.example.administrator.idlereader.news.model.INewsModel;
 import com.example.administrator.idlereader.news.model.NewsModel;
 import com.example.administrator.idlereader.news.view.INBAView;
 import com.example.administrator.idlereader.news.view.INBAZhuanTiView;
+import com.example.administrator.idlereader.news.view.INbaBBSView;
 import com.example.administrator.idlereader.news.view.INbaDetailView;
 import com.example.administrator.idlereader.news.view.INewsView;
 import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
 import com.example.administrator.idlereader.news.view.IWeiBoSpaceView;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
+
+import java.util.Map;
 
 /**
  * Created by Administrator on 2018/5/19.
@@ -39,8 +44,14 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     private INbaDetailView mINbaDetailView;
     private INBAZhuanTiView mINBAZhuanTiView;
     private IWeiBoView mIWeiBoView;
+    private INbaBBSView mINbaBBSView;
     private IWeiBoSpaceView mIWeiBoSpaceView;
     private IWeiBoDetailView mIWeiBoDetailView;
+
+    public NewsPresenter(INbaBBSView view) {
+        this.mINbaBBSView = view;
+        this.iNewsModel = new NewsModel();
+    }
 
     public NewsPresenter(IWeiBoSpaceView iNewsView) {
         this.mIWeiBoSpaceView = iNewsView;
@@ -137,6 +148,16 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
+    public void loadNbaBBSComment(Map<String, String> parms) {
+        iNewsModel.loadNbaBBSComment(parms,this);
+    }
+
+    @Override
+    public void loadNbaLightBBSComment(Map<String, String> parms) {
+        iNewsModel.loadLightNbaBBSComment(parms,this);
+    }
+
+    @Override
     public void loadWeibo(String sinceid, String gsid, int page) {
         if (page == 1) {
             mIWeiBoView.showDialog();
@@ -206,12 +227,23 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     @Override
     public void loadNbaZhuanTiSuccess(NbaZhuanti data) {
         mINBAZhuanTiView.showData(data);
+        mINBAZhuanTiView.hideDialog();
     }
 
     @Override
     public void loadMoreNbaCommentSuccess(NbaNewsComment nbaNewsComment) {
         mINbaDetailView.showMoreCommentData(nbaNewsComment);
         mINbaDetailView.hideDialog();
+    }
+
+    @Override
+    public void loadNbaBBSCommentSuccess(NbaBBSComment data) {
+        mINbaBBSView.showCommentData(data);
+    }
+
+    @Override
+    public void loadNbaBBSLightCommentSuccess(NbaBBSLightComment data) {
+        mINbaBBSView.showLightCommentData(data);
     }
 
     @Override

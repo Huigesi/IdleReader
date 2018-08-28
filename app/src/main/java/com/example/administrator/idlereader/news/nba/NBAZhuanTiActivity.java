@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
@@ -77,6 +78,6 @@ public class NBAZhuanTiActivity extends SwipeBackActivity implements INBAZhuanTi
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-
+        Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }

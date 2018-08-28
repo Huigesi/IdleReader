@@ -2,6 +2,8 @@ package com.example.administrator.idlereader.http;
 
 import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
+import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
@@ -123,13 +125,15 @@ public interface RetrofitService {
                                            @Query("gsid") String gsid,
                                            @Query("max_id") long max_id,
                                            @Query("is_show_bulletin") int is_show_bulletin);
+
     //http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=23331153
-   /* @GET("threads/getsThreadLightReplyList")
+    @GET("threads/getsThreadLightReplyList")
     @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
-    Observable<ThreadLightReplyData> getThreadLightReplyList(@QueryMap Map<String, String> params);*/
-    /*@GET("threads/getsThreadPostList")
+    Observable<NbaBBSLightComment> getThreadLightReplyList(@QueryMap Map<String, String> params);
+    //http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getsThreadLightReplyList?page=1&tid=23387013
+    @GET("threads/getsThreadPostList")
     @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
-    Observable<ThreadReplyData> getsThreadReplyList(@QueryMap Map<String, String> params);*/
+    Observable<NbaBBSComment> getsThreadReplyList(@QueryMap Map<String, String> params);
 
     //http://api.weibo.cn/2/statuses/user_timeline?since_id=0&s=606388e6&source=4215535043&gsid=_2A252evSNDeRxGeNH61cX8yvNyT6IHXVTLg9FrDV6PUJbkdAKLUfykWpNSvDZShYMkVspdJ9M8k0Zb7-bXokiidm6&from=1055095010&c=weicoabroad&uid=1219022557&page=1&%20HTTP/1.1
     @GET("statuses/user_timeline")
@@ -153,10 +157,11 @@ public interface RetrofitService {
                                                 @Query("wm") String wm,
                                                 @Query("source") String source,
                                                 @Query("uid") String uid);
+
     @FormUrlEncoded
     @POST("account/login")
     Observable<WeiBoUserInfo> login(@Field("c") String c,
-                                               @Field("s") String s,
-                                               @Field("u") String user,
-                                               @Field("p") String password);
+                                    @Field("s") String s,
+                                    @Field("u") String user,
+                                    @Field("p") String password);
 }
