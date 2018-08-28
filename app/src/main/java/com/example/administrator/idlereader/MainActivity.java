@@ -107,9 +107,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     case R.id.menu_Login_QQ:
                         mTencent.login(MainActivity.this, "all", new BaseUiListener());
                         break;
-                    case R.id.menu_Login_WeiBo:
+                    /*case R.id.menu_Login_WeiBo:
                         UIUtils.startWeiBoLoginActivity(MainActivity.this);
-                        break;
+                        break;*/
                     case R.id.menu_Clear:
                         ImageLoader.cleanDiskCache(MainActivity.this);
                         ToastUtil.getInstance()._short(MainActivity.this, "磁盘缓存已成功清除");
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         try {
                             int weight = Resolution.dipToPx(MainActivity.this, 72);
                             GlideUtils.loadCircle(MainActivity.this,
-                                    ((JSONObject) response).getString("figureurl_2"),
+                                    ((JSONObject) response).getString("figureurl_1"),
                                     img_person, weight, weight);
                             mUserName.setText(((JSONObject) response).getString("nickname"));
                         } catch (JSONException e) {

@@ -84,7 +84,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
         mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, getActivity());
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-
+        mNewsPresenter.weiBoLogin("13242317873","huigesi",getActivity());
         mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override

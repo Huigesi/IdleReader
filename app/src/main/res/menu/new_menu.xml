@@ -6,10 +6,6 @@
 
         android:title="    QQ登录" />
     <item
-        android:id="@+id/menu_Login_WeiBo"
-
-        android:title="    微博登录" />
-    <item
         android:id="@+id/menu_Setting"
 
         android:title="    相关设置" />
