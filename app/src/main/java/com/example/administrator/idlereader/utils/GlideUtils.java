@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
@@ -77,6 +78,19 @@ public class GlideUtils {
                         view.setImageBitmap(resource);
                     }
                 });
+    }
+
+    public static void loadGif(Context context, String url, ImageView view) {
+        RequestOptions weightoptions = new RequestOptions()
+                .placeholder(R.drawable.picture)
+                .fitCenter()
+                .error(R.drawable.picture_error)
+                .priority(Priority.HIGH)
+                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+        Glide.with(context)
+                .load(url)
+                .apply(weightoptions)
+                .into(view);
     }
 
     public static void loadCircle(final Context context, String url, ImageView view, int weight, int height) {

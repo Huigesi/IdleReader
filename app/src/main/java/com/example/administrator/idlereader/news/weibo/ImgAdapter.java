@@ -51,13 +51,13 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
         if (holder instanceof ViewHolder) {
             int weight = Resolution.dipToPx(this.mContext, 120);
             String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
-            String gifUrl = Api.IMG_WEIBO_WAP360 + data + ".gif";
+            String gifUrl = Api.IMG_WEIBO_ORIGINAL_GIF + data + ".gif";
             if (mIsGif) {
+                GlideUtils.loadGif(mContext, gifUrl, ((ViewHolder) holder).mImageView);
+                initPictureData(position, true);
+            } else {
                 GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
                 initPictureData(position, false);
-            } else {
-                GlideUtils.load(mContext, gifUrl, ((ViewHolder) holder).mImageView, weight, weight);
-                initPictureData(position, true);
             }
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
             int margin4 = Resolution.dipToPx(mContext, 3);
@@ -90,8 +90,8 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
             String OrlimgUrl;
             String thumbnail;
             if (mIsGif) {
-                OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".gif";
-                thumbnail = Api.IMG_WEIBO_WAP180 + image + ".gif";
+                OrlimgUrl = Api.IMG_WEIBO_ORIGINAL_GIF + image + ".gif";
+                thumbnail = Api.IMG_WEIBO_ORIGINAL_GIF + image + ".gif";
             } else {
                 OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".jpg";
                 thumbnail = Api.IMG_WEIBO_WAP180 + image + ".jpg";

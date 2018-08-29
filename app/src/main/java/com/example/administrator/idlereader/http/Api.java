@@ -32,6 +32,7 @@ public class Api {
     public static final String IMG_WEIBO_WAP360 = "https://wx3.sinaimg.cn/wap360/";
     public static final String IMG_WEIBO_WAP720 = "https://wx3.sinaimg.cn/wap720/";
     public static final String IMG_WEIBO_ORIGINAL = "https://wx4.sinaimg.cn/woriginal/";
+    public static final String IMG_WEIBO_ORIGINAL_GIF = "https://wx3.sinaimg.cn/woriginal/";
 
     public static String getHost(int hostType) {
         switch (hostType) {
