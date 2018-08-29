@@ -165,8 +165,9 @@ public class DefaultsFooter extends InternalClassics<DefaultsFooter> implements 
     /**
      * ClassicsFooter 在(SpinnerStyle.FixedBehind)时才有主题色
      */
-    @Override@Deprecated
-    public void setPrimaryColors(@ColorInt int ... colors) {
+    @Override
+    @Deprecated
+    public void setPrimaryColors(@ColorInt int... colors) {
         if (mSpinnerStyle == SpinnerStyle.FixedBehind) {
             super.setPrimaryColors(colors);
         }

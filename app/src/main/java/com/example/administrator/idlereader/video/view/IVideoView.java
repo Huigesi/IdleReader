@@ -11,8 +11,12 @@ import java.util.List;
 
 public interface IVideoView {
     void showVideo(List<TodayContentBean> todayContentBeans, List<String> videoList);
+
     void showMoreData(List<TodayContentBean> todayContentBeans, List<String> videoList);
+
     void hideDialog();
+
     void showDialog();
+
     void showErrorMsg(Throwable throwable);
 }

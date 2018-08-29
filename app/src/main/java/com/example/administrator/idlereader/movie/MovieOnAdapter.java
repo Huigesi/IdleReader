@@ -73,9 +73,9 @@ public class MovieOnAdapter extends BaseRecyclerViewAdapter<MoviesBean.SubjectsB
             }
         }
         ((MovieOnViewHolder) holder).tvMovieOnGenres.setText("类型：" + gen);
-        if (data.getRating().getAverage()==0.0) {
+        if (data.getRating().getAverage() == 0.0) {
             ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + "暂无评分");
-        }else {
+        } else {
             ((MovieOnViewHolder) holder).tvMovieOnRating.setText("评分：" + data.getRating().getAverage());
 
         }

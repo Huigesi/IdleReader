@@ -32,11 +32,11 @@ public class VideoPresenter implements IVideoPresenter, IVideoLoadListener {
     @Override
     public void loadVideo(boolean first) {
         iVideoView.showDialog();
-        iVideoModel.loadVideo("video", first,this);
+        iVideoModel.loadVideo("video", first, this);
     }
 
     @Override
-    public void videoUrlSuccess(List<VideoUrlBean> mainUrlBeans,boolean first,List<TodayContentBean> contentBeans) {
+    public void videoUrlSuccess(List<VideoUrlBean> mainUrlBeans, boolean first, List<TodayContentBean> contentBeans) {
         List<String> videoList = new ArrayList<>();
         iVideoView.hideDialog();
         for (int i = 0; i < mainUrlBeans.size(); i++) {
@@ -46,8 +46,8 @@ public class VideoPresenter implements IVideoPresenter, IVideoLoadListener {
         }
         if (first) {
             iVideoView.showVideo(contentBeans, videoList);
-        }else {
-            iVideoView.showMoreData(contentBeans,videoList);
+        } else {
+            iVideoView.showMoreData(contentBeans, videoList);
         }
 
     }

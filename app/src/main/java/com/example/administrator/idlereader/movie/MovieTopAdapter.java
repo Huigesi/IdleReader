@@ -30,12 +30,12 @@ public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.Subjects
         super(context, data);
     }
 
-    public void setData(List<MoviesBean.SubjectsBean> mList){
-        this.mList=mList;
+    public void setData(List<MoviesBean.SubjectsBean> mList) {
+        this.mList = mList;
         notifyDataSetChanged();
     }
 
-    public void addData(List<MoviesBean.SubjectsBean> datas){
+    public void addData(List<MoviesBean.SubjectsBean> datas) {
         mList.addAll(datas);
         notifyDataSetChanged();
     }
@@ -49,16 +49,16 @@ public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.Subjects
 
     @Override
     public void onBind(RecyclerView.ViewHolder holder, int position, final MoviesBean.SubjectsBean data) {
-        if (data==null){
+        if (data == null) {
             return;
         }
-        GlideUtils.load(mContext,data.getImages().getSmall(),((MovieTop250ViewHolder)holder).ivMovieTop);
-        ((MovieTop250ViewHolder)holder).tvMovieTopTitle.setText(data.getTitle());
-        ((MovieTop250ViewHolder)holder).rlMovieOn.setOnClickListener(new View.OnClickListener() {
+        GlideUtils.load(mContext, data.getImages().getSmall(), ((MovieTop250ViewHolder) holder).ivMovieTop);
+        ((MovieTop250ViewHolder) holder).tvMovieTopTitle.setText(data.getTitle());
+        ((MovieTop250ViewHolder) holder).rlMovieOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, WebViewActivity.class);
-                intent.putExtra(WebViewActivity.WEB_URL,data.getAlt());
+                intent.putExtra(WebViewActivity.WEB_URL, data.getAlt());
                 intent.putExtra(WebViewActivity.WEB_TITLE, data.getTitle());
                 mContext.startActivity(intent);
             }
@@ -69,7 +69,8 @@ public class MovieTopAdapter extends BaseRecyclerViewAdapter<MoviesBean.Subjects
     public int getItemCount() {
         return mList.size();
     }
-    protected class MovieTop250ViewHolder extends RecyclerView.ViewHolder{
+
+    protected class MovieTop250ViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout rlMovieOn;
         private ImageView ivMovieTop;
         private TextView tvMovieTopTitle;

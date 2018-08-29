@@ -27,7 +27,8 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
     public ItemVideoAdapter(Context context) {
         this.context = context;
     }
-    public void setData(List<TodayContentBean> objects,List<String> videoList) {
+
+    public void setData(List<TodayContentBean> objects, List<String> videoList) {
         this.mTodayContentBeans = objects;
         this.mVideoList = videoList;
         notifyDataSetChanged();
@@ -48,8 +49,8 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TodayContentBean bean=mTodayContentBeans.get(position);
-        if (!TextUtils.isEmpty(bean.getTitle())){
+        TodayContentBean bean = mTodayContentBeans.get(position);
+        if (!TextUtils.isEmpty(bean.getTitle())) {
             holder.videoPlayer.setUp(mVideoList.get(position),
                     JZVideoPlayerStandard.SCREEN_WINDOW_LIST,
                     bean.getTitle());
@@ -58,7 +59,7 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
 
         Glide.with(context)
                 .load(bean.getVideo_detail_info().getDetail_video_large_image().getUrl())
-                .into( holder.videoPlayer.thumbImageView);
+                .into(holder.videoPlayer.thumbImageView);
     }
 
     @Override
@@ -72,7 +73,7 @@ public class ItemVideoAdapter extends RecyclerView.Adapter<ItemVideoAdapter.View
     }
 
 
-    protected class ViewHolder extends RecyclerView.ViewHolder{
+    protected class ViewHolder extends RecyclerView.ViewHolder {
         private JZVideoPlayerStandard videoPlayer;
 
         public ViewHolder(View view) {

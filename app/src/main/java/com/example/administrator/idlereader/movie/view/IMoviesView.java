@@ -9,8 +9,12 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 
 public interface IMoviesView {
     void showMovie(MoviesBean moviesBean);
-    void showMoreMovie (MoviesBean moviesBean);
+
+    void showMoreMovie(MoviesBean moviesBean);
+
     void hideDialog();
+
     void showDialog();
+
     void showErrorMsg(Throwable throwable);
 }

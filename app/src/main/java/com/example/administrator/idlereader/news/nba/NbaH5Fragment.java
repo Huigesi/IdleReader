@@ -51,12 +51,12 @@ public class NbaH5Fragment extends BaseRecyclerFragment implements INbaBBSView {
         tid = getActivity().getIntent().getStringExtra(NBA_H5_TID);
         mNewsPresenter = new NewsPresenter(this);
         Map<String, String> parmes = new HashMap<>();
-        parmes.put("page","1");
+        parmes.put("page", "1");
         parmes.put("tid", tid);
         parmes.put("client", Api.HUPU_CLIENT_ID);
         mNewsPresenter.loadNbaBBSComment(parmes);
         mNewsPresenter.loadNbaLightBBSComment(parmes);
-        mNbaBBSDetailAdapter=new NbaBBSDetailAdapter(getActivity());
+        mNbaBBSDetailAdapter = new NbaBBSDetailAdapter(getActivity());
         mNbaBBSHeaderView = new NbaBBSHeaderView(getActivity());
         mNbaDetailLightView = new NbaBBSDetailLightView(getActivity());
         mNbaBBSHeaderView.setData(tid);
@@ -67,15 +67,15 @@ public class NbaH5Fragment extends BaseRecyclerFragment implements INbaBBSView {
 
     @Override
     public void showCommentData(NbaBBSComment commentData) {
-        mNbaBBSDetailAdapter.setData(commentData.getResult().getList(),true);
+        mNbaBBSDetailAdapter.setData(commentData.getResult().getList(), true);
     }
 
     @Override
     public void showLightCommentData(NbaBBSLightComment commentData) {
-        if (commentData.getList() != null&&commentData.getList().size()>0) {
+        if (commentData.getList() != null && commentData.getList().size() > 0) {
             mNbaDetailLightView.setData(commentData.getList());
             mNbaBBSDetailAdapter.setLightCommentView(mNbaDetailLightView);
-        }else {
+        } else {
             mNbaBBSDetailAdapter.removeLightCommentView();
         }
     }

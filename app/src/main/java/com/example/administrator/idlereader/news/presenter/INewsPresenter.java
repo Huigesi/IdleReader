@@ -28,12 +28,12 @@ public interface INewsPresenter {
 
     void loadNbaLightBBSComment(Map<String, String> parms);
 
-    void loadWeibo(String sinceid, String gsid,int page);
+    void loadWeibo(String sinceid, String gsid, int page);
 
-    void loadWeiBoDetail(String sinceid, String gsid,long max_id);
+    void loadWeiBoDetail(String sinceid, String gsid, long max_id);
 
-    void loadWeiBoUserNews(String uid,String gsid, int page);
+    void loadWeiBoUserNews(String uid, String gsid, int page);
 
-    void loadWeiBoUserHeaderNews(String uid,String gsid);
+    void loadWeiBoUserHeaderNews(String uid, String gsid);
 
 }

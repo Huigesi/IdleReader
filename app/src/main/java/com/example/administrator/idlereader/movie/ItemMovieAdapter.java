@@ -19,7 +19,7 @@ import com.example.administrator.idlereader.movie.view.IMoviesView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements IMoviesView{
+public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements IMoviesView {
     private static final int TYPE_MOVIE_ON = 119;
     private static final int TYPE_MOVIE_TOP250 = 120;
     private MovieOnAdapter mMovieOnAdapter;

@@ -84,7 +84,7 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     public NewsPresenter(INBAZhuanTiView inbaZhuanTiView) {
-        mINBAZhuanTiView=inbaZhuanTiView;
+        mINBAZhuanTiView = inbaZhuanTiView;
         this.iNewsModel = new NewsModel();
     }
 
@@ -149,12 +149,12 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     @Override
     public void loadNbaBBSComment(Map<String, String> parms) {
-        iNewsModel.loadNbaBBSComment(parms,this);
+        iNewsModel.loadNbaBBSComment(parms, this);
     }
 
     @Override
     public void loadNbaLightBBSComment(Map<String, String> parms) {
-        iNewsModel.loadLightNbaBBSComment(parms,this);
+        iNewsModel.loadLightNbaBBSComment(parms, this);
     }
 
     @Override

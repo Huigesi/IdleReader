@@ -32,7 +32,7 @@ public interface INewsModel {
                            INewsLoadListener iNewsLoadListener);
 
     void loadLightNbaBBSComment(Map<String, String> params,
-                           INewsLoadListener iNewsLoadListener);
+                                INewsLoadListener iNewsLoadListener);
 
     void weiBoLogin(String user,
                     String password,

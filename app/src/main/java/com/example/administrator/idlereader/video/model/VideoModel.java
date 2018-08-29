@@ -50,7 +50,7 @@ public class VideoModel implements IVideoModel {
                 .subscribe(new Subscriber<VideoUrlBean>() {
                     @Override
                     public void onCompleted() {
-                        iVideoLoadListener.videoUrlSuccess(videoList, first,contentBeans);
+                        iVideoLoadListener.videoUrlSuccess(videoList, first, contentBeans);
                     }
 
                     @Override

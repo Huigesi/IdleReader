@@ -60,7 +60,6 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
     private static final String TAG = "MainActivity";
-    private View view_status;
     private ImageView iv_title_news;
     private ImageView iv_title_movie;
     private ImageView iv_title_video;
@@ -125,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initView() {
-        view_status = (View) findViewById(R.id.view_status);
         iv_title_news = (ImageView) findViewById(R.id.iv_title_news);
         iv_title_movie = (ImageView) findViewById(R.id.iv_title_movie);
         iv_title_video = (ImageView) findViewById(R.id.iv_title_video);

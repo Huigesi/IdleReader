@@ -57,7 +57,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeiBoDetail(nid, mGsid,0);
+                mNewsPresenter.loadWeiBoDetail(nid, mGsid, 0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -66,7 +66,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
                 loadMoreComment();
             }
         });
-        mNewsPresenter.loadWeiBoDetail(nid, mGsid,0);
+        mNewsPresenter.loadWeiBoDetail(nid, mGsid, 0);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
     }
 
     public void loadMoreComment() {
-        mNewsPresenter.loadWeiBoDetail(nid,mGsid, mMaxId);
+        mNewsPresenter.loadWeiBoDetail(nid, mGsid, mMaxId);
     }
 
     @Override
@@ -99,7 +99,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
         if (data.getMax_id() == 0) {
             mSrlNews.finishLoadMore(0);
             mSrlNews.setNoMoreData(true);
-        }else {
+        } else {
             mMaxId = data.getMax_id();
         }
     }
@@ -112,7 +112,7 @@ public class WeiBoDetailFragment extends BaseRecyclerFragment implements IWeiBoD
         if (data.getMax_id() == 0) {
             mSrlNews.finishLoadMore(0);
             mSrlNews.setNoMoreData(true);
-        }else {
+        } else {
             mMaxId = data.getMax_id();
         }
     }

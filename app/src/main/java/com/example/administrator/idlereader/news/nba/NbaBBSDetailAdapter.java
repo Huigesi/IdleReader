@@ -34,7 +34,7 @@ public class NbaBBSDetailAdapter extends BaseRecyclerViewAdapter<NbaBBSComment.R
         this.mLightCommentView = null;
         notifyDataSetChanged();
     }
-    
+
     @Override
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
         if (viewType == ITEM_TYPE_LIGHT && mLightCommentView != null) {
@@ -79,7 +79,7 @@ public class NbaBBSDetailAdapter extends BaseRecyclerViewAdapter<NbaBBSComment.R
             CharSequence charSequence = Html.fromHtml(htmls);
             ((ViewHolder) holder).tvNbaDetailComment.setText(charSequence);
             ((ViewHolder) holder).tvNbaCommentLight.setText("亮了(" + data.getLight_count() + ")");
-            if (data.getQuote() != null&&data.getQuote().size()>0) {
+            if (data.getQuote() != null && data.getQuote().size() > 0) {
                 ((ViewHolder) holder).llNbaCommentQuote.setVisibility(View.VISIBLE);
                 String quote = data.getQuote().get(0).getContent();
                 String userName = data.getQuote().get(0).getHeader().get(0);

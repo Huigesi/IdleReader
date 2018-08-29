@@ -61,7 +61,7 @@ public class NBAZhuanTiActivity extends SwipeBackActivity implements INBAZhuanTi
         GlideUtils.load(this, data.getResult().getImg_m(), mMainbackdrop);
         mTvNbaZhuanti.setText(data.getResult().getTitle());
         mTvNbaZhuantiSum.setText(data.getResult().getSummary());
-        mNbaZhuanTiAdapter.setData(data.getResult().getGroups(),true);
+        mNbaZhuanTiAdapter.setData(data.getResult().getGroups(), true);
         mRvNews.setAdapter(mNbaZhuanTiAdapter);
         mRvNews.setLayoutManager(new LinearLayoutManager(this));
     }

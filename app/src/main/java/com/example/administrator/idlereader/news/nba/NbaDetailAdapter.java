@@ -26,6 +26,7 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
         this.mLightCommentView = lightCommentView;
         notifyDataSetChanged();
     }
+
     public void removeLightCommentView() {
         this.mLightCommentView = null;
         notifyDataSetChanged();
@@ -58,11 +59,11 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
     public int getItemViewType(int position) {
         if (mLightCommentView != null && position == 1) {
             return ITEM_TYPE_LIGHT;
-        } else if (mLightCommentView==null&&position == 1) {
+        } else if (mLightCommentView == null && position == 1) {
             return ITEM_TYPE_COMMENT;
         } else if (mLightCommentView != null && position == 2) {
             return ITEM_TYPE_COMMENT;
-        }else {
+        } else {
             return super.getItemViewType(position);
         }
     }

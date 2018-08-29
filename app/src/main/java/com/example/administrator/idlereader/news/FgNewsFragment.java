@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FgNewsFragment extends Fragment  {
+public class FgNewsFragment extends Fragment {
 
-    public static final int NEWS_TYPE_TOP=0;
+    public static final int NEWS_TYPE_TOP = 0;
     public static final int NEWS_TYPE_NBA = 1;
     public static final int NEWS_TYPE_JOKES = 2;
-    public static final int NEWS_TYPE_GAME= 3;
+    public static final int NEWS_TYPE_GAME = 3;
     private List<Fragment> fragments = new ArrayList<>();
     private List<String> fragmentTitles = new ArrayList<>();
     private TabLayout tl_news;
@@ -35,10 +35,12 @@ public class FgNewsFragment extends Fragment  {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fg_news, null);
     }
+
     public static FgNewsFragment getInstance() {
         FgNewsFragment fragment = new FgNewsFragment();
         return fragment;
     }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,7 +51,7 @@ public class FgNewsFragment extends Fragment  {
         vp_news.setOffscreenPageLimit(3);
         tl_news.setupWithViewPager(vp_news);
         int marge = Resolution.dipToPx(getContext(), 25);
-        UIUtils.setUpIndicatorWidth(tl_news,marge,marge);
+        UIUtils.setUpIndicatorWidth(tl_news, marge, marge);
     }
 
     private void setViewPager() {
@@ -61,8 +63,8 @@ public class FgNewsFragment extends Fragment  {
         fragmentTitles.add("NBA");
         fragmentTitles.add("微博");
         fragmentTitles.add("游戏");
-        MyFragmentAdapter adapter=new MyFragmentAdapter(getChildFragmentManager(),
-                fragments,fragmentTitles);
+        MyFragmentAdapter adapter = new MyFragmentAdapter(getChildFragmentManager(),
+                fragments, fragmentTitles);
         vp_news.setAdapter(adapter);
 
     }

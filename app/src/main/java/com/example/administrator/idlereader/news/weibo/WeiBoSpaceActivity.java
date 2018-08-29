@@ -91,14 +91,14 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadWeiBoUserNews(uid, mGsid,0);
+                mNewsPresenter.loadWeiBoUserNews(uid, mGsid, 0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page++;
-                mNewsPresenter.loadWeiBoUserNews(uid,mGsid, page);
+                mNewsPresenter.loadWeiBoUserNews(uid, mGsid, page);
             }
         });
         final int line = Resolution.dipToPx(this, 5);
@@ -106,12 +106,12 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.set(0, line, 0,0);
+                outRect.set(0, line, 0, 0);
             }
         });
         mRvNews.setLayoutManager(mLinearLayoutManager);
-        mNewsPresenter.loadWeiBoUserNews(uid,mGsid, 0);
-        mNewsPresenter.loadWeiBoUserHeaderNews(uid,mGsid);
+        mNewsPresenter.loadWeiBoUserNews(uid, mGsid, 0);
+        mNewsPresenter.loadWeiBoUserHeaderNews(uid, mGsid);
         mRvNews.setAdapter(mWeiBoNewsAdapter);
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,14 +149,14 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
 
     @Override
     public void showHeader(WeiBoSpaceUser data) {
-        int weight=Resolution.dipToPx(this,80);
-        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop,weight,weight);
-        GlideUtils.loadCircle(this,data.getAvatar_hd(),mImgWeiboUserCover,weight,weight);
+        int weight = Resolution.dipToPx(this, 80);
+        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop, weight, weight);
+        GlideUtils.loadCircle(this, data.getAvatar_hd(), mImgWeiboUserCover, weight, weight);
         mTvWeiboUserName.setText(data.getName());
         mTvWeiboUserIntro.setText(data.getDescription());
         mTvWeiboUserLocation.setText(data.getLocation());
-        mTvWeiboUserFriendsCount.setText(data.getFriends_count()+" 关注");
-        mTvWeiboUserFollowersCount.setText(data.getFollowers_count()+" 粉丝");
-        mTvBarTitle.setText(data.getName()+"的微博");
+        mTvWeiboUserFriendsCount.setText(data.getFriends_count() + " 关注");
+        mTvWeiboUserFollowersCount.setText(data.getFollowers_count() + " 粉丝");
+        mTvBarTitle.setText(data.getName() + "的微博");
     }
 }

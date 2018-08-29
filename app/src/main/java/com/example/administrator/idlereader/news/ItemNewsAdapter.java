@@ -25,11 +25,6 @@ import java.util.List;
 
 public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
     private static final String TAG = "ItemNewsAdapter";
-    private List<NewsBean.Bean> datas = new ArrayList<NewsBean.Bean>();
-
-    public ItemNewsAdapter(Context context, @NonNull List<NewsBean.Bean> data, List<NewsBean.Bean> datas) {
-        super(context, data);
-    }
 
     public ItemNewsAdapter(Context context) {
         super(context);

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.utils.MathUtils;
 
-public class BaseEndlessListener<T> extends RecyclerView.OnScrollListener{
+public class BaseEndlessListener<T> extends RecyclerView.OnScrollListener {
     private int visibleThreshold = 1;
     private boolean mLoading = false;
     private boolean isError = false;
@@ -52,8 +52,8 @@ public class BaseEndlessListener<T> extends RecyclerView.OnScrollListener{
         mErrorView.setOnClickListener(mErrorListener);
         mErrorView.setLayoutParams(layoutParams);
 
-        mMoreProgressBar = (ProgressBar)mLoadMoreView.findViewById(R.id.pb_load_more);
-        mMoreTip = (TextView)mLoadMoreView.findViewById(R.id.tv_load_more);
+        mMoreProgressBar = (ProgressBar) mLoadMoreView.findViewById(R.id.pb_load_more);
+        mMoreTip = (TextView) mLoadMoreView.findViewById(R.id.tv_load_more);
     }
 
     /**
@@ -135,15 +135,14 @@ public class BaseEndlessListener<T> extends RecyclerView.OnScrollListener{
         }
     }
 
-    public void onNomore(){
+    public void onNomore() {
         if (mRecyclerAdapter != null) {
             mRecyclerAdapter.removeFooterView();
             mRecyclerAdapter.setFooterView(mLoadMoreView);
             mMoreProgressBar.setVisibility(View.GONE);
-            if (mRecyclerAdapter.getData() != null && mRecyclerAdapter.getData().size() > 0){
+            if (mRecyclerAdapter.getData() != null && mRecyclerAdapter.getData().size() > 0) {
                 mMoreTip.setText("没有更多数据了");
-            }
-            else{
+            } else {
                 mMoreTip.setText("");
             }
         }

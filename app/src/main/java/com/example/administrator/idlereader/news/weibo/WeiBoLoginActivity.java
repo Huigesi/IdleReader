@@ -70,7 +70,7 @@ public class WeiBoLoginActivity extends AppCompatActivity {
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(mWeiboEmail.getText())){
+                if (TextUtils.isEmpty(mWeiboEmail.getText())) {
                     Toast.makeText(WeiBoLoginActivity.this, "请输入邮箱或手机号",
                             Toast.LENGTH_SHORT).show();
                     return;
@@ -87,7 +87,7 @@ public class WeiBoLoginActivity extends AppCompatActivity {
 
     }
 
-    private void loginWeiBo(String user,String password) {
+    private void loginWeiBo(String user, String password) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Integer.class, new NewsModel.IntegerDefault0Adapter());
         gsonBuilder.registerTypeAdapter(int.class, new NewsModel.IntegerDefault0Adapter());
@@ -113,7 +113,7 @@ public class WeiBoLoginActivity extends AppCompatActivity {
                             Toast.makeText(WeiBoLoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                             SPreUtils.setWeiBoUserInfo(weiBoUserInfo, WeiBoLoginActivity.this);
                             finish();
-                        }else {
+                        } else {
                             Toast.makeText(WeiBoLoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
                         }
                     }

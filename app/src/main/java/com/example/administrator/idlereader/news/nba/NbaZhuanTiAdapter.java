@@ -34,13 +34,13 @@ public class NbaZhuanTiAdapter extends BaseRecyclerViewAdapter<NbaZhuanti.Result
         if (holder instanceof ViewHolder) {
             ((ViewHolder) holder).mTvNbaZhuantiTitle.setText(data.getTitle());
             mNbaNewsAdapter = new NbaNewsAdapter(mContext);
-            mNbaNewsAdapter.setData(data.getNews(),true);
+            mNbaNewsAdapter.setData(data.getNews(), true);
             ((ViewHolder) holder).mRvNbaZhuantiNews.setAdapter(mNbaNewsAdapter);
             ((ViewHolder) holder).mRvNbaZhuantiNews.setLayoutManager(new LinearLayoutManager(mContext));
         }
     }
 
-    static class ViewHolder extends Holder{
+    static class ViewHolder extends Holder {
         @BindView(R.id.tv_nba_zhuanti_title)
         TextView mTvNbaZhuantiTitle;
         @BindView(R.id.rv_nba_zhuanti_news)

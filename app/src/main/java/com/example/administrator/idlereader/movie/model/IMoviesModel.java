@@ -5,6 +5,6 @@ package com.example.administrator.idlereader.movie.model;
  */
 
 public interface IMoviesModel {
-    void loadMovies(String total,String city,int start,int count,
+    void loadMovies(String total, String city, int start, int count,
                     IMoviesLoadListener iMoviesLoadListener);
 }

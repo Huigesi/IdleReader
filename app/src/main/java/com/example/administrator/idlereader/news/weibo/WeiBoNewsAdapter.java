@@ -60,7 +60,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             ((NewsViewHolder) holder).imgWeiboUser.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    UIUtils.startSpaceFragment(mContext,data.getUser().getIdstr());
+                    UIUtils.startSpaceFragment(mContext, data.getUser().getIdstr());
                 }
             });
             ((NewsViewHolder) holder).tvWeiboUser.setText(data.getUser().getScreen_name());
@@ -72,10 +72,10 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             }
             ((NewsViewHolder) holder).tvWeiboSource.setText(RegularUtils.getA(data.getSource()));
             SpannableString content;
-            if (data.isIsLongText()){
-                content = UIUtils.setTextHighLight(mContext, data.getText()+"...全文", null,true);
-            }else {
-                content = UIUtils.setTextHighLight(mContext, data.getText(), null,false);
+            if (data.isIsLongText()) {
+                content = UIUtils.setTextHighLight(mContext, data.getText() + "...全文", null, true);
+            } else {
+                content = UIUtils.setTextHighLight(mContext, data.getText(), null, false);
             }
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
@@ -120,10 +120,10 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 String retWeedText = data.getRetweeted_status()
                         .getText();
                 SpannableString retweeted;
-                if (data.getRetweeted_status().isIsLongText()){
-                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText+"...全文", userName,true);
-                }else {
-                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName,false);
+                if (data.getRetweeted_status().isIsLongText()) {
+                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText + "...全文", userName, true);
+                } else {
+                    retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName, false);
                 }
                 ((NewsViewHolder) holder).tvRetweetedContent.setText(
                         retweeted);

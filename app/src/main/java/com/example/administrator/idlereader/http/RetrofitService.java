@@ -129,6 +129,7 @@ public interface RetrofitService {
     //http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=23331153
     @GET("threads/getsThreadLightReplyList")
     Observable<NbaBBSLightComment> getThreadLightReplyList(@QueryMap Map<String, String> params);
+
     //http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getsThreadLightReplyList?page=1&tid=23387013
     @GET("threads/getsThreadPostList")
     Observable<NbaBBSComment> getsThreadReplyList(@QueryMap Map<String, String> params);

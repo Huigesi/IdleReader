@@ -148,7 +148,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
             SpannableString retweeted;
             if (mWeiBoDetail.getStatus().getRetweeted_status().isIsLongText()) {
                 retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " +
-                        retWeedText+"...全文", userName, true);
+                        retWeedText + "...全文", userName, true);
             } else {
                 retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " +
                         retWeedText, userName, false);

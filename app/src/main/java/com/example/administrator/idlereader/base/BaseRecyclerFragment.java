@@ -46,12 +46,12 @@ public abstract class BaseRecyclerFragment extends Fragment {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                RecyclerView.LayoutManager layoutManager=recyclerView.getLayoutManager();
+                RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                 if (layoutManager instanceof LinearLayoutManager) {
-                    int firstPosition=((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
+                    int firstPosition = ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition();
                     if (firstPosition > 3) {
                         mImgTop.setVisibility(View.VISIBLE);
-                    }else {
+                    } else {
                         mImgTop.setVisibility(View.GONE);
                     }
                 }

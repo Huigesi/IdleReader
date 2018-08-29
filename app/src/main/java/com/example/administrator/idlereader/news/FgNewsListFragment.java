@@ -51,7 +51,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fg_news_list, container,false);
+        return inflater.inflate(R.layout.fg_news_list, container, false);
     }
 
     @Override
@@ -98,7 +98,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
                 newsBeanList = newsBean.getGame();
                 break;
         }
-        adapter.setData(newsBeanList,true);
+        adapter.setData(newsBeanList, true);
         layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         rv_news.setLayoutManager(layoutManager);
@@ -111,13 +111,13 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     public void showMoreNews(NewsBean newsBean) {
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
-                adapter.setData(newsBean.getTop(),false);
+                adapter.setData(newsBean.getTop(), false);
                 break;
             case FgNewsFragment.NEWS_TYPE_NBA:
-                adapter.setData(newsBean.getNba(),false);
+                adapter.setData(newsBean.getNba(), false);
                 break;
             case FgNewsFragment.NEWS_TYPE_GAME:
-                adapter.setData(newsBean.getGame(),false);
+                adapter.setData(newsBean.getGame(), false);
                 break;
         }
         srl_news.finishLoadMore(0);

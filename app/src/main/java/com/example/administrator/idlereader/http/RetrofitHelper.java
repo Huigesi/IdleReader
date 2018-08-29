@@ -59,10 +59,11 @@ public class RetrofitHelper {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-         retrofitService = retrofit.create(RetrofitService.class);
+        retrofitService = retrofit.create(RetrofitService.class);
     }
+
     //自定义Gson适配器时用到
-    public RetrofitHelper(int host,Gson gson) {
+    public RetrofitHelper(int host, Gson gson) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.getHost(host))
                 .client(getOkHttpClient())
@@ -83,10 +84,10 @@ public class RetrofitHelper {
         }
     }
 
-    public static RetrofitHelper getInstance(int hostType,Gson gson) {
+    public static RetrofitHelper getInstance(int hostType, Gson gson) {
         RetrofitHelper instance = sInstanceManager.get(hostType);
         if (instance == null) {
-            instance = new RetrofitHelper(hostType,gson);
+            instance = new RetrofitHelper(hostType, gson);
             sInstanceManager.put(hostType, instance);
             return instance;
         } else {
@@ -97,33 +98,37 @@ public class RetrofitHelper {
     public Observable<NewsBean> getNews(String type, String id, int startPage) {
         return retrofitService.getNews(type, id, startPage);
     }
-    public Observable<MoviesBean> getMovies(String total,String city,int start,int count) {
-        return retrofitService.getMovie(total,city,start,count);
+
+    public Observable<MoviesBean> getMovies(String total, String city, int start, int count) {
+        return retrofitService.getMovie(total, city, start, count);
     }
-    public Observable<TodayBean> getToday(String category){
+
+    public Observable<TodayBean> getToday(String category) {
         return retrofitService.getToday(category);
     }
-    public Observable<VideoUrlBean> getVideoUrl(String api){
+
+    public Observable<VideoUrlBean> getVideoUrl(String api) {
         return retrofitService.getVideoUrl(api);
     }
-    public Observable<WeatherBean> getWeather(int cityKey){
+
+    public Observable<WeatherBean> getWeather(int cityKey) {
         return retrofitService.getWeather(cityKey);
     }
 
-    public Observable<HupuNews> getHupuNews(String nid,int count){
-        return retrofitService.getHupuNews(Api.HUPU_CLIENT_ID,nid,count);
+    public Observable<HupuNews> getHupuNews(String nid, int count) {
+        return retrofitService.getHupuNews(Api.HUPU_CLIENT_ID, nid, count);
     }
 
-    public Observable<NbaDetailNews> getNbaNewsDetail(String nid){
+    public Observable<NbaDetailNews> getNbaNewsDetail(String nid) {
         return retrofitService.getNbaNewsDetail(nid, Api.HUPU_CLIENT_ID);
     }
 
     public Observable<NbaZhuanti> getNbaZhuanTi(String nid) {
-        return retrofitService.getNewsZhuanTi(nid,Api.HUPU_CLIENT_ID);
+        return retrofitService.getNewsZhuanTi(nid, Api.HUPU_CLIENT_ID);
     }
 
-    public Observable<NbaNewsComment> getNbaComment(String nid,String ncid,String createTime) {
-        return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID,ncid,createTime);
+    public Observable<NbaNewsComment> getNbaComment(String nid, String ncid, String createTime) {
+        return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID, ncid, createTime);
     }
 
     public Observable<NbaBBSComment> getNbaBBSCommnet(Map<String, String> params) {
@@ -135,7 +140,7 @@ public class RetrofitHelper {
     }
 
     public Observable<WeiBoUserInfo> login(String user, String password) {
-        return retrofitService.login(c,s,user,password);
+        return retrofitService.login(c, s, user, password);
     }
 
     public Observable<WeiBoNews> getWeiBoNews(String sinceId, String s, String gsid, int page, String c) {
@@ -143,28 +148,29 @@ public class RetrofitHelper {
         String wm = "2468_1001";
         String source = "4215535043";
         String advance_enable = "false";
-        return retrofitService.getWeiBoNews(sinceId,s,gsid,page,c,form,wm,source,advance_enable);
+        return retrofitService.getWeiBoNews(sinceId, s, gsid, page, c, form, wm, source, advance_enable);
     }
 
-    public Observable<WeiBoNews> getWeiBoUserNews(String sinceId, String s, String gsid, int page, String c,String uid) {
+    public Observable<WeiBoNews> getWeiBoUserNews(String sinceId, String s, String gsid, int page, String c, String uid) {
         String form = "1273095010";
         String wm = "2468_1001";
         String source = "4215535043";
-        return retrofitService.getWeiBoUser(sinceId,s,gsid,page,c,form,wm,source,uid);
+        return retrofitService.getWeiBoUser(sinceId, s, gsid, page, c, form, wm, source, uid);
     }
+
     public Observable<WeiBoSpaceUser> getWeiBoUserHeaderNews(String sinceId, String s, String gsid, String c, String uid) {
         String form = "1273095010";
         String wm = "2468_1001";
         String source = "4215535043";
-        return retrofitService.getWeiBoUserHead(sinceId,s,gsid,c,form,wm,source,uid);
+        return retrofitService.getWeiBoUserHead(sinceId, s, gsid, c, form, wm, source, uid);
     }
 
-    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid,long max_id) {
-        return retrofitService.getWeiBoDetail(s, c, id, gsid,max_id,2);
+    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid, long max_id) {
+        return retrofitService.getWeiBoDetail(s, c, id, gsid, max_id, 2);
     }
 
     public OkHttpClient getOkHttpClient() {
-        if (okHttpClient==null){
+        if (okHttpClient == null) {
             synchronized (RetrofitHelper.class) {
                 okHttpClient = new OkHttpClient.Builder()
                         .retryOnConnectionFailure(true)
@@ -175,6 +181,7 @@ public class RetrofitHelper {
         }
         return okHttpClient;
     }
+
     // 打印返回的json数据拦截器
     private Interceptor mLoggingInterceptor = new Interceptor() {
         @Override
@@ -188,7 +195,7 @@ public class RetrofitHelper {
 
             final Response response = chain.proceed(request);
 
-            KLog.e(TAG,"请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
+            KLog.e(TAG, "请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
 
             final ResponseBody responseBody = response.body();
             final long contentLength = responseBody.contentLength();
@@ -203,8 +210,8 @@ public class RetrofitHelper {
                 try {
                     charset = contentType.charset(charset);
                 } catch (UnsupportedCharsetException e) {
-                    KLog.e(TAG,"");
-                    KLog.e(TAG,"Couldn't decode the response body; charset is likely malformed.");
+                    KLog.e(TAG, "");
+                    KLog.e(TAG, "Couldn't decode the response body; charset is likely malformed.");
                     return response;
                 }
             }/*

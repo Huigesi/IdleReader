@@ -9,5 +9,6 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 
 public interface IMoviesLoadListener {
     void success(MoviesBean moviesBean);
+
     void fail(Throwable throwable);
 }

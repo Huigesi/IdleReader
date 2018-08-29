@@ -5,5 +5,5 @@ package com.example.administrator.idlereader.video.model;
  */
 
 public interface IVideoModel {
-    void loadVideo(String category, boolean first,IVideoLoadListener iVideoLoadListener);
+    void loadVideo(String category, boolean first, IVideoLoadListener iVideoLoadListener);
 }

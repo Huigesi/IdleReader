@@ -94,7 +94,7 @@ public class FgVideoFragment extends Fragment implements IVideoView {
     public void showMoreData(List<TodayContentBean> todayContentBeans, List<String> videoList) {
         if (todayContentBeans != null && todayContentBeans.size() > 0 && videoList.size() > 0 && videoList != null) {
             itemVideoAdapter.addData(todayContentBeans, videoList);
-            if (todayContentBeans==null||todayContentBeans.size() == 0) {
+            if (todayContentBeans == null || todayContentBeans.size() == 0) {
                 srl_video.setNoMoreData(true);
             }
         }

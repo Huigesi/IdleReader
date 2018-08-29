@@ -31,7 +31,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
     private LinearLayoutManager mLinearLayoutManager;
     private NewsPresenter mNewsPresenter;
     private WeiBoNewsAdapter mWeiBoNewsAdapter;
-    private int page=1;
+    private int page = 1;
     private String mGsid;
 
     public static WeiBoFragment getInstance() {
@@ -53,10 +53,10 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
     @Override
     public void showData(WeiBoNews data) {
         if (data != null) {
-            if (data.getStatuses() != null && data.getStatuses().size() >0) {
+            if (data.getStatuses() != null && data.getStatuses().size() > 0) {
                 mWeiBoNewsAdapter.setData(data.getStatuses(), true);
                 mWeiBoNewsAdapter.removeHeaderView();
-            }else {
+            } else {
                 View headerView = LayoutInflater.from(getActivity()).inflate(R.layout.view_nomore, null, false);
                 Button btn = (Button) headerView.findViewById(R.id.btn_login);
                 btn.setOnClickListener(new View.OnClickListener() {
@@ -85,20 +85,20 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
         mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, getActivity());
         mLinearLayoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-        mNewsPresenter.weiBoLogin("13242317873","huigesi",getActivity());
+        mNewsPresenter.weiBoLogin("13242317873", "huigesi", getActivity());
         mWeiBoNewsAdapter = new WeiBoNewsAdapter(getActivity());
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 mGsid = SPreUtils.getWeiBoUserInfo(SPreUtils.WEIBO_GSID, getActivity());
-                mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,1);
+                mNewsPresenter.loadWeibo(String.valueOf(0), mGsid, 1);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
                 page++;
-                mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,page);
+                mNewsPresenter.loadWeibo(String.valueOf(0), mGsid, page);
             }
         });
         final int line = Resolution.dipToPx(getActivity(), 5);
@@ -106,11 +106,11 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.set(0,0,0,line);
+                outRect.set(0, 0, 0, line);
             }
         });
         mRvNews.setLayoutManager(mLinearLayoutManager);
-        mNewsPresenter.loadWeibo(String.valueOf(0),mGsid,1);
+        mNewsPresenter.loadWeibo(String.valueOf(0), mGsid, 1);
         mRvNews.setAdapter(mWeiBoNewsAdapter);
     }
 }

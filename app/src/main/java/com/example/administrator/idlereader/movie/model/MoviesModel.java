@@ -16,10 +16,11 @@ import rx.schedulers.Schedulers;
 
 public class MoviesModel implements IMoviesModel {
     private static final String TAG = "MoviesModel";
+
     @Override
-    public void loadMovies( String total, String city,int start,int count,final IMoviesLoadListener iMoviesLoadListener) {
+    public void loadMovies(String total, String city, int start, int count, final IMoviesLoadListener iMoviesLoadListener) {
         RetrofitHelper.getInstance(Api.DOUBAN_MOVIE)
-                .getMovies(total,city,start,count)
+                .getMovies(total, city, start, count)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<MoviesBean>() {
