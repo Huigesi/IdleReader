@@ -7,7 +7,7 @@
     <color name="colorTheme">#ffce3d3a</color>
     <!--页面背景的颜色-->
     <color name="color_page_bg">#F1F3F4</color>
-
+    <color name="transparent">#03000000</color>
     <color name="colorWhite">#ffffffff</color>
 
     <!--主页tab背景-->

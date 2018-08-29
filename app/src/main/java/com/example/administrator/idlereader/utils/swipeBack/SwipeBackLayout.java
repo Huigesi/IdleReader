@@ -365,7 +365,7 @@ public class SwipeBackLayout extends ViewGroup {
     private void finish() {
         Activity act = (Activity) getContext();
         act.finish();
-        act.overridePendingTransition(0, R.anim.swipe_fade_out);
+        act.overridePendingTransition(0, R.anim.picker_anim_exit_bottom);
     }
 
     private class ViewDragHelperCallBack extends ViewDragHelper.Callback {
