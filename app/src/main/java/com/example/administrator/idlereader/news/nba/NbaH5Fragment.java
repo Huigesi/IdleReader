@@ -3,6 +3,7 @@ package com.example.administrator.idlereader.news.nba;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -16,6 +17,7 @@ import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerFragment;
 import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
 import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
+import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INbaBBSView;
 
@@ -27,15 +29,14 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class NbaH5Fragment extends BaseRecyclerFragment implements INbaBBSView {
-    @BindView(R.id.wb_news)
-    WebView mWbNews;
-    Unbinder unbinder;
+
     private static final String TAG = "NbaH5Fragment";
     public String nid, tid;
     public static final String NBA_H5_NID = "NBA_H5_NID";
     public static final String NBA_H5_TID = "NBA_H5_TID";
     private NbaBBSHeaderView mNbaBBSHeaderView;
-    private NbaDetailAdapter mNbaDetailAdapter;
+    private NbaBBSDetailLightView mNbaDetailLightView;
+    private NbaBBSDetailAdapter mNbaBBSDetailAdapter;
     private NewsPresenter mNewsPresenter;
 
     public static NbaH5Fragment getInstance() {
@@ -51,28 +52,31 @@ public class NbaH5Fragment extends BaseRecyclerFragment implements INbaBBSView {
         Map<String, String> parmes = new HashMap<>();
         parmes.put("page","1");
         parmes.put("tid", tid);
+        parmes.put("client", Api.HUPU_CLIENT_ID);
         mNewsPresenter.loadNbaBBSComment(parmes);
         mNewsPresenter.loadNbaLightBBSComment(parmes);
+        mNbaBBSDetailAdapter=new NbaBBSDetailAdapter(getActivity());
         mNbaBBSHeaderView = new NbaBBSHeaderView(getActivity());
+        mNbaDetailLightView = new NbaBBSDetailLightView(getActivity());
         mNbaBBSHeaderView.setData(tid);
-        mNbaDetailAdapter.setHeaderView(mNbaBBSHeaderView);
-        mRvNews.setAdapter(mNbaDetailAdapter);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
+        mNbaBBSDetailAdapter.setHeaderView(mNbaBBSHeaderView);
+        mRvNews.setAdapter(mNbaBBSDetailAdapter);
+        mRvNews.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
     @Override
     public void showCommentData(NbaBBSComment commentData) {
-        //mNbaDetailAdapter.setData(commentData.getResult().getList(),true);
+        mNbaBBSDetailAdapter.setData(commentData.getResult().getList(),true);
     }
 
     @Override
     public void showLightCommentData(NbaBBSLightComment commentData) {
-
+        if (commentData.getList() != null&&commentData.getList().size()>0) {
+            mNbaDetailLightView.setData(commentData.getList());
+            mNbaBBSDetailAdapter.setLightCommentView(mNbaDetailLightView);
+        }else {
+            mNbaBBSDetailAdapter.removeLightCommentView();
+        }
     }
 
     @Override

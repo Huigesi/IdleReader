@@ -128,11 +128,9 @@ public interface RetrofitService {
 
     //http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=23331153
     @GET("threads/getsThreadLightReplyList")
-    @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
     Observable<NbaBBSLightComment> getThreadLightReplyList(@QueryMap Map<String, String> params);
     //http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getsThreadLightReplyList?page=1&tid=23387013
     @GET("threads/getsThreadPostList")
-    @Headers("Referer:http://bbs.mobileapi.hupu.com/1/7.0.8/threads/getThreadDetailInfoH5")
     Observable<NbaBBSComment> getsThreadReplyList(@QueryMap Map<String, String> params);
 
     //http://api.weibo.cn/2/statuses/user_timeline?since_id=0&s=606388e6&source=4215535043&gsid=_2A252evSNDeRxGeNH61cX8yvNyT6IHXVTLg9FrDV6PUJbkdAKLUfykWpNSvDZShYMkVspdJ9M8k0Zb7-bXokiidm6&from=1055095010&c=weicoabroad&uid=1219022557&page=1&%20HTTP/1.1

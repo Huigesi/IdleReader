@@ -1,9 +1,11 @@
 package com.example.administrator.idlereader.news.nba;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -40,8 +42,8 @@ public class NbaBBSHeaderView extends LinearLayout {
         mWbNews.getSettings().setJavaScriptEnabled(true);
         mWbNews.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         mWbNews.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        String url = "http://bbs.mobileapi.hupu.com/1/7.2.5/threads/getThreadDetailInfoH5?tid=";
-        mWbNews.loadUrl(url+mTid);
+        String url = "http://bbs.mobileapi.hupu.com/1/7.2.8/threads/getThreadDetailInfoH5?tid=";
+         mWbNews.loadUrl(url+mTid);
         mWbNews.setWebViewClient(new WebViewClient());
         mWbNews.setOnTouchListener(new View.OnTouchListener() {
             @Override

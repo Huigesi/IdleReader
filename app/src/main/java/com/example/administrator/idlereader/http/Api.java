@@ -16,7 +16,7 @@ public class Api {
     public static final String MOVIE_HOST = "https://api.douban.com/";
     public static final String TODAY_HOST = "http://is.snssdk.com/api/";
     public static final String HUPU_HOST = "http://games.mobileapi.hupu.com/1/7.2.5/";
-    public static final String HUPU_BBS_HOST = "http://bbs.mobileapi.hupu.com";
+    public static final String HUPU_BBS_HOST = "http://bbs.mobileapi.hupu.com/1/7.2.8/";
     public static final String WEIBO_HOST = "http://api.weibo.cn/2/";
 
     public static final String HEADLINE_ID = "T1348647909107";
