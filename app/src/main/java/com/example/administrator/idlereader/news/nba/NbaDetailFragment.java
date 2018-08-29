@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
@@ -94,15 +95,17 @@ public class NbaDetailFragment extends BaseRecyclerFragment implements INbaDetai
 
     @Override
     public void showCommentData(NbaNewsComment commentData) {
-        mNbaDetailAdapter.setData(commentData.getData(), true);
-        if (commentData.getLight_comments() != null && commentData.getLight_comments().size() > 0) {
-            mNbaDetailLightView.setData(commentData);
-            mNbaDetailAdapter.setLightCommentView(mNbaDetailLightView);
-        } else {
-            mNbaDetailAdapter.removeLightCommentView();
+        if (commentData.getData() != null && commentData.getData().size() > 0) {
+            mNbaDetailAdapter.setData(commentData.getData(), true);
+            if (commentData.getLight_comments() != null && commentData.getLight_comments().size() > 0) {
+                mNbaDetailLightView.setData(commentData);
+                mNbaDetailAdapter.setLightCommentView(mNbaDetailLightView);
+            } else {
+                mNbaDetailAdapter.removeLightCommentView();
+            }
+            mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
+            mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
         }
-        mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
-        mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
     }
 
     @Override
@@ -132,6 +135,6 @@ public class NbaDetailFragment extends BaseRecyclerFragment implements INbaDetai
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-
+        Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }

@@ -71,7 +71,7 @@ public class HupuNBAFragment extends Fragment implements INBAView {
         mSrlNews.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                mNewsPresenter.loadNbaNews("",0);
+                mNewsPresenter.loadNbaNews("", 0);
             }
         });
         mSrlNews.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -116,17 +116,20 @@ public class HupuNBAFragment extends Fragment implements INBAView {
 
     @Override
     public void showData(HupuNews hupuNews) {
-        mResults = hupuNews.getResult().getData();
-        mNid = mResults.get(mResults.size() - 1).getNid();
-        mNbaNewsAdapter.setData(mResults, true);
+        if (hupuNews != null && hupuNews.getResult().getData().size() > 0) {
+            mResults = hupuNews.getResult().getData();
+            mNid = mResults.get(mResults.size() - 1).getNid();
+            mNbaNewsAdapter.setData(mResults, true);
+        }
     }
 
     @Override
     public void showMoreData(HupuNews hupuNews) {
         mResults = hupuNews.getResult().getData();
-        mNid = mResults.get(mResults.size() - 1).getNid();
-        mNbaNewsAdapter.setData(mResults, false);
-        if (mResults == null || mResults.size() == 0) {
+        if (mResults != null && mResults.size() > 0) {
+            mNid = mResults.get(mResults.size() - 1).getNid();
+            mNbaNewsAdapter.setData(mResults, false);
+        } else {
             mSrlNews.setNoMoreData(true);
         }
         mSrlNews.finishLoadMore(0);

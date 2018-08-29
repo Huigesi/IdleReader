@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerFragment;
@@ -91,6 +92,6 @@ public class NbaH5Fragment extends BaseRecyclerFragment implements INbaBBSView {
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-
+        Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 }

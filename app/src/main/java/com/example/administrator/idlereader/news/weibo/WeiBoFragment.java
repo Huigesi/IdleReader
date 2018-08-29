@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerFragment;
@@ -46,7 +47,7 @@ public class WeiBoFragment extends BaseRecyclerFragment implements IWeiBoView {
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-        Log.i(TAG, "showErrorMsg: "+throwable.getMessage());
+        Toast.makeText(getActivity(), throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

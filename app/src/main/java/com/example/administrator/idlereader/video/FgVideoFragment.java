@@ -60,7 +60,7 @@ public class FgVideoFragment extends Fragment implements IVideoView {
         super.onViewCreated(view, savedInstanceState);
         iVideoPresenter = new VideoPresenter(this);
 
-        //iVideoPresenter.loadVideo(true);
+        iVideoPresenter.loadVideo(true);
         layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         srl_video.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(
@@ -83,16 +83,20 @@ public class FgVideoFragment extends Fragment implements IVideoView {
 
     @Override
     public void showVideo(List<TodayContentBean> todayContentBeans, List<String> videoList) {
-        itemVideoAdapter.setData(todayContentBeans, videoList);
-        rv_video.setLayoutManager(layoutManager);
-        rv_video.setAdapter(itemVideoAdapter);
+        if (videoList != null && videoList.size() > 0) {
+            itemVideoAdapter.setData(todayContentBeans, videoList);
+            rv_video.setLayoutManager(layoutManager);
+            rv_video.setAdapter(itemVideoAdapter);
+        }
     }
 
     @Override
     public void showMoreData(List<TodayContentBean> todayContentBeans, List<String> videoList) {
-        itemVideoAdapter.addData(todayContentBeans, videoList);
-        if (todayContentBeans==null||todayContentBeans.size() == 0) {
-            srl_video.setNoMoreData(true);
+        if (todayContentBeans != null && todayContentBeans.size() > 0 && videoList.size() > 0 && videoList != null) {
+            itemVideoAdapter.addData(todayContentBeans, videoList);
+            if (todayContentBeans==null||todayContentBeans.size() == 0) {
+                srl_video.setNoMoreData(true);
+            }
         }
         srl_video.finishLoadMore(0);
     }

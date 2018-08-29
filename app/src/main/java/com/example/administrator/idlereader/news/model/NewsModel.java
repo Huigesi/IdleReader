@@ -99,7 +99,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        iNewsLoadListener.fail(e);
                     }
 
                     @Override
@@ -132,7 +132,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: " + e.getMessage());
+                        iNewsLoadListener.fail(e);
                     }
 
                     @Override
@@ -157,7 +157,7 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: ");
+                        iNewsLoadListener.fail(e);
                     }
 
                     @Override
@@ -185,13 +185,11 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, "onError: " + e.getMessage());
                         iNewsLoadListener.fail(e);
                     }
 
                     @Override
                     public void onNext(NbaZhuanti nbaZhuanti) {
-                        Log.i(TAG, "onNext: " + nbaZhuanti.getResult().getTitle());
                         iNewsLoadListener.loadNbaZhuanTiSuccess(nbaZhuanti);
                     }
                 });
@@ -265,7 +263,6 @@ public class NewsModel implements INewsModel {
 
                     @Override
                     public void onNext(WeiBoUserInfo weiBoUserInfo) {
-                        Log.i(TAG, "onNext: " + weiBoUserInfo.getGsid());
                         SPreUtils.setWeiBoUserInfo(weiBoUserInfo, context);
                     }
                 });

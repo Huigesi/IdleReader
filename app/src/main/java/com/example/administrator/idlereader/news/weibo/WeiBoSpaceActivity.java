@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.DefaultsFooter;
 import com.example.administrator.idlereader.R;
@@ -128,7 +129,7 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
 
     @Override
     public void showErrorMsg(Throwable throwable) {
-        Log.i(TAG, "showErrorMsg: " + throwable.getMessage());
+        Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
