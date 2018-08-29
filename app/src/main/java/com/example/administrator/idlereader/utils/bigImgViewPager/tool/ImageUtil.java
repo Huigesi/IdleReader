@@ -5,7 +5,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+
+import com.example.administrator.idlereader.utils.bigImgViewPager.subscaleview.SubsamplingScaleImageView;
 
 import java.io.IOException;
 

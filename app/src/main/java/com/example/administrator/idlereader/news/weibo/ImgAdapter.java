@@ -52,34 +52,52 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
             int weight = Resolution.dipToPx(this.mContext, 120);
             String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
             String gifUrl = Api.IMG_WEIBO_ORIGINAL_GIF + data + ".gif";
-            if (mIsGif) {
-                GlideUtils.loadGif(mContext, gifUrl, ((ViewHolder) holder).mImageView);
-                initPictureData(position, true);
-            } else {
-                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
-                initPictureData(position, false);
-            }
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
             int margin4 = Resolution.dipToPx(mContext, 3);
             params.setMargins(0, 0, margin4, margin4);
             holder.itemView.setLayoutParams(params);
+            if (mIsGif) {
+                GlideUtils.loadGif(mContext, gifUrl, ((ViewHolder) holder).mImageView);
+                initPictureData(position, true);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImagePreview
+                                .getInstance()
+                                .setContext(mContext)
+                                .setIndex(position)
+                                .setImageInfoList(imageInfoList)
+                                .setShowDownButton(true)
+                                .setGif(true)
+                                .setLoadStrategy(ImagePreview.LoadStrategy.NetworkAuto)
+                                .setFolderName("IdleReader")
+                                .setScaleLevel(1, 3, 8)
+                                .setZoomTransitionDuration(300)
+                                .start();
+                    }
+                });
+            } else {
+                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
+                initPictureData(position, false);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ImagePreview
+                                .getInstance()
+                                .setContext(mContext)
+                                .setIndex(position)
+                                .setImageInfoList(imageInfoList)
+                                .setShowDownButton(true)
+                                .setGif(false)
+                                .setLoadStrategy(ImagePreview.LoadStrategy.NetworkAuto)
+                                .setFolderName("IdleReader")
+                                .setScaleLevel(1, 3, 8)
+                                .setZoomTransitionDuration(300)
+                                .start();
+                    }
+                });
+            }
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ImagePreview
-                            .getInstance()
-                            .setContext(mContext)
-                            .setIndex(position)
-                            .setImageInfoList(imageInfoList)
-                            .setShowDownButton(true)
-                            .setLoadStrategy(ImagePreview.LoadStrategy.NetworkAuto)
-                            .setFolderName("IdleReader")
-                            .setScaleLevel(1, 3, 8)
-                            .setZoomTransitionDuration(300)
-                            .start();
-                }
-            });
         }
     }
 

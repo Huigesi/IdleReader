@@ -31,6 +31,17 @@ public class ImagePreview {
   private float mediumScale = 3.0f;// 中等缩放倍数
   private float maxScale = 5.0f;// 最大缩放倍数
 
+  public boolean isGif() {
+    return isGif;
+  }
+
+  public ImagePreview setGif(boolean gif) {
+    isGif = gif;
+    return this;
+  }
+
+  private boolean isGif=false;//是否GIF
+
   private boolean isShowDownButton = true;// 是否显示下载按钮
   private int zoomTransitionDuration = 200;// 动画持续时间 单位毫秒 ms
 

@@ -60,6 +60,7 @@ public class ImagePreviewActivity extends AppCompatActivity
   private FrameLayout fm_image;
   private TextView tv_show_origin;
   private ImageView img_download;
+  private Boolean isGif;
 
   private String currentItemOriginPathUrl = "";// 当前显示的原图链接
   private HandlerUtils.HandlerHolder handlerHolder;
@@ -85,7 +86,7 @@ public class ImagePreviewActivity extends AppCompatActivity
     currentItem = ImagePreview.getInstance().getIndex();
     downloadFolderName = ImagePreview.getInstance().getFolderName();
     isShowDownButton = ImagePreview.getInstance().isShowDownButton();
-
+    isGif=ImagePreview.getInstance().isGif();
     currentItemOriginPathUrl = imageInfoList.get(currentItem).getOriginUrl();
 
     isShowOriginButton = ImagePreview.getInstance().isShowOriginButton(currentItem);
@@ -122,6 +123,7 @@ public class ImagePreviewActivity extends AppCompatActivity
             " " + imageInfoList.size()));
 
     imagePreviewAdapter = new ImagePreviewAdapter(this, imageInfoList);
+    imagePreviewAdapter.setGif(isGif);
     viewPager.setAdapter(imagePreviewAdapter);
     viewPager.setCurrentItem(currentItem);
     viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
