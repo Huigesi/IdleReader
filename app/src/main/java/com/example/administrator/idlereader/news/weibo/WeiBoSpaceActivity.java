@@ -105,7 +105,7 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
                 super.getItemOffsets(outRect, view, parent, state);
-                outRect.set(0, 0, 0, line);
+                outRect.set(0, line, 0,0);
             }
         });
         mRvNews.setLayoutManager(mLinearLayoutManager);
@@ -148,8 +148,8 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
 
     @Override
     public void showHeader(WeiBoSpaceUser data) {
-        int weight=Resolution.dipToPx(this,100);
-        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop);
+        int weight=Resolution.dipToPx(this,80);
+        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop,weight,weight);
         GlideUtils.loadCircle(this,data.getAvatar_hd(),mImgWeiboUserCover,weight,weight);
         mTvWeiboUserName.setText(data.getName());
         mTvWeiboUserIntro.setText(data.getDescription());

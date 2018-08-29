@@ -41,10 +41,11 @@
                 android:id="@+id/tv_nba_detail_title_origin"/>
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/colorLine"/>
+        android:background="@color/colorLine" />
     <LinearLayout
         android:paddingHorizontal="10dp"
         android:paddingVertical="5dp"
