@@ -931,7 +931,6 @@ public class WeiBoUserInfo {
             private int is_show_bulletin;
             private CommentManageInfoData comment_manage_info;
             private java.util.List<String> pic_ids;
-            private java.util.List<AnnotationsData> annotations;
             private java.util.List<?> darwin_tags;
             private java.util.List<?> hot_weibo_tags;
             private java.util.List<?> text_tag_tips;
@@ -1246,14 +1245,6 @@ public class WeiBoUserInfo {
 
             public void setPic_ids(List<String> pic_ids) {
                 this.pic_ids = pic_ids;
-            }
-
-            public List<AnnotationsData> getAnnotations() {
-                return annotations;
-            }
-
-            public void setAnnotations(List<AnnotationsData> annotations) {
-                this.annotations = annotations;
             }
 
             public List<?> getDarwin_tags() {

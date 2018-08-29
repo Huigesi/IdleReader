@@ -770,7 +770,6 @@ public class WeiBoSpaceUser {
         private int is_show_bulletin;
         private CommentManageInfoData comment_manage_info;
         private List<?> pic_ids;
-        private List<AnnotationsData> annotations;
         private List<?> darwin_tags;
         private List<?> hot_weibo_tags;
         private List<?> text_tag_tips;
@@ -1077,14 +1076,6 @@ public class WeiBoSpaceUser {
 
         public void setPic_ids(List<?> pic_ids) {
             this.pic_ids = pic_ids;
-        }
-
-        public List<AnnotationsData> getAnnotations() {
-            return annotations;
-        }
-
-        public void setAnnotations(List<AnnotationsData> annotations) {
-            this.annotations = annotations;
         }
 
         public List<?> getDarwin_tags() {

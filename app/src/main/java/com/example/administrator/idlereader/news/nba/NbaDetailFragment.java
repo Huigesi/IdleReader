@@ -106,6 +106,8 @@ public class NbaDetailFragment extends BaseRecyclerFragment implements INbaDetai
             mNcid = commentData.getData().get(commentData.getData().size() - 1).getNcid();
             mCreateTime = commentData.getData().get(commentData.getData().size() - 1).getCreate_time();
         }
+        mSrlNews.finishRefresh();
+        mSrlNews.finishLoadMore(0);
     }
 
     @Override
@@ -124,8 +126,7 @@ public class NbaDetailFragment extends BaseRecyclerFragment implements INbaDetai
 
     @Override
     public void hideDialog() {
-        mSrlNews.finishRefresh();
-        mSrlNews.finishLoadMore(0);
+
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.SpannedString;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -87,6 +88,11 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 ((NewsViewHolder) holder).rvWeiboImgs.setLayoutManager(new GridLayoutManager(
                         mContext, 3));
                 mImgAdapter = new ImgAdapter(mContext);
+                if (data.getGif_ids().equals("")){
+                    mImgAdapter.setGif(false);
+                }else {
+                    mImgAdapter.setGif(true);
+                }
                 mImgAdapter.setData(data.getPic_ids(), true);
                 ((NewsViewHolder) holder).rvWeiboImgs.setAdapter(mImgAdapter);
                 ((NewsViewHolder) holder).rvWeiboImgs.setOnTouchListener(new View.OnTouchListener() {
@@ -146,6 +152,11 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                     ((NewsViewHolder) holder).rvRetweetedImgs.setAdapter(mImgAdapter);
                     ((NewsViewHolder) holder).rvRetweetedImgs.setLayoutManager(new GridLayoutManager(
                             mContext, 3));
+                    if (data.getRetweeted_status().getGif_ids().equals("")){
+                        mImgAdapter.setGif(false);
+                    }else {
+                        mImgAdapter.setGif(true);
+                    }
                     mImgAdapter.setData(data.getRetweeted_status().getPic_ids(), true);
                     ((NewsViewHolder) holder).rvRetweetedImgs.setOnTouchListener(new View.OnTouchListener() {
                         @Override

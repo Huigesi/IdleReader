@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.weibo;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
+import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
@@ -25,11 +27,21 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
         super(context);
     }
 
+    public boolean isGif() {
+        return mIsGif;
+    }
+
+    public void setGif(boolean gif) {
+        mIsGif = gif;
+    }
+
+    private boolean mIsGif;
+
     @Override
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_img, null, false);
-        view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+        view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         return new ImgAdapter.ViewHolder(view);
     }
@@ -39,12 +51,19 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
         if (holder instanceof ViewHolder) {
             int weight = Resolution.dipToPx(this.mContext, 120);
             String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
-            GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
+            String gifUrl = Api.IMG_WEIBO_WAP360 + data + ".gif";
+            if (mIsGif) {
+                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
+                initPictureData(position, false);
+            } else {
+                GlideUtils.load(mContext, gifUrl, ((ViewHolder) holder).mImageView, weight, weight);
+                initPictureData(position, true);
+            }
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
             int margin4 = Resolution.dipToPx(mContext, 3);
             params.setMargins(0, 0, margin4, margin4);
             holder.itemView.setLayoutParams(params);
-            initPictureData();
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -64,12 +83,19 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
         }
     }
 
-    public void initPictureData() {
+    public void initPictureData(int position, boolean isGif) {
         imageInfoList = new ArrayList<>();
         ImageInfo imageInfo;
         for (String image : mList) {
-            String OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".jpg";
-            String thumbnail = Api.IMG_WEIBO_WAP180 + image + ".jpg";
+            String OrlimgUrl;
+            String thumbnail;
+            if (mIsGif) {
+                OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".gif";
+                thumbnail = Api.IMG_WEIBO_WAP180 + image + ".gif";
+            } else {
+                OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".jpg";
+                thumbnail = Api.IMG_WEIBO_WAP180 + image + ".jpg";
+            }
             imageInfo = new ImageInfo();
             imageInfo.setOriginUrl(OrlimgUrl);// 原图
             imageInfo.setThumbnailUrl(

@@ -123,6 +123,11 @@ public class WeiBoDetailHeaderView extends LinearLayout {
             mRvWeiboImgs.setLayoutManager(new GridLayoutManager(
                     getContext(), 3));
             mImgAdapter = new ImgAdapter(getContext());
+            if (mWeiBoDetail.getStatus().getGif_ids().equals("")){
+                mImgAdapter.setGif(false);
+            }else {
+                mImgAdapter.setGif(true);
+            }
             mImgAdapter.setData(mWeiBoDetail.getStatus().getPic_ids(), true);
             mRvWeiboImgs.setAdapter(mImgAdapter);
         } else {
@@ -172,6 +177,11 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                     mWeiBoDetail.getStatus().getRetweeted_status().getPic_ids().size() > 0) {
                 mLlWeiboRetweetedImg.setVisibility(View.VISIBLE);
                 mImgAdapter = new ImgAdapter(getContext());
+                if (mWeiBoDetail.getStatus().getRetweeted_status().getGif_ids().equals("")){
+                    mImgAdapter.setGif(false);
+                }else {
+                    mImgAdapter.setGif(true);
+                }
                 mRvRetweetedImgs.setAdapter(mImgAdapter);
                 mRvRetweetedImgs.setLayoutManager(new GridLayoutManager(
                         getContext(), 3));
