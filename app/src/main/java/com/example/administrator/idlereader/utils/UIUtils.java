@@ -13,10 +13,13 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.WebViewActivity;
+import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
+import com.example.administrator.idlereader.http.HttpModule;
 import com.example.administrator.idlereader.news.nba.NBAZhuanTiActivity;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
@@ -25,6 +28,8 @@ import com.example.administrator.idlereader.news.weibo.WeiBoLoginActivity;
 import com.example.administrator.idlereader.news.weibo.WeiBoSpaceActivity;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,7 +60,7 @@ public class UIUtils {
         context.startActivity(intent);
     }
 
-    public static void startNbaH5Fragment(Context context, String nid,String tid) {
+    public static void startNbaH5Fragment(Context context, String nid, String tid) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(FRAGMENT_CLASS, NbaH5Fragment.class.getName());
         intent.putExtra(NbaH5Fragment.NBA_H5_NID, nid);
@@ -63,7 +68,7 @@ public class UIUtils {
         context.startActivity(intent);
     }
 
-    public static void startSpaceFragment(Context context,String uid) {
+    public static void startSpaceFragment(Context context, String uid) {
         Intent intent = new Intent(context, WeiBoSpaceActivity.class);
         intent.putExtra(WeiBoSpaceActivity.WEIBO_SPACE_UID, uid);
         context.startActivity(intent);
@@ -76,7 +81,7 @@ public class UIUtils {
         context.startActivity(intent);
     }
 
-    public static void startWeiBoLoginActivity(Activity activity){
+    public static void startWeiBoLoginActivity(Activity activity) {
         Intent intent = new Intent(activity, WeiBoLoginActivity.class);
         activity.startActivity(intent);
     }
@@ -114,26 +119,50 @@ public class UIUtils {
     }
 
     //文字转换
-    public static SpannableString setTextHighLight(Context context, String content, String nickName,
+    public static SpannableString setTextHighLight(final Context context, String content, String nickName,
                                                    boolean isLongText) {
-        SpannableString result = new SpannableString(content);
+        final SpannableString result = new SpannableString(content);
         if (nickName != null) {
             result.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight)),
                     0, nickName.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         }
-        if (isLongText){
+        if (isLongText) {
             result.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight)),
-                    result.length()-2, result.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                    result.length() - 2, result.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
         }
         if (content.contains("@")) {
             Pattern p = Pattern.compile(regex_at);
             Matcher m = p.matcher(result);
             while (m.find()) {
-                int start = m.start();
-                int end = m.end();
-                result.setSpan(
-                        (new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight))),
-                        start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                final int start = m.start();
+                final int end = m.end();
+                TextClickSpan span = new TextClickSpan(context);
+
+                span.setOnClickListener(new TextClickSpan.OnTextClickListener() {
+                    @Override
+                    public void onClick() {
+                        Map<String, String> parmes = new HashMap<>();
+                        //s=ca0bff51&screen_name=博物杂志&c=weicoabroad&gsid=_2A252g8InDeRxGeRJ7FQY9C_MzT2IHXVTGVLvrDV6PUJbkdANLWPykWpNUh3I3pRTBVDeOibMN0qnkz_i9kdHj9AZ
+                        parmes.put("s", "ca0bff51");
+                        String name=result.subSequence(start,end).toString().substring(1);
+                        parmes.put("screen_name", name);
+                        parmes.put("c", "weicoabroad");
+                        HttpModule.getWeiBoUserShow(parmes);
+                        HttpModule.ResultListener listener = new HttpModule.ResultListener() {
+                            @Override
+                            public void success(WeiBoSpaceUser o) {
+                                startSpaceFragment(context, o.getIdstr());
+                            }
+
+                            @Override
+                            public void fail(Throwable e) {
+                                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        };
+                        HttpModule.setmResultListener(listener);
+                    }
+                });
+                result.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
             }
         }
 
@@ -153,26 +182,35 @@ public class UIUtils {
             Pattern p = Pattern.compile(regex_http);
             Matcher m = p.matcher(result);
             while (m.find()) {
-                int start = m.start();
-                int end = m.end();
-                result.setSpan(
-                        (new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight))),
-                        start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-                result.setSpan(new TextClickSpan(result.subSequence(start,end).toString(),"闲阅",context),start,end,Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                final int start = m.start();
+                final int end = m.end();
+                TextClickSpan span = new TextClickSpan(context);
+                span.setOnClickListener(new TextClickSpan.OnTextClickListener() {
+                    @Override
+                    public void onClick() {
+                        startWebViewActivity(context, result.subSequence(start, end).toString(), "闲阅");
+                    }
+                });
+                result.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
             }
         }
         return result;
     }
 
-    public static class TextClickSpan extends ClickableSpan{
-        private String url;
-        private String title;
+    public static class TextClickSpan extends ClickableSpan {
         private Context mContext;
+        private OnTextClickListener mOnClickListener;
 
-        public TextClickSpan(String url, String title, Context context) {
-            this.url = url;
-            this.title = title;
+        public void setOnClickListener(OnTextClickListener onClickListener) {
+            this.mOnClickListener = onClickListener;
+        }
+
+        public TextClickSpan(Context context) {
             mContext = context;
+        }
+
+        public interface OnTextClickListener {
+            void onClick();
         }
 
         @Override
@@ -183,7 +221,7 @@ public class UIUtils {
 
         @Override
         public void onClick(View widget) {
-            startWebViewActivity(mContext,url,title);
+            mOnClickListener.onClick();
         }
     }
 

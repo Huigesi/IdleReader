@@ -151,7 +151,7 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
     public void showHeader(WeiBoSpaceUser data) {
         int weight = Resolution.dipToPx(this, 80);
         GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop, weight, weight);
-        GlideUtils.loadCircle(this, data.getAvatar_hd(), mImgWeiboUserCover, weight, weight);
+        GlideUtils.loadCircle(this, data.getAvatar_large(), mImgWeiboUserCover, weight, weight);
         mTvWeiboUserName.setText(data.getName());
         mTvWeiboUserIntro.setText(data.getDescription());
         mTvWeiboUserLocation.setText(data.getLocation());

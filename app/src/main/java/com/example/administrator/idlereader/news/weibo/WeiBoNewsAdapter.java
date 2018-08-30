@@ -141,6 +141,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 } else {
                     retweeted = UIUtils.setTextHighLight(mContext, userName + " : " + retWeedText, userName, false);
                 }
+                ((NewsViewHolder) holder).tvRetweetedContent.setMovementMethod(LinkMovementMethod.getInstance());
                 ((NewsViewHolder) holder).tvRetweetedContent.setText(
                         retweeted);
                 ((NewsViewHolder) holder).tvRetweetedReport.setText("转发 " + data.getRetweeted_status()

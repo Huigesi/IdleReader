@@ -165,6 +165,11 @@ public class RetrofitHelper {
         return retrofitService.getWeiBoUserHead(sinceId, s, gsid, c, form, wm, source, uid);
     }
 
+    public Observable<WeiBoSpaceUser> getWeiBoUserShowNews(Map<String, String> params) {
+
+        return retrofitService.getWeiBoUserShowHead(params);
+    }
+
     public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid, long max_id) {
         return retrofitService.getWeiBoDetail(s, c, id, gsid, max_id, 2);
     }

@@ -156,6 +156,8 @@ public interface RetrofitService {
                                                 @Query("wm") String wm,
                                                 @Query("source") String source,
                                                 @Query("uid") String uid);
+    @GET("users/show")
+    Observable<WeiBoSpaceUser> getWeiBoUserShowHead(@QueryMap Map<String, String> params);
 
     @FormUrlEncoded
     @POST("account/login")

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -116,6 +117,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
         } else {
             content = UIUtils.setTextHighLight(getContext(), mWeiBoDetail.getStatus().getText(), null, false);
         }
+        mTvWeiboContentText.setMovementMethod(LinkMovementMethod.getInstance());
         mTvWeiboContentText.setText(content);
         mTvWeiboLike.setText(String.valueOf(mWeiBoDetail.getStatus().getAttitudes_count()));
         mTvWeiboComment.setText(String.valueOf(mWeiBoDetail.getStatus().getComments_count()));
@@ -167,6 +169,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                 retweeted = UIUtils.setTextHighLight(getContext(), userName + " : " +
                         retWeedText, userName, false);
             }
+            mTvRetweetedContent.setMovementMethod(LinkMovementMethod.getInstance());
             mTvRetweetedContent.setText(
                     retweeted);
             mTvRetweetedReport.setText("转发 " + mWeiBoDetail.getStatus().getRetweeted_status()
