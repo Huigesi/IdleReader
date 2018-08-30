@@ -38,12 +38,12 @@ public class GlideUtils {
             .diskCacheStrategy(DiskCacheStrategy.NONE);
 
     public static void load(Context context, String url, ImageView view, int weight, int height) {
-         RequestOptions weightoptions = new RequestOptions()
+        RequestOptions weightoptions = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.drawable.picture)
                 .skipMemoryCache(false)
                 .error(R.drawable.picture_error)
-                 .override(weight, height)
+                .override(weight, height)
                 .diskCacheStrategy(DiskCacheStrategy.NONE);
         Glide.with(context).asBitmap()
                 .load(url)

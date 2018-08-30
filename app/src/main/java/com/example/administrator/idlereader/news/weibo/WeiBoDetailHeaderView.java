@@ -149,6 +149,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
             mVideoWeibo.setUp(
                     mWeiBoDetail.getStatus().getPage_info().getMedia_info().getMp4_sd_url(),
                     JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+            mLlWeiboImg.setVisibility(GONE);
         } else {
             mVideoWeibo.setVisibility(View.GONE);
         }
@@ -220,6 +221,7 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                 mVideoRetweetedWeibo.setUp(
                         mWeiBoDetail.getStatus().getPage_info().getMedia_info().getMp4_sd_url(),
                         JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+                mLlWeiboRetweetedImg.setVisibility(GONE);
             } else if (mWeiBoDetail.getStatus().getRetweeted_status() != null &&
                     mWeiBoDetail.getStatus().getRetweeted_status().getUser() == null) {
                 mLlWeiboRetweeted.setVisibility(View.VISIBLE);
