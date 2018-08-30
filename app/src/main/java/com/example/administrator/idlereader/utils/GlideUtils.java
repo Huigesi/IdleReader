@@ -7,6 +7,7 @@ import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -21,6 +22,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.administrator.idlereader.R;
@@ -80,12 +82,11 @@ public class GlideUtils {
                 });
     }
 
-    public static void loadGif(Context context, String url, ImageView view) {
+    public static void loadGif(final Context context, String url, ImageView view) {
         RequestOptions weightoptions = new RequestOptions()
                 .placeholder(R.drawable.picture)
                 .fitCenter()
                 .error(R.drawable.picture_error)
-                .priority(Priority.HIGH)
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
         Glide.with(context)
                 .load(url)

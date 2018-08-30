@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
@@ -88,10 +89,16 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                 ((NewsViewHolder) holder).rvWeiboImgs.setLayoutManager(new GridLayoutManager(
                         mContext, 3));
                 mImgAdapter = new ImgAdapter(mContext);
+                List<String> gifIds = new ArrayList<>();
                 if (data.getGif_ids().equals("")){
-                    mImgAdapter.setGif(false);
+                    mImgAdapter.setGifIds(gifIds);
                 }else {
-                    mImgAdapter.setGif(true);
+                    String[] str1=data.getGif_ids().split(",");
+                    for (String s : str1) {
+                        String id=s.substring(0,s.indexOf("|"));
+                        gifIds.add(id);
+                    }
+                    mImgAdapter.setGifIds(gifIds);
                 }
                 mImgAdapter.setData(data.getPic_ids(), true);
                 ((NewsViewHolder) holder).rvWeiboImgs.setAdapter(mImgAdapter);
@@ -114,7 +121,8 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                         ((NewsViewHolder) holder).videoWeibo.thumbImageView);
                 ((NewsViewHolder) holder).videoWeibo.setUp(
                         data.getPage_info().getMedia_info().getMp4_sd_url(),
-                        JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+                        JZVideoPlayerStandard.SCREEN_STATE_ON);
+                ((NewsViewHolder) holder).rvWeiboImgs.setVisibility(View.GONE);
             } else {
                 ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);
             }
@@ -152,10 +160,16 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                     ((NewsViewHolder) holder).rvRetweetedImgs.setAdapter(mImgAdapter);
                     ((NewsViewHolder) holder).rvRetweetedImgs.setLayoutManager(new GridLayoutManager(
                             mContext, 3));
+                    List<String> gifIds = new ArrayList<>();
                     if (data.getRetweeted_status().getGif_ids().equals("")){
-                        mImgAdapter.setGif(false);
+                        mImgAdapter.setGifIds(gifIds);
                     }else {
-                        mImgAdapter.setGif(true);
+                        String[] str1=data.getRetweeted_status().getGif_ids().split(",");
+                        for (String s : str1) {
+                            String id=s.substring(0,s.indexOf("|"));
+                            gifIds.add(id);
+                        }
+                        mImgAdapter.setGifIds(gifIds);
                     }
                     mImgAdapter.setData(data.getRetweeted_status().getPic_ids(), true);
                     ((NewsViewHolder) holder).rvRetweetedImgs.setOnTouchListener(new View.OnTouchListener() {
@@ -179,6 +193,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
                     ((NewsViewHolder) holder).videoRetweetedWeibo.setUp(
                             data.getPage_info().getMedia_info().getMp4_sd_url(),
                             JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL);
+                    ((NewsViewHolder) holder).rvRetweetedImgs.setVisibility(View.GONE);
                 } else {
                     ((NewsViewHolder) holder).videoRetweetedWeibo.setVisibility(View.GONE);
                     ((NewsViewHolder) holder).videoWeibo.setVisibility(View.GONE);

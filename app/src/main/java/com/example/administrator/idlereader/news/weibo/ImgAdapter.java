@@ -22,20 +22,19 @@ import java.util.List;
 
 public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
     private List<ImageInfo> imageInfoList;
+    private List<String> gifIds;
+
+    public List<String> getGifIds() {
+        return gifIds;
+    }
+
+    public void setGifIds(List<String> gifIds) {
+        this.gifIds = gifIds;
+    }
 
     public ImgAdapter(Context context) {
         super(context);
     }
-
-    public boolean isGif() {
-        return mIsGif;
-    }
-
-    public void setGif(boolean gif) {
-        mIsGif = gif;
-    }
-
-    private boolean mIsGif;
 
     @Override
     public RecyclerView.ViewHolder onCreate(ViewGroup parent, int viewType) {
@@ -50,15 +49,11 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
     public void onBind(RecyclerView.ViewHolder holder, final int position, String data) {
         if (holder instanceof ViewHolder) {
             int weight = Resolution.dipToPx(this.mContext, 120);
-            String imgUrl = Api.IMG_WEIBO_WAP360 + data + ".jpg";
-            String gifUrl = Api.IMG_WEIBO_ORIGINAL_GIF + data + ".gif";
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
-            int margin4 = Resolution.dipToPx(mContext, 3);
-            params.setMargins(0, 0, margin4, margin4);
-            holder.itemView.setLayoutParams(params);
-            if (mIsGif) {
-                GlideUtils.loadGif(mContext, gifUrl, ((ViewHolder) holder).mImageView);
-                initPictureData(position, true);
+            initPictureData(data);
+            String url;
+            if (gifIds.contains(data)) {
+                url = Api.IMG_WEIBO_ORIGINAL_GIF + data + ".gif";
+                GlideUtils.loadGif(mContext, url, ((ViewHolder) holder).mImageView);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -77,8 +72,8 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
                     }
                 });
             } else {
-                GlideUtils.load(mContext, imgUrl, ((ViewHolder) holder).mImageView, weight, weight);
-                initPictureData(position, false);
+                url = Api.IMG_WEIBO_WAP180 + data + ".jpg";
+                GlideUtils.load(mContext, url, ((ViewHolder) holder).mImageView, weight, weight);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -98,16 +93,20 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
                 });
             }
 
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            int margin4 = Resolution.dipToPx(mContext, 3);
+            params.setMargins(0, 0, margin4, margin4);
+            holder.itemView.setLayoutParams(params);
         }
     }
 
-    public void initPictureData(int position, boolean isGif) {
+    public void initPictureData(String data) {
         imageInfoList = new ArrayList<>();
         ImageInfo imageInfo;
         for (String image : mList) {
             String OrlimgUrl;
             String thumbnail;
-            if (mIsGif) {
+            if (gifIds.contains(data)) {
                 OrlimgUrl = Api.IMG_WEIBO_ORIGINAL_GIF + image + ".gif";
                 thumbnail = Api.IMG_WEIBO_ORIGINAL_GIF + image + ".gif";
             } else {

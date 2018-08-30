@@ -20,6 +20,8 @@ import com.example.administrator.idlereader.utils.TimeUtils;
 import com.example.administrator.idlereader.utils.UIUtils;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -123,10 +125,16 @@ public class WeiBoDetailHeaderView extends LinearLayout {
             mRvWeiboImgs.setLayoutManager(new GridLayoutManager(
                     getContext(), 3));
             mImgAdapter = new ImgAdapter(getContext());
+            List<String> gifIds = new ArrayList<>();
             if (mWeiBoDetail.getStatus().getGif_ids().equals("")){
-                mImgAdapter.setGif(false);
+                mImgAdapter.setGifIds(gifIds);
             }else {
-                mImgAdapter.setGif(true);
+                String[] str1=mWeiBoDetail.getStatus().getGif_ids().split(",");
+                for (String ss : str1) {
+                    String id=ss.substring(0,ss.indexOf("|"));
+                    gifIds.add(id);
+                }
+                mImgAdapter.setGifIds(gifIds);
             }
             mImgAdapter.setData(mWeiBoDetail.getStatus().getPic_ids(), true);
             mRvWeiboImgs.setAdapter(mImgAdapter);
@@ -177,10 +185,16 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                     mWeiBoDetail.getStatus().getRetweeted_status().getPic_ids().size() > 0) {
                 mLlWeiboRetweetedImg.setVisibility(View.VISIBLE);
                 mImgAdapter = new ImgAdapter(getContext());
+                List<String> gifIds = new ArrayList<>();
                 if (mWeiBoDetail.getStatus().getRetweeted_status().getGif_ids().equals("")){
-                    mImgAdapter.setGif(false);
+                    mImgAdapter.setGifIds(gifIds);
                 }else {
-                    mImgAdapter.setGif(true);
+                    String[] str1=mWeiBoDetail.getStatus().getRetweeted_status().getGif_ids().split(",");
+                    for (String ss : str1) {
+                        String id=ss.substring(0,ss.indexOf("|"));
+                        gifIds.add(id);
+                    }
+                    mImgAdapter.setGifIds(gifIds);
                 }
                 mRvRetweetedImgs.setAdapter(mImgAdapter);
                 mRvRetweetedImgs.setLayoutManager(new GridLayoutManager(

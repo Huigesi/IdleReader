@@ -1,5 +1,6 @@
 package com.example.administrator.idlereader.news.nba;
 
+import android.os.Binder;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -50,10 +51,16 @@ public class NBAZhuanTiActivity extends SwipeBackActivity implements INBAZhuanTi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nbazhuan_ti);
         ButterKnife.bind(this);
-        mNid = getIntent().getStringExtra(NBA_NID);
+        init();
+    }
+
+    private void init() {
         mNewsPresenter = new NewsPresenter(this);
-        mNewsPresenter.loadNbaZhuanTi(mNid);
+        mNid = getIntent().getStringExtra(NBA_NID);
         mNbaZhuanTiAdapter = new NbaZhuanTiAdapter(this);
+        mNewsPresenter.loadNbaZhuanTi(mNid);
+        mRvNews.setAdapter(mNbaZhuanTiAdapter);
+        mRvNews.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -62,8 +69,11 @@ public class NBAZhuanTiActivity extends SwipeBackActivity implements INBAZhuanTi
         mTvNbaZhuanti.setText(data.getResult().getTitle());
         mTvNbaZhuantiSum.setText(data.getResult().getSummary());
         mNbaZhuanTiAdapter.setData(data.getResult().getGroups(), true);
-        mRvNews.setAdapter(mNbaZhuanTiAdapter);
-        mRvNews.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

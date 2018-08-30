@@ -15,8 +15,13 @@ import android.widget.ProgressBar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.utils.bigImgViewPager.ImagePreview;
@@ -27,6 +32,7 @@ import com.example.administrator.idlereader.utils.bigImgViewPager.subscaleview.S
 import com.example.administrator.idlereader.utils.bigImgViewPager.tool.ImageUtil;
 import com.example.administrator.idlereader.utils.bigImgViewPager.tool.NetworkUtil;
 import com.example.administrator.idlereader.utils.bigImgViewPager.tool.Print;
+import com.example.administrator.idlereader.utils.view.GifView;
 
 import java.io.File;
 import java.util.HashMap;
@@ -248,21 +254,23 @@ public class ImagePreviewAdapter extends PagerAdapter {
                     activity.finish();
                 }
             });
-            RequestOptions weightoptions = new RequestOptions()
-                    .placeholder(R.drawable.picture)
-                    .fitCenter()
-                    .error(R.drawable.picture_error)
-                    .priority(Priority.HIGH)
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
             gifView.setVisibility(View.VISIBLE);
             imageView.setVisibility(View.GONE);
             final ImageInfo info = this.imageInfo.get(position);
             final String gifUrl=info.getOriginUrl();
-            Glide.with(activity)
-                    .asBitmap()
-                    .load(gifUrl)
-                    .apply(weightoptions)
-                    .into(gifView);
+            RequestOptions weightoptions = new RequestOptions()
+                    .placeholder(R.drawable.picture)
+                    .fitCenter()
+                    .error(R.drawable.picture_error)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC);
+            Glide.with(activity).load(gifUrl).apply(weightoptions)
+                    .into(new DrawableImageViewTarget(gifView){
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                            super.onResourceReady(resource, transition);
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    });
         }
         container.addView(convertView);
         return convertView;
