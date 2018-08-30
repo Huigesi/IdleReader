@@ -8,12 +8,15 @@ import android.support.design.widget.TabLayout;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.administrator.idlereader.DetailActivity;
 import com.example.administrator.idlereader.R;
+import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.news.nba.NBAZhuanTiActivity;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
@@ -37,6 +40,13 @@ public class UIUtils {
         intent.putExtra(FRAGMENT_CLASS, NbaDetailFragment.class.getName());
         intent.putExtra(NbaDetailFragment.NBA_NID, nid);
         context.startActivity(intent);
+    }
+
+    public static void startWebViewActivity(Context mContext, String url, String title) {
+        Intent intent = new Intent(mContext, WebViewActivity.class);
+        intent.putExtra(WebViewActivity.WEB_URL, url);
+        intent.putExtra(WebViewActivity.WEB_TITLE, title);
+        mContext.startActivity(intent);
     }
 
     public static void startNbaZhuanTiActivity(Context context, String nid) {
@@ -148,9 +158,33 @@ public class UIUtils {
                 result.setSpan(
                         (new ForegroundColorSpan(context.getResources().getColor(R.color.weiboLight))),
                         start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                result.setSpan(new TextClickSpan(result.subSequence(start,end).toString(),"闲阅",context),start,end,Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
             }
         }
         return result;
+    }
+
+    public static class TextClickSpan extends ClickableSpan{
+        private String url;
+        private String title;
+        private Context mContext;
+
+        public TextClickSpan(String url, String title, Context context) {
+            this.url = url;
+            this.title = title;
+            mContext = context;
+        }
+
+        @Override
+        public void updateDrawState(TextPaint ds) {
+            ds.setColor(mContext.getResources().getColor(R.color.weiboLight));
+            ds.setUnderlineText(false);
+        }
+
+        @Override
+        public void onClick(View widget) {
+            startWebViewActivity(mContext,url,title);
+        }
     }
 
     private static SpannableStringBuilder getUrlTextSpannableString(SpannableString source) {

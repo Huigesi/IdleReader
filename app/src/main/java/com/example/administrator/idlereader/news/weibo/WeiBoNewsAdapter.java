@@ -7,6 +7,7 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.SpannedString;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -79,6 +80,7 @@ public class WeiBoNewsAdapter extends BaseRecyclerViewAdapter<WeiBoNews.Statuses
             } else {
                 content = UIUtils.setTextHighLight(mContext, data.getText(), null, false);
             }
+            ((NewsViewHolder) holder).tvWeiboContentText.setMovementMethod(LinkMovementMethod.getInstance());
             ((NewsViewHolder) holder).tvWeiboContentText.setText(content);
             ((NewsViewHolder) holder).tvWeiboLike.setText(String.valueOf(data.getAttitudes_count()));
             ((NewsViewHolder) holder).tvWeiboComment.setText(String.valueOf(data.getComments_count()));
