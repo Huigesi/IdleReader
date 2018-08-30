@@ -2,6 +2,7 @@ package com.example.administrator.idlereader.news.nba;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 GlideUtils.load(mContext, data.getThumbs().get(0), ((ViewHolder) holder).imgNbaThumbs1);
                 GlideUtils.load(mContext, data.getThumbs().get(1), ((ViewHolder) holder).imgNbaThumbs2);
                 GlideUtils.load(mContext, data.getThumbs().get(2), ((ViewHolder) holder).imgNbaThumbs3);
-                if (data.getLights().equals("0")) {
+                if (TextUtils.isEmpty(data.getLights())||data.getLights().equals("0")) {
                     ((ViewHolder) holder).llNbaLightThumbs.setVisibility(View.GONE);
                 } else {
                     ((ViewHolder) holder).llNbaLightThumbs.setVisibility(View.VISIBLE);
@@ -64,7 +65,7 @@ public class NbaNewsAdapter extends BaseRecyclerViewAdapter<HupuNews.ResultBean.
                 ((ViewHolder) holder).llNbaDefault.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).tvNba.setText(data.getTitle());
                 GlideUtils.load(mContext, data.getImg(), ((ViewHolder) holder).imgNba, weight, height);
-                if (data.getLights().equals("0")) {
+                if (TextUtils.isEmpty(data.getLights())||data.getLights().equals("0")) {
                     ((ViewHolder) holder).llNbaLight.setVisibility(View.GONE);
                 } else {
                     ((ViewHolder) holder).llNbaLight.setVisibility(View.VISIBLE);
