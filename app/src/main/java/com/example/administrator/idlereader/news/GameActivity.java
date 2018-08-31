@@ -21,7 +21,6 @@ import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 public class GameActivity extends SwipeBackActivity {
     @BindView(R.id.fl_web)
     LinearLayout mFlWeb;

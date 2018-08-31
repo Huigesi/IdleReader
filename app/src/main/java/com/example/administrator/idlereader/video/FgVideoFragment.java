@@ -60,7 +60,7 @@ public class FgVideoFragment extends Fragment implements IVideoView {
         super.onViewCreated(view, savedInstanceState);
         iVideoPresenter = new VideoPresenter(this);
 
-        //iVideoPresenter.loadVideo(true);
+        iVideoPresenter.loadVideo(true);
         layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         srl_video.setRefreshHeader(new MaterialHeader(getActivity()).setColorSchemeColors(

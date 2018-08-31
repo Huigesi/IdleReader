@@ -104,17 +104,20 @@ public class WeiBoLoginActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(WeiBoLoginActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WeiBoLoginActivity.this, "网络错误",
+                                Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onNext(WeiBoUserInfo weiBoUserInfo) {
                         if (weiBoUserInfo != null) {
-                            Toast.makeText(WeiBoLoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WeiBoLoginActivity.this, "登录成功",
+                                    Toast.LENGTH_SHORT).show();
                             SPreUtils.setWeiBoUserInfo(weiBoUserInfo, WeiBoLoginActivity.this);
                             finish();
                         } else {
-                            Toast.makeText(WeiBoLoginActivity.this, "用户名或密码错误", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(WeiBoLoginActivity.this, "用户名或密码错误",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
