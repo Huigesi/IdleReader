@@ -162,7 +162,37 @@ public class UIUtils {
                         HttpModule.setmResultListener(listener);
                     }
                 });
-                result.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                //result.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+                result.setSpan(new ClickableSpan() {
+                    @Override
+                    public void onClick(View widget) {
+                        Map<String, String> parmes = new HashMap<>();
+                        //s=ca0bff51&screen_name=博物杂志&c=weicoabroad&gsid=_2A252g8InDeRxGeRJ7FQY9C_MzT2IHXVTGVLvrDV6PUJbkdANLWPykWpNUh3I3pRTBVDeOibMN0qnkz_i9kdHj9AZ
+                        parmes.put("s", "ca0bff51");
+                        String name=result.subSequence(start,end).toString().substring(1);
+                        parmes.put("screen_name", name);
+                        parmes.put("c", "weicoabroad");
+                        HttpModule.getWeiBoUserShow(parmes);
+                        HttpModule.ResultListener listener = new HttpModule.ResultListener() {
+                            @Override
+                            public void success(WeiBoSpaceUser o) {
+                                startSpaceFragment(context, o.getIdstr());
+                            }
+
+                            @Override
+                            public void fail(Throwable e) {
+                                Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        };
+                        HttpModule.setmResultListener(listener);
+                    }
+
+                    @Override
+                    public void updateDrawState(TextPaint ds) {
+                        ds.setColor(context.getResources().getColor(R.color.weiboLight));
+                        ds.setUnderlineText(false);
+                    }
+                }, start, end, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
             }
         }
 

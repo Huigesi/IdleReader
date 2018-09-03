@@ -5,11 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableString;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
@@ -38,7 +40,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, final WeiBoDetail.RootCommentsData data) {
+    public void onBind(final RecyclerView.ViewHolder holder, int position, final WeiBoDetail.RootCommentsData data) {
         if (holder instanceof WeiBoViewHolder) {
             if (data == null) {
                 return;
