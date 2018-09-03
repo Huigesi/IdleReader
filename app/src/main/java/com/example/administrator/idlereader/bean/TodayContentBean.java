@@ -10,10 +10,6 @@ import java.util.List;
 
 public class TodayContentBean {
 
-
-
-     
-
     @SerializedName("abstract")
     private String abstractX;
     private String action_extra;
