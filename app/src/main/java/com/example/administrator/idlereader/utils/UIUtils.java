@@ -137,7 +137,6 @@ public class UIUtils {
                 final int start = m.start();
                 final int end = m.end();
                 TextClickSpan span = new TextClickSpan(context);
-
                 span.setOnClickListener(new TextClickSpan.OnTextClickListener() {
                     @Override
                     public void onClick() {
