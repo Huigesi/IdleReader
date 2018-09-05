@@ -72,7 +72,7 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
                     }
                 });
             } else {
-                url = Api.IMG_WEIBO_WAP180 + data + ".jpg";
+                url = Api.IMG_WEIBO_WAP360 + data + ".jpg";
                 GlideUtils.load(mContext, url, ((ViewHolder) holder).mImageView, weight, weight);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -111,7 +111,7 @@ public class ImgAdapter extends BaseRecyclerViewAdapter<String> {
                 thumbnail = Api.IMG_WEIBO_ORIGINAL_GIF + image + ".gif";
             } else {
                 OrlimgUrl = Api.IMG_WEIBO_ORIGINAL + image + ".jpg";
-                thumbnail = Api.IMG_WEIBO_WAP180 + image + ".jpg";
+                thumbnail = Api.IMG_WEIBO_WAP360 + image + ".jpg";
             }
             imageInfo = new ImageInfo();
             imageInfo.setOriginUrl(OrlimgUrl);// 原图

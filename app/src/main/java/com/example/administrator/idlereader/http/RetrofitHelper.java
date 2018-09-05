@@ -99,36 +99,36 @@ public class RetrofitHelper {
         return retrofitService.getNews(type, id, startPage);
     }
 
-    public Observable<MoviesBean> getMovies(String total, String city, int start, int count) {
-        return retrofitService.getMovie(total, city, start, count);
+    public Observable<MoviesBean> getMovies(String total,Map<String, String> params) {
+        return retrofitService.getMovie(total,params);
     }
 
-    public Observable<TodayBean> getToday(String category) {
-        return retrofitService.getToday(category);
+    public Observable<TodayBean> getToday(Map<String, String> params) {
+        return retrofitService.getToday(params);
     }
 
     public Observable<VideoUrlBean> getVideoUrl(String api) {
         return retrofitService.getVideoUrl(api);
     }
 
-    public Observable<WeatherBean> getWeather(int cityKey) {
-        return retrofitService.getWeather(cityKey);
+    public Observable<WeatherBean> getWeather(Map<String, String> params) {
+        return retrofitService.getWeather(params);
     }
 
-    public Observable<HupuNews> getHupuNews(String nid, int count) {
-        return retrofitService.getHupuNews(Api.HUPU_CLIENT_ID, nid, count);
+    public Observable<HupuNews> getHupuNews(Map<String, String> params) {
+        return retrofitService.getHupuNews(params);
     }
 
-    public Observable<NbaDetailNews> getNbaNewsDetail(String nid) {
-        return retrofitService.getNbaNewsDetail(nid, Api.HUPU_CLIENT_ID);
+    public Observable<NbaDetailNews> getNbaNewsDetail(Map<String, String> params) {
+        return retrofitService.getNbaNewsDetail(params);
     }
 
-    public Observable<NbaZhuanti> getNbaZhuanTi(String nid) {
-        return retrofitService.getNewsZhuanTi(nid, Api.HUPU_CLIENT_ID);
+    public Observable<NbaZhuanti> getNbaZhuanTi(Map<String, String> params) {
+        return retrofitService.getNewsZhuanTi(params);
     }
 
-    public Observable<NbaNewsComment> getNbaComment(String nid, String ncid, String createTime) {
-        return retrofitService.getNewsComment(nid, Api.HUPU_CLIENT_ID, ncid, createTime);
+    public Observable<NbaNewsComment> getNbaComment(Map<String, String> params) {
+        return retrofitService.getNewsComment(params);
     }
 
     public Observable<NbaBBSComment> getNbaBBSCommnet(Map<String, String> params) {
@@ -143,26 +143,26 @@ public class RetrofitHelper {
         return retrofitService.login(c, s, user, password);
     }
 
-    public Observable<WeiBoNews> getWeiBoNews(String sinceId, String s, String gsid, int page, String c) {
+    public Observable<WeiBoNews> getWeiBoNews(Map<String, String> params) {
         String form = "1273095010";
         String wm = "2468_1001";
         String source = "4215535043";
         String advance_enable = "false";
-        return retrofitService.getWeiBoNews(sinceId, s, gsid, page, c, form, wm, source, advance_enable);
+        return retrofitService.getWeiBoNews(params);
     }
 
-    public Observable<WeiBoNews> getWeiBoUserNews(String sinceId, String s, String gsid, int page, String c, String uid) {
+    public Observable<WeiBoNews> getWeiBoUserNews(Map<String, String> params) {
         String form = "1273095010";
         String wm = "2468_1001";
         String source = "4215535043";
-        return retrofitService.getWeiBoUser(sinceId, s, gsid, page, c, form, wm, source, uid);
+        return retrofitService.getWeiBoUser(params);
     }
 
-    public Observable<WeiBoSpaceUser> getWeiBoUserHeaderNews(String sinceId, String s, String gsid, String c, String uid) {
+    public Observable<WeiBoSpaceUser> getWeiBoUserHeaderNews(Map<String, String> params) {
         String form = "1273095010";
         String wm = "2468_1001";
         String source = "4215535043";
-        return retrofitService.getWeiBoUserHead(sinceId, s, gsid, c, form, wm, source, uid);
+        return retrofitService.getWeiBoUserHead(params);
     }
 
     public Observable<WeiBoSpaceUser> getWeiBoUserShowNews(Map<String, String> params) {
@@ -170,8 +170,8 @@ public class RetrofitHelper {
         return retrofitService.getWeiBoUserShowHead(params);
     }
 
-    public Observable<WeiBoDetail> getWeiBoDetail(String s, String c, String id, String gsid, long max_id) {
-        return retrofitService.getWeiBoDetail(s, c, id, gsid, max_id, 2);
+    public Observable<WeiBoDetail> getWeiBoDetail(Map<String, String> params) {
+        return retrofitService.getWeiBoDetail(params);
     }
 
     public OkHttpClient getOkHttpClient() {

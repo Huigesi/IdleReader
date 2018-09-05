@@ -32,6 +32,7 @@ import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 
 import rx.Subscriber;
@@ -87,8 +88,12 @@ public class NewsModel implements INewsModel {
     public void loadNbaNews(String nid,
                             final int count,
                             final INewsLoadListener iNewsLoadListener) {
+        Map<String, String> map = new HashMap<>();
+        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("nid", nid);
+        map.put("count", String.valueOf(count));
         RetrofitHelper.getInstance(HUPU_NBA)
-                .getHupuNews(nid, count)
+                .getHupuNews(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<HupuNews>() {
@@ -120,8 +125,11 @@ public class NewsModel implements INewsModel {
         gsonBuilder.registerTypeAdapter(int.class, new IntegerDefault0Adapter());
         gsonBuilder.registerTypeAdapter(NbaDetailNews.ResultBean.ShareBean.class, new ShareBeanAdapter());
         Gson mgson = gsonBuilder.create();
+        Map<String, String> map = new HashMap<>();
+        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("nid", nid);
         RetrofitHelper.getInstance(Api.HUPU_NBA, mgson)
-                .getNbaNewsDetail(nid)
+                .getNbaNewsDetail(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NbaDetailNews>() {
@@ -145,8 +153,13 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadNbaComment(String nid, final String ncid, final String createTime,
                                final INewsLoadListener iNewsLoadListener) {
+        Map<String, String> map = new HashMap<>();
+        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("nid", nid);
+        map.put("ncid", ncid);
+        map.put("create_time", createTime);
         RetrofitHelper.getInstance(Api.HUPU_NBA)
-                .getNbaComment(nid, ncid, createTime)
+                .getNbaComment(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NbaNewsComment>() {
@@ -173,8 +186,11 @@ public class NewsModel implements INewsModel {
 
     @Override
     public void loadNbaZhuanTi(String nid, final INewsLoadListener iNewsLoadListener) {
+        Map<String, String> map = new HashMap<>();
+        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("nid", nid);
         RetrofitHelper.getInstance(Api.HUPU_NBA)
-                .getNbaZhuanTi(nid)
+                .getNbaZhuanTi(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<NbaZhuanti>() {
@@ -278,8 +294,18 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadWeibo(String sinceid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
+        Map<String, String> map = new HashMap<>();
+        map.put("since_id",sinceid);
+        map.put("s", s);
+        map.put("c", c);
+        map.put("page", String.valueOf(page));
+        map.put("gsid", gsId);
+        map.put("source", source);
+        map.put("advance_enable", "false");
+        map.put("wm", wm);
+        map.put("from", form);
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoNews(sinceid, s, gsId, page, c)
+                .getWeiBoNews(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoNews>() {
@@ -307,8 +333,15 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadWeiBoDetail(String sinceid, final long max_id, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
+        Map<String, String> map = new HashMap<>();
+        map.put("s", s);
+        map.put("c", c);
+        map.put("gsid", gsId);
+        map.put("id", sinceid);
+        map.put("max_id", String.valueOf(max_id));
+        map.put("is_show_bulletin", String.valueOf(2));
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoDetail(s, c, sinceid, gsId, max_id)
+                .getWeiBoDetail(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoDetail>() {
@@ -336,8 +369,29 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadWeiBoUserNews(String uid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
+        /*
+        * @Query("since_id") String sinceId,
+                                       @Query("s") String s,
+                                       @Query("gsid") String gsid,
+                                       @Query("page") int page,
+                                       @Query("c") String c,
+                                       @Query("from") String from,
+                                       @Query("wm") String wm,
+                                       @Query("source") String source,
+                                       @Query("uid") String uid
+        * */
+        Map<String, String> map = new HashMap<>();
+        map.put("s", s);
+        map.put("c", c);
+        map.put("gsid", gsId);
+        map.put("since_id", "0");
+        map.put("page", String.valueOf(page));
+        map.put("from",form);
+        map.put("wm",wm);
+        map.put("source",source);
+        map.put("uid",uid);
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoUserNews("0", s, gsId, 1, c, uid)
+                .getWeiBoUserNews(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoNews>() {
@@ -365,8 +419,27 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadWeiBoUserHeaderNews(String uid, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
+        /*
+        * @Query("since_id") String sinceId,
+                                                @Query("s") String s,
+                                                @Query("gsid") String gsid,
+                                                @Query("c") String c,
+                                                @Query("from") String from,
+                                                @Query("wm") String wm,
+                                                @Query("source") String source,
+                                                @Query("uid") String uid
+        * */
+        Map<String, String> map = new HashMap<>();
+        map.put("s", s);
+        map.put("c", c);
+        map.put("gsid", gsId);
+        map.put("from",form);
+        map.put("wm",wm);
+        map.put("source",source);
+        map.put("uid",uid);
+        map.put("since_id","0");
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
-                .getWeiBoUserHeaderNews("0", s, gsId, c, uid)
+                .getWeiBoUserHeaderNews(map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<WeiBoSpaceUser>() {

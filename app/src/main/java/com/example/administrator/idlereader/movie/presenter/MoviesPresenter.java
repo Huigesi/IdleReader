@@ -7,6 +7,8 @@ import com.example.administrator.idlereader.movie.model.IMoviesModel;
 import com.example.administrator.idlereader.movie.model.MoviesModel;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2018/5/19.
  */
@@ -38,10 +40,9 @@ public class MoviesPresenter implements IMoviesPresenter, IMoviesLoadListener {
         iMoviesView.showErrorMsg(throwable);
     }
 
-
     @Override
-    public void loadMovies(String total, String city, int start, int count) {
+    public void loadMovies(String total,Map<String, String> params) {
         iMoviesView.showDialog();
-        iMoviesModel.loadMovies(total, city, start, count, this);
+        iMoviesModel.loadMovies(total,params, this);
     }
 }

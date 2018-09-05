@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.administrator.idlereader.DefaultsFooter;
+import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
@@ -84,24 +84,7 @@ public class HupuNBAFragment extends Fragment implements INBAView {
         mRvNews.setLayoutManager(mLinearLayoutManager);
         mRvNews.setHasFixedSize(true);
         mRvNews.setAdapter(mNbaNewsAdapter);
-        //initListener();
     }
-
-    /*private void initListener() {
-        mBaseEndlessListener = new BaseEndlessListener<>(getContext(), mNbaNewsAdapter);
-        mBaseEndlessListener.setListener(new BaseEndlessListener.EndlessListener() {
-            @Override
-            public void onLoadData() {
-                loadMore();
-            }
-
-            @Override
-            public boolean shouldLoadData() {
-                return true;
-            }
-        });
-        mRvNews.addOnScrollListener(mBaseEndlessListener);
-    }*/
 
     private void loadMore() {
         mCount += 20;

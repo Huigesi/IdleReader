@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.administrator.idlereader.DefaultsFooter;
+import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;

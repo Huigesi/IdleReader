@@ -1,21 +1,17 @@
 package com.example.administrator.idlereader.news;
 
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.administrator.idlereader.DefaultsFooter;
+import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
-import com.example.administrator.idlereader.base.BaseEndlessListener;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.news.presenter.NewsPresenter;
 import com.example.administrator.idlereader.news.view.INewsView;

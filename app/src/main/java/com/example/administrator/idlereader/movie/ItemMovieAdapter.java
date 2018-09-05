@@ -17,7 +17,9 @@ import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements IMoviesView {
     private static final int TYPE_MOVIE_ON = 119;
@@ -102,8 +104,11 @@ public class ItemMovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 public void onLoadData() {
                     if (mMovieOn.size() > 0) {
                         startPage += 20;
-                        moviesPresenter.loadMovies("in_theaters", city,
-                                startPage, 10);
+                        final Map<String, String> in_theaters = new HashMap<>();
+                        in_theaters.put("city",city);
+                        in_theaters.put("start",String.valueOf(startPage));
+                        in_theaters.put("count",String.valueOf(10));
+                        moviesPresenter.loadMovies("in_theaters",in_theaters);
                     }
                 }
 

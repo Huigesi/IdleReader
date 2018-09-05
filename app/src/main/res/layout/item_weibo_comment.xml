@@ -78,6 +78,7 @@
         android:layout_marginLeft="55dp"
         android:layout_marginRight="10dp"
         android:text="sssssss"
+        android:clickable="true"
         android:textColor="@color/text_common"
         android:textSize="15sp" />
 

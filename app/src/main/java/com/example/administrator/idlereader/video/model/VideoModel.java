@@ -8,7 +8,9 @@ import com.example.administrator.idlereader.http.RetrofitHelper;
 import com.example.administrator.idlereader.video.presenter.VideoPresenter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -26,8 +28,10 @@ public class VideoModel implements IVideoModel {
     public void loadVideo(String category, final boolean first, final IVideoLoadListener iVideoLoadListener) {
         final List<VideoUrlBean> videoList = new ArrayList<>();
         final List<TodayContentBean> contentBeans = new ArrayList<>();
+        Map<String, String> map = new HashMap<>();
+        map.put("category", category);
         RetrofitHelper.getInstance(Api.TOADAY_NEWS)
-                .getToday(category)
+                .getToday(map)
                 .flatMap(new Func1<TodayBean, Observable<VideoUrlBean>>() {
                     @Override
                     public Observable<VideoUrlBean> call(TodayBean todayBean) {

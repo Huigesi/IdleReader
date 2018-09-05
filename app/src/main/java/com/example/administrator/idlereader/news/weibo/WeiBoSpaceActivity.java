@@ -8,13 +8,12 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.administrator.idlereader.DefaultsFooter;
+import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
@@ -150,8 +149,8 @@ public class WeiBoSpaceActivity extends SwipeBackActivity implements IWeiBoSpace
     @Override
     public void showHeader(WeiBoSpaceUser data) {
         int weight = Resolution.dipToPx(this, 80);
-        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop, weight, weight);
-        GlideUtils.loadCircle(this, data.getAvatar_large(), mImgWeiboUserCover, weight, weight);
+        GlideUtils.load(this, data.getCovers().get(0).getCover(), mMainbackdrop, 100, 100);
+        GlideUtils.loadCircle(this, data.getAvatar_large(), mImgWeiboUserCover, 100, 100);
         mTvWeiboUserName.setText(data.getName());
         mTvWeiboUserIntro.setText(data.getDescription());
         mTvWeiboUserLocation.setText(data.getLocation());

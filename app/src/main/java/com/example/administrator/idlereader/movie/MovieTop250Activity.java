@@ -16,7 +16,9 @@ import com.example.administrator.idlereader.movie.view.IMoviesView;
 import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class MovieTop250Activity extends SwipeBackActivity implements IMoviesView {
@@ -38,11 +40,14 @@ public class MovieTop250Activity extends SwipeBackActivity implements IMoviesVie
         setContentView(R.layout.activity_movie_top250);
         moviesPresenter = new MoviesPresenter(this);
         initView();
-        moviesPresenter.loadMovies("top250", null, 0, 30);
+        final Map<String, String> top250 = new HashMap<>();
+        top250.put("start",String.valueOf(0));
+        top250.put("count", String.valueOf(10));
+        moviesPresenter.loadMovies("top250",top250);
         srlMovie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("top250", null, 0, 30);
+                moviesPresenter.loadMovies("top250",top250);
             }
         });
     }
@@ -61,7 +66,10 @@ public class MovieTop250Activity extends SwipeBackActivity implements IMoviesVie
             @Override
             public void onLoadData() {
                 startPage += 30;
-                moviesPresenter.loadMovies("top250", null, startPage, 30);
+                Map<String, String> top250 = new HashMap<>();
+                top250.put("start",String.valueOf(startPage));
+                top250.put("count", String.valueOf(10));
+                moviesPresenter.loadMovies("top250",top250);
             }
 
             @Override

@@ -17,7 +17,9 @@ import com.example.administrator.idlereader.movie.presenter.MoviesPresenter;
 import com.example.administrator.idlereader.movie.view.IMoviesView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class FgMovieFragment extends Fragment implements IMoviesView {
@@ -50,13 +52,20 @@ public class FgMovieFragment extends Fragment implements IMoviesView {
         rv_movie = view.findViewById(R.id.rv_movie);
         mItemMovieAdapter = new ItemMovieAdapter(getActivity());
         srl_movie.setColorSchemeColors(Color.parseColor("#ffce3d3a"));
-        moviesPresenter.loadMovies("in_theaters", city, 0, 10);
-        moviesPresenter.loadMovies("top250", null, 0, 10);
+        final Map<String, String> in_theaters = new HashMap<>();
+        in_theaters.put("city",city);
+        in_theaters.put("start",String.valueOf(0));
+        in_theaters.put("count",String.valueOf(10));
+        final Map<String, String> top250 = new HashMap<>();
+        top250.put("start",String.valueOf(0));
+        top250.put("count", String.valueOf(10));
+        moviesPresenter.loadMovies("in_theaters",in_theaters);
+        moviesPresenter.loadMovies("top250",top250);
         srl_movie.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                moviesPresenter.loadMovies("in_theaters", city, 0, 10);
-                moviesPresenter.loadMovies("top250", null, 0, 10);
+                moviesPresenter.loadMovies("in_theaters",in_theaters);
+                moviesPresenter.loadMovies("top250",top250);
             }
         });
     }

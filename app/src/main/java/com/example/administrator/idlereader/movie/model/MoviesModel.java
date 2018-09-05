@@ -6,6 +6,8 @@ import com.example.administrator.idlereader.bean.MoviesBean;
 import com.example.administrator.idlereader.http.Api;
 import com.example.administrator.idlereader.http.RetrofitHelper;
 
+import java.util.Map;
+
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -18,9 +20,9 @@ public class MoviesModel implements IMoviesModel {
     private static final String TAG = "MoviesModel";
 
     @Override
-    public void loadMovies(String total, String city, int start, int count, final IMoviesLoadListener iMoviesLoadListener) {
+    public void loadMovies(String total,Map<String, String> params, final IMoviesLoadListener iMoviesLoadListener) {
         RetrofitHelper.getInstance(Api.DOUBAN_MOVIE)
-                .getMovies(total, city, start, count)
+                .getMovies(total,params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<MoviesBean>() {
