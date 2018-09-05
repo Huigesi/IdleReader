@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -63,6 +64,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             }
             SpannableString commentText = UIUtils.setTextHighLight(mContext, data.getText(),
                     null, false);
+            ((WeiBoViewHolder) holder).tvWeiboCommenttext.setMovementMethod(LinkMovementMethod.getInstance());
             ((WeiBoViewHolder) holder).tvWeiboCommenttext.setText(commentText);
             if (data.getLike_counts() == 0) {
                 ((WeiBoViewHolder) holder).tvWeiboCommentLike.setText("");
@@ -105,6 +107,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
         private TextView tvWeiboTime;
         private TextView tvWeiboSource;
         private TextView tvWeiboCommentLike;
+        private LinearLayout llWeiboComment;
         private TextView tvWeiboCommenttext;
         private LinearLayout llWeiboCommentReply;
         private TextView tvWeiboCommentReply1;
@@ -119,6 +122,7 @@ public class WeiBoDetailAdapter extends BaseRecyclerViewAdapter<WeiBoDetail.Root
             tvWeiboSource = (TextView) view.findViewById(R.id.tv_weibo_source);
             tvWeiboCommentLike = (TextView) view.findViewById(R.id.tv_weibo_comment_like);
             tvWeiboCommenttext = (TextView) view.findViewById(R.id.tv_weibo_commenttext);
+            llWeiboComment = (LinearLayout) view.findViewById(R.id.ll_weibo_comment);
             llWeiboCommentReply = (LinearLayout) view.findViewById(R.id.ll_weibo_comment_reply);
             tvWeiboCommentReply1 = (TextView) view.findViewById(R.id.tv_weibo_comment_reply1);
             tvWeiboCommentReply2 = (TextView) view.findViewById(R.id.tv_weibo_comment_reply2);

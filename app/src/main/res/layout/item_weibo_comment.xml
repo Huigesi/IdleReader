@@ -23,8 +23,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:layout_toRightOf="@+id/img_weibo_user"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -35,60 +35,75 @@
                 android:text="username"
                 android:textColor="@color/text_common"
                 android:textSize="14sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tv_weibo_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:text="10:00"
-                    android:textSize="12sp"
-                    android:layout_marginRight="15dp"/>
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_alignParentRight="true"
+            android:layout_weight="1"
             android:gravity="center_vertical"
-            android:padding="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
+                android:id="@+id/tv_weibo_comment_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_weibo_comment_like"
-                android:text="999"/>
+                android:text="999" />
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:padding="5dp"
-                android:src="@drawable/like"/>
+                android:src="@drawable/like" />
         </LinearLayout>
     </RelativeLayout>
 
-    <TextView
-        android:layout_marginVertical="20dp"
-        android:id="@+id/tv_weibo_commenttext"
+    <LinearLayout
+        android:id="@+id/ll_weibo_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="10dp"
-        android:text="sssssss"
-        android:clickable="true"
-        android:textColor="@color/text_common"
-        android:textSize="15sp" />
+        android:layout_marginHorizontal="10dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_weibo_commenttext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginVertical="20dp"
+            android:clickable="true"
+            android:text="sssssss"
+            android:textColor="@color/text_common"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_weibo_comment_reply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginLeft="55dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <View
             android:layout_width="2dp"
@@ -114,30 +129,31 @@
                 android:id="@+id/tv_weibo_comment_reply2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:maxLines="2"
                 android:text="reply2"
                 android:textColor="@color/colorTabText"
                 android:textSize="14sp"
-                android:layout_marginTop="3dp"
                 android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_weibo_comment_replycount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="replyCount"
                 android:textColor="@color/weiboLight"
-                android:visibility="gone"
-                android:layout_marginTop="4dp"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="55dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:background="@color/colorLine" />
 
 </LinearLayout>

@@ -89,7 +89,7 @@ public class NewsModel implements INewsModel {
                             final int count,
                             final INewsLoadListener iNewsLoadListener) {
         Map<String, String> map = new HashMap<>();
-        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
         map.put("count", String.valueOf(count));
         RetrofitHelper.getInstance(HUPU_NBA)
@@ -126,7 +126,7 @@ public class NewsModel implements INewsModel {
         gsonBuilder.registerTypeAdapter(NbaDetailNews.ResultBean.ShareBean.class, new ShareBeanAdapter());
         Gson mgson = gsonBuilder.create();
         Map<String, String> map = new HashMap<>();
-        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
         RetrofitHelper.getInstance(Api.HUPU_NBA, mgson)
                 .getNbaNewsDetail(map)
@@ -154,7 +154,7 @@ public class NewsModel implements INewsModel {
     public void loadNbaComment(String nid, final String ncid, final String createTime,
                                final INewsLoadListener iNewsLoadListener) {
         Map<String, String> map = new HashMap<>();
-        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
         map.put("ncid", ncid);
         map.put("create_time", createTime);
@@ -187,7 +187,7 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadNbaZhuanTi(String nid, final INewsLoadListener iNewsLoadListener) {
         Map<String, String> map = new HashMap<>();
-        map.put("client",Api.HUPU_CLIENT_ID);
+        map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
         RetrofitHelper.getInstance(Api.HUPU_NBA)
                 .getNbaZhuanTi(map)
@@ -295,7 +295,7 @@ public class NewsModel implements INewsModel {
     public void loadWeibo(String sinceid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
         Map<String, String> map = new HashMap<>();
-        map.put("since_id",sinceid);
+        map.put("since_id", sinceid);
         map.put("s", s);
         map.put("c", c);
         map.put("page", String.valueOf(page));
@@ -362,6 +362,7 @@ public class NewsModel implements INewsModel {
                         } else {
                             iNewsLoadListener.loadMoreWeiBoDetailSuccess(weiBoDetail);
                         }
+
                     }
                 });
     }
@@ -386,10 +387,10 @@ public class NewsModel implements INewsModel {
         map.put("gsid", gsId);
         map.put("since_id", "0");
         map.put("page", String.valueOf(page));
-        map.put("from",form);
-        map.put("wm",wm);
-        map.put("source",source);
-        map.put("uid",uid);
+        map.put("from", form);
+        map.put("wm", wm);
+        map.put("source", source);
+        map.put("uid", uid);
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
                 .getWeiBoUserNews(map)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -433,11 +434,11 @@ public class NewsModel implements INewsModel {
         map.put("s", s);
         map.put("c", c);
         map.put("gsid", gsId);
-        map.put("from",form);
-        map.put("wm",wm);
-        map.put("source",source);
-        map.put("uid",uid);
-        map.put("since_id","0");
+        map.put("from", form);
+        map.put("wm", wm);
+        map.put("source", source);
+        map.put("uid", uid);
+        map.put("since_id", "0");
         RetrofitHelper.getInstance(Api.WEIBO_LIST, mGson)
                 .getWeiBoUserHeaderNews(map)
                 .observeOn(AndroidSchedulers.mainThread())

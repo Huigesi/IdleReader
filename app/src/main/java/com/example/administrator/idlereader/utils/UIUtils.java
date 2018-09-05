@@ -23,6 +23,7 @@ import com.example.administrator.idlereader.http.HttpModule;
 import com.example.administrator.idlereader.news.nba.NBAZhuanTiActivity;
 import com.example.administrator.idlereader.news.nba.NbaDetailFragment;
 import com.example.administrator.idlereader.news.nba.NbaH5Fragment;
+import com.example.administrator.idlereader.news.weibo.WeiBoDetailActivity;
 import com.example.administrator.idlereader.news.weibo.WeiBoDetailFragment;
 import com.example.administrator.idlereader.news.weibo.WeiBoLoginActivity;
 import com.example.administrator.idlereader.news.weibo.WeiBoSpaceActivity;
