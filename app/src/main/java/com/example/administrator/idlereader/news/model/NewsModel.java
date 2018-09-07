@@ -156,8 +156,8 @@ public class NewsModel implements INewsModel {
         Map<String, String> map = new HashMap<>();
         map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
-        map.put("ncid", ncid);
-        map.put("create_time", createTime);
+        map.put("ncid", (ncid==null)?"":ncid);
+        map.put("create_time", (createTime==null)?"":createTime);
         RetrofitHelper.getInstance(Api.HUPU_NBA)
                 .getNbaComment(map)
                 .observeOn(AndroidSchedulers.mainThread())

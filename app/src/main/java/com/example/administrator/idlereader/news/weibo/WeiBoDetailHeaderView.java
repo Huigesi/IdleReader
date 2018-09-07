@@ -179,8 +179,8 @@ public class WeiBoDetailHeaderView extends LinearLayout {
                 }
             });
             mTvRetweetedContent.setMovementMethod(LinkMovementMethod.getInstance());
-            mTvRetweetedContent.setText(
-                    retweeted);
+            mTvRetweetedContent.setText(retweeted);
+
             mTvRetweetedReport.setText("转发 " + mWeiBoDetail.getStatus().getRetweeted_status()
                     .getReposts_count());
             mTvRetweetedComment.setText("评论 " + mWeiBoDetail.getStatus().getRetweeted_status()
