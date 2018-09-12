@@ -17,6 +17,8 @@ import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
 
+import static com.example.administrator.idlereader.R.layout.item_nba_comment;
+
 public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.DataBean> {
     private View mLightCommentView;
     public static final int ITEM_TYPE_LIGHT = 3;
@@ -48,7 +50,7 @@ public class NbaDetailAdapter extends BaseRecyclerViewAdapter<NbaNewsComment.Dat
             return new Holder(view);
         } else {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_nba_comment, null, false);
+                    .inflate(item_nba_comment, null, false);
             view.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             return new ViewHolder(view);

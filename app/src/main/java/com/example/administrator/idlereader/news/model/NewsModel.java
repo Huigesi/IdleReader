@@ -293,7 +293,7 @@ public class NewsModel implements INewsModel {
 
     @Override
     public void loadWeibo(String sinceid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
-        setGsonAdapter();
+        //setGsonAdapter();
         Map<String, String> map = new HashMap<>();
         map.put("since_id", sinceid);
         map.put("s", s);
@@ -370,17 +370,6 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadWeiBoUserNews(String uid, final int page, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
-        /*
-        * @Query("since_id") String sinceId,
-                                       @Query("s") String s,
-                                       @Query("gsid") String gsid,
-                                       @Query("page") int page,
-                                       @Query("c") String c,
-                                       @Query("from") String from,
-                                       @Query("wm") String wm,
-                                       @Query("source") String source,
-                                       @Query("uid") String uid
-        * */
         Map<String, String> map = new HashMap<>();
         map.put("s", s);
         map.put("c", c);
@@ -416,20 +405,10 @@ public class NewsModel implements INewsModel {
                     }
                 });
     }
-
+    //space
     @Override
     public void loadWeiBoUserHeaderNews(String uid, String gsId, final INewsLoadListener iNewsLoadListener) {
         setGsonAdapter();
-        /*
-        * @Query("since_id") String sinceId,
-                                                @Query("s") String s,
-                                                @Query("gsid") String gsid,
-                                                @Query("c") String c,
-                                                @Query("from") String from,
-                                                @Query("wm") String wm,
-                                                @Query("source") String source,
-                                                @Query("uid") String uid
-        * */
         Map<String, String> map = new HashMap<>();
         map.put("s", s);
         map.put("c", c);

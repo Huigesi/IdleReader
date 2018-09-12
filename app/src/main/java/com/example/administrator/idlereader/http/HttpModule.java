@@ -18,6 +18,8 @@ public class HttpModule {
     }
 
     public static ResultListener mResultListener;
+
+    //
     public static void getWeiBoUserShow(Map<String, String> params) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Integer.class, new NewsModel.IntegerDefault0Adapter());
