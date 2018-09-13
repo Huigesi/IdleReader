@@ -183,14 +183,6 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     }
 
     @Override
-    public void success(NewsBean newsBean) {
-        /*iNewsView.hideDialog();
-        if (newsBean != null) {
-            iNewsView.showNews(newsBean);
-        }*/
-    }
-
-    @Override
     public void loadNews163List(List<News163> data) {
         iNewsView.hideDialog();
         if (data != null&&data.size()>0) {
@@ -210,12 +202,6 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
     public void fail(Throwable throwable) {
         iNewsView.hideDialog();
         iNewsView.showErrorMsg(throwable);
-    }
-
-    @Override
-    public void loadMoreSuccess(NewsBean newsBean) {
-        /*iNewsView.hideDialog();
-        iNewsView.showMoreNews(newsBean);*/
     }
 
     @Override

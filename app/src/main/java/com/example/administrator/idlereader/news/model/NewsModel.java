@@ -61,31 +61,6 @@ public class NewsModel implements INewsModel {
     @Override
     public void loadNews(final String hostType, final int startPage, final String id,
                          final INewsLoadListener iNewsLoadListener) {
-        RetrofitHelper.getInstance(Api.NETEASE_NEWS)
-                .getNews(hostType, id, startPage)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<NewsBean>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        iNewsLoadListener.fail(e);
-                    }
-
-                    @Override
-                    public void onNext(NewsBean newsBean) {
-                        if (startPage != 0) {
-                            iNewsLoadListener.loadMoreSuccess(newsBean);
-                        } else {
-                            iNewsLoadListener.success(newsBean);
-                        }
-
-                    }
-                });
         final List<News163> news163List = new ArrayList<>();
         RetrofitHelper.getInstance(Api.NETEASE_NEWS)
                 .getNewList(hostType, id, startPage)

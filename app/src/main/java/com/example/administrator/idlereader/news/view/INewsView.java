@@ -11,9 +11,6 @@ import java.util.List;
  */
 
 public interface INewsView {
-    /*void showNews(NewsBean newsBean);
-
-    void showMoreNews(NewsBean newsBean);*/
 
     void showNews(List<News163> data);
 

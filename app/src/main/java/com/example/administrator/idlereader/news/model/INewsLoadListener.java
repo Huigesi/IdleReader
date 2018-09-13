@@ -21,15 +21,11 @@ import java.util.List;
  */
 
 public interface INewsLoadListener {
-    void success(NewsBean newsBean);
-
     void loadNews163List(List<News163> data);
 
     void loadMoreNews163List(List<News163> data);
 
     void fail(Throwable throwable);
-
-    void loadMoreSuccess(NewsBean newsBean);
 
     void loadNbaSuccess(HupuNews hupuNews);
 
