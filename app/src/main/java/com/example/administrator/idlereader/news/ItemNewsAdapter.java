@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.administrator.idlereader.WebViewActivity;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.base.BaseRecyclerViewAdapter;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.utils.GlideUtils;
 import com.example.administrator.idlereader.utils.Resolution;
@@ -23,7 +24,7 @@ import com.example.administrator.idlereader.utils.Resolution;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
+public class ItemNewsAdapter extends BaseRecyclerViewAdapter<News163> {
     private static final String TAG = "ItemNewsAdapter";
 
     public ItemNewsAdapter(Context context) {
@@ -38,7 +39,7 @@ public class ItemNewsAdapter extends BaseRecyclerViewAdapter<NewsBean.Bean> {
     }
 
     @Override
-    public void onBind(RecyclerView.ViewHolder holder, int position, final NewsBean.Bean data) {
+    public void onBind(RecyclerView.ViewHolder holder, int position, final News163 data) {
         if (holder instanceof ItemNewsHolder) {
             if (data == null) {
                 return;

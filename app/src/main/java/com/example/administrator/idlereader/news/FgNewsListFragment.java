@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.example.administrator.idlereader.bean.news.NewsBean;
@@ -32,6 +33,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
     private RecyclerView rv_news;
     private ItemNewsAdapter adapter;
     private List<NewsBean.Bean> newsBeanList;
+    private List<News163> mNews163List;
     private LinearLayoutManager layoutManager;
     private int startPage = 0;
 
@@ -81,7 +83,7 @@ public class FgNewsListFragment extends Fragment implements INewsView {
         presenter.loadNews(type, startPage);
     }
 
-    @Override
+   /* @Override
     public void showNews(final NewsBean newsBean) {
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
@@ -101,9 +103,9 @@ public class FgNewsListFragment extends Fragment implements INewsView {
         rv_news.setHasFixedSize(true);
         rv_news.setAdapter(adapter);
 
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void showMoreNews(NewsBean newsBean) {
         switch (type) {
             case FgNewsFragment.NEWS_TYPE_TOP:
@@ -118,6 +120,25 @@ public class FgNewsListFragment extends Fragment implements INewsView {
         }
         srl_news.finishLoadMore(0);
         if (newsBean == null) {
+            srl_news.setNoMoreData(true);
+        }
+    }*/
+
+    @Override
+    public void showNews(List<News163> data) {
+        adapter.setData(data, true);
+        layoutManager = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false);
+        rv_news.setLayoutManager(layoutManager);
+        rv_news.setHasFixedSize(true);
+        rv_news.setAdapter(adapter);
+    }
+
+    @Override
+    public void showMoreNews(List<News163> data) {
+        adapter.setData(data, false);
+        srl_news.finishLoadMore(0);
+        if (data == null) {
             srl_news.setNoMoreData(true);
         }
     }

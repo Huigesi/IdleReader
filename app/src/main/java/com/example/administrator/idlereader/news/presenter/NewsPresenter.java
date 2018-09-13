@@ -11,6 +11,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
@@ -30,6 +31,7 @@ import com.example.administrator.idlereader.news.view.IWeiBoDetailView;
 import com.example.administrator.idlereader.news.view.IWeiBoSpaceView;
 import com.example.administrator.idlereader.news.view.IWeiBoView;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -182,9 +184,25 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     @Override
     public void success(NewsBean newsBean) {
-        iNewsView.hideDialog();
+        /*iNewsView.hideDialog();
         if (newsBean != null) {
             iNewsView.showNews(newsBean);
+        }*/
+    }
+
+    @Override
+    public void loadNews163List(List<News163> data) {
+        iNewsView.hideDialog();
+        if (data != null&&data.size()>0) {
+            iNewsView.showNews(data);
+        }
+    }
+
+    @Override
+    public void loadMoreNews163List(List<News163> data) {
+        iNewsView.hideDialog();
+        if (data != null&&data.size()>0) {
+            iNewsView.showMoreNews(data);
         }
     }
 
@@ -196,8 +214,8 @@ public class NewsPresenter implements INewsPresenter, INewsLoadListener {
 
     @Override
     public void loadMoreSuccess(NewsBean newsBean) {
-        iNewsView.hideDialog();
-        iNewsView.showMoreNews(newsBean);
+        /*iNewsView.hideDialog();
+        iNewsView.showMoreNews(newsBean);*/
     }
 
     @Override

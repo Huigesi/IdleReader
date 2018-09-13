@@ -10,6 +10,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -24,6 +25,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -95,12 +97,16 @@ public class RetrofitHelper {
         }
     }
 
+    public Observable<Map<String, List<News163>>> getNewList(String type, String id, int startPage) {
+        return retrofitService.getNewsList(type, id, startPage);
+    }
+
     public Observable<NewsBean> getNews(String type, String id, int startPage) {
         return retrofitService.getNews(type, id, startPage);
     }
 
-    public Observable<MoviesBean> getMovies(String total,Map<String, String> params) {
-        return retrofitService.getMovie(total,params);
+    public Observable<MoviesBean> getMovies(String total, Map<String, String> params) {
+        return retrofitService.getMovie(total, params);
     }
 
     public Observable<TodayBean> getToday(Map<String, String> params) {

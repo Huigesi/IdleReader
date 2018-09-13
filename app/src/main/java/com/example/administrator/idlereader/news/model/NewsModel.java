@@ -4,13 +4,13 @@ package com.example.administrator.idlereader.news.model;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.administrator.idlereader.MainActivity;
 import com.example.administrator.idlereader.bean.hupu.HupuNews;
 import com.example.administrator.idlereader.bean.hupu.NbaBBSComment;
 import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
@@ -32,11 +32,15 @@ import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 import static com.example.administrator.idlereader.http.Api.HUPU_NBA;
@@ -80,6 +84,38 @@ public class NewsModel implements INewsModel {
                             iNewsLoadListener.success(newsBean);
                         }
 
+                    }
+                });
+        final List<News163> news163List = new ArrayList<>();
+        RetrofitHelper.getInstance(Api.NETEASE_NEWS)
+                .getNewList(hostType, id, startPage)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .flatMap(new Func1<Map<String, List<News163>>, Observable<News163>>() {
+                    @Override
+                    public Observable<News163> call(Map<String, List<News163>> stringListMap) {
+                        return Observable.from(stringListMap.get(id));
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Subscriber<News163>() {
+                    @Override
+                    public void onCompleted() {
+                        if (startPage != 0)
+                            iNewsLoadListener.loadMoreNews163List(news163List);
+                        else
+                            iNewsLoadListener.loadNews163List(news163List);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(News163 news163) {
+                        news163List.add(news163);
                     }
                 });
     }
@@ -156,8 +192,8 @@ public class NewsModel implements INewsModel {
         Map<String, String> map = new HashMap<>();
         map.put("client", Api.HUPU_CLIENT_ID);
         map.put("nid", nid);
-        map.put("ncid", (ncid==null)?"":ncid);
-        map.put("create_time", (createTime==null)?"":createTime);
+        map.put("ncid", (ncid == null) ? "" : ncid);
+        map.put("create_time", (createTime == null) ? "" : createTime);
         RetrofitHelper.getInstance(Api.HUPU_NBA)
                 .getNbaComment(map)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -405,6 +441,7 @@ public class NewsModel implements INewsModel {
                     }
                 });
     }
+
     //space
     @Override
     public void loadWeiBoUserHeaderNews(String uid, String gsId, final INewsLoadListener iNewsLoadListener) {

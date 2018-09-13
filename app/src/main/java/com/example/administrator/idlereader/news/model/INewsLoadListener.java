@@ -7,11 +7,14 @@ import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.weibo.WeiBoDetail;
 import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/5/19.
@@ -19,6 +22,10 @@ import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 
 public interface INewsLoadListener {
     void success(NewsBean newsBean);
+
+    void loadNews163List(List<News163> data);
+
+    void loadMoreNews163List(List<News163> data);
 
     void fail(Throwable throwable);
 

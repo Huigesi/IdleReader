@@ -7,6 +7,7 @@ import com.example.administrator.idlereader.bean.hupu.NbaBBSLightComment;
 import com.example.administrator.idlereader.bean.hupu.NbaDetailNews;
 import com.example.administrator.idlereader.bean.hupu.NbaNewsComment;
 import com.example.administrator.idlereader.bean.hupu.NbaZhuanti;
+import com.example.administrator.idlereader.bean.news.News163;
 import com.example.administrator.idlereader.bean.news.NewsBean;
 import com.example.administrator.idlereader.bean.TodayBean;
 import com.example.administrator.idlereader.bean.VideoUrlBean;
@@ -16,6 +17,7 @@ import com.example.administrator.idlereader.bean.weibo.WeiBoNews;
 import com.example.administrator.idlereader.bean.weibo.WeiBoSpaceUser;
 import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.http.Field;
@@ -43,6 +45,11 @@ public interface RetrofitService {
     Observable<NewsBean> getNews(@Path("type") String type,
                                  @Path("id") String id,
                                  @Path("startPage") int startPage);
+
+    @GET("nc/article/{type}/{id}/{startPage}-20.html")
+    Observable<Map<String,List<News163>>> getNewsList(@Path("type") String type,
+                                                      @Path("id") String id,
+                                                      @Path("startPage") int startPage);
 
     /*
      * https://api.douban.com/v2/movie/in_theaters
