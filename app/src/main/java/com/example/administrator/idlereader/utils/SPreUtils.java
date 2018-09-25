@@ -6,14 +6,10 @@ import android.content.SharedPreferences;
 import com.example.administrator.idlereader.bean.weibo.WeiBoUserInfo;
 
 public class SPreUtils {
-    private static Context mContext;
     public static final String NAME_WEIBO_USERINFO = "userinfo";
     public static final String WEIBO_GSID= "WEIBO_GSID";
     public static final String WEIBO_UID= "WEIBO_UID";
 
-    public SPreUtils(Context context) {
-        mContext = context;
-    }
 
     public static void setWeiBoUserInfo(WeiBoUserInfo data,Context context){
         SharedPreferences sharedPreferences =

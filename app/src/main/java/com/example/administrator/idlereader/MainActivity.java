@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#ffce3d3a"));
         }
-        new SPreUtils(this);
 
         mTencent = Tencent.createInstance(APP_ID, MainActivity.this.getApplicationContext());
         initView();

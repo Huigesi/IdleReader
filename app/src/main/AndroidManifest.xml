@@ -6,10 +6,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许应用程序改变网络状态-->
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <!--允许应用程序改变WIFI连接状态-->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- 允许应用程序改变网络状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 允许应用程序改变WIFI连接状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -17,6 +17,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
+        android:name=".base.App"
         android:allowBackup="true"
         android:icon="@mipmap/news"
         android:label="@string/app_name"
@@ -24,6 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,25 +49,33 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".WebViewActivity"
-            android:theme="@style/transparent"/>
-        <activity android:name=".movie.MovieTop250Activity"
-            android:theme="@style/transparent"/>
-        <activity android:name=".news.GameActivity"
-            android:theme="@style/transparent"/>
-        <activity android:name=".DetailActivity"
-            android:theme="@style/transparent"/>
+        <activity
+            android:name=".WebViewActivity"
+            android:theme="@style/transparent" />
+        <activity
+            android:name=".movie.MovieTop250Activity"
+            android:theme="@style/transparent" />
+        <activity
+            android:name=".news.GameActivity"
+            android:theme="@style/transparent" />
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/transparent" />
         <activity
             android:name=".utils.bigImgViewPager.view.ImagePreviewActivity"
             android:theme="@style/Theme.ImagePreview" />
-        <activity android:name=".news.weibo.WeiBoSpaceActivity"
-            android:theme="@style/transparent"/>
+        <activity
+            android:name=".news.weibo.WeiBoSpaceActivity"
+            android:theme="@style/transparent" />
         <activity
             android:name=".news.weibo.WeiBoLoginActivity"
             android:label="@string/title_activity_wei_bo_login" />
-        <activity android:name=".news.nba.NBAZhuanTiActivity"
-            android:theme="@style/transparent"></activity>
-        <activity android:name=".news.weibo.WeiBoDetailActivity"/>
+        <activity
+            android:name=".news.nba.NBAZhuanTiActivity"
+            android:theme="@style/transparent" />
+        <activity android:name=".news.weibo.WeiBoDetailActivity" />
+        <activity android:name=".Main2Activity">
+        </activity>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import com.example.administrator.idlereader.utils.DefaultsFooter;
 import com.example.administrator.idlereader.R;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +40,13 @@ public abstract class BaseRecyclerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fg_news_list, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RefWatcher refWatcher = App.getRefWatcher(getActivity());
+        refWatcher.watch(this);
     }
 
     @Override
