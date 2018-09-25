@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SubsamplingScaleImageView">
-        <attr name="src" format="reference"/>
-        <attr name="assetName" format="string"/>
-        <attr name="panEnabled" format="boolean"/>
-        <attr name="zoomEnabled" format="boolean"/>
-        <attr name="quickScaleEnabled" format="boolean"/>
-        <attr name="tileBackgroundColor" format="color"/>
+        <attr name="src" format="reference" />
+        <attr name="assetName" format="string" />
+        <attr name="panEnabled" format="boolean" />
+        <attr name="zoomEnabled" format="boolean" />
+        <attr name="quickScaleEnabled" format="boolean" />
+        <attr name="tileBackgroundColor" format="color" />
     </declare-styleable>
     <declare-styleable name="GifView">
         <attr name="gif" format="reference" />
@@ -16,4 +16,19 @@
     <declare-styleable name="CustomTheme">
         <attr name="gifViewStyle" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension" />
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference" />
+        <attr name="shadow_right" format="reference" />
+        <attr name="shadow_bottom" format="reference" />
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference" />
 </resources>

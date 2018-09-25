@@ -17,8 +17,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
-import com.example.administrator.idlereader.utils.swipeBack.SwipeBackLayout;
+//import com.example.administrator.idlereader.utils.swipeBack.SwipeBackActivity;
+import com.example.administrator.idlereader.utils.swipeBack2.app.SwipeBackActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

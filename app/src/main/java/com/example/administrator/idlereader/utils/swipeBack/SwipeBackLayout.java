@@ -153,7 +153,7 @@ public class SwipeBackLayout extends ViewGroup {
 
         viewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelperCallBack());
         mScreenWidth = getResources().getDisplayMetrics().widthPixels;
-        mSlidDistantX = mScreenWidth / 20.0f;
+        mSlidDistantX = mScreenWidth /20.0f;
         chkDragable();
     }
 
